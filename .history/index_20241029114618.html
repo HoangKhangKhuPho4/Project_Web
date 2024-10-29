@@ -44,6 +44,8 @@
 
     <!-- Additional CSS for Validation and Enhancements -->
     <style>
+      /* Các kiểu riêng cho index.html */
+
       /* Highlight invalid fields */
       .was-validated .form-control:invalid,
       .form-control.is-invalid {
@@ -54,6 +56,7 @@
       .form-control.is-invalid:focus {
         box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
       }
+
       /* Highlight valid fields */
       .was-validated .form-control:valid,
       .form-control.is-valid {
@@ -74,11 +77,6 @@
       /* Custom styles for order details */
       #orderDetails .order-item {
         position: relative;
-      }
-
-      /* Spinner Overlay */
-      #spinner {
-        z-index: 9999;
       }
 
       /* CSS chỉnh sửa để đồng bộ và cân đối */
@@ -141,6 +139,310 @@
       @media (min-width: 768px) {
         .special-item {
           max-width: 100%; /* Giữ card có kích thước nhất quán và đầy đủ */
+        }
+      }
+
+      /* Animation Keyframes */
+      @keyframes shake {
+        0% {
+          transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+        }
+        25% {
+          transform: translate(-50%, -50%) scale(1.05) rotate(5deg);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.05) rotate(-5deg);
+        }
+        75% {
+          transform: translate(-50%, -50%) scale(1.05) rotate(5deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+        }
+      }
+
+      /* Thêm hiệu ứng cho các đề mục trong nav-pills */
+      .nav-pills .nav-item .nav-link {
+        position: relative;
+        transition: color var(--transition-duration),
+          transform var(--transition-duration);
+      }
+
+      .nav-pills .nav-item .nav-link:hover {
+        color: var(--primary) !important;
+        transform: translateY(-5px);
+      }
+
+      .nav-pills .nav-item .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        left: 50%;
+        bottom: 0;
+        transition: width var(--transition-duration), left var(--transition-duration);
+      }
+
+      .nav-pills .nav-item .nav-link:hover::after {
+        width: 100%;
+        left: 0;
+      }
+
+      /* Menu Text Alignment */
+      .w-100.d-flex.flex-column.text-start.ps-4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 150px; /* Bằng với chiều cao của hình ảnh */
+        overflow: hidden;
+      }
+
+      /* Định dạng tiêu đề và mô tả trong menu */
+      .w-100.d-flex.flex-column.text-start.ps-4 h5 {
+        margin-bottom: 0.25rem;
+        font-size: 1.25rem;
+        color: var(--dark);
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .w-100.d-flex.flex-column.text-start.ps-4 small {
+        font-size: 0.8rem;
+        color: var(--gray-dark);
+        display: -webkit-box;
+        --webkit-line-clamp: 2;
+        --webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Responsive Adjustments for Menu Items */
+      @media (max-width: 767.98px) {
+        .w-100.d-flex.flex-column.text-start.ps-4 {
+          height: auto;
+        }
+
+        .w-100.d-flex.flex-column.text-start.ps-4 h5 {
+          font-size: 1rem;
+        }
+
+        .w-100.d-flex.flex-column.text-start.ps-4 small {
+          font-size: 0.9rem;
+          color: var(--gray-dark);
+          display: -webkit-box;
+          --webkit-line-clamp: 2;
+          --webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        /* Adjust modal carousel images on small screens */
+        #menuImagesCarousel .carousel-item img {
+          max-height: 250px;
+        }
+
+        /* Adjust modal text sizes */
+        #menuDetailPrice {
+          font-size: 1.2rem;
+        }
+
+        .rating {
+          font-size: 1rem;
+        }
+      }
+
+      /*** Reservation Specific Styles ***/
+      .video {
+        position: relative;
+        height: 100%;
+        min-height: 500px;
+        background: linear-gradient(rgba(15, 23, 43, 0.1), rgba(15, 23, 43, 0.1)),
+          url(../img/video.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .video .btn-play {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        box-sizing: content-box;
+        display: block;
+        width: 32px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        padding: 18px 20px 18px 28px;
+        cursor: pointer;
+        transition: transform var(--transition-duration);
+      }
+
+      .video .btn-play:hover {
+        transform: translateX(-50%) translateY(-50%) scale(1.05);
+      }
+
+      .video .btn-play:before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: var(--primary);
+        border-radius: 50%;
+        animation: pulse-border 1500ms ease-out infinite;
+      }
+
+      .video .btn-play:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: var(--primary);
+        border-radius: 50%;
+        transition: all 200ms;
+      }
+
+      .video .btn-play img {
+        position: relative;
+        z-index: 3;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+
+      .video .btn-play span {
+        display: block;
+        position: relative;
+        z-index: 3;
+        width: 0;
+        height: 0;
+        border-left: 32px solid var(--dark);
+        border-top: 22px solid transparent;
+        border-bottom: 22px solid transparent;
+      }
+
+      /* Nút "Xem Chi Tiết" xuất hiện khi hover */
+      .btn-view-details {
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        padding: 6px 12px;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 
+            background-color var(--transition-duration) ease,
+            transform var(--transition-duration) ease,
+            opacity var(--transition-duration) ease,
+            box-shadow var(--transition-duration) ease;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+      }
+
+      .menu-item:hover .btn-view-details {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .btn-view-details:hover {
+        background: var(--primary);
+        transform: scale(1.05);
+        animation: shake 0.5s;
+      }
+
+      /* Menu Item Styles */
+      .menu-item {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 15px;
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        box-shadow: var(--box-shadow);
+        transition: background-color var(--transition-duration),
+          box-shadow var(--transition-duration);
+        position: relative;
+        height: 200px; /* Đặt chiều cao cố định cho các card */
+        overflow: hidden; /* Ẩn phần thừa */
+      }
+
+      .menu-item:hover {
+        background-color: #f1f1f1; /* Đổi nền khi hover */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      .menu-item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform var(--transition-duration),
+          box-shadow var(--transition-duration);
+        flex-shrink: 0;
+        margin-right: 20px;
+      }
+
+      .menu-item:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .menu-item::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(254, 161, 22, 0.2); /* Lớp phủ màu với độ trong suốt */
+        opacity: 0;
+        transition: opacity var(--transition-duration);
+      }
+
+      .menu-item:hover::after {
+        opacity: 1;
+      }
+
+      /* Responsive Menu Item Images */
+      @media (max-width: 768px) {
+        .menu-item img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      /* Additional Responsive Styles */
+      @media (max-width: 576px) {
+        .menu-item img {
+          width: 80px;
+          height: 80px;
         }
       }
     </style>
@@ -222,11 +524,9 @@
                   Enjoy Our<br />Delicious Meal
                 </h1>
                 <p class="text-white animated slideInLeft mb-4 pb-2">
-                  At times, the sorrow returned to the lonely one. The pain was
-                  as if a diamond sat. A few diamonds were gathered together.
-                  The loneliness was such that it lay with the text and the
-                  seat, but constantly the text sat alone, just with a great
-                  pain.
+                  Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
+                  Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
+                  sed stet lorem sit clita duo justo magna dolore erat amet
                 </p>
                 <a
                   href="#reservationSection"
@@ -567,95 +867,50 @@
       <!-- Today's Specials End -->
 
       <!-- Reservation Start -->
-      <div
-        class="container-xxl py-5 px-0 wow fadeInUp"
-        data-wow-delay="0.1s"
-        id="reservationSection"
-      >
+      <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s" id="reservationSection">
         <div class="row g-0">
           <div class="col-md-6">
             <div class="video">
-              <button
-                type="button"
-                class="btn-play"
-                data-bs-toggle="modal"
-                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                data-bs-target="#videoModal"
-              >
+              <button type="button" class="btn btn-primary btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
                 <span></span>
               </button>
             </div>
           </div>
           <div class="col-md-6 bg-dark d-flex align-items-center">
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-              <h5
-                class="section-title ff-secondary text-start text-primary fw-normal"
-              >
-                Reservation
-              </h5>
+              <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
               <h1 class="text-white mb-4">Book A Table Online</h1>
               <form id="reservationForm" novalidate>
                 <div class="row g-3">
                   <!-- Your Name -->
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        placeholder="Your Name"
-                        required
-                      />
+                      <input type="text" class="form-control" id="name" placeholder="Your Name" required />
                       <label for="name">Your Name</label>
-                      <div class="invalid-feedback">
-                        Please enter your name.
-                      </div>
+                      <div class="invalid-feedback">Please enter your name.</div>
                     </div>
                   </div>
                   <!-- Your Email -->
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="Your Email"
-                        required
-                      />
+                      <input type="email" class="form-control" id="email" placeholder="Your Email" required />
                       <label for="email">Your Email</label>
-                      <div class="invalid-feedback">
-                        Please enter a valid email.
-                      </div>
+                      <div class="invalid-feedback">Please enter a valid email.</div>
                     </div>
                   </div>
                   <!-- Date & Time -->
                   <div class="col-md-6">
-                    <div
-                      class="form-floating date"
-                      id="datetimepicker"
-                      data-target-input="nearest"
-                    >
-                      <input
-                        type="text"
-                        class="form-control datetimepicker-input"
-                        id="datetime"
-                        placeholder="Date & Time"
-                        data-target="#datetimepicker"
-                        required
-                      />
+                    <div class="form-floating date" id="datetimepicker" data-target-input="nearest">
+                      <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#datetimepicker" required />
                       <label for="datetime">Date & Time</label>
-                      <div class="invalid-feedback">
-                        Please select a valid date and time.
-                      </div>
+                      <div class="invalid-feedback">Please select a valid date and time.</div>
                     </div>
                   </div>
                   <!-- No Of People -->
                   <div class="col-md-6">
                     <div class="form-floating">
                       <select class="form-select" id="select1" required>
-                        <option value="" selected disabled>
-                          Select number of people
-                        </option>
+                        <option value="" selected disabled>Select number of people</option>
                         <option value="1">1 Person</option>
                         <option value="2">2 People</option>
                         <option value="3">3 People</option>
@@ -666,9 +921,7 @@
                         <option value="8">8 People</option>
                       </select>
                       <label for="select1">No Of People</label>
-                      <div class="invalid-feedback">
-                        Please select the number of people.
-                      </div>
+                      <div class="invalid-feedback">Please select the number of people.</div>
                     </div>
                   </div>
                   <!-- Order Details -->
@@ -676,28 +929,64 @@
                     <h5 class="text-white">Order Details</h5>
                     <div id="orderDetails">
                       <!-- Order Item Fields -->
+                      <div class="row g-3 align-items-center mb-3 order-item">
+                        <div class="col-md-4">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Dish Name"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Please enter the dish name.
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <input
+                            type="number"
+                            class="form-control quantity"
+                            placeholder="Quantity"
+                            min="1"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Quantity must be at least 1.
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <input
+                            type="number"
+                            class="form-control price"
+                            placeholder="Price"
+                            min="0"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            Please enter a valid price.
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <input type="text" class="form-control total" placeholder="Total" readonly />
+                        </div>
+                        <div class="col-md-2">
+                          <button class="btn btn-primary remove-item" type="button">
+                            Remove
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <button class="btn btn-primary" type="button" id="addItem">
-                      Add Another Dish
-                    </button>
+                    <button class="btn btn-primary" type="button" id="addItem">Add Another Dish</button>
                   </div>
                   <!-- Special Request -->
                   <div class="col-12">
                     <div class="form-floating">
-                      <textarea
-                        class="form-control"
-                        placeholder="Special Request"
-                        id="message"
-                        style="height: 100px"
-                      ></textarea>
+                      <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
                       <label for="message">Special Request</label>
                     </div>
                   </div>
                   <!-- Submit Button -->
                   <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">
-                      Book Now
-                    </button>
+                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
                   </div>
                 </div>
               </form>
@@ -706,43 +995,6 @@
         </div>
       </div>
       <!-- Reservation End -->
-      <!-- Success Modal -->
-      <div
-        class="modal fade"
-        id="successModal"
-        tabindex="-1"
-        aria-labelledby="successModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-success text-white">
-              <h5 class="modal-title" id="successModalLabel">
-                Đặt Bàn Thành Công!
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              Cảm ơn bạn đã đặt bàn tại Restoran. Chúng tôi sẽ liên hệ lại với
-              bạn sớm nhất có thể!
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
-                Đóng
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- Video Modal -->
       <div
@@ -805,13 +1057,13 @@
                 <h5 class="mb-0">Chef John Doe</h5>
                 <small>Head Chef</small>
                 <div class="d-flex justify-content-center mt-3">
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-facebook-f"></i
                   ></a>
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-twitter"></i
                   ></a>
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-instagram"></i
                   ></a>
                 </div>
@@ -829,13 +1081,13 @@
                 <h5 class="mb-0">Chef Jane Smith</h5>
                 <small>Sous Chef</small>
                 <div class="d-flex justify-content-center mt-3">
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-facebook-f"></i
                   ></a>
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-twitter"></i
                   ></a>
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-instagram"></i
                   ></a>
                 </div>
@@ -853,13 +1105,13 @@
                 <h5 class="mb-0">Chef Emily Johnson</h5>
                 <small>Pastry Chef</small>
                 <div class="d-flex justify-content-center mt-3">
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-facebook-f"></i
                   ></a>
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-twitter"></i
                   ></a>
-                  <a class="btn btn-square btn-primary mx-1" href="#"
+                  <a class="btn btn-primary btn-social mx-1" href="#"
                     ><i class="fab fa-instagram"></i
                   ></a>
                 </div>
@@ -976,11 +1228,11 @@
               >
                 Company
               </h4>
-              <a class="btn btn-link" href="#">About Us</a>
-              <a class="btn btn-link" href="#">Contact Us</a>
-              <a class="btn btn-link" href="#">Reservation</a>
-              <a class="btn btn-link" href="#">Privacy Policy</a>
-              <a class="btn btn-link" href="#">Terms & Condition</a>
+              <a class="btn btn-primary btn-link" href="#">About Us</a>
+              <a class="btn btn-primary btn-link" href="#">Contact Us</a>
+              <a class="btn btn-primary btn-link" href="#">Reservation</a>
+              <a class="btn btn-primary btn-link" href="#">Privacy Policy</a>
+              <a class="btn btn-primary btn-link" href="#">Terms & Condition</a>
             </div>
             <div class="col-lg-3 col-md-6">
               <h4
@@ -999,16 +1251,16 @@
                 <i class="fa fa-envelope me-3"></i>info@example.com
               </p>
               <div class="d-flex pt-2">
-                <a class="btn btn-outline-light btn-social" href="#"
+                <a class="btn btn-primary btn-social" href="#"
                   ><i class="fab fa-twitter"></i
                 ></a>
-                <a class="btn btn-outline-light btn-social" href="#"
+                <a class="btn btn-primary btn-social" href="#"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
-                <a class="btn btn-outline-light btn-social" href="#"
+                <a class="btn btn-primary btn-social" href="#"
                   ><i class="fab fa-youtube"></i
                 ></a>
-                <a class="btn btn-outline-light btn-social" href="#"
+                <a class="btn btn-primary btn-social" href="#"
                   ><i class="fab fa-linkedin-in"></i
                 ></a>
               </div>
@@ -1030,9 +1282,7 @@
               >
                 Newsletter
               </h4>
-              <p>
-                Pain is just right, sit dolor sit amet. Clita ipsum elitr is.
-              </p>
+              <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
               <div class="position-relative mx-auto" style="max-width: 400px">
                 <input
                   class="form-control border-primary w-100 py-3 ps-4 pe-5"
@@ -1142,52 +1392,28 @@
 
         // Add New Dish Item
         $("#addItem").click(function () {
-          var orderItem = (
+          var orderItem = `
             <div class="row g-3 align-items-center mb-3 order-item">
               <div class="col-md-4">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Dish Name"
-                  required
-                />
+                <input type="text" class="form-control" placeholder="Dish Name" required />
                 <div class="invalid-feedback">Please enter the dish name.</div>
               </div>
               <div class="col-md-2">
-                <input
-                  type="number"
-                  class="form-control quantity"
-                  placeholder="Quantity"
-                  min="1"
-                  required
-                />
+                <input type="number" class="form-control quantity" placeholder="Quantity" min="1" required />
                 <div class="invalid-feedback">Quantity must be at least 1.</div>
               </div>
               <div class="col-md-2">
-                <input
-                  type="number"
-                  class="form-control price"
-                  placeholder="Price"
-                  min="0"
-                  required
-                />
+                <input type="number" class="form-control price" placeholder="Price" min="0" required />
                 <div class="invalid-feedback">Please enter a valid price.</div>
               </div>
               <div class="col-md-2">
-                <input
-                  type="text"
-                  class="form-control total"
-                  placeholder="Total"
-                  readonly
-                />
+                <input type="text" class="form-control total" placeholder="Total" readonly />
               </div>
               <div class="col-md-2">
-                <button class="btn btn-danger remove-item" type="button">
-                  Remove
-                </button>
+                <button class="btn btn-primary remove-item" type="button">Remove</button>
               </div>
             </div>
-          );
+          `;
           $("#orderDetails").append(orderItem);
         });
 
@@ -1241,59 +1467,26 @@
                   form.reset();
                   // Remove additional order items
                   $("#orderDetails").html(
-                    <div class="row g-3 align-items-center mb-3 order-item">
+                    `<div class="row g-3 align-items-center mb-3 order-item">
                       <div class="col-md-4">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Dish Name"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please enter the dish name.
-                        </div>
+                        <input type="text" class="form-control" placeholder="Dish Name" required />
+                        <div class="invalid-feedback">Please enter the dish name.</div>
                       </div>
                       <div class="col-md-2">
-                        <input
-                          type="number"
-                          class="form-control quantity"
-                          placeholder="Quantity"
-                          min="1"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Quantity must be at least 1.
-                        </div>
+                        <input type="number" class="form-control quantity" placeholder="Quantity" min="1" required />
+                        <div class="invalid-feedback">Quantity must be at least 1.</div>
                       </div>
                       <div class="col-md-2">
-                        <input
-                          type="number"
-                          class="form-control price"
-                          placeholder="Price"
-                          min="0"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          Please enter a valid price.
-                        </div>
+                        <input type="number" class="form-control price" placeholder="Price" min="0" required />
+                        <div class="invalid-feedback">Please enter a valid price.</div>
                       </div>
                       <div class="col-md-2">
-                        <input
-                          type="text"
-                          class="form-control total"
-                          placeholder="Total"
-                          readonly
-                        />
+                        <input type="text" class="form-control total" placeholder="Total" readonly />
                       </div>
                       <div class="col-md-2">
-                        <button
-                          class="btn btn-danger remove-item"
-                          type="button"
-                        >
-                          Remove
-                        </button>
+                        <button class="btn btn-primary remove-item" type="button">Remove</button>
                       </div>
-                    </div>
+                    </div>`
                   );
                   // Optionally, show a success message
                   alert("Your reservation has been successfully submitted!");
@@ -1307,6 +1500,7 @@
         })();
       });
 
+      // Function for searching image (unchanged)
       function searchImage(imageUrl) {
         const apiKey = "YOUR_API_KEY"; // Thay YOUR_API_KEY bằng API Key của bạn
         const endpoint = `https://vision.googleapis.com/v1/images:annotate?key=${apiKey}`;
@@ -1344,337 +1538,6 @@
             console.error("Error:", error);
           });
       }
-
-      $(document).ready(function () {
-        // Hide spinner after page load
-        $("#spinner").fadeOut(500, function () {
-          $(this).remove();
-        });
-
-        // Initialize WOW.js
-        new WOW().init();
-
-        // Initialize datetime picker using Tempus Dominus
-        $("#datetimepicker").datetimepicker({
-          icons: {
-            time: "fa fa-clock",
-            date: "fa fa-calendar",
-            up: "fa fa-arrow-up",
-            down: "fa fa-arrow-down",
-            previous: "fa fa-chevron-left",
-            next: "fa fa-chevron-right",
-            today: "fa fa-calendar-check-o",
-            clear: "fa fa-trash",
-            close: "fa fa-times",
-          },
-          format: "L LT",
-          minDate: moment(), // Prevent selecting past dates
-          disabledHours: function () {
-            // Assuming restaurant hours are 9 AM to 9 PM
-            let hours = [];
-            for (let i = 0; i < 24; i++) {
-              if (i < 9 || i > 21) {
-                hours.push(i);
-              }
-            }
-            return hours;
-          },
-        });
-
-        // Add New Dish Item
-        $("#addItem").click(function () {
-          var orderItem = `
-        <div class="row g-3 align-items-center mb-3 order-item">
-          <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="Dish Name" required />
-            <div class="invalid-feedback">Please enter the dish name.</div>
-          </div>
-          <div class="col-md-2">
-            <input type="number" class="form-control quantity" placeholder="Quantity" min="1" required />
-            <div class="invalid-feedback">Quantity must be at least 1.</div>
-          </div>
-          <div class="col-md-2">
-            <input type="number" class="form-control price" placeholder="Price" min="0" required />
-            <div class="invalid-feedback">Please enter a valid price.</div>
-          </div>
-          <div class="col-md-2">
-            <input type="text" class="form-control total" placeholder="Total" readonly />
-          </div>
-          <div class="col-md-2">
-            <button class="btn btn-danger remove-item" type="button">Remove</button>
-          </div>
-        </div>
-      `;
-          $("#orderDetails").append(orderItem);
-        });
-
-        // Remove Dish Item
-        $(document).on("click", ".remove-item", function () {
-          $(this).closest(".order-item").remove();
-          calculateGrandTotal();
-        });
-
-        // Calculate Total for each dish
-        $(document).on("input", ".quantity, .price", function () {
-          var row = $(this).closest(".order-item");
-          var quantity = parseFloat(row.find(".quantity").val()) || 0;
-          var price = parseFloat(row.find(".price").val()) || 0;
-          var total = quantity * price;
-          row.find(".total").val(total.toFixed(2));
-          calculateGrandTotal();
-        });
-
-        // Calculate Grand Total
-        function calculateGrandTotal() {
-          var grandTotal = 0;
-          $(".total").each(function () {
-            var val = parseFloat($(this).val()) || 0;
-            grandTotal += val;
-          });
-          // You can display grand total somewhere if needed
-        }
-
-        // Form Validation
-        (function () {
-          "use strict";
-          var forms = document.querySelectorAll("#reservationForm");
-          Array.prototype.slice.call(forms).forEach(function (form) {
-            form.addEventListener(
-              "submit",
-              function (event) {
-                // Prevent form submission
-                event.preventDefault();
-                event.stopPropagation();
-
-                // Check form validity
-                if (form.checkValidity()) {
-                  // Reset form after successful submission
-                  form.reset();
-                  // Remove additional order items
-                  $("#orderDetails").empty();
-                  alert("Your reservation has been successfully submitted!");
-                } else {
-                  form.classList.add("was-validated");
-                }
-              },
-              false
-            );
-          });
-        })();
-      });
-
-      $(document).ready(function () {
-        // 1. Ẩn spinner sau khi tải trang
-        $("#spinner").fadeOut(500, function () {
-          $(this).remove();
-        });
-
-        // 2. Khởi tạo WOW.js
-        new WOW().init();
-
-        // 3. Khởi tạo datetime picker sử dụng Tempus Dominus
-        $("#datetimepicker").datetimepicker({
-          icons: {
-            time: "fa fa-clock",
-            date: "fa fa-calendar",
-            up: "fa fa-arrow-up",
-            down: "fa fa-arrow-down",
-            previous: "fa fa-chevron-left",
-            next: "fa fa-chevron-right",
-            today: "fa fa-calendar-check-o",
-            clear: "fa fa-trash",
-            close: "fa fa-times",
-          },
-          format: "L LT",
-          minDate: moment(), // Ngăn chọn ngày trong quá khứ
-          disabledHours: function () {
-            // Giả sử giờ mở cửa nhà hàng là 9 AM đến 9 PM
-            let hours = [];
-            for (let i = 0; i < 24; i++) {
-              if (i < 9 || i > 21) {
-                hours.push(i);
-              }
-            }
-            return hours;
-          },
-        });
-
-        // 4. Xử lý modal video
-        var videoSrc;
-        $(".btn-play").click(function () {
-          videoSrc = $(this).data("src");
-          $("#video").attr("src", videoSrc + "?autoplay=1");
-        });
-
-        $("#videoModal").on("hidden.bs.modal", function () {
-          $("#video").attr("src", "");
-        });
-
-        // 5. Thêm mục đặt món ăn mới
-        $("#addItem").click(function () {
-          var orderItem = `
-            <div class="row g-3 align-items-center mb-3 order-item">
-              <div class="col-md-4">
-                <input type="text" class="form-control" name="dishName[]" placeholder="Dish Name" required />
-                <div class="invalid-feedback">Please enter the dish name.</div>
-              </div>
-              <div class="col-md-2">
-                <input type="number" class="form-control quantity" name="quantity[]" placeholder="Quantity" min="1" required />
-                <div class="invalid-feedback">Quantity must be at least 1.</div>
-              </div>
-              <div class="col-md-2">
-                <input type="number" class="form-control price" name="price[]" placeholder="Price" min="0" step="0.01" required />
-                <div class="invalid-feedback">Please enter a valid price.</div>
-              </div>
-              <div class="col-md-2">
-                <input type="text" class="form-control total" name="total[]" placeholder="Total" readonly />
-              </div>
-              <div class="col-md-2">
-                <button class="btn btn-danger remove-item" type="button">Remove</button>
-              </div>
-            </div>
-          `;
-          $("#orderDetails").append(orderItem);
-        });
-
-        // 6. Xóa mục đặt món ăn
-        $(document).on("click", ".remove-item", function () {
-          $(this).closest(".order-item").remove();
-          calculateGrandTotal();
-        });
-
-        // 7. Tính tổng tiền cho mỗi món
-        $(document).on("input", ".quantity, .price", function () {
-          var row = $(this).closest(".order-item");
-          var quantity = parseFloat(row.find(".quantity").val()) || 0;
-          var price = parseFloat(row.find(".price").val()) || 0;
-          var total = quantity * price;
-          row.find(".total").val(total.toFixed(2));
-          calculateGrandTotal();
-        });
-
-        // 8. Tính tổng tiền tất cả các món (tùy chọn: hiển thị nếu cần)
-        function calculateGrandTotal() {
-          var grandTotal = 0;
-          $(".total").each(function () {
-            var val = parseFloat($(this).val()) || 0;
-            grandTotal += val;
-          });
-          // Bạn có thể hiển thị grand total ở đâu đó nếu cần
-          // Ví dụ:
-          // $('#grandTotal').text(grandTotal.toFixed(2));
-        }
-
-        // 9. Xác thực và xử lý form đặt bàn
-        (function () {
-          "use strict";
-
-          var forms = document.querySelectorAll("#reservationForm");
-
-          Array.prototype.slice.call(forms).forEach(function (form) {
-            form.addEventListener(
-              "submit",
-              function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-
-                // Kiểm tra tính hợp lệ của form
-                if (form.checkValidity()) {
-                  // Thu thập dữ liệu form
-                  var reservationData = {
-                    name: $("#name").val(),
-                    email: $("#email").val(),
-                    datetime: $("#datetime").val(),
-                    people: $("#select1").val(),
-                    specialRequest: $("#message").val(),
-                    orders: [],
-                  };
-
-                  // Thu thập thông tin đặt món ăn
-                  $(".order-item").each(function () {
-                    var dishName = $(this)
-                      .find("input[name='dishName[]']")
-                      .val();
-                    var quantity = $(this)
-                      .find("input[name='quantity[]']")
-                      .val();
-                    var price = $(this).find("input[name='price[]']").val();
-                    var total = $(this).find("input[name='total[]']").val();
-
-                    if (dishName && quantity && price) {
-                      reservationData.orders.push({
-                        dishName: dishName,
-                        quantity: quantity,
-                        price: price,
-                        total: total,
-                      });
-                    }
-                  });
-
-                  // Tính tổng tiền (tùy chọn)
-                  reservationData.grandTotal = 0;
-                  reservationData.orders.forEach(function (order) {
-                    reservationData.grandTotal += parseFloat(order.total);
-                  });
-                  reservationData.grandTotal =
-                    reservationData.grandTotal.toFixed(2);
-
-                  // Hiển thị dữ liệu đặt bàn trong console (thay bằng xử lý thực tế)
-                  console.log("Reservation Data:", reservationData);
-
-                  // Gửi dữ liệu tới Formspree bằng AJAX
-                  $.ajax({
-                    url: form.action, // URL endpoint từ Formspree
-                    method: form.method, // POST
-                    data: JSON.stringify(reservationData),
-                    contentType: "application/json",
-                    success: function () {
-                      // Reset form và hiển thị modal thành công
-                      form.reset();
-                      // Xóa các mục đặt món ăn thêm, giữ lại một mục
-                      $("#orderDetails").html(`
-                        <div class="row g-3 align-items-center mb-3 order-item">
-                          <div class="col-md-4">
-                            <input type="text" class="form-control" name="dishName[]" placeholder="Dish Name" required />
-                            <div class="invalid-feedback">Please enter the dish name.</div>
-                          </div>
-                          <div class="col-md-2">
-                            <input type="number" class="form-control quantity" name="quantity[]" placeholder="Quantity" min="1" required />
-                            <div class="invalid-feedback">Quantity must be at least 1.</div>
-                          </div>
-                          <div class="col-md-2">
-                            <input type="number" class="form-control price" name="price[]" placeholder="Price" min="0" step="0.01" required />
-                            <div class="invalid-feedback">Please enter a valid price.</div>
-                          </div>
-                          <div class="col-md-2">
-                            <input type="text" class="form-control total" name="total[]" placeholder="Total" readonly />
-                          </div>
-                          <div class="col-md-2">
-                            <button class="btn btn-danger remove-item" type="button">Remove</button>
-                          </div>
-                        </div>
-                      `);
-                      calculateGrandTotal();
-
-                      // Hiển thị modal thành công
-                      $("#successModal").modal("show");
-                    },
-                    error: function () {
-                      // Hiển thị thông báo lỗi
-                      alert(
-                        "Có lỗi xảy ra khi gửi đặt bàn. Vui lòng thử lại sau."
-                      );
-                    },
-                  });
-                } else {
-                  form.classList.add("was-validated");
-                }
-              },
-              false
-            );
-          });
-        })();
-      });
     </script>
   </body>
 </html>

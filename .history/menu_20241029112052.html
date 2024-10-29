@@ -45,8 +45,8 @@
     <style>
       /*** Menu Items Synchronization ***/
 
-      /* Chỉ áp dụng CSS cho các nút "Xem Chi Tiết" */
-      .btn-view-details {
+      /* Sửa selector CSS để đúng cú pháp */
+      .btn.btn-primary.py-2.px-4 {
         position: absolute;
         bottom: 15px;
         right: 20px;
@@ -69,10 +69,29 @@
         z-index: 10;
       }
 
-      /* Hiển thị nút khi hover */
-      .menu-item:hover .btn-view-details {
-        opacity: 1;
-        pointer-events: auto;
+      /* Nút "Xem Chi Tiết" sử dụng lớp btn btn-primary */
+      .btn-view-details {
+        /* Kế thừa từ btn btn-primary */
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        padding: 10px 20px;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color var(--transition-duration) ease,
+          transform var(--transition-duration) ease,
+          opacity var(--transition-duration) ease,
+          box-shadow var(--transition-duration) ease;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
       }
 
       .row.g-4 {
@@ -88,23 +107,28 @@
       /* Keyframes cho hiệu ứng lắc */
       @keyframes shake {
         0% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(0deg);
+          transform: translateX(-50%) translateY(-50%) scale(1.05)
+            rotate(0deg);
         }
 
         25% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(5deg);
+          transform: translateX(-50%) translateY(-50%) scale(1.05)
+            rotate(5deg);
         }
 
         50% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(-5deg);
+          transform: translateX(-50%) translateY(-50%) scale(1.05)
+            rotate(-5deg);
         }
 
         75% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(5deg);
+          transform: translateX(-50%) translateY(-50%) scale(1.05)
+            rotate(5deg);
         }
 
         100% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(0deg);
+          transform: translateX(-50%) translateY(-50%) scale(1.05)
+            rotate(0deg);
         }
       }
 
@@ -370,6 +394,8 @@
       .modal-footer .btn {
         margin: 0 10px;
       }
+
+    
     </style>
   </head>
 
@@ -453,6 +479,8 @@
                 </li>
               </ol>
             </nav>
+            <!-- Thêm nút "Book A Table" trong phần hero -->
+            <a href="#" class="btn btn-primary py-3 px-5 mt-3">Book A Table</a>
           </div>
         </div>
       </div>
@@ -551,9 +579,7 @@
                           >Delicious classic pancakes with maple syrup.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -591,9 +617,7 @@
                           >Fresh avocado with cherry tomatoes.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -607,7 +631,7 @@
                       data-price="12500"
                       data-description="Fluffy French omelette with herbs and cheese, served with a side of mixed greens."
                       data-ingredients="Trứng, Bơ, Phô mai, Thảo mộc tươi, Muối, Tiêu"
-                      data-preparation="Bước 1: Đánh trứng với muối và tiêu. Bước 2: Đun nóng chảo với bơ đến khi tan chảy. Bước 3: Đổ trứng vào chảo và khuấy nhẹ để tạo bọt. Bước 4: Thêm phô mai và thảo mộc tươi khi trứng bắt đầu cứng lại. Bước 5: Gập omelette đôi và nấu thêm một chút cho đến khi phô mai tan chảy. Bước 6: Dọn lên đĩa cùng với salad xanh."
+                      data-preparation="Bước 1: Đánh trứng với muối và tiêu. Bước 2: Đun nóng chảo với bơ cho đến khi tan chảy. Bước 3: Đổ trứng vào chảo và khuấy nhẹ để tạo bọt. Bước 4: Thêm phô mai và thảo mộc tươi khi trứng bắt đầu cứng lại. Bước 5: Gập omelette đôi và nấu thêm một chút cho đến khi phô mai tan chảy. Bước 6: Dọn lên đĩa cùng với salad xanh."
                       data-image="img/menu-french-omelette.jpg"
                       data-video="https://www.youtube.com/embed/_Wb5Crj917I"
                       data-rating="★★★★★"
@@ -631,9 +655,7 @@
                           >Fluffy omelette with herbs and cheese.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -671,9 +693,7 @@
                           >Refreshing smoothie with berries and yogurt.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -711,9 +731,7 @@
                           >Granola with mixed nuts and protein powder.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -751,9 +769,7 @@
                           >Tortilla with spinach, feta, and eggs.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -791,9 +807,7 @@
                           >Chia pudding with fruits and honey.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -831,9 +845,7 @@
                           >Burrito with eggs, sausage, and cheese.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
                 </div>
@@ -853,7 +865,7 @@
                       data-price="13990"
                       data-description="Juicy grilled chicken breast with lettuce, tomato, and mayo on toasted bread."
                       data-ingredients="Bánh mì, Thịt gà nướng, Rau xà lách, Cà chua, Sốt mayonnaise, Bơ"
-                      data-preparation="Bước 1: Nướng thịt gà với gia vị cho đến khi chín và mềm. Bước 2: Nướng bánh mì đến khi giòn. Bước 3: Phết một lớp mayonnaise lên cả hai mặt bánh mì. Bước 4: Thêm rau xà lách và cà chua thái lát lên một mặt bánh mì. Bước 5: Đặt thịt gà nướng lên trên và phủ mặt bánh mì còn lại. Bước 6: Cắt đôi sandwich và thưởng thức."
+                      data-preparation="Bước 1: Nướng thịt gà với gia vị cho đến khi chín và mềm. Bước 2: Nướng bánh mì đến khi giòn. Bước 3: Phết một lớp mayonnaise lên cả hai mặt bánh mì. Bước 4: Thêm rau xà lách và cà chua thái lát lên một mặt bánh mì. Bước 5: Đặt thịt gà nướng lên trên và phủ bacon đã nướng. Bước 6: Phết sốt đặc biệt lên mặt bánh mì còn lại và ghép sandwich lại."
                       data-image="img/menu-grilled-chicken-sandwich.jpg"
                       data-video="https://www.youtube.com/embed/h59xGkKmhPY"
                       data-rating="★★★★★"
@@ -877,9 +889,7 @@
                           >Grilled chicken with fresh veggies.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -893,7 +903,7 @@
                       data-price="15500"
                       data-description="Premium beef patty with cheddar cheese, bacon, and special sauce."
                       data-ingredients="Bánh hamburger, Thịt bò xay, Phô mai cheddar, Bacon, Sốt đặc biệt, Xà lách, Cà chua"
-                      data-preparation="Bước 1: Tạo hình thịt bò thành patties và nướng đến mức chín mong muốn. Bước 2: Nướng bacon đến khi giòn. Bước 3: Nướng bánh hamburger trên chảo với một chút bơ. Bước 4: Đặt phô mai cheddar lên patties khi chúng còn nóng để phô mai tan chảy. Bước 5: Xếp xà lách và cà chua lên một mặt bánh mì. Bước 6: Đặt patties với phô mai lên trên và thêm bacon đã nướng. Bước 7: Phết sốt đặc biệt lên mặt bánh mì còn lại và ghép sandwich lại."
+                      data-preparation="Bước 1: Tạo hình thịt bò thành patties và nướng đến khi chín mong muốn. Bước 2: Nướng bacon đến khi giòn đều. Bước 3: Nướng bánh hamburger trên chảo với một chút bơ. Bước 4: Đặt phô mai cheddar lên patties khi chúng còn nóng để phô mai tan chảy. Bước 5: Xếp xà lách và cà chua lên một mặt bánh mì. Bước 6: Đặt patties với phô mai lên trên và thêm bacon đã nướng. Bước 7: Phết sốt đặc biệt lên mặt bánh mì còn lại và ghép sandwich lại."
                       data-image="img/menu-beef-burger-deluxe.jpg"
                       data-video="https://www.youtube.com/embed/YTW57fxs8VQ"
                       data-rating="★★★★☆"
@@ -917,9 +927,7 @@
                           >Deluxe beef burger with bacon and cheese.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -957,9 +965,7 @@
                           >Healthy wrap with fresh veggies and hummus.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -973,7 +979,7 @@
                       data-price="14000"
                       data-description="Spicy shrimp tacos with cabbage slaw and creamy sauce."
                       data-ingredients="Tortilla nhỏ, Tôm tươi, Bắp cải thái mỏng, Sốt kem, Hành tây, Gia vị cay"
-                      data-preparation="Bước 1: Ướp tôm với gia vị cay và nướng hoặc chiên cho đến khi chín. Bước 2: Chuẩn bị bắp cải slaw bằng cách trộn bắp cải với nước sốt kem. Bước 3: Đun nóng tortilla trên chảo. Bước 4: Đặt tôm lên tortilla, thêm bắp cải slaw và thêm chút sốt kem nếu cần. Bước 5: Cuộn lại tortilla và thưởng thức ngay khi còn nóng."
+                      data-preparation="Bước 1: Ướp tôm với gia vị cay và nướng hoặc chiên cho đến khi chín. Bước 2: Chuẩn bị bắp cải slaw bằng cách trộn bắp cải với sốt kem. Bước 3: Đun nóng tortilla trên chảo. Bước 4: Đặt tôm lên tortilla, thêm bắp cải slaw và thêm chút sốt kem nếu cần. Bước 5: Cuộn lại tortilla và thưởng thức ngay khi còn nóng."
                       data-image="img/menu-shrimp-tacos.jpg"
                       data-video="https://www.youtube.com/embed/ij4XIP1TUOA?si=5wtZE09VVIXoidjr"
                       data-rating="★★★★★"
@@ -997,9 +1003,7 @@
                           >Spicy shrimp with cabbage and sauce.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1013,7 +1017,7 @@
                       data-price="12500"
                       data-description="Turkey breast with bacon, lettuce, tomato, and mayo on toasted bread."
                       data-ingredients="Bánh mì mềm, Thịt gà tây, Bacon, Rau xà lách, Cà chua, Sốt mayonnaise, Bơ"
-                      data-preparation="Bước 1: Nướng bacon đến khi giòn. Bước 2: Nướng bánh mì đến khi giòn và vàng đều. Bước 3: Phết một lớp mayonnaise lên cả hai mặt bánh mì. Bước 4: Thêm rau xà lách và cà chua thái lát lên một mặt bánh mì. Bước 5: Đặt thịt gà tây nướng lên trên và thêm bacon đã nướng. Bước 6: Phết sốt mayonnaise lên mặt bánh mì còn lại và ghép sandwich lại. Bước 7: Cắt đôi sandwich và thưởng thức."
+                      data-preparation="Bước 1: Nướng bacon đến khi giòn. Bước 2: Nướng bánh mì mềm đến khi giòn và vàng đều. Bước 3: Phết một lớp mayonnaise lên cả hai mặt bánh mì. Bước 4: Thêm rau xà lách và cà chua thái lát lên một mặt bánh mì. Bước 5: Đặt thịt gà tây nướng lên trên và thêm bacon đã nướng. Bước 6: Phết sốt mayonnaise lên mặt bánh mì còn lại và ghép sandwich lại. Bước 7: Cắt đôi sandwich và thưởng thức."
                       data-image="img/menu-turkey-club-sandwich.jpg"
                       data-video="https://www.youtube.com/embed/XkX2NgT0QZA"
                       data-rating="★★★★★"
@@ -1037,9 +1041,7 @@
                           >Turkey with bacon and fresh veggies.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1055,6 +1057,7 @@
                       data-ingredients="Thịt cá trắng, Bột chiên, Nước lạnh, Khoai tây, Sốt tartar, Dầu chiên"
                       data-preparation="Bước 1: Chuẩn bị hỗn hợp bột chiên với bột mì, muối và tiêu. Bước 2: Nhúng thịt cá vào hỗn hợp bột và chiên trong dầu nóng đến khi vàng và giòn. Bước 3: Cắt khoai tây thành hình que và chiên đến khi giòn vàng. Bước 4: Phục vụ cá chiên với khoai tây chiên và sốt tartar."
                       data-image="img/menu-fish-and-chips.jpg"
+                      alt="Fish and Chips"
                       data-video="https://www.youtube.com/embed/CYEFR_kg6Us?si=bVvRU2KcLf-ILJ_Y"
                       data-rating="★★★★★"
                       data-reviews="13 đánh giá"
@@ -1077,9 +1080,7 @@
                           >Fried fish with crispy fries.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1095,6 +1096,7 @@
                       data-ingredients="Bánh mì mềm, Thịt heo xay, Sốt BBQ, Bắp cải, Cà rốt, Dưa chuột muối, Gia vị BBQ"
                       data-preparation="Bước 1: Nấu thịt heo với sốt BBQ và gia vị cho đến khi thịt mềm và dễ xé. Bước 2: Xé thịt heo thành sợi nhỏ. Bước 3: Chuẩn bị coleslaw bằng cách trộn bắp cải và cà rốt với sốt nhẹ. Bước 4: Cắt bánh mì mềm thành hai nửa và nướng nhẹ. Bước 5: Đặt thịt heo xé lên một nửa bánh mì, thêm coleslaw và dưa chuột muối. Bước 6: Đặt nửa bánh mì còn lại lên trên và thưởng thức."
                       data-image="img/menu-bbq-pulled-pork.jpg"
+                      alt="BBQ Pulled Pork Sandwich"
                       data-video="https://www.youtube.com/embed/XkX2NgT0QZA"
                       data-rating="★★★★★"
                       data-reviews="23 đánh giá"
@@ -1117,9 +1119,7 @@
                           >Pulled pork with BBQ and coleslaw.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1157,9 +1157,7 @@
                           >Romaine with Caesar dressing and croutons.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
                 </div>
@@ -1181,6 +1179,7 @@
                       data-ingredients="Filet mignon, Bột tiêu đen, Bơ, Kem tươi, Rượu Cognac, Muối"
                       data-preparation="Bước 1: Rắc bột tiêu đen lên cả hai mặt filet mignon và ướp muối. Bước 2: Đun nóng chảo với bơ và nướng filet mignon đến khi chín mong muốn. Bước 3: Lấy thịt ra khỏi chảo và giữ ấm. Bước 4: Thêm rượu Cognac vào chảo để đun sôi và thấm đều với mùi tiêu. Bước 5: Thêm kem tươi và nấu đến khi sốt sánh lại. Bước 6: Đổ sốt lên filet mignon và phục vụ cùng với rau củ hoặc khoai tây nướng."
                       data-image="img/menu-steak-au-poivre.jpg"
+                      alt="Steak Au Poivre"
                       data-video="https://www.youtube.com/embed/_Wb5Crj917I"
                       data-rating="★★★★★"
                       data-reviews="15 đánh giá"
@@ -1203,9 +1202,7 @@
                           >Filet mignon with peppercorn sauce.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1221,6 +1218,7 @@
                       data-ingredients="Ravioli tươi, Thịt tôm hùm, Sốt cà chua kem, Phô mai Parmesan, Thảo mộc tươi, Bơ"
                       data-preparation="Bước 1: Chuẩn bị nhân bằng cách trộn thịt tôm hùm với phô mai Parmesan và thảo mộc tươi. Bước 2: Nhồi nhân vào từng miếng ravioli. Bước 3: Luộc ravioli trong nước sôi đến khi chúng nổi lên. Bước 4: Đun nóng sốt cà chua kem với một chút bơ. Bước 5: Nấu sốt đến khi sệt lại. Bước 6: Đổ sốt lên ravioli và rắc thêm phô mai Parmesan trước khi phục vụ."
                       data-image="img/menu-lobster-ravioli.jpg"
+                      alt="Lobster Ravioli"
                       data-video="https://www.youtube.com/embed/RjuG46WZgNs?si=LGBTBdSQO35Sqbgk"
                       data-rating="★★★★☆"
                       data-reviews="11 đánh giá"
@@ -1243,9 +1241,7 @@
                           >Ravioli with lobster in creamy sauce.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1261,6 +1257,7 @@
                       data-ingredients="Cá hồi, Thảo mộc tươi (húng quế, thyme), Bột mì, Bơ, Rau củ nướng, Muối, Tiêu"
                       data-preparation="Bước 1: Ướp cá hồi với muối và tiêu. Bước 2: Trộn thảo mộc tươi với bột mì. Bước 3: Phủ hỗn hợp thảo mộc lên bề mặt cá hồi. Bước 4: Đun nóng bơ trong chảo và chiên cá hồi cho đến khi lớp thảo mộc vàng giòn. Bước 5: Nướng rau củ (cà rốt, bí đỏ, ớt chuông) đến khi mềm và vàng đều. Bước 6: Phục vụ cá hồi với rau củ nướng và sốt kem nếu muốn."
                       data-image="img/menu-herb-crusted-salmon.jpg"
+                      alt="Herb-Crusted Salmon"
                       data-video="https://www.youtube.com/embed/wdk7CoD5H10?si=LXqq8s-Yy2bV0A9A"
                       data-rating="★★★★★"
                       data-reviews="14 đánh giá"
@@ -1283,9 +1280,7 @@
                           >Salmon with herb crust and roasted veggies.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1301,6 +1296,7 @@
                       data-ingredients="Riso Carnaroli, Nấm rừng, Phô mai Parmesan, Bơ, Hành tây, Sốt trắng, Thảo mộc tươi"
                       data-preparation="Bước 1: Đun nóng bơ trong nồi, thêm hành tây và sauté đến khi mềm. Bước 2: Thêm riso và nấu cho đến khi hạt riso ngấm bơ. Bước 3: Thêm nước dùng từ từ từng chút một, khuấy đều cho đến khi riso chín mềm. Bước 4: Thêm nấm rừng đã sauté và phô mai Parmesan, khuấy đều cho đến khi hỗn hợp trở nên kem. Bước 5: Nêm muối và tiêu theo khẩu vị. Bước 6: Phục vụ nóng với một ít thảo mộc tươi rắc lên trên."
                       data-image="img/menu-mushroom-risotto.jpg"
+                      alt="Mushroom Risotto"
                       data-video="https://www.youtube.com/embed/ju9H1RlYNxk?si=hlPwOJBIfDaScoNP"
                       data-rating="★★★★☆"
                       data-reviews="11 đánh giá"
@@ -1323,9 +1319,7 @@
                           >Risotto with wild mushrooms and Parmesan.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1341,6 +1335,7 @@
                       data-ingredients="Thịt bò tươi, Puff pastry, Nấm, Hành tây, Bơ, Sốt Madeira, Trứng gà"
                       data-preparation="Bước 1: Chế biến mushroom duxelles bằng cách sauté nấm và hành tây với bơ cho đến khi mềm và giảm nước. Bước 2: Ướp thịt bò với muối và tiêu, sau đó nhanh chóng sear trên chảo với bơ để giữ nước. Bước 3: Đặt thịt bò lên lớp duxelles, sau đó bọc trong puff pastry đã phết trứng gà để tạo lớp vỏ giòn. Bước 4: Nướng trong lò nóng đến khi puff pastry vàng giòn và thịt bò đạt mức chín mong muốn. Bước 5: Cắt lát và phục vụ cùng với sốt Madeira."
                       data-image="img/menu-beef-wellington.jpg"
+                      alt="Beef Wellington"
                       data-video="https://www.youtube.com/embed/XkX2NgT0QZA"
                       data-rating="★★★★★"
                       data-reviews="23 đánh giá"
@@ -1363,9 +1358,7 @@
                           >Beef tenderloin wrapped in pastry.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1381,6 +1374,7 @@
                       data-ingredients="Pasta, Húng quế tươi, Tỏi, Pinch nuts (hạt thông), Parmesan cheese, Olive oil, Cà chua bi"
                       data-preparation="Bước 1: Luộc pasta trong nước sôi đến khi al dente, sau đó vớt ra và giữ lại một ít nước luộc pasta. Bước 2: Trong máy xay, xay nhuyễn húng quế, tỏi, hạt thông, Parmesan cheese và một chút dầu ô liu để tạo thành sốt pesto. Bước 3: Trộn sốt pesto với pasta đã luộc, thêm cà chua bi và một ít nước luộc pasta để làm cho sốt mịn hơn. Bước 4: Nêm muối và tiêu theo khẩu vị. Bước 5: Phục vụ nóng cùng với một ít phô mai Parmesan rắc lên trên."
                       data-image="img/menu-pesto-pasta.jpg"
+                      alt="Pesto Pasta"
                       data-video="https://www.youtube.com/embed/p7edUxCLOGw?si=eagsWNtSLSry-kUO"
                       data-rating="★★★★☆"
                       data-reviews="11 đánh giá"
@@ -1400,13 +1394,10 @@
                           <span class="text-primary">14.000 VNĐ</span>
                         </h5>
                         <small class="fst-italic"
-                          >Pasta with fresh basil pesto and cherry
-                          tomatoes.</small
+                          >Pasta with fresh basil pesto and cherry tomatoes.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1422,6 +1413,7 @@
                       data-ingredients="Thịt cừu, Khoai tây, Rosemary tươi, Bơ, Sốt bạc hà, Muối, Tiêu"
                       data-preparation="Bước 1: Ướp thịt cừu với muối, tiêu và rosemary tươi. Bước 2: Đun nóng vỉ nướng và nướng lamb chops đến khi chín mong muốn. Bước 3: Nướng khoai tây với rosemary và bơ đến khi vàng giòn. Bước 4: Chuẩn bị sốt bạc hà bằng cách xay bạc hà tươi với một chút nước và đường. Bước 5: Phục vụ lamb chops với khoai tây nướng và sốt bạc hà."
                       data-image="img/menu-lamb-chops.jpg"
+                      alt="Lamb Chops"
                       data-video="https://www.youtube.com/embed/1X8fUEU8JHk?si=O6JEpopsjFJAsiK3"
                       data-rating="★★★★★"
                       data-reviews="23 đánh giá"
@@ -1444,9 +1436,7 @@
                           >Grilled lamb with rosemary and mint sauce.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
 
@@ -1462,6 +1452,7 @@
                       data-ingredients="Quinoa, Rau củ nướng (cà rốt, bí đỏ, ớt chuông), Gạo lứt, Hạt gạo, Nhum xanh, Sốt tahini, Chickpeas"
                       data-preparation="Bước 1: Luộc quinoa theo hướng dẫn trên bao bì. Bước 2: Nướng rau củ với dầu ô liu và gia vị đến khi mềm và vàng đều. Bước 3: Chuẩn bị chickpeas bằng cách rửa sạch và nấu chín nếu cần. Bước 4: Trong một bát lớn, xếp quinoa, rau củ nướng, chickpeas và nhum xanh. Bước 5: Trộn sốt tahini với một chút nước và chanh để tạo thành sốt mịn. Bước 6: Rưới sốt tahini lên trên và thưởng thức."
                       data-image="img/menu-vegan-buddha-bowl.jpg"
+                      alt="Vegan Buddha Bowl"
                       data-video="https://www.youtube.com/embed/0rILcTHxlLE?si=b_rLf5h9JOMetEuZ"
                       data-rating="★★★★☆"
                       data-reviews="13 đánh giá"
@@ -1485,9 +1476,7 @@
                           dressing.</small
                         >
                       </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
+                      <button class="btn btn-primary btn-view-details">Xem Chi Tiết</button>
                     </div>
                   </div>
                 </div>
@@ -1666,13 +1655,13 @@
                   </a>
 
                   <div class="social-share ms-auto">
-                    <a href="#" class="btn btn-primary btn-social me-2"
+                    <a href="#" class="btn btn-primary me-2"
                       ><i class="fab fa-facebook-f"></i
                     ></a>
-                    <a href="#" class="btn btn-primary btn-social me-2"
+                    <a href="#" class="btn btn-primary me-2"
                       ><i class="fab fa-twitter"></i
                     ></a>
-                    <a href="#" class="btn btn-primary btn-social"
+                    <a href="#" class="btn btn-primary"
                       ><i class="fab fa-instagram"></i
                     ></a>
                   </div>
@@ -1695,11 +1684,11 @@
                   >
                     Company
                   </h4>
-                  <a class="btn btn-link" href="#">About Us</a>
-                  <a class="btn btn-link" href="#">Contact Us</a>
-                  <a class="btn btn-link" href="#">Reservation</a>
-                  <a class="btn btn-link" href="#">Privacy Policy</a>
-                  <a class="btn btn-link" href="#">Terms & Condition</a>
+                  <a class="btn btn-primary btn-link" href="#">About Us</a>
+                  <a class="btn btn-primary btn-link" href="#">Contact Us</a>
+                  <a class="btn btn-primary btn-link" href="#">Reservation</a>
+                  <a class="btn btn-primary btn-link" href="#">Privacy Policy</a>
+                  <a class="btn btn-primary btn-link" href="#">Terms & Condition</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                   <h4
@@ -1708,8 +1697,8 @@
                     Contact
                   </h4>
                   <p class="mb-2">
-                    <i class="fa fa-map-marker-alt me-3"></i>123 Street, New
-                    York, USA
+                    <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York,
+                    USA
                   </p>
                   <p class="mb-2">
                     <i class="fa fa-phone-alt me-3"></i>+012 345 67890
@@ -1718,16 +1707,16 @@
                     <i class="fa fa-envelope me-3"></i>info@example.com
                   </p>
                   <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href="#"
+                    <a class="btn btn-primary me-2" href="#"
                       ><i class="fab fa-twitter"></i
                     ></a>
-                    <a class="btn btn-outline-light btn-social" href="#"
+                    <a class="btn btn-primary me-2" href="#"
                       ><i class="fab fa-facebook-f"></i
                     ></a>
-                    <a class="btn btn-outline-light btn-social" href="#"
+                    <a class="btn btn-primary" href="#"
                       ><i class="fab fa-youtube"></i
                     ></a>
-                    <a class="btn btn-outline-light btn-social" href="#"
+                    <a class="btn btn-primary" href="#"
                       ><i class="fab fa-linkedin-in"></i
                     ></a>
                   </div>
@@ -1749,9 +1738,7 @@
                   >
                     Newsletter
                   </h4>
-                  <p>
-                    Pain is just right, sit dolor sit amet. Clita ipsum elitr is
-                  </p>
+                  <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                   <div
                     class="position-relative mx-auto"
                     style="max-width: 400px"
@@ -1760,6 +1747,7 @@
                       class="form-control border-primary w-100 py-3 ps-4 pe-5"
                       type="email"
                       placeholder="Your email"
+                      required
                     />
                     <button
                       type="button"
@@ -1992,17 +1980,9 @@
               } = ${itemTotal.toLocaleString()} VNĐ</span>
                   </div>
                   <div class="item-actions">
-                    <button onclick="removeFromOrder('${
-                      item.title
-                    }')"><i class="fas fa-minus-circle"></i></button>
-                    <button onclick='addToOrder({"title": "${
-                      item.title
-                    }", "price": ${
-                item.price
-              }})'><i class="fas fa-plus-circle"></i></button>
-                    <button onclick="deleteFromOrder('${
-                      item.title
-                    }')"><i class="fas fa-trash-alt text-danger"></i></button>
+                    <button onclick="removeFromOrder('${item.title}')"><i class="fas fa-minus-circle"></i></button>
+                    <button onclick="addToOrder({title: '${item.title}', price: ${item.price}})"><i class="fas fa-plus-circle"></i></button>
+                    <button onclick="deleteFromOrder('${item.title}')"><i class="fas fa-trash-alt text-danger"></i></button>
                   </div>
                 </div>
               `;
@@ -2061,7 +2041,9 @@
               : [menuItem.getAttribute("data-image")];
             imageList.forEach((imgSrc, index) => {
               carouselInner.innerHTML += `
-                <div class="carousel-item ${index === 0 ? "active" : ""}">
+                <div class="carousel-item ${
+                  index === 0 ? "active" : ""
+                }">
                   <img src="${imgSrc.trim()}" class="d-block w-100 rounded" alt="${title}">
                 </div>
               `;
@@ -2201,7 +2183,8 @@
               } else {
                 document.getElementById("creditCardFields").style.display =
                   "none";
-                document.getElementById("paypalFields").style.display = "none";
+                document.getElementById("paypalFields").style.display =
+                  "none";
               }
             });
 
