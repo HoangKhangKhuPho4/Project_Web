@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Restoran - Mẫu Trang Web Nhà Hàng Bootstrap</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        rel="stylesheet" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+        rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link
+        href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+        rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- Custom Styles for Hover Overlay -->
+    <style>
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(254, 161, 22, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay a {
+            color: #fff;
+            font-size: 24px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .overlay a:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Ensure images fit within their containers */
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .overlay a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="#" class="navbar-brand p-0">
+                    <h1 class="text-primary m-0">
+                        <i class="fa fa-utensils me-3"></i>Restoran
+                    </h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Service</a>
+                        <a href="menu.html" class="nav-item nav-link">Menu</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="booking.html" class="dropdown-item">Booking</a>
+                                <a href="team.html" class="dropdown-item">Our Team</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <a href="#" class="btn btn-primary py-2 px-4">Book A Table</a>
+                </div>
+            </nav>
+
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Menu Món Ăn</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Service Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-4 service-container">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="service-item rounded pt-3">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                                <h5>Đầu Bếp Chuyên Nghiệp</h5>
+                                <p>
+                                    Đội ngũ đầu bếp với kinh nghiệm lâu năm đảm bảo chất lượng món ăn.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="service-item rounded pt-3">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
+                                <h5>Chất Lượng Món Ăn</h5>
+                                <p>
+                                    Sử dụng nguyên liệu tươi ngon, đảm bảo hương vị tuyệt vời cho mỗi món ăn.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="service-item rounded pt-3">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
+                                <h5>Đặt Hàng Trực Tuyến</h5>
+                                <p>
+                                    Tiện lợi đặt hàng qua mạng, đảm bảo nhanh chóng và an toàn.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="service-item rounded pt-3">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                                <h5>Dịch Vụ 24/7</h5>
+                                <p>
+                                    Luôn sẵn sàng phục vụ bạn bất kể thời gian nào trong ngày.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s"
+                                    src="img/about-1.jpg" alt="About Image 1" />
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s"
+                                    src="img/about-2.jpg" alt="About Image 2" style="margin-top: 25%" />
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s"
+                                    src="img/about-3.jpg" alt="About Image 3" />
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s"
+                                    src="img/about-4.jpg" alt="About Image 4" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Về Chúng Tôi</h5>
+                        <h1 class="mb-4">
+                            Chào Mừng Đến Với
+                            <i class="fa fa-utensils text-primary me-2"></i>Restoran
+                        </h1>
+                        <p class="mb-4">
+                            Chúng tôi cam kết mang đến cho bạn những trải nghiệm ẩm thực tuyệt vời nhất với các món ăn ngon miệng và dịch vụ chuyên nghiệp.
+                        </p>
+                        <p class="mb-4">
+                            Với hơn 15 năm kinh nghiệm trong ngành nhà hàng, đội ngũ đầu bếp của chúng tôi luôn sáng tạo và đổi mới để phục vụ bạn những món ăn đậm đà hương vị.
+                        </p>
+                        <div class="row g-4 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Năm Kinh Nghiệm</p>
+                                        <h6 class="text-uppercase mb-0">Kinh Nghiệm</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Đầu Bếp</p>
+                                        <h6 class="text-uppercase mb-0">Đầu Bếp</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="#">Đọc Thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        <!-- Menu Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Thực Đơn</h5>
+                    <h1 class="mb-5">Những Món Phổ Biến Nhất</h1>
+                </div>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill"
+                                href="#tab-1">
+                                <i class="fa fa-coffee fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Phổ Biến</small>
+                                    <h6 class="mt-n1 mb-0">Bữa Sáng</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill"
+                                href="#tab-2">
+                                <i class="fa fa-hamburger fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Đặc Biệt</small>
+                                    <h6 class="mt-n1 mb-0">Bữa Trưa</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill"
+                                href="#tab-3">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Đẹp Mắt</small>
+                                    <h6 class="mt-n1 mb-0">Bữa Tối</h6>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <!-- Bữa Sáng Tab -->
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+                                <!-- Món Sáng 1 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-pancakes.jpg"
+                                            alt="Bánh Pancakes Cổ Điển"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Bánh Pancakes Cổ Điển</span>
+                                                <span class="text-primary">100.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Bánh pancakes mềm mịn, phủ siro phong phú và quả mọng tươi.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Sáng 2 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-omelette.jpg"
+                                            alt="Trứng Omelette Đặc Biệt"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Trứng Omelette Đặc Biệt</span>
+                                                <span class="text-primary">80.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Omelette mềm mịn với phô mai và rau củ tươi ngon.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Sáng 3 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-french-toast.jpg"
+                                            alt="Bánh French Toast"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Bánh French Toast</span>
+                                                <span class="text-primary">90.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Bánh French toast giòn tan, phủ đường bột và quả mọng.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Sáng 4 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-granola.jpg"
+                                            alt="Bát Granola"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Bát Granola</span>
+                                                <span class="text-primary">120.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Granola giòn tan, sữa chua và trái cây tươi.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Thêm các món sáng khác tương tự -->
+                            </div>
+                        </div>
+                        <!-- Bữa Sáng Tab End -->
+
+                        <!-- Bữa Trưa Tab -->
+                        <div id="tab-2" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <!-- Món Trưa 1 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-grilled-chicken-sandwich.jpg"
+                                            alt="Sandwich Gà Nướng"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Sandwich Gà Nướng</span>
+                                                <span class="text-primary">150.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Thịt gà nướng mềm mại với xà lách và sốt mayonnaise.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Trưa 2 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-caesar-salad.jpg"
+                                            alt="Salad Caesar"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Salad Caesar</span>
+                                                <span class="text-primary">130.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Salad Caesar tươi mát với sốt đặc biệt và croutons giòn.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Trưa 3 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-beef-steak.jpg"
+                                            alt="Bít Tết Bò"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Bít Tết Bò</span>
+                                                <span class="text-primary">250.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Thịt bò tươi ngon, nướng vừa tới với sốt tiêu đen.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Trưa 4 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-shrimp-pasta.jpg"
+                                            alt="Pasta Tôm"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Pasta Tôm</span>
+                                                <span class="text-primary">200.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Mì pasta mềm mại kết hợp với tôm tươi và sốt kem.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Thêm các món trưa khác tương tự -->
+                            </div>
+                        </div>
+                        <!-- Bữa Trưa Tab End -->
+
+                        <!-- Bữa Tối Tab -->
+                        <div id="tab-3" class="tab-pane fade show p-0">
+                            <div class="row g-4">
+                                <!-- Món Tối 1 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-sushi-platter.jpg"
+                                            alt="Platter Sushi"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Platter Sushi</span>
+                                                <span class="text-primary">300.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Đĩa sushi đa dạng với hải sản tươi ngon và rau củ.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Tối 2 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-ribeye-steak.jpg"
+                                            alt="Ribeye Steak"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Ribeye Steak</span>
+                                                <span class="text-primary">350.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Thịt ribeye mềm mại, nướng tới độ chín hoàn hảo với sốt tiêu đen.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Tối 3 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-seafood-paella.jpg"
+                                            alt="Seafood Paella"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Seafood Paella</span>
+                                                <span class="text-primary">280.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Paella hải sản đậm đà với mỳ saffron và tôm tươi ngon.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Món Tối 4 -->
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center menu-item">
+                                        <img
+                                            class="flex-shrink-0 img-fluid rounded"
+                                            src="img/menu-vegetarian-lasagna.jpg"
+                                            alt="Lasagna Chay"
+                                        />
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>Lasagna Chay</span>
+                                                <span class="text-primary">220.000 VNĐ</span>
+                                            </h5>
+                                            <small class="fst-italic">Lasagna chay thơm ngon với sốt béchamel và rau củ tươi.</small>
+                                        </div>
+                                        <!-- Overlay for Reverse Image Search -->
+                                        <div class="overlay">
+                                            <a href="#" class="search-icon" aria-label="Tìm kiếm hình ảnh">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Thêm các món tối khác tương tự -->
+                            </div>
+                        </div>
+                        <!-- Bữa Tối Tab End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+        <!-- Reservation Start -->
+        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <div class="video">
+                        <button type="button" class="btn-play" data-bs-toggle="modal"
+                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6 bg-dark d-flex align-items-center">
+                    <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Đặt Bàn</h5>
+                        <h1 class="text-white mb-4">Đặt Bàn Trực Tuyến</h1>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name"
+                                            required />
+                                        <label for="name">Tên Của Bạn</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email"
+                                            required />
+                                        <label for="email">Email Của Bạn</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" id="datetime"
+                                            placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker"
+                                            required />
+                                        <label for="datetime">Ngày & Giờ</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="select1" required>
+                                            <option value="1">Người 1</option>
+                                            <option value="2">Người 2</option>
+                                            <option value="3">Người 3</option>
+                                        </select>
+                                        <label for="select1">Số Người</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h5 class="text-white">Chi Tiết Đơn Hàng</h5>
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" placeholder="Tên Món Ăn" required />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="number" class="form-control" placeholder="Số Lượng" min="1"
+                                                required />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="number" class="form-control" placeholder="Giá" min="0" required />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" placeholder="Tổng" readonly />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-primary w-100" type="button">Thêm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Special Request" id="message"
+                                            style="height: 100px"></textarea>
+                                        <label for="message">Yêu Cầu Đặc Biệt</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Đặt Ngay</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Reservation End -->
+
+        <!-- Video Modal -->
+        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Video YouTube</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Đóng"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 16:9 aspect ratio -->
+                        <div class="ratio ratio-16x9">
+                            <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
+                                allowscriptaccess="always" allow="autoplay"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Video Modal End -->
+
+        <!-- Team Start -->
+        <div class="container-xxl pt-5 pb-3">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Đội Ngũ</h5>
+                    <h1 class="mb-5">Những Đầu Bếp Chuyên Nghiệp</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="img/team-1.jpg" alt="Đầu Bếp 1" />
+                            </div>
+                            <h5 class="mb-0">Nguyễn Văn A</h5>
+                            <small>Đầu Bếp Trưởng</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-facebook-f"></i
+                                ></a>
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-twitter"></i
+                                ></a>
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-instagram"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="img/team-2.jpg" alt="Đầu Bếp 2" />
+                            </div>
+                            <h5 class="mb-0">Trần Thị B</h5>
+                            <small>Đầu Bếp Nguyên Liệu</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-facebook-f"></i
+                                ></a>
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-twitter"></i
+                                ></a>
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-instagram"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="img/team-3.jpg" alt="Đầu Bếp 3" />
+                            </div>
+                            <h5 class="mb-0">Lê Văn C</h5>
+                            <small>Đầu Bếp Nướng</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-facebook-f"></i
+                                ></a>
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-twitter"></i
+                                ></a>
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-instagram"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="img/team-4.jpg" alt="Đầu Bếp 4" />
+                            </div>
+                            <h5 class="mb-0">Phạm Thị D</h5>
+                            <small>Đầu Bếp Làm Sốt</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-facebook-f"></i
+                                ></a>
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-twitter"></i
+                                ></a>
+                                <a class="btn btn-square btn-primary mx-1" href="#"
+                                    ><i class="fab fa-instagram"></i
+                                ></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="text-center">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Khách Hàng Nói Gì</h5>
+                    <h1 class="mb-5">Khách Hàng Của Chúng Tôi Nói!!!</h1>
+                </div>
+                <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item bg-transparent border rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>
+                            "Thực đơn đa dạng và hương vị tuyệt vời! Dịch vụ cũng rất chuyên nghiệp."
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg"
+                                style="width: 50px; height: 50px" alt="Khách Hàng 1" />
+                            <div class="ps-3">
+                                <h5 class="mb-1">Nguyễn Văn A</h5>
+                                <small>Khách Hàng</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-transparent border rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>
+                            "Một trải nghiệm ẩm thực tuyệt vời, sẽ quay lại lần sau!"
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg"
+                                style="width: 50px; height: 50px" alt="Khách Hàng 2" />
+                            <div class="ps-3">
+                                <h5 class="mb-1">Trần Thị B</h5>
+                                <small>Khách Hàng</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-transparent border rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>
+                            "Món ăn ngon miệng và phục vụ nhanh chóng, rất hài lòng!"
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg"
+                                style="width: 50px; height: 50px" alt="Khách Hàng 3" />
+                            <div class="ps-3">
+                                <h5 class="mb-1">Lê Văn C</h5>
+                                <small>Khách Hàng</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-transparent border rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p>
+                            "Không gian nhà hàng đẹp, không khí thoải mái và thức ăn ngon."
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg"
+                                style="width: 50px; height: 50px" alt="Khách Hàng 4" />
+                            <div class="ps-3">
+                                <h5 class="mb-1">Phạm Thị D</h5>
+                                <small>Khách Hàng</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container-fluid py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Công Ty</h4>
+                        <a class="btn btn-link" href="#">Về Chúng Tôi</a>
+                        <a class="btn btn-link" href="#">Liên Hệ</a>
+                        <a class="btn btn-link" href="#">Đặt Bàn</a>
+                        <a class="btn btn-link" href="#">Chính Sách Bảo Mật</a>
+                        <a class="btn btn-link" href="#">Điều Khoản</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Liên Hệ</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Đường, Thành phố Hồ Chí Minh, Việt Nam</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+84 123 456 789</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@restoran.vn</p>
+                        <div class="d-flex pt-2">
+                            <a href="#" class="btn btn-outline-light btn-social me-2"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-light btn-social me-2"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-light btn-social me-2"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="#" class="btn btn-outline-light btn-social"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Giờ Mở Cửa</h4>
+                        <h5 class="text-light fw-normal">Thứ Hai - Thứ Bảy</h5>
+                        <p>09AM - 09PM</p>
+                        <h5 class="text-light fw-normal">Chủ Nhật</h5>
+                        <p>10AM - 08PM</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Bản Tin</h4>
+                        <p>Nhận thông tin mới nhất về nhà hàng của chúng tôi.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px">
+                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="email"
+                                placeholder="Email của bạn" required />
+                            <button type="button"
+                                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Đăng Ký</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            © Restoran Việt Nam. Bảo lưu mọi quyền. Được tạo ra với ❤️ bởi Nhóm 15.
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="#">Home</a>
+                                <a href="#">Cookies</a>
+                                <a href="#">Help</a>
+                                <a href="#">FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+                class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Custom JavaScript for Reverse Image Search -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to set reverse image search links
+            function setReverseImageSearchLinks() {
+                const menuItems = document.querySelectorAll('.menu-item');
+                menuItems.forEach(item => {
+                    const img = item.querySelector('img');
+                    const overlayLink = item.querySelector('.overlay a.search-icon');
+                    if (img && overlayLink) {
+                        const imageUrl = window.location.origin + '/' + img.getAttribute('src');
+                        overlayLink.href = `https://www.google.com/searchbyimage?image_url=${encodeURIComponent(imageUrl)}`;
+                        overlayLink.target = '_blank';
+                        overlayLink.rel = 'noopener noreferrer';
+                    }
+                });
+            }
+
+            setReverseImageSearchLinks();
+
+            // Handle video modal video loading and unloading
+            var videoModal = document.getElementById('videoModal');
+            videoModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var videoSrc = button.getAttribute('data-src');
+                var iframe = videoModal.querySelector('iframe');
+                iframe.src = videoSrc;
+            });
+
+            videoModal.addEventListener('hidden.bs.modal', function () {
+                var iframe = videoModal.querySelector('iframe');
+                iframe.src = '';
+            });
+        });
+    </script>
+</body>
+
+</html>

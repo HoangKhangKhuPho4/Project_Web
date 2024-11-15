@@ -1,0 +1,841 @@
+
+:root {
+    --primary: #fea116; /* Màu chính */
+    --light: #f1f8ff;   /* Màu sáng */
+    --dark: #0f172b;    /* Màu tối */
+    --gray-light: #f8f9fa; /* Màu xám nhạt */
+    --gray-dark: #6c757d;  /* Màu xám đậm */
+    --text-color: var(--dark); /* Màu chữ chính */
+    --background-color: #ffffff; /* Màu nền chính */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-duration: 0.3s;
+    --border-radius: 10px;
+  
+    /* Định nghĩa màu cho button */
+    --button-bg: var(--primary); /* Màu nền cho button */
+    --button-color: var(--light); /* Màu chữ cho button */
+  }
+  
+/* Global Styles */
+body {
+    font-family: "Nunito", sans-serif;
+    color: var(--text-color);
+    background-color: var(--gray-light);
+  }
+  
+  /********** Utility Classes **********/
+  .ff-secondary {
+    font-family: "Pacifico", cursive;
+  }
+  
+  .fw-medium {
+    font-weight: 600 !important;
+  }
+  
+  .fw-semi-bold {
+    font-weight: 700 !important;
+  }
+  
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+  }
+  
+  /********** Footer Styles **********/
+  .footer {
+    width: 100%;
+    background-color: #0f172b;
+    color: #f1f8ff;
+    padding: 40px 0;
+  }
+  
+  .footer .container-fluid {
+    padding: 0;
+  }
+  
+  .footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer .col-lg-3,
+  .footer .col-md-6 {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .footer .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .footer a {
+    color: #f1f8ff;
+    transition: color var(--transition-duration);
+  }
+  
+  .footer a:hover {
+    color: var(--primary);
+  }
+  
+  /********** Spinner **********/
+  #spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+    z-index: 99999;
+  }
+  
+  #spinner.show {
+    transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /********** Navbar Styles **********/
+  @media (max-width: 991.98px) {
+    .sticky-top.navbar-dark {
+      position: relative;
+    }
+  
+    .navbar-dark .navbar-collapse {
+      margin-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  
+    .navbar-dark .navbar-nav .nav-link,
+    .sticky-top.navbar-dark .navbar-nav .nav-link {
+      padding: 10px 0;
+      margin-left: 0;
+    }
+  
+    .navbar-dark .navbar-brand img {
+      max-height: 45px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .navbar-dark {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background: var(--dark) !important;
+    }
+  
+    .sticky-top.navbar-dark {
+      background: var(--dark) !important;
+    }
+  }
+  
+  .navbar-dark .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    margin-left: 15px;
+    padding: 15px 0;
+    font-size: 15px;
+    color: var(--light) !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: none;
+    transition: color var(--transition-duration), transform var(--transition-duration);
+  }
+  
+  .sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 10px 0;
+  }
+  
+  /* Hover Effects */
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary) !important;
+    transform: translateY(-5px);
+  }
+  
+  .navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+    transform: none;
+  }
+  
+  /* Navbar Brand Image */
+  .navbar-dark .navbar-brand img {
+    max-height: 60px;
+    transition: max-height var(--transition-duration);
+  }
+  
+  .sticky-top.navbar-dark .navbar-brand img {
+    max-height: 45px;
+  }
+  
+  /********** Hero Header Styles **********/
+  .hero-header {
+    background: linear-gradient(rgba(15, 23, 43, 0.9), rgba(15, 23, 43, 0.9)), url(img/bg-hero.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .hero-header img {
+    animation: imgRotate 50s linear infinite;
+  }
+  
+  @keyframes imgRotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Adjustments for Hero Header Content */
+  .container-fluid.my-5.py-5 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  @media (max-width: 767.98px) {
+    .hero-header h1.display-3 {
+      font-size: 2.5rem;
+    }
+  
+    .hero-header p {
+      font-size: 1rem;
+    }
+  }
+  
+  /********** Section Title Styles **********/
+  .section-title {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title::before,
+  .section-title::after {
+    position: absolute;
+    content: "";
+    width: 45px;
+    height: 2px;
+    top: 50%;
+    background: var(--primary);
+    transition: all var(--transition-duration);
+  }
+  
+  .section-title::before {
+    left: -55px;
+    transform: translateY(-50%);
+  }
+  
+  .section-title::after {
+    right: -55px;
+    transform: translateY(-50%);
+  }
+  
+  .section-title.text-start::before,
+  .section-title.text-end::after {
+    display: none;
+  }
+  
+  /********** Food Menu Styles **********/
+  .nav-pills .nav-item .active {
+    border-bottom: 2px solid var(--primary);
+  }
+  
+  /********** YouTube Video Styles **********/
+  .video {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    background: linear-gradient(rgba(15, 23, 43, 0.1), rgba(15, 23, 43, 0.1)), url(../img/video.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Play Button */
+  .video .btn-play {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 32px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    padding: 18px 20px 18px 28px;
+    cursor: pointer;
+    transition: transform var(--transition-duration);
+  }
+  
+  .video .btn-play:hover {
+    transform: translateX(-50%) translateY(-50%) scale(1.05);
+  }
+  
+  .video .btn-play:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: pulse-border 1500ms ease-out infinite;
+  }
+  
+  .video .btn-play:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    border-radius: 50%;
+    transition: all 200ms;
+  }
+  
+  .video .btn-play img {
+    position: relative;
+    z-index: 3;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+  
+  .video .btn-play span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-left: 32px solid var(--dark);
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+  }
+  
+  /* Pulse Animation */
+  @keyframes pulse-border {
+    0% {
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+      opacity: 1;
+    }
+  
+    100% {
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  #videoModal {
+    z-index: 99999;
+  }
+  
+  #videoModal .modal-dialog {
+    position: relative;
+    max-width: 800px;
+    margin: 60px auto 0 auto;
+  }
+  
+  #videoModal .modal-body {
+    position: relative;
+    padding: 0px;
+  }
+  
+  #videoModal .close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 0px;
+    top: -30px;
+    z-index: 1000; /* Tăng giá trị z-index để biểu tượng không bị che khuất */
+    font-size: 30px;
+    font-weight: normal;
+    color: #ffffff;
+    background: #000000;
+    opacity: 1;
+  }
+  
+  
+  /********** Team Styles **********/
+  .team-item {
+    box-shadow: var(--box-shadow);
+    height: calc(100% - 38px);
+    transition: height var(--transition-duration), box-shadow var(--transition-duration);
+  }
+  
+  .team-item img {
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+  }
+  
+  .team-item:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .team-item:hover {
+    height: 100%;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .team-item .btn {
+    border-radius: 38px 38px 0 0;
+  }
+  
+  /********** Testimonial Styles **********/
+  .testimonial-carousel .owl-item .testimonial-item,
+  .testimonial-carousel .owl-item.center .testimonial-item * {
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+  }
+  
+  .testimonial-carousel .owl-item.center .testimonial-item {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+  }
+  
+  .testimonial-carousel .owl-item.center .testimonial-item * {
+    color: var(--light) !important;
+  }
+  
+  .testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    transition: background-color var(--transition-duration), border-color var(--transition-duration);
+  }
+  
+  .testimonial-carousel .owl-dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+  
+  /********** Footer Button Styles **********/
+  .footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    transition: color var(--transition-duration), background-color var(--transition-duration);
+  }
+  
+  .footer .btn.btn-social:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+  }
+  
+  .footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: letter-spacing var(--transition-duration), box-shadow var(--transition-duration);
+  }
+  
+  .footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+  }
+  
+  .footer .btn.btn-link:hover {
+    letter-spacing: 1px;
+    box-shadow: none;
+  }
+  
+  .footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, 0.1);
+  }
+  
+  .footer .copyright a {
+    color: var(--light);
+  }
+  
+  .footer .footer-menu a {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer .footer-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+  }
+  
+  /********** Flexbox for Footer Services **********/
+  .w-100.d-flex.flex-column.text-start.ps-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80px;
+  }
+  
+  .w-100.d-flex.flex-column.text-start.ps-4 h5 {
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+    color: var(--dark);
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .w-100.d-flex.flex-column.text-start.ps-4 small {
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+  }
+  
+  /********** Keyframes for Animations **********/
+  @keyframes shake {
+    0% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+    }
+    25% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(5deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(-5deg);
+    }
+    75% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(5deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+    }
+  }
+  
+  /********** Menu Item Styles **********/
+  .menu-item {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+    position: relative;
+    height: 200px;
+  }
+  
+  .menu-item:hover {
+    background-color: #ffffff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .menu-item img {
+    width: 150px;
+    height: 150px;
+    transition: transform 0.3s ease;
+    margin-right: 20px;
+  }
+  
+  .menu-item:hover img {
+    transform: scale(1.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Overlay khi hover */
+  .menu-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(254, 161, 22, 0.2);
+    opacity: 0;
+    transition: opacity var(--transition-duration);
+  }
+  
+  .menu-item:hover::after {
+    opacity: 1;
+  }
+  
+  /* Button Xem Chi Tiết */
+  .btn-view-details {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease,
+      transform var(--transition-duration) ease,
+      opacity var(--transition-duration) ease,
+      box-shadow var(--transition-duration) ease;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .menu-item:hover .btn-view-details {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /********** Service Item Styles **********/
+  .service-item {
+    box-shadow: var(--box-shadow);
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+  }
+  
+  .service-item:hover {
+    background: var(--primary);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .service-item * {
+    transition: color var(--transition-duration);
+  }
+  
+  .service-item:hover * {
+    color: var(--light) !important;
+  }
+  
+  .service-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .service-item {
+    flex: 1 1 25%;
+    margin: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .service-item {
+      flex: 1 1 48%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .service-item {
+      flex: 1 1 100%;
+    }
+  }
+  
+  /********** Responsive Adjustments **********/
+  @media (max-width: 768px) {
+    .footer .service-item {
+      flex: 1 1 48%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .footer .service-item {
+      flex: 1 1 100%;
+    }
+  }
+  
+  /********** Modal Styles **********/
+  #menuImagesCarousel .carousel-item img {
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-duration);
+  }
+  
+  #menuDetailName {
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  #menuDetailDescription {
+    color: var(--gray-dark);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  #menuDetailPrice {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  
+  .rating {
+    color: #ffc107;
+    font-size: 1.2rem;
+  }
+  
+  /* Order Button */
+  .modal-body .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+  
+  .modal-body .btn-primary:hover {
+    background-color: #e0a100;
+    border-color: #d18b00;
+  }
+  
+  /* Social Share in Modal */
+  .modal-footer .social-share a {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    transition: color var(--transition-duration), background-color var(--transition-duration);
+  }
+  
+  .modal-footer .social-share a:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+  }
+  
+  /********** Customer Review Styles **********/
+  .testimonial-item {
+    background-color: #f8f9fa;
+    border-left: 5px solid var(--primary);
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+  }
+  
+  .testimonial-item:hover {
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .testimonial-item p {
+    font-style: italic;
+    color: #333333;
+  }
+  
+  .testimonial-item small {
+    color: #555555;
+  }
+  
+  /********** Video Modal Styles **********/
+  .ratio {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Tỷ lệ 16:9 */
+    height: 0;
+  }
+  
+  .ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  /* Toast Notification Styles */
+  .toast-container {
+    z-index: 1055; /* Đảm bảo toast nằm trên modal */
+  }
+  
+  .toast {
+    opacity: 0;
+    transition: opacity var(--transition-duration);
+  }
+  
+  .toast.show {
+    opacity: 1;
+  }
+  
+  /********** Additional Adjustments **********/
+  .footer .row.g-5 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .footer .col-lg-3 {
+    flex: 1;
+  }
+  
+  .footer .service-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /********** Button Styles **********/
+
+ /********** Button Styles **********/
+button, .btn {
+    background-color: var(--button-bg); /* Màu nền cho tất cả button */
+    color: var(--button-color); /* Màu chữ cho tất cả button */
+    border: none; /* Bỏ viền */
+    border-radius: var(--border-radius); /* Bo tròn góc */
+    padding: 10px 20px; /* Padding cho button */
+    cursor: pointer; /* Con trỏ khi hover */
+    transition: background-color var(--transition-duration), color var(--transition-duration); /* Hiệu ứng chuyển màu */
+  }
+  
+  button:hover, .btn:hover {
+    background-color: var(--dark); /* Màu nền khi hover */
+    color: var(--light); /* Màu chữ khi hover */
+  }
+  
+  /********** Ví dụ về các Button trong Footer **********/
+  .footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer .btn.btn-social:hover {
+    background-color: var(--dark); /* Màu nền khi hover cho button xã hội */
+    color: var(--light); /* Màu chữ khi hover cho button xã hội */
+  }

@@ -1,0 +1,227 @@
+/*** Navbar Styles ***/
+.navbar-dark .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Tăng khoảng cách giữa các liên kết */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    margin-left: 15px; /* Giảm margin-left từ 25px xuống 15px */
+    padding: 15px 0; /* Giảm padding trên và dưới từ 35px xuống 15px */
+    font-size: 15px;
+    color: var(--light) !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: none;
+    transition: color var(--transition-duration), transform var(--transition-duration);
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 10px 0; /* Giảm padding khi sticky */
+}
+
+/* Hiệu ứng hover cho các liên kết Navbar */
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary) !important;
+    transform: translateY(-5px);
+}
+
+/* Trạng thái active cho các liên kết Navbar */
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+    transform: none; /* Loại bỏ transform để tránh dịch chuyển */
+}
+
+/* Định dạng hình ảnh logo trong Navbar */
+.navbar-dark .navbar-brand img {
+    max-height: 60px;
+    transition: max-height var(--transition-duration);
+}
+
+.sticky-top.navbar-dark .navbar-brand img {
+    max-height: 45px;
+}
+
+/* Responsive Styles cho Navbar */
+@media (max-width: 991.98px) {
+    .sticky-top.navbar-dark {
+        position: relative;
+    }
+
+    .navbar-dark .navbar-collapse {
+        margin-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-dark .navbar-nav .nav-link,
+    .sticky-top.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        margin-left: 0;
+    }
+
+    .navbar-dark .navbar-brand img {
+        max-height: 45px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-dark {
+        position: fixed; /* Đặt fixed thay vì absolute */
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background: var(--dark) !important; /* Đặt nền cho Navbar khi cố định */
+    }
+
+    .sticky-top.navbar-dark {
+        background: var(--dark) !important; /* Đảm bảo nền khi sticky */
+    }
+}
+
+
+/*** Footer Styles ***/
+.footer {
+    width: 100%;
+    background-color: var(--dark); /* Sử dụng biến CSS cho màu nền */
+    color: var(--light);
+    padding: 40px 0; /* Giữ padding cho footer */
+}
+
+.footer .container-fluid {
+    padding: 0; /* Xóa padding để tận dụng không gian */
+}
+
+.footer .row {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các cột xuống dòng khi cần */
+    justify-content: space-between; /* Căn chỉnh đều các cột */
+}
+
+.footer .col-lg-3,
+.footer .col-md-6 {
+    flex: 1; /* Đảm bảo tất cả các cột có chiều rộng bằng nhau */
+    padding: 20px; /* Padding cho các cột */
+}
+
+.footer .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.footer a {
+    color: var(--light); /* Màu chữ ban đầu */
+    transition: color var(--transition-duration); /* Hiệu ứng chuyển màu mượt mà */
+    text-decoration: none; /* Loại bỏ gạch chân */
+}
+
+.footer a:hover {
+    color: var(--primary); /* Màu chữ khi hover */
+}
+
+.footer .service-container {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh các card theo chiều ngang */
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ không gian */
+}
+
+.footer .service-item {
+    flex: 1 1 25%; /* Chiếm 25% chiều rộng (4 card trên một hàng) */
+    margin: 10px; /* Khoảng cách giữa các item */
+    box-shadow: var(--box-shadow);
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.footer .service-item:hover {
+    background: var(--primary);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.footer .service-item * {
+    transition: color var(--transition-duration);
+}
+
+.footer .service-item:hover * {
+    color: var(--light) !important;
+}
+
+/* Responsive Styles cho Footer */
+@media (max-width: 768px) {
+    .footer .service-item {
+        flex: 1 1 48%; /* 2 card trên một hàng cho màn hình nhỏ */
+    }
+}
+
+@media (max-width: 576px) {
+    .footer .service-item {
+        flex: 1 1 100%; /* 1 card trên một hàng cho màn hình nhỏ nhất */
+    }
+}
+
+/* Các nút chia sẻ xã hội trong Footer */
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    transition: color var(--transition-duration), background-color var(--transition-duration);
+}
+
+.footer .btn.btn-social:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+/* Các liên kết trong Footer */
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: var(--light);
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: letter-spacing var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+/* Quy định về phần Copyright */
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, 0.1);
+    text-align: center;
+}
+
+.footer .copyright a {
+    color: var(--light);
+}
+
+.footer .footer-menu a {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .footer-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}

@@ -1,0 +1,29 @@
+@keyframes fadeInUpCustom {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated.fadeInUp {
+    animation: fadeInUpCustom 1s forwards;
+}
+
+@keyframes zoomInCustom {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animated.zoomIn {
+    animation: zoomInCustom 1s forwards;
+}

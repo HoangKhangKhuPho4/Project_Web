@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blog về Quản Lý Nhà Hàng và Món Ăn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS mà không có integrity -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet" />
+    <style>
+      /* Custom Styles */
+      .main-navbar {
+        background-color: #4fd0b6 !important; /* Đặt màu cho header */
+      }
+      .post-category {
+        background-color: #4fd0b6;
+        color: #ffffff; /* Màu chữ để nổi bật trên nền xanh */
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .post-title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+      .post-meta a {
+        text-decoration: none;
+        color: #6c757d;
+      }
+      .image-caption {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+      .section-title {
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      /* Card sản phẩm chung */
+      .product-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 15px;
+        transition: transform 0.2s;
+        background-color: #fff;
+        position: relative;
+        height: 480px; /* Đặt chiều cao cố định cho tất cả các card */
+        width: 100%; /* Đảm bảo chiều rộng chiếm hết cột */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      /* Hình ảnh trong card */
+      .product-card img {
+        height: 200px; /* Đặt chiều cao cố định cho hình ảnh */
+        width: 100%; /* Chiều rộng bằng với card */
+        object-fit: cover; /* Đảm bảo hình ảnh giữ nguyên tỷ lệ và không bị méo */
+        border-radius: 10px;
+      }
+      .product-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .discount-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: #dc3545;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+      .price {
+        color: #28a745;
+        font-weight: bold;
+        margin-top: auto;
+      }
+      /* Giá gốc và giá giảm */
+      .original-price {
+        text-decoration: line-through;
+        color: #6c757d;
+        margin-top: 10px;
+      }
+      /* Giá sản phẩm */
+      .original-price,
+      .discounted-price {
+        text-align: center; /* Căn giữa giá */
+        font-size: 0.9rem;
+      }
+      .discounted-price {
+        color: #28a745;
+        font-weight: bold;
+        margin-top: 5px;
+      }
+      .sidebar .list-group-item a {
+        text-decoration: none;
+        color: #343a40;
+      }
+      .recent-posts .card {
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .recent-posts .card:last-child {
+        border-bottom: none;
+      }
+      .recent-posts .card-title {
+        font-size: 1rem;
+        margin-bottom: 5px;
+      }
+      footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid #e0e0e0;
+      }
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .sidebar {
+          margin-top: 30px;
+        }
+      }
+      /* Tiêu đề sản phẩm */
+      .product-title {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: center; /* Căn giữa tiêu đề */
+      }
+      /* Additional Styles for Product Sections */
+      .product-section {
+        margin-top: 50px;
+      }
+
+      /* Thay đổi màu cho badge trong danh sách "CHUYÊN MỤC" */
+      .sidebar .badge {
+        background-color: #4fd0b6; /* Màu nền xanh */
+        color: #ffffff; /* Màu chữ trắng */
+      }
+
+      /* CSS cho nút biểu tượng */
+      .icon-buttons {
+        position: fixed;
+        bottom: 80px; /* Căn chỉnh cách đáy */
+        right: 20px; /* Vị trí từ phải */
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Khoảng cách giữa các nút */
+        z-index: 9999;
+      }
+
+      .icon-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 55px; /* Kích thước nút biểu tượng */
+        height: 55px;
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+        opacity: 0.85; /* Tạo hiệu ứng mờ */
+      }
+
+      .facebook-btn {
+        background-color: #1877f2; /* Màu xanh Facebook */
+        color: #ffffff;
+      }
+
+      .call-btn {
+        background-color: #e53935; /* Màu đỏ gọi điện */
+        color: #ffffff;
+      }
+
+      .icon-btn:hover {
+        transform: scale(1.1);
+        opacity: 1; /* Hiện rõ hơn khi hover */
+      }
+
+      /* CSS cho nút Back to Top */
+      .back-to-top {
+        position: fixed;
+        bottom: 20px; /* Căn chỉnh cách đáy */
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background-color: #ffffff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 9999;
+      }
+
+      .back-to-top.show {
+        opacity: 0.85;
+      }
+
+      /* Định dạng cho các nút hành động trong card sản phẩm */
+      .product-actions {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 15px; /* Khoảng cách giữa các icon */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      /* Card sản phẩm chung - hiển thị các nút khi hover */
+      .product-card:hover .product-actions {
+        opacity: 1; /* Hiển thị các nút khi hover */
+      }
+
+      /* Định dạng chung cho icon */
+      .product-actions i {
+        background-color: rgba(255, 255, 255, 0.9); /* Nền trắng mờ */
+        padding: 10px;
+        border-radius: 50%;
+        color: #333; /* Màu của icon */
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: transform 0.3s, background-color 0.3s;
+      }
+
+      /* Hiệu ứng khi hover vào icon */
+      .product-actions i:hover {
+        transform: scale(1.1);
+        background-color: rgba(255, 255, 255, 1); /* Nền rõ hơn khi hover */
+      }
+
+      /* CSS cho nút hành động */
+      .action-btn {
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Khoảng cách giữa icon và text */
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      /* Thêm vào giỏ - màu xanh lá cây */
+      .add-to-cart {
+        background-color: #28a745; /* Màu xanh lá */
+      }
+
+      .add-to-cart:hover {
+        background-color: #218838; /* Màu đậm hơn khi hover */
+        transform: scale(1.05);
+      }
+
+      /* So sánh sản phẩm - màu xanh dương */
+      .compare-product {
+        background-color: #007bff; /* Màu xanh dương */
+      }
+
+      .compare-product:hover {
+        background-color: #0056b3; /* Màu đậm hơn khi hover */
+        transform: scale(1.05);
+      }
+
+
+        /* Styles từ phần liên quan tới Related Posts và Comment Section */
+        .post-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .post-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .post-date {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .post-content {
+            padding: 15px;
+        }
+
+        .category-badge {
+            background-color: #c2a36b;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .read-more {
+            color: #c2a36b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .carousel-indicators {
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: #ddd;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .carousel-indicators .active {
+            background-color: #333;
+        }
+
+        .tags {
+            margin-bottom: 15px;
+        }
+
+        .tags .btn {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .social-icons .icon {
+      margin-right: 10px;
+      color: white; /* Màu của biểu tượng bên trong */
+      width: 50px; /* Kích thước vòng tròn */
+      height: 50px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, transform 0.3s;
+  }
+
+
+  .facebook-icons .facebook {
+      background-color: #3b5998; /* Màu nền Facebook */
+  }
+
+  .social-icons .twitter {
+      background-color: #1da1f2; /* Màu nền Twitter */
+  }
+
+  .social-icons .pinterest {
+      background-color: #bd081c; /* Màu nền Pinterest */
+  }
+
+  .social-icons .linkedin {
+      background-color: #0077b5; /* Màu nền LinkedIn */
+  }
+
+  .social-icons .telegram {
+      background-color: #0088cc; /* Màu nền Telegram */
+  }
+
+  /* Hiệu ứng khi hover vào biểu tượng */
+  .social-icons .icon:hover {
+      transform: scale(1.1); /* Tăng kích thước khi hover */
+      background-color: #555; /* Đổi màu nền khi hover, có thể tùy chỉnh */
+  }
+
+
+        .comment-section textarea,
+        .comment-section input {
+            margin-bottom: 15px;
+        }
+
+      .btn-submit {
+    background-color: #4FD0B6; /* Màu nền xanh #4FD0B6 */
+    color: #ffffff; /* Màu chữ trắng */
+    border: none; /* Bỏ viền */
+  }
+
+    .btn-submit:hover {
+        background-color: #a68a5a;
+    }
+
+
+    .carousel-indicators button {
+background-color: #000; /* Màu đen cho dấu chấm tròn */
+width: 12px; /* Đường kính của dấu chấm tròn */
+height: 12px;
+border-radius: 50%; /* Làm dấu chấm tròn */
+border: none; /* Bỏ viền */
+}
+
+.carousel-indicators .active {
+background-color: #333; /* Màu đậm hơn cho dấu chấm đang được chọn */
+}
+
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 400px; /* Đảm bảo chiều cao hợp lý cho hình ảnh */
+}
+
+.btn-green {
+    background-color: #28a745; /* Màu xanh lá cây */
+    color: white; /* Chữ màu trắng */
+    border: none; /* Loại bỏ đường viền */
+  }
+
+  .btn-green:hover {
+    background-color: #218838; /* Màu đậm hơn khi hover */
+  }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Chính -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark main-navbar">
+        <div class="container">
+          <a class="navbar-brand mx-auto" href="#">Blog về Quản Lý Nhà Hàng và Món Ăn</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Optional: Add navigation links here -->
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+      <div class="row">
+        <!-- Bài Viết Chính -->
+        <section class="col-lg-8">
+          <!-- Danh Mục Bài Viết -->
+          <div class="post-category text-center">
+            QUẢN LÝ NHÀ HÀNG, MÓN ĂN
+          </div>
+
+          <!-- Tiêu Đề Bài Viết -->
+          <h1 class="post-title text-center">
+            10 Mẹo Quản Lý Nhà Hàng Hiệu Quả Và Những Món Ăn Đặc Sắc
+          </h1>
+
+          <!-- Thông Tin Bài Viết -->
+          <div class="post-meta text-center mb-4">
+            Đăng bởi <a href="#">Nguyễn Lê Hoàng Khang</a>
+          </div>
+
+          <!-- Hình Ảnh Bài Viết -->
+          <div class="text-center mb-4">
+            <img
+              src="https://storage.googleapis.com/a1aa/image/YyoDFeQWhi3qMK7NNjYDo9HhAiAxc3E3B7YF8dIgqLda8G3JA.jpg"
+              alt="Nhà hàng sang trọng với bàn ăn được trang trí tinh tế"
+              class="post-image img-fluid rounded"
+            />
+            <div class="image-caption text-center mt-2">
+              Một nhà hàng sang trọng với bàn ăn được trang trí tinh tế
+            </div>
+          </div>
+
+          <!-- Nội Dung Bài Viết -->
+          <div class="post-content">
+            <p>
+              Quản lý nhà hàng đòi hỏi sự kết hợp giữa kỹ năng quản lý, sự sáng tạo và khả năng phục vụ khách hàng xuất sắc. Dưới đây là 10 mẹo giúp bạn quản lý nhà hàng hiệu quả và tạo ra những món ăn đặc sắc.
+            </p>
+            <p>
+              <strong>1. Quản Lý Nhân Sự Hiệu Quả:</strong> Đào tạo đội ngũ nhân viên chuyên nghiệp, thân thiện và luôn sẵn sàng phục vụ khách hàng.
+            </p>
+            <p>
+              <strong>2. Lập Kế Hoạch Thực Đơn:</strong> Tạo ra một thực đơn đa dạng với các món ăn hấp dẫn, phù hợp với thị hiếu của khách hàng.
+            </p>
+            <p>
+              <strong>3. Kiểm Soát Chất Lượng:</strong> Đảm bảo nguyên liệu tươi ngon và quy trình chế biến đạt tiêu chuẩn cao để tạo ra những món ăn ngon và an toàn.
+            </p>
+            <p>
+              <strong>4. Tối Ưu Hóa Chi Phí:</strong> Quản lý chi phí hiệu quả bằng cách kiểm soát nguyên liệu, giảm lãng phí và tối ưu hóa hoạt động kinh doanh.
+            </p>
+            <p>
+              <strong>5. Sử Dụng Công Nghệ:</strong> Áp dụng các phần mềm quản lý nhà hàng để theo dõi đơn hàng, quản lý kho và phân tích dữ liệu kinh doanh.
+            </p>
+            <p>
+              <strong>6. Tạo Dịch Vụ Khách Hàng Xuất Sắc:</strong> Luôn lắng nghe và đáp ứng nhu cầu của khách hàng để tạo sự hài lòng và khách hàng quay lại.
+            </p>
+            <p>
+              <strong>7. Định Giá Phù Hợp:</strong> Xác định mức giá hợp lý cho từng món ăn để đảm bảo lợi nhuận mà vẫn cạnh tranh trên thị trường.
+            </p>
+            <p>
+              <strong>8. Marketing Hiệu Quả:</strong> Sử dụng các chiến lược marketing như mạng xã hội, khuyến mãi và chương trình khách hàng thân thiết để thu hút khách hàng mới và giữ chân khách hàng cũ.
+            </p>
+            <p>
+              <strong>9. Thiết Kế Không Gian Thú Vị:</strong> Tạo ra một không gian nhà hàng thoải mái và hấp dẫn để khách hàng cảm thấy dễ chịu khi đến thưởng thức.
+            </p>
+            <p>
+              <strong>10. Đổi Mới và Sáng Tạo:</strong> Luôn cập nhật các xu hướng mới trong ẩm thực và thiết kế để giữ cho nhà hàng luôn mới mẻ và hấp dẫn.
+            </p>
+
+          <!-- Nút Toggle -->
+<button class="btn btn-outline-secondary mb-4">MỤC LỤC BÀI VIẾT [Hiện]</button>
+
+<!-- Nội dung mục lục -->
+<div class="content-table" style="display: none;">
+  <!-- Nội dung mục lục -->
+  <h5 class="text-center">MỤC LỤC BÀI VIẾT [Ẩn]</h5>
+  <ul>
+    <li><strong>Quản Lý Nhân Sự</strong>
+      <ul>
+        <li>Đào tạo đội ngũ nhân viên chuyên nghiệp</li>
+        <li>Phát triển kỹ năng phục vụ khách hàng</li>
+        <li>Tạo môi trường làm việc tích cực</li>
+        <li>Quản lý lịch làm việc hiệu quả</li>
+      </ul>
+    </li>
+    <li><strong>Thực Đơn và Ẩm Thực</strong>
+      <ul>
+        <li>Tạo thực đơn đa dạng và hấp dẫn</li>
+        <li>Chọn lựa nguyên liệu tươi ngon</li>
+        <li>Phát triển các món ăn đặc sắc</li>
+        <li>Tối ưu hóa quy trình chế biến</li>
+      </ul>
+    </li>
+    <li><strong>Kiểm Soát Chất Lượng</strong>
+      <ul>
+        <li>Đảm bảo an toàn thực phẩm</li>
+        <li>Giám sát chất lượng nguyên liệu</li>
+        <li>Đánh giá và cải thiện quy trình</li>
+        <li>Nhận phản hồi từ khách hàng</li>
+      </ul>
+    </li>
+    <li><strong>Marketing và Khuyến Mãi</strong>
+      <ul>
+        <li>Sử dụng mạng xã hội hiệu quả</li>
+        <li>Tổ chức chương trình khuyến mãi hấp dẫn</li>
+        <li>Xây dựng chương trình khách hàng thân thiết</li>
+        <li>Phát triển thương hiệu nhà hàng</li>
+      </ul>
+    </li>
+    <li><strong>Thiết Kế Không Gian Nhà Hàng</strong>
+      <ul>
+        <li>Tạo không gian thoải mái và hấp dẫn</li>
+        <li>Chọn lựa trang trí phù hợp</li>
+        <li>Tối ưu hóa ánh sáng và âm thanh</li>
+        <li>Thiết kế khu vực ăn uống hiệu quả</li>
+      </ul>
+    </li>
+    <li><strong>Tối Ưu Hóa Chi Phí</strong>
+      <ul>
+        <li>Quản lý nguyên liệu hiệu quả</li>
+        <li>Giảm lãng phí trong hoạt động</li>
+        <li>Tối ưu hóa hoạt động kinh doanh</li>
+        <li>Phân tích và điều chỉnh chi phí</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+          <!-- Các Phần Nội Dung Quản Lý Nhà Hàng và Món Ăn -->
+          <!-- Quản Lý Nhân Sự -->
+          <article class="content mb-5">
+            <h2>Quản Lý Nhân Sự</h2>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <img
+                  src="https://storage.googleapis.com/a1aa/image/employee-training.jpg"
+                  alt="Nhân viên nhà hàng đang tham gia đào tạo"
+                  class="img-fluid rounded"
+                />
+              </div>
+              <div class="col-md-6 mt-3 mt-md-0">
+                <img
+                  src="https://storage.googleapis.com/a1aa/image/customer-service.jpg"
+                  alt="Nhân viên phục vụ khách hàng tại nhà hàng"
+                  class="img-fluid rounded"
+                />
+              </div>
+            </div>
+            <div class="image-caption text-center mb-3">
+              Nhân viên nhà hàng chuyên nghiệp và thân thiện
+            </div>
+            <p>
+              Quản lý nhân sự là yếu tố quan trọng giúp nhà hàng hoạt động hiệu quả. Đội ngũ nhân viên chuyên nghiệp không chỉ nâng cao chất lượng dịch vụ mà còn tạo nên trải nghiệm tuyệt vời cho khách hàng.
+            </p>
+            <div class="section-title">Ưu điểm của quản lý nhân sự tốt:</div>
+            <ul>
+              <li>
+                Tăng cường hiệu suất làm việc và sự hài lòng của nhân viên.
+              </li>
+              <li>
+                Giảm tỷ lệ nghỉ việc và giữ chân nhân viên tài năng.
+              </li>
+              <li>
+                Cải thiện chất lượng dịch vụ khách hàng.
+              </li>
+              <li>
+                Tạo môi trường làm việc tích cực và chuyên nghiệp.
+              </li>
+              <li>
+                Nâng cao uy tín và thương hiệu nhà hàng.
+              </li>
+            </ul>
+            <div class="section-title">Cách quản lý nhân sự hiệu quả:</div>
+            <ul>
+              <li>
+                Đào tạo nhân viên thường xuyên về kỹ năng phục vụ và quản lý.
+              </li>
+              <li>
+                Xây dựng hệ thống đánh giá và thưởng phạt rõ ràng.
+              </li>
+              <li>
+                Tạo cơ hội phát triển nghề nghiệp cho nhân viên.
+              </li>
+              <li>
+                Khuyến khích giao tiếp mở và lắng nghe ý kiến của nhân viên.
+              </li>
+              <li>
+                Đảm bảo điều kiện làm việc an toàn và thoải mái.
+              </li>
+            </ul>
+
+            <!-- Danh mục sản phẩm Đồ dùng nhà hàng tại Flexhouse VN -->
+            <h5 class="mt-4 mb-3">
+              Danh mục sản phẩm Đồ dùng Nhà Hàng tại Flexhouse VN
+            </h5>
+            <div class="row">
+              <!-- Sử dụng Card -->
+              <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div class="product-card position-relative h-100 d-flex flex-column">
+                  <img
+                      src="images/ban-an-tienich.jpg"
+                      alt="Bàn ăn tiện ích cho nhà hàng"
+                      class="img-fluid rounded product-image"
+                  />
+                  <div class="product-title mt-2">
+                      Bàn ăn tiện ích cho nhà hàng
+                  </div>
+                  <div class="original-price">5,000,000 đ</div>
+                  <div class="discounted-price">4,000,000 đ</div>
+              
+                  <!-- Nút icon thêm vào giỏ và so sánh sản phẩm -->
+                  <div class="product-actions">
+                      <i class="fas fa-shopping-cart add-to-cart"></i>
+                      <i class="fas fa-exchange-alt compare-product"></i>
+                  </div>
+              </div>
+            </div>
+              <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div
+                  class="product-card position-relative h-100 d-flex flex-column"
+                >
+                  <div class="discount-badge">-20%</div>
+                  <img
+                    src="images/may-lau-dien.jpg"
+                    alt="Máy lau điện cho nhà hàng"
+                    class="img-fluid rounded product-image"
+                  />
+                  <div class="product-title mt-2">
+                    Máy lau điện cho nhà hàng
+                  </div>
+                  <div class="original-price">10,000,000 đ</div>
+                  <div class="discounted-price">8,000,000 đ</div>
+                  
+                  <!-- Thêm product-actions -->
+                  <div class="product-actions">
+                      <i class="fas fa-shopping-cart add-to-cart"></i>
+                      <i class="fas fa-exchange-alt compare-product"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div
+                  class="product-card position-relative h-100 d-flex flex-column"
+                >
+                  <div class="discount-badge">-15%</div>
+                  <img
+                    src="images/dao-dong-ho.jpg"
+                    alt="Đạo cụ phục vụ chuyên nghiệp"
+                    class="img-fluid rounded product-image"
+                  />
+                  <div class="product-title mt-2">
+                    Đạo cụ phục vụ chuyên nghiệp
+                  </div>
+                  <div class="original-price">2,500,000 đ</div>
+                  <div class="discounted-price">2,125,000 đ</div>
+                  
+                  <!-- Thêm product-actions -->
+                  <div class="product-actions">
+                      <i class="fas fa-shopping-cart add-to-cart"></i>
+                      <i class="fas fa-exchange-alt compare-product"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div
+                  class="product-card position-relative h-100 d-flex flex-column"
+                >
+                  <div class="discount-badge">-10%</div>
+                  <img
+                    src="images/giuong-nghi.jpg"
+                    alt="Giường nghỉ cho nhân viên"
+                    class="img-fluid rounded product-image"
+                  />
+                  <div class="product-title mt-2">
+                    Giường nghỉ cho nhân viên
+                  </div>
+                  <div class="original-price">3,500,000 đ</div>
+                  <div class="discounted-price">3,150,000 đ</div>
+                  
+                  <!-- Thêm product-actions -->
+                  <div class="product-actions">
+                      <i class="fas fa-shopping-cart add-to-cart"></i>
+                      <i class="fas fa-exchange-alt compare-product"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Quản Lý Hoạt Động Nhà Hàng -->
+          <article class="content mb-5">
+            <h2>Quản Lý Hoạt Động Nhà Hàng</h2>
+            <p>
+              Quản lý hoạt động nhà hàng bao gồm việc giám sát mọi khía cạnh từ cung ứng nguyên liệu đến dịch vụ khách hàng. Một hệ thống quản lý hiệu quả giúp nhà hàng vận hành trơn tru và đạt được mục tiêu kinh doanh.
+            </p>
+            <div class="section-title">Ưu điểm của quản lý hoạt động hiệu quả:</div>
+            <ul>
+              <li>
+                Tăng cường hiệu suất làm việc và giảm chi phí không cần thiết.
+              </li>
+              <li>
+                Cải thiện chất lượng dịch vụ và sự hài lòng của khách hàng.
+              </li>
+              <li>
+                Đảm bảo sự nhất quán trong quy trình làm việc.
+              </li>
+              <li>
+                Nâng cao khả năng thích ứng với thay đổi của thị trường.
+              </li>
+              <li>
+                Tăng lợi nhuận và sự phát triển bền vững của nhà hàng.
+              </li>
+            </ul>
+            <div class="section-title">Cách quản lý hoạt động nhà hàng hiệu quả:</div>
+            <ul>
+              <li>
+                Sử dụng phần mềm quản lý nhà hàng để theo dõi đơn hàng và quản lý kho.
+              </li>
+              <li>
+                Lập kế hoạch và dự báo nhu cầu nguyên liệu để tránh tình trạng thiếu hụt hoặc dư thừa.
+              </li>
+              <li>
+                Đào tạo nhân viên về quy trình làm việc và chăm sóc khách hàng.
+              </li>
+              <li>
+                Giám sát và đánh giá hiệu suất làm việc của nhân viên thường xuyên.
+              </li>
+              <li>
+                Thực hiện các chương trình khuyến mãi và marketing để thu hút khách hàng.
+              </li>
+            </ul>
+
+            <!-- Danh mục sản phẩm Thiết bị quản lý nhà hàng tại Flexhouse VN -->
+            <h5 class="mt-4 mb-3">
+              Danh mục sản phẩm Thiết bị Quản Lý Nhà Hàng tại Flexhouse VN
+            </h5>
+            <div class="row">
+              <!-- Sử dụng Card -->
+              <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div class="product-card position-relative h-100 d-flex flex-column">
+                  <img
+                      src="images/phieu-dat-mon.jpg"
+                      alt="Phiếu đặt món chuyên nghiệp"
+                      class="img-fluid rounded product-image"
+                  />
+                  <div class="product-title mt-2">
+                      Phiếu đặt món chuyên nghiệp
+                  </div>
+                  <div class="original-price">150,000 đ</div>
+                  <div class="discounted-price">135,000 đ</div>
+              
+                  <!-- Nút icon thêm vào giỏ và so sánh sản phẩm -->
+                  <div class="product-actions">
+                      <i class="fas fa-shopping-cart add-to-cart"></i>
+                      <i class="fas fa-exchange-alt compare-product"></i>
+                  </div>
+              </div>
+            </div>
+              <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div
+                  class="product-card position-relative h-100 d-flex flex-column"
+                >
+                  <div class="discount-badge">-10%</div>
+                  <img
+                    src="images/pos-system.jpg"
+                    alt="Hệ thống POS cho nhà hàng"
+                    class="img-fluid rounded product-image"
+                  />
+                  <div class="product-title mt-2">
+                    Hệ thống POS cho nhà hàng
+                  </div>
+                  <div class="original-price">20,000,000 đ</div>
+                  <div class="discounted-price">18,000,000 đ</div>
+                  
+                  <!-- Thêm product-actions -->
+                  <div class="product-actions">
+                      <i class="fas fa-shopping-cart add-to-cart"></i>
+                      <i class="fas fa-exchange-alt compare-product"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div
+                  class="product-card position-relative h-100 d-flex flex-column"
+                >
+                  <div class="discount-badge">-15%</div>
+                  <img
+                    src="images/kho-quan-ly.jpg"
+                    alt="Kho quản lý hiệu quả"
+                    class="img-fluid rounded product-image"
+                  />
+                  <div class="product-title mt-2">
+                    Kho quản lý hiệu quả
+                  </div>
+                  <div class="original-price">5,000,000 đ</div>
+                  <div class="discounted-price">4,250,000 đ</div>
+                  
+                  <!-- Thêm product-actions -->
+                  <div class="product-actions">
+                      <i class="fas fa-shopping-cart add-to-cart"></i>
+                      <i class="fas fa-exchange-alt compare-product"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                <div
+                  class="product-card position-relative h-100 d-flex flex-column"
+                >
+                  <div class="discount-badge">-20%</div>
+                  <img
+                    src="images/bao-ve-khong-gian.jpg"
+                    alt="Bảo vệ không gian nhà hàng"
+                    class="img-fluid rounded product-image"
+                  />
+                  <div class="product-title mt-2">
+                    Bảo vệ không gian nhà hàng
+                  </div>
+                  <div class="original-price">2,500,000 đ</div>
+                  <div class="discounted-price">2,000,000 đ</div>
+                  
+                  <!-- Thêm product-actions -->
+                  <div class="product-actions">
+                      <i class="fas fa-shopping-cart add-to-cart"></i>
+                      <i class="fas fa-exchange-alt compare-product"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Các Phần Khác (Có thể thêm vào đây nếu cần) -->
+
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="col-lg-4">
+    <!-- Chuyên Mục -->
+<div class="sidebar">
+  <h5 class="text-center mb-3">CHUYÊN MỤC</h5>
+  <ul class="list-group mb-4">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://hbh.vn/tin-tuc/cach-bo-tri-phong-trong-nha-theo-phong-thuy.html">Quản Lý Nhà Hàng</a>
+      <span class="badge bg-secondary rounded-pill">242</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://www.ixinavietnam.vn/?gad_source=1&gclid=CjwKCAiAxKy5BhBbEiwAYiW--6FDmt9_nc2VyR9pMYNsa-vbirEPceEWdwfR1UlCbiHK4X3nZATX6xoCrQAQAvD_BwE">Thiết Kế Thực Đơn</a>
+      <span class="badge bg-secondary rounded-pill">174</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://ngukimhcm.com/?gad_source=1&gclid=CjwKCAiAxKy5BhBbEiwAYiW---eRvq8AFsHkOzlDcZBA4bCXowV32AL1nPfMcnMTpLsY5yCvgwqsTxoCvg8QAvD_BwE">Phụ Kiện Nhà Hàng</a>
+      <span class="badge bg-secondary rounded-pill">98</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://phukiengaris.com/?gad_source=1&gclid=CjwKCAiAxKy5BhBbEiwAYiW--3bjBwkCIe9gWBN96GzwbEWWTB4thRsfXjaKKeTkQygFiCGgSmA2ZhoCns4QAvD_BwE">Thiết Bị Phục Vụ</a>
+      <span class="badge bg-secondary rounded-pill">75</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://eurogoldvietnam.net/?gad_source=1&gclid=CjwKCAiAxKy5BhBbEiwAYiW--0eMfm_T8V7D05wDk9CCI2ZwstVTFbDCFfnMfJN1m9m7jROxEoDnDBoCBh0QAvD_BwE">Thiết Bị Quản Lý</a>
+      <span class="badge bg-secondary rounded-pill">58</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://thietbicanhquan.vn/">Thiết Bị Khu Vực</a>
+      <span class="badge bg-secondary rounded-pill">47</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://thietkenoithat.com/thiet-ke-phong-tam">Thiết Kế Khu Vực</a>
+      <span class="badge bg-secondary rounded-pill">37</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://www.tapchikientruc.com.vn/chuyen-muc/4-dac-diem-cua-phong-cach-thiet-ke-noi-that-hien-dai.html">Thiết Kế Nội Thất</a>
+      <span class="badge bg-secondary rounded-pill">36</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://decoxdesign.com/mau-thiet-ke-van-phong-sang-tao.html">Thiết Kế Văn Phòng</a>
+      <span class="badge bg-secondary rounded-pill">35</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://tadavietnam.com/tu-quan-ao-go-cong-nghiep-thong-minh-tada-viet-nam-tdta9">Thiết Bị Nhà Hàng Thông Minh</a>
+      <span class="badge bg-secondary rounded-pill">34</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://emporio.vn/vi/vai-noi-that-cao-cap.html">Thiết Bị Nội Thất Cao Cấp</a>
+      <span class="badge bg-secondary rounded-pill">17</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="https://laodong.vn/bat-dong-san/y-tuong-thiet-ke-trang-tri-noi-that-khien-nha-o-chung-cu-dep-me-man-814830.ldo">Ý Tưởng Trang Trí Nhà Hàng</a>
+      <span class="badge bg-secondary rounded-pill">110</span>
+    </li>
+  </ul>
+
+  <!-- Bài Viết Mới -->
+  <h5 class="text-center mb-3">BÀI VIẾT MỚI</h5>
+  <div class="recent-posts">
+    <!-- Bài viết 1 -->
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-4">
+          <a href="link-den-bai-viet-1.html" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://storage.googleapis.com/a1aa/image/iLR9ALeDKA35ZSDXSEoDP6n2bWJrVjrnMkENvr2m51qc8G3JA.jpg"
+              alt="Quản lý nhân sự nhà hàng hiệu quả"
+              class="img-fluid rounded-start"
+            />
+          </a>
+        </div>
+        <div class="col-8">
+          <div class="card-body">
+            <h6 class="card-title">
+              <a href="https://noithatlamson.com.vn/quan-ly-nhan-su-nha-hang.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-dark">
+                5 Bước Đơn Giản Để Quản Lý Nhân Sự Nhà Hàng Hiệu Quả
+              </a>
+            </h6>
+            <p class="card-text">
+              <small class="text-muted">05/11/2024 | Bình luận</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bài viết 2 -->
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-4">
+          <a href="link-den-bai-viet-2.html" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://storage.googleapis.com/a1aa/image/gtg06zggJPojHZNtGTgbUTLtedgmRAvbeKfcISsCUd92xbcnA.jpg"
+              alt="Thực đơn đa dạng cho nhà hàng"
+              class="img-fluid rounded-start"
+            />
+          </a>
+        </div>
+        <div class="col-8">
+          <div class="card-body">
+            <h6 class="card-title">
+              <a href="https://flexhouse.vn/thuc-don-da-dang-nha-hang.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-dark">
+                Xây Dựng Thực Đơn Đa Dạng Cho Nhà Hàng Của Bạn
+              </a>
+            </h6>
+            <p class="card-text">
+              <small class="text-muted">05/11/2024 | Bình luận</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bài viết 3 -->
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-4">
+          <a href="link-den-bai-viet-3.html" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://storage.googleapis.com/a1aa/image/8pGdBsJK0iZaAJ9N0neDD4awmZfxOVGRN8wBEuAqO7Z24NuTA.jpg"
+              alt="Chiến lược marketing cho nhà hàng"
+              class="img-fluid rounded-start"
+            />
+          </a>
+        </div>
+        <div class="col-8">
+          <div class="card-body">
+            <h6 class="card-title">
+              <a href="https://thinhphatconstruction.vn/chien-luoc-marketing-nha-hang.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-dark">
+                7 Chiến Lược Marketing Hiệu Quả Cho Nhà Hàng
+              </a>
+            </h6>
+            <p class="card-text">
+              <small class="text-muted">05/11/2024 | Bình luận</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bài viết 4 -->
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-4">
+          <a href="link-den-bai-viet-4.html" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://storage.googleapis.com/a1aa/image/qdZJ8yo7EBphON6HSXEUS2nGrShUZeI4BedZKAYkEPk64NuTA.jpg"
+              alt="Quản lý tài chính cho nhà hàng"
+              class="img-fluid rounded-start"
+            />
+          </a>
+        </div>
+        <div class="col-8">
+          <div class="card-body">
+            <h6 class="card-title">
+              <a href="https://viet-power.com.vn/quan-ly-tai-chinh-nha-hang.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-dark">
+                Quản Lý Tài Chính Nhà Hàng: Những Điều Cần Biết
+              </a>
+            </h6>
+            <p class="card-text">
+              <small class="text-muted">30/10/2024 | Bình luận</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</aside>
+
+<!-- Related Posts Section - Tích hợp vào cuối phần main -->
+<section class="content mb-5">
+  <!-- Tags Section -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="tags">
+        <button type="button" class="btn btn-green btn-sm">Quản Lý Nhà Hàng</button>
+        <button type="button" class="btn btn-green btn-sm">Món Ăn Đặc Sắc</button>
+        <button type="button" class="btn btn-green btn-sm">Chiến Lược Kinh Doanh</button>
+      </div>
+
+      <div class="social-icons d-flex justify-content-end">
+        <a href="#" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="icon twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="icon pinterest"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="icon telegram"><i class="fab fa-telegram-plane"></i></a>
+    </div>
+    
+  </div>
+
+  <!-- Related Posts Title -->
+  <h2 class="mb-4">Bài Viết Liên Quan</h2>
+
+  <div id="relatedPostsCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel Items -->
+    <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="row g-4">
+                <!-- Bài viết 1 -->
+                <div class="col-md-6">
+                    <div class="position-relative post-card">
+                        <img src="images/quan-ly-nha-hang.jpg" alt="Quản lý nhà hàng hiệu quả" class="img-fluid">
+                        <div class="post-date">05 <br> TH10</div>
+                        <div class="post-content p-3">
+                            <div class="category-badge">Quản Lý Nhà Hàng</div>
+                            <h5 class="fw-bold mt-3">5 Bước Đơn Giản Để Quản Lý Nhà Hàng Hiệu Quả</h5>
+                            <p>Posted by Nguyễn Lê Hoàng Khang</p>
+                            <p class="text-muted">Quản lý nhà hàng không chỉ là giám sát hoạt động hàng ngày mà còn là việc xây dựng chiến lược dài hạn để đạt được thành công...</p>
+                            <a href="https://comay.com.vn/quan-ly-nha-hang.html" class="read-more">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 2 -->
+                <div class="col-md-6">
+                    <div class="position-relative post-card">
+                        <img src="images/thuc-don-da-dang.jpg" alt="Thực đơn đa dạng cho nhà hàng" class="img-fluid">
+                        <div class="post-date">22 <br> TH11</div>
+                        <div class="post-content p-3">
+                            <div class="category-badge">Thực Đơn và Ẩm Thực</div>
+                            <h5 class="fw-bold mt-3">Xây Dựng Thực Đơn Đa Dạng Cho Nhà Hàng Của Bạn</h5>
+                            <p>Posted by Cúc Hoa</p>
+                            <p class="text-muted">Một thực đơn đa dạng không chỉ thu hút khách hàng mà còn phản ánh phong cách và chất lượng của nhà hàng bạn...</p>
+                            <a href="https://sbshouse.vn/xay-dung-thuc-don-da-dang.html" class="read-more">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+            <div class="row g-4">
+                <!-- Bài viết 3 -->
+                <div class="col-md-6">
+                    <div class="position-relative post-card">
+                        <img src="images/chien-luoc-marketing.jpg" alt="Chiến lược marketing cho nhà hàng" class="img-fluid">
+                        <div class="post-date">15 <br> TH12</div>
+                        <div class="post-content p-3">
+                            <div class="category-badge">Chiến Lược Kinh Doanh</div>
+                            <h5 class="fw-bold mt-3">7 Chiến Lược Marketing Hiệu Quả Cho Nhà Hàng</h5>
+                            <p>Posted by Trần Văn A</p>
+                            <p class="text-muted">Marketing đúng đắn sẽ giúp nhà hàng của bạn tiếp cận được nhiều khách hàng hơn và tăng doanh thu...</p>
+                            <a href="https://housef.vn/7-chien-luoc-marketing-nha-hang.html" class="read-more">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 4 -->
+                <div class="col-md-6">
+                    <div class="position-relative post-card">
+                        <img src="images/quan-ly-tai-chinh.jpg" alt="Quản lý tài chính cho nhà hàng" class="img-fluid">
+                        <div class="post-date">20 <br> TH12</div>
+                        <div class="post-content p-3">
+                            <div class="category-badge">Quản Lý Tài Chính</div>
+                            <h5 class="fw-bold mt-3">Quản Lý Tài Chính Nhà Hàng: Những Điều Cần Biết</h5>
+                            <p>Posted by Lê Thị B</p>
+                            <p class="text-muted">Quản lý tài chính hiệu quả là chìa khóa giúp nhà hàng của bạn duy trì và phát triển bền vững...</p>
+                            <a href="https://dogolegia.vn/quan-ly-tai-chinh-nha-hang.html" class="read-more">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+            <div class="row g-4">
+                <!-- Bài viết 5 -->
+                <div class="col-md-6">
+                    <div class="position-relative post-card">
+                        <img src="images/quan-ly-hoat-dong.jpg" alt="Quản lý hoạt động nhà hàng" class="img-fluid">
+                        <div class="post-date">25 <br> TH12</div>
+                        <div class="post-content p-3">
+                            <div class="category-badge">Quản Lý Hoạt Động</div>
+                            <h5 class="fw-bold mt-3">Quản Lý Hoạt Động Nhà Hàng Hiệu Quả</h5>
+                            <p>Posted by Nguyễn Văn C</p>
+                            <p class="text-muted">Việc quản lý hoạt động nhà hàng một cách hiệu quả sẽ giúp tối ưu hóa mọi khía cạnh kinh doanh...</p>
+                            <a href="https://phedecor.com/quan-ly-hoat-dong-nha-hang.html" class="read-more">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 6 -->
+                <div class="col-md-6">
+                    <div class="position-relative post-card">
+                        <img src="images/mon-an-dac-sac.jpg" alt="Những món ăn đặc sắc" class="img-fluid">
+                        <div class="post-date">30 <br> TH12</div>
+                        <div class="post-content p-3">
+                            <div class="category-badge">Món Ăn Đặc Sắc</div>
+                            <h5 class="fw-bold mt-3">10 Món Ăn Đặc Sắc Bạn Nên Thử Tại Nhà Hàng</h5>
+                            <p>Posted by Phạm Thị D</p>
+                            <p class="text-muted">Khám phá 10 món ăn đặc sắc mà bạn không nên bỏ lỡ khi đến nhà hàng của chúng tôi...</p>
+                            <a href="https://www.pinterest.com/pin/628111479274139351/" class="read-more">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#relatedPostsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#relatedPostsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#relatedPostsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#relatedPostsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#relatedPostsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+  </button>
+  
+</div>
+</section>
+  
+<!-- Form trả lời hiện tại -->
+<div class="comment-form-container">
+  <h4>TRẢ LỜI</h4>
+  <p>Email của bạn sẽ không được hiển thị công khai. Các trường bắt buộc được đánh dấu <span class="text-danger">*</span></p>
+  
+  <form id="comment-form" class="comment-form">
+    <div class="mb-3">
+      <label for="comment" class="form-label">Bình luận <span class="text-danger">*</span></label>
+      <textarea class="form-control" id="comment" rows="4" required></textarea>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="name" class="form-label">Tên <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="name" required />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+        <input type="email" class="form-control" id="email" required />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-submit">PHẢN HỒI</button>
+  </form>
+
+  <!-- Thêm phần thông báo -->
+  <div id="form-message"></div>
+</div>
+
+      </div>
+    </main>
+
+    <!-- Bootstrap JS và các phụ thuộc -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Xử lý toggle mục lục bài viết
+      const toggleButton = document.querySelector(".btn-outline-secondary");
+      const contentTable = document.querySelector(".content-table");
+
+      toggleButton.addEventListener("click", function () {
+        if (contentTable.style.display === "none" || !contentTable.style.display) {
+          contentTable.style.display = "block";
+          toggleButton.innerText = "MỤC LỤC BÀI VIẾT [Ẩn]";
+        } else {
+          contentTable.style.display = "none";
+          toggleButton.innerText = "MỤC LỤC BÀI VIẾT [Hiện]";
+        }
+      });
+
+      // Xử lý nút Back to Top
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add("show");
+        } else {
+          backToTopButton.classList.remove("show");
+        }
+      });
+
+      backToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      // Khởi tạo Carousel cho Bài Viết Liên Quan
+      var relatedPostsCarousel = document.querySelector('#relatedPostsCarousel');
+      var carousel = new bootstrap.Carousel(relatedPostsCarousel, {
+        interval: 5000, // Thời gian chuyển slide (ms)
+        ride: 'carousel', // Tự động khởi chạy carousel
+        wrap: true, // Chu kỳ chuyển slide
+        pause: 'hover' // Tạm dừng khi hover
+      });
+
+      // Xử lý Form TRẢ LỜI
+      const commentForm = document.getElementById('comment-form');
+      const formMessage = document.getElementById('form-message');
+
+      commentForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn gửi form mặc định
+
+        // Thu thập dữ liệu từ form
+        const comment = document.getElementById('comment').value.trim();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+
+        // Kiểm tra tính hợp lệ của dữ liệu
+        if (!comment || !name || !email) {
+          formMessage.innerHTML = '<div class="alert alert-danger" role="alert">Vui lòng điền đầy đủ các trường yêu cầu.</div>';
+          return;
+        }
+
+        // Kiểm tra định dạng email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          formMessage.innerHTML = '<div class="alert alert-danger" role="alert">Vui lòng nhập một địa chỉ email hợp lệ.</div>';
+          return;
+        }
+
+        // Nếu dữ liệu hợp lệ, bạn có thể gửi dữ liệu tới server ở đây
+        // Ví dụ: Sử dụng fetch API để gửi dữ liệu tới một endpoint (URL) xử lý trên server
+        /*
+        fetch('https://your-server-endpoint.com/api/comments', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ comment, name, email })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            formMessage.innerHTML = '<div class="alert alert-success" role="alert">Cảm ơn bạn đã phản hồi!</div>';
+            commentForm.reset(); // Làm sạch form
+          } else {
+            formMessage.innerHTML = '<div class="alert alert-danger" role="alert">Đã xảy ra lỗi khi gửi phản hồi. Vui lòng thử lại sau.</div>';
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          formMessage.innerHTML = '<div class="alert alert-danger" role="alert">Đã xảy ra lỗi khi gửi phản hồi. Vui lòng thử lại sau.</div>';
+        });
+        */
+
+        // Nếu bạn không có backend để xử lý, hiển thị thông báo thành công ngay lập tức
+        formMessage.innerHTML = '<div class="alert alert-success" role="alert">Cảm ơn bạn đã phản hồi!</div>';
+        commentForm.reset(); // Làm sạch form
+      });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // Xử lý sự kiện cho nút "Thêm vào giỏ"
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+    addToCartButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        alert("Sản phẩm đã được thêm vào giỏ hàng!");
+        // Logic để thêm sản phẩm vào giỏ hàng có thể được thêm vào đây
+      });
+    });
+
+    // Xử lý sự kiện cho nút "So sánh sản phẩm"
+    const compareProductButtons = document.querySelectorAll(".compare-product");
+    compareProductButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        alert("Sản phẩm đã được thêm vào danh sách so sánh!");
+        // Logic để thêm sản phẩm vào danh sách so sánh có thể được thêm vào đây
+      });
+    });
+  });
+
+
+    </script>
+
+    <!-- Nút Biểu Tượng -->
+    <div class="icon-buttons">
+      <a href="https://facebook.com" class="icon-btn facebook-btn" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="tel:+84123456789" class="icon-btn call-btn">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+    
+    <!-- Nút Back to Top -->
+    <button id="back-to-top" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </body>
+</html>

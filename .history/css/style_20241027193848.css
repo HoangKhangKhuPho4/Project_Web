@@ -1,0 +1,938 @@
+/********** Template CSS **********/
+
+
+/* Thiết lập chiều cao cho toàn bộ trang và body */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu có */
+}
+
+/* Đảm bảo container tổng có chiều cao tối đa */
+.container {
+    min-height: 100vh; /* Đảm bảo container chiếm ít nhất 100% chiều cao viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Đảm bảo footer không vượt quá giới hạn và ở dưới cùng */
+.footer {
+    flex-shrink: 0; /* Không cho phép footer bị nén */
+    width: 100%;
+    background-color: #0F172B;
+    color: #F1F8FF;
+    padding: 40px 0;
+    overflow: hidden; /* Đảm bảo không có thanh cuộn ở footer */
+}
+
+/* Nội dung chính có thể cuộn nếu cần */
+.main-content {
+    flex: 1; /* Phần nội dung chính chiếm tất cả không gian còn lại */
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung quá dài */
+}
+
+
+:root {
+    --primary: #FEA116;
+    --light: #F1F8FF;
+    --dark: #0F172B;
+    --gray-light: #f8f9fa;
+    --gray-dark: #6c757d;
+    --text-color: #0F172B;
+    --background-color: #ffffff;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-duration: 0.3s;
+    --border-radius: 10px;
+}
+
+
+/* Global Styles */
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-color);
+    background-color: var(--gray-light);
+}
+
+/* Utility Classes */
+.ff-secondary {
+    font-family: 'Pacifico', cursive;
+}
+
+.fw-medium {
+    font-weight: 600 !important;
+}
+
+.fw-semi-bold {
+    font-weight: 700 !important;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+       /********** Footer Styles **********/
+        .footer {
+            width: 100%;
+            background-color: #0F172B;
+            color: #F1F8FF;
+            padding: 40px 0;
+        }
+        .footer .container-fluid {
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .footer .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .footer .col-md-4 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .footer a {
+            color: #F1F8FF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: #FEA116;
+        }
+
+        .footer {
+            width: auto; /* Điều chỉnh chiều rộng tự động theo nội dung */
+            max-width: 100%; /* Đảm bảo footer không vượt quá chiều rộng của trang */
+            margin: 0 auto; /* Căn giữa footer */
+            padding: 20px; /* Padding để đảm bảo nội dung không bị sát vào cạnh */
+            box-sizing: border-box; /* Bao gồm padding và border trong chiều rộng và chiều cao */
+            background-color: #0F172B;
+            color: #F1F8FF;
+        }
+        
+        /* Bỏ chiều rộng cố định của các phần tử con bên trong footer */
+        .footer .container-fluid,
+        .footer .row,
+        .footer .col-md-6 {
+            width: auto; /* Điều chỉnh chiều rộng tự động */
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+/*** Button ***/
+.btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: background-color var(--transition-duration), transform var(--transition-duration);
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+    color: #FFFFFF;
+    background-color: var(--primary);
+    border: none;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-secondary:hover {
+    background-color: #e0a100;
+    transform: translateY(-2px);
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 2px;
+}
+
+/*** Navbar ***/
+.navbar-dark .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Tăng khoảng cách giữa các liên kết */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    margin-left: 15px; /* Giảm margin-left từ 25px xuống 15px */
+    padding: 15px 0; /* Giảm padding trên và dưới từ 35px xuống 15px */
+    font-size: 15px;
+    color: var(--light) !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: none;
+    transition: color var(--transition-duration), transform var(--transition-duration);
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 10px 0; /* Giảm padding khi sticky */
+}
+
+/* Áp dụng hiệu ứng chỉ cho hover */
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary) !important;
+    transform: translateY(-5px);
+}
+
+/* Áp dụng màu sắc cho trạng thái active mà không dịch chuyển */
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+    transform: none; /* Loại bỏ transform để tránh dịch chuyển */
+}
+
+.navbar-dark .navbar-brand img {
+    max-height: 60px;
+    transition: max-height var(--transition-duration);
+}
+
+.sticky-top.navbar-dark .navbar-brand img {
+    max-height: 45px;
+}
+
+@media (max-width: 991.98px) {
+    .sticky-top.navbar-dark {
+        position: relative;
+    }
+
+    .navbar-dark .navbar-collapse {
+        margin-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-dark .navbar-nav .nav-link,
+    .sticky-top.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        margin-left: 0;
+    }
+
+    .navbar-dark .navbar-brand img {
+        max-height: 45px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-dark {
+        position: fixed; /* Đặt fixed thay vì absolute */
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background: var(--dark) !important; /* Đặt nền cho Navbar khi cố định */
+    }
+
+    .sticky-top.navbar-dark {
+        background: var(--dark) !important; /* Đảm bảo nền khi sticky */
+    }
+}
+
+/*** Hero Header ***/
+.hero-header {
+    background: linear-gradient(rgba(15, 23, 43, 0.9), rgba(15, 23, 43, 0.9)), url(../img/bg-hero.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-header img {
+    animation: imgRotate 50s linear infinite;
+}
+
+@keyframes imgRotate { 
+    100% { 
+        transform: rotate(360deg); 
+    } 
+}
+
+/* Điều chỉnh nội dung Hero Header để sát lề */
+.container-fluid.my-5.py-5 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (max-width: 767.98px) {
+    .hero-header h1.display-3 {
+        font-size: 2.5rem;
+    }
+
+    .hero-header p {
+        font-size: 1rem;
+    }
+}
+
+/*** Section Title ***/
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::before,
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: 45px;
+    height: 2px;
+    top: 50%;
+    background: var(--primary);
+    transition: all var(--transition-duration);
+}
+
+.section-title::before {
+    left: -55px;
+    transform: translateY(-50%);
+}
+
+.section-title::after {
+    right: -55px;
+    transform: translateY(-50%);
+}
+
+.section-title.text-start::before,
+.section-title.text-end::after {
+    display: none;
+}
+
+/*** Service ***/
+.service-item {
+    box-shadow: var(--box-shadow);
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.service-item:hover {
+    background: var(--primary);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.service-item * {
+    transition: color var(--transition-duration);
+}
+
+.service-item:hover * {
+    color: var(--light) !important;
+}
+
+/*** Food Menu ***/
+.nav-pills .nav-item .active {
+    border-bottom: 2px solid var(--primary);
+}
+
+/*** Youtube Video ***/
+.video {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    background: linear-gradient(rgba(15, 23, 43, 0.1), rgba(15, 23, 43, 0.1)), url(../img/video.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.video .btn-play {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-sizing: content-box;
+    display: block;
+    width: 32px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    padding: 18px 20px 18px 28px;
+    cursor: pointer;
+    transition: transform var(--transition-duration);
+}
+
+.video .btn-play:hover {
+    transform: translateX(-50%) translateY(-50%) scale(1.05);
+}
+
+.video .btn-play:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: pulse-border 1500ms ease-out infinite;
+}
+
+.video .btn-play:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    border-radius: 50%;
+    transition: all 200ms;
+}
+
+.video .btn-play img {
+    position: relative;
+    z-index: 3;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.video .btn-play span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-left: 32px solid var(--dark);
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+}
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+#videoModal {
+    z-index: 99999;
+}
+
+#videoModal .modal-dialog {
+    position: relative;
+    max-width: 800px;
+    margin: 60px auto 0 auto;
+}
+
+#videoModal .modal-body {
+    position: relative;
+    padding: 0px;
+}
+
+#videoModal .close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 0px;
+    top: -30px;
+    z-index: 999;
+    font-size: 30px;
+    font-weight: normal;
+    color: #FFFFFF;
+    background: #000000;
+    opacity: 1;
+}
+
+/*** Team ***/
+.team-item {
+    box-shadow: var(--box-shadow);
+    height: calc(100% - 38px);
+    transition: height var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.team-item img {
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.team-item:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-item:hover {
+    height: 100%;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.team-item .btn {
+    border-radius: 38px 38px 0 0;
+}
+
+/*** Testimonial ***/
+.testimonial-carousel .owl-item .testimonial-item,
+.testimonial-carousel .owl-item.center .testimonial-item * {
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item * {
+    color: var(--light) !important;
+}
+
+.testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #CCCCCC;
+    border-radius: 15px;
+    transition: background-color var(--transition-duration), border-color var(--transition-duration);
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+/*** Footer ***/
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    transition: color var(--transition-duration), background-color var(--transition-duration);
+}
+
+.footer .btn.btn-social:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: letter-spacing var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, 0.1);
+}
+
+.footer .copyright a {
+    color: var(--light);
+}
+
+.footer .footer-menu a {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .footer-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
+
+/*** Custom CSS for Most Popular Items ***/
+
+/* Đảm bảo tất cả các hình ảnh trong menu có cùng kích thước */
+.menu-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* Giữ tỷ lệ hình ảnh và cắt bớt nếu cần */
+    border-radius: 10px; /* Làm tròn góc hình ảnh */
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+/* Đảm bảo rằng nội dung văn bản trong menu đều cao nhau */
+.w-100.d-flex.flex-column.text-start.ps-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    height: 80px; /* Bằng với chiều cao của hình ảnh */
+}
+
+/* Định dạng tiêu đề và mô tả */
+.w-100.d-flex.flex-column.text-start.ps-4 h5 {
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+    color: var(--dark);
+    font-weight: 700;
+    display: flex; /* Sử dụng flexbox cho h5 */
+    justify-content: space-between; /* Căn giữa các phần tử */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.w-100.d-flex.flex-column.text-start.ps-4 small {
+    font-size: 0.9rem;
+    color: var(--gray-dark); /* Màu xám nhạt cho mô tả */
+}
+
+/* Hiệu ứng hover cho menu-item */
+.menu-item {
+    position: relative;
+    overflow: hidden; /* Ẩn phần overlay khi hover */
+    cursor: pointer;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.menu-item:hover {
+    background-color: #ffffff; /* Đổi nền thành màu trắng khi hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Bóng đổ mạnh hơn */
+}
+
+.menu-item:hover img {
+    transform: scale(1.15); /* Phóng to hình ảnh lên 15% khi hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bóng đổ cho hình ảnh */
+}
+
+/* Overlay màu khi hover */
+.menu-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(254, 161, 22, 0.2); /* Lớp phủ màu với độ trong suốt */
+    opacity: 0;
+    transition: opacity var(--transition-duration);
+}
+
+.menu-item:hover::after {
+    opacity: 1;
+}
+
+/* Nút "View Details" xuất hiện khi hover */
+.btn-view-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    display: none;
+    padding: 10px 20px;
+    background: var(--dark);
+    color: var(--light);
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background var(--transition-duration), transform var(--transition-duration), opacity var(--transition-duration);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-item:hover .btn-view-details {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.btn-view-details:hover {
+    background: var(--primary);
+    transform: translate(-50%, -50%) scale(1.05);
+    animation: shake 0.5s;
+}
+
+/* Keyframes cho hiệu ứng lắc */
+@keyframes shake {
+    0% { transform: translate(-50%, -50%) scale(1.05) rotate(0deg); }
+    25% { transform: translate(-50%, -50%) scale(1.05) rotate(5deg); }
+    50% { transform: translate(-50%, -50%) scale(1.05) rotate(-5deg); }
+    75% { transform: translate(-50%, -50%) scale(1.05) rotate(5deg); }
+    100% { transform: translate(-50%, -50%) scale(1.05) rotate(0deg); }
+}
+
+/* Thêm hiệu ứng cho các đề mục trong nav-pills */
+.nav-pills .nav-item .nav-link {
+    position: relative;
+    transition: color var(--transition-duration), transform var(--transition-duration);
+}
+
+.nav-pills .nav-item .nav-link:hover {
+    color: var(--primary) !important;
+    transform: translateY(-5px);
+}
+
+.nav-pills .nav-item .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    left: 50%;
+    bottom: 0;
+    transition: width var(--transition-duration), left var(--transition-duration);
+}
+
+.nav-pills .nav-item .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Responsive Adjustments for Menu Items */
+@media (max-width: 767.98px) {
+    .w-100.d-flex.flex-column.text-start.ps-4 {
+        height: auto;
+    }
+
+    .menu-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .w-100.d-flex.flex-column.text-start.ps-4 h5 {
+        font-size: 1rem;
+    }
+
+    .w-100.d-flex.flex-column.text-start.ps-4 small {
+        font-size: 0.8rem;
+    }
+
+    .btn-view-details {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+
+    /* Adjust modal carousel images on small screens */
+    #menuImagesCarousel .carousel-item img {
+        max-height: 250px;
+    }
+
+    /* Adjust modal text sizes */
+    #menuDetailPrice {
+        font-size: 1.2rem;
+    }
+
+    .rating {
+        font-size: 1rem;
+    }
+}
+
+/*** Custom CSS for Menu Detail Modal ***/
+
+/* Định dạng carousel hình ảnh */
+#menuImagesCarousel .carousel-item img {
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-duration);
+}
+
+/* Định dạng tiêu đề và mô tả */
+#menuDetailName {
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#menuDetailDescription {
+    color: var(--gray-dark);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+#menuDetailPrice {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Định dạng đánh giá */
+.rating {
+    color: #ffc107; /* Màu vàng cho sao */
+    font-size: 1.2rem;
+}
+
+/* Định dạng nút đặt hàng */
+.modal-body .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.modal-body .btn-primary:hover {
+    background-color: #e0a100;
+    border-color: #d18b00;
+}
+
+/* Định dạng nút chia sẻ xã hội trong modal */
+.modal-footer .social-share a {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    transition: color var(--transition-duration), background-color var(--transition-duration);
+}
+
+.modal-footer .social-share a:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+/* Định dạng nhận xét khách hàng */
+.testimonial-item {
+    background-color: #f8f9fa;
+    border-left: 5px solid var(--primary);
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.testimonial-item:hover {
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-item p {
+    font-style: italic;
+    color: #333333;
+}
+
+.testimonial-item small {
+    color: #555555;
+}
+
+/* Định dạng video trong modal */
+.ratio {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Tỷ lệ 16:9 */
+    height: 0;
+}
+
+.ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Thêm khoảng cách và cải thiện bố cục */
+.modal-body .row {
+    margin-bottom: 20px;
+}
+
+.modal-body h3 {
+    margin-bottom: 10px;
+}
+
+.modal-body .rating {
+    display: flex;
+    align-items: center;
+}
+
+/* Định dạng toast notification */
+.toast-container {
+    z-index: 1055; /* Đảm bảo toast nằm trên modal */
+}
+
+.toast {
+    opacity: 0;
+    transition: opacity var(--transition-duration);
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+/*** Additional Adjustments ***/
+
+/* Remove horizontal padding/margins from footer */
+.footer .row.g-5 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.footer .col-lg-3,
+.footer .col-md-6 {
+    padding-left: 0 !important; /* Ensure no padding */
+    padding-right: 0 !important;
+}
