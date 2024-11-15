@@ -1213,18 +1213,18 @@ body {
   transform: scale(1.05);
 }
 
-/* Tùy Chỉnh Styles cho Form Tìm Kiếm */
-.navbar .form-control {
-  border-radius: 20px;
-  transition: width 0.4s ease-in-out;
-}
+    /* Tùy Chỉnh Styles cho Form Tìm Kiếm */
+    .navbar .form-control {
+      border-radius: 20px;
+      transition: width 0.4s ease-in-out;
+    }
 
-.navbar .form-control:focus {
-  width: 250px;
-}
+    .navbar .form-control:focus {
+      width: 250px;
+    }
 
-@media (max-width: 992px) {
-  .navbar .form-control {
-    width: 100%;
-  }
-}
+    @media (max-width: 992px) {
+      .navbar .form-control {
+        width: 100%;
+      }
+    }
