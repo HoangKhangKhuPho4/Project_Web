@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi"> <!-- Thay đổi lang từ en sang vi -->
   <head>
     <meta charset="utf-8" />
     <title>Restoran - Bootstrap Restaurant Template</title>
@@ -56,8 +56,6 @@
         --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         --transition-duration: 0.3s;
         --border-radius: 10px;
-        --news-bg-color: #fea116; /* Màu nền cho Tin Mới */
-        --policy-bg-color: #0f172b; /* Màu nền cho Chính sách */
       }
 
       /* 2. Các quy tắc CSS tùy chỉnh sử dụng biến màu */
@@ -67,72 +65,104 @@
         background-color: var(--gray-light);
       }
 
-      .custom-breadcrumb {
-        margin-left: -20px; /* Giảm khoảng cách lề trái */
-      }
-
       .sidebar {
         padding: 20px;
         background-color: var(--background-color);
         border-radius: var(--border-radius);
       }
+
       .news-section {
-        background-color: var(--news-bg-color);
-        color: var(--light);
+        background-color: var(--primary);
+        color: var(--dark);
         padding: 10px;
         border-radius: var(--border-radius);
         text-align: center;
         margin-bottom: 20px;
       }
+
       .news-title {
         margin: 0;
         font-size: 18px;
         font-weight: bold;
       }
+
       .news-list {
         list-style-type: none;
         padding: 0;
         margin: 10px 0;
         border-top: 1px solid var(--gray-dark);
       }
+
       .news-list li {
         padding: 10px;
         border-bottom: 1px solid var(--gray-dark);
       }
+
       .news-list li a {
         color: var(--text-color);
         text-decoration: none;
       }
+
       .news-list li a:hover {
-        color: var(--bs-success);
+        color: var(--primary);
         text-decoration: underline;
       }
+
       .policy-section {
-        background-color: var(--news-bg-color);
-        color: #000000; /* Màu đen cho cả chữ và icon */
-        padding: 10px;
+        background-color: var(--primary);
+        color: var(--dark);
+        padding: 15px;
         border-radius: var(--border-radius);
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        text-align: center;
         font-weight: bold;
         display: flex;
-        align-items: center; /* Canh icon và nội dung ngang hàng nhau */
-        justify-content: flex-start; /* Căn lề trái cho đều */
+        align-items: center;
+        justify-content: center;
       }
 
-      .policy-section:hover {
-        background-color: var(--hover-bg-color);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px);
-      }
-
-      .policy-section:hover i,
-      .policy-section:hover {
-        color: var(--hover-text-color); /* Đổi màu chữ và icon khi hover */
-      }
       .policy-section i {
-        margin-right: 15px; /* Khoảng cách giữa icon và văn bản */
-        font-size: 24px; /* Kích thước của icon */
-        color: #000000; /* Màu đen cho icon */
+        margin-right: 10px;
+        font-size: 20px;
+      }
+
+      /* CSS cho Breadcrumb Tùy Chỉnh */
+      .custom-breadcrumb {
+        background-color: #e0a100; /* Màu nền */
+        border: 1px solid #d18b00; /* Màu viền */
+        padding: 10px 20px; /* Khoảng đệm */
+        border-radius: var(--border-radius); /* Bo góc */
+        display: inline-block; /* Để chiều rộng tự động phù hợp nội dung */
+      }
+
+      /* Đối với Breadcrumb trong Hero (sử dụng <ol>) */
+      .custom-breadcrumb ol {
+        background-color: #e0a100;
+        border: 1px solid #d18b00;
+        padding: 10px 20px;
+        border-radius: var(--border-radius);
+      }
+
+      .custom-breadcrumb .breadcrumb-item a {
+        color: var(--dark); /* Màu chữ các liên kết */
+      }
+
+      .custom-breadcrumb .breadcrumb-item.active {
+        color: var(--dark); /* Màu chữ cho phần hiện tại */
+      }
+
+      /* Đối với Breadcrumb trong Nội Dung Chính (sử dụng <div>) */
+      .custom-breadcrumb a {
+        color: var(--dark); /* Màu chữ các liên kết */
+        text-decoration: none;
+      }
+
+      .custom-breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .custom-breadcrumb span {
+        color: var(--dark); /* Màu chữ cho phần không phải liên kết */
       }
 
       .breadcrumb {
@@ -140,13 +170,16 @@
         font-size: 18px;
         color: var(--bs-secondary);
       }
+
       .breadcrumb a {
-        color: var(--primary); /* Áp dụng màu sắc chính cho liên kết */
+        color: var(--bs-info);
         text-decoration: none;
       }
+
       .breadcrumb a:hover {
         text-decoration: underline;
       }
+
       .divider {
         border-top: 1px solid var(--gray-dark);
         margin-top: 10px;
@@ -154,11 +187,12 @@
 
       /* Đảm bảo các liên kết trong footer sử dụng biến màu */
       .footer a {
-        color: var(--light); /* Màu chữ ban đầu */
+        color: var(--light);
         transition: color var(--transition-duration);
       }
+
       .footer a:hover {
-        color: var(--primary); /* Màu chữ khi hover */
+        color: var(--primary);
         text-decoration: underline;
       }
 
@@ -169,6 +203,7 @@
         transition: background-color var(--transition-duration),
           color var(--transition-duration);
       }
+
       .footer .btn-social:hover {
         background-color: var(--primary);
         color: #ffffff;
@@ -176,79 +211,21 @@
 
       /* Đảm bảo nút LOGIN sử dụng biến màu */
       .btn-primary {
-        background-color: var(--bs-primary);
-        border-color: var(--bs-primary);
+        background-color: var(--primary);
+        border-color: var(--primary);
       }
+
       .btn-primary:hover {
-        background-color: #e0a100; /* Bạn có thể điều chỉnh nếu cần */
+        background-color: #e0a100;
         border-color: #d18b00;
       }
 
       /* Đảm bảo spinner sử dụng biến màu */
       .spinner-border.text-primary {
-        color: var(--bs-primary);
+        color: var(--primary);
       }
 
       /* Các quy tắc CSS khác nếu cần... */
-      /* Tùy chỉnh kích thước đề mục */
-      h1 {
-        font-size: 2.5rem; /* Kích thước của h1 */
-        margin-bottom: 20px;
-      }
-
-      h2 {
-        font-size: 2.25rem; /* Kích thước của h2 */
-        margin-top: 25px;
-        margin-bottom: 15px;
-      }
-
-      h3 {
-        font-size: 1.875rem; /* Kích thước của h3 */
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-
-      h4 {
-        font-size: 1.625rem; /* Kích thước của h4 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-
-      h5 {
-        font-size: 1.375rem; /* Kích thước của h5 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-
-      h6 {
-        font-size: 1.125rem; /* Kích thước của h6 */
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
-
-      /* Khoảng cách và căn chỉnh cho các thẻ heading */
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        line-height: 1.4;
-      }
-
-      /* Các khoảng cách bổ sung để tạo sự cân đối giữa các phần tử */
-      p {
-        margin-bottom: 15px;
-        line-height: 1.6;
-      }
-
-      ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
-      }
-
-      ul li {
-        margin-bottom: 10px;
-      }
     </style>
   </head>
 
@@ -310,45 +287,43 @@
 
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4">
-              <a href="index.html" class="nav-item nav-link active">Home</a>
+              <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
               <a href="blog.html" class="nav-item nav-link">Blog</a>
-              <a href="service.html" class="nav-item nav-link">Service</a>
-              <a href="menu.html" class="nav-item nav-link">Menu</a>
+              <a href="service.html" class="nav-item nav-link">Dịch vụ</a>
+              <a href="menu.html" class="nav-item nav-link">Thực đơn</a>
               <div class="nav-item dropdown">
                 <a
                   href="#"
                   class="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
-                  >Pages</a
+                  >Trang</a
                 >
                 <div class="dropdown-menu m-0">
-                  <a href="booking.html" class="dropdown-item">Booking</a>
-                  <a href="team.html" class="dropdown-item">Our Team</a>
-                  <a href="testimonial.html" class="dropdown-item"
-                    >Testimonial</a
-                  >
+                  <a href="booking.html" class="dropdown-item">Đặt chỗ</a>
+                  <a href="team.html" class="dropdown-item">Đội ngũ</a>
+                  <a href="testimonial.html" class="dropdown-item">Phản hồi</a>
                 </div>
               </div>
-              <a href="contact.html" class="nav-item nav-link">Contact</a>
+              <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
             </div>
-            <a href="login.html" class="btn btn-primary py-2 px-4">LOGIN</a>
+            <a href="login.html" class="btn btn-primary py-2 px-4">Đăng nhập</a>
           </div>
         </nav>
 
         <div class="container-xxl py-5 bg-dark hero-header mb-5">
           <div class="container text-center my-5 pt-5 pb-4">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
-              Services
+              Dịch vụ
             </h1>
             <nav aria-label="breadcrumb">
-              <ol class="breadcrumb justify-content-center text-uppercase">
-                <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                <li class="breadcrumb-item"><a href="#">PAGES</a></li>
+              <ol class="breadcrumb custom-breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">Điều khoản dịch vụ</a></li>
                 <li
                   class="breadcrumb-item text-white active"
                   aria-current="page"
                 >
-                  SERVICES
+                  Dịch vụ
                 </li>
               </ol>
             </nav>
@@ -362,15 +337,10 @@
           <div class="col-md-8">
             <div class="container mt-3">
               <div class="breadcrumb custom-breadcrumb">
-                <span>Trang chủ</span> //
-                <a href="#" class="highlighted-breadcrumb"
-                  >Điều khoản dịch vụ</a
-                >
+                <span>Trang chủ</span> // <a href="#">Điều khoản dịch vụ</a>
               </div>
-
               <div class="divider"></div>
             </div>
-
             <h2>Điều khoản dịch vụ</h2>
             <p>
               Khi quý khách truy cập vào trang web của chúng tôi có nghĩa là quý
@@ -473,7 +443,7 @@
             </p>
             <p>
               + Thông báo cho chúng tôi về việc hủy giao dịch qua đường dây nóng
-              0567.649.206
+              0964.637.129
             </p>
             <p>
               + Trả lại hàng hoá đã nhận nhưng chưa sử dụng hoặc hưởng bất kỳ
@@ -488,27 +458,20 @@
               </div>
               <ul class="news-list">
                 <li>
-                  <a href="#">
-                    Cách nhận biết chuối chín tự nhiên và chuối chín do những
-                    hóa chất
-                  </a>
+                  <a href="#">Cách nhận biết chuối chín tự nhiên và chuối chín do những hóa chất</a>
                 </li>
-                <li>
-                  <a href="#">Những người này không nên ăn dứa trong đông</a>
-                </li>
+                <li><a href="#">Những người này không nên ăn dứa trong đông</a></li>
                 <li><a href="#">3 bí quyết lựa chọn thực phẩm sạch</a></li>
               </ul>
-
-              <!-- Thêm thẻ <a> cho mỗi mục chính sách -->
-              <a href="gift-policy.html" class="policy-section">
+              <div class="policy-section">
                 <i class="fas fa-gift"></i>CHÍNH SÁCH QUÀ TẶNG
-              </a>
-              <a href="service.html" class="policy-section">
+              </div>
+              <div class="policy-section">
                 <i class="fas fa-truck"></i>CHÍNH SÁCH VẬN CHUYỂN
-              </a>
-              <a href="purchase-policy.html" class="policy-section">
+              </div>
+              <div class="policy-section">
                 <i class="fas fa-shopping-basket"></i>CHÍNH SÁCH MUA HÀNG
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -525,19 +488,19 @@
               <h4
                 class="section-title ff-secondary text-start text-primary fw-normal mb-4"
               >
-                Company
+                Công ty
               </h4>
-              <a class="btn btn-link" href="#">About Us</a>
-              <a class="btn btn-link" href="#">Contact Us</a>
-              <a class="btn btn-link" href="#">Reservation</a>
-              <a class="btn btn-link" href="#">Privacy Policy</a>
-              <a class="btn btn-link" href="#">Terms & Condition</a>
+              <a class="btn btn-link" href="#">Về chúng tôi</a>
+              <a class="btn btn-link" href="#">Liên hệ</a>
+              <a class="btn btn-link" href="#">Đặt chỗ</a>
+              <a class="btn btn-link" href="#">Chính sách bảo mật</a>
+              <a class="btn btn-link" href="#">Điều khoản & Điều kiện</a>
             </div>
             <div class="col-lg-3 col-md-6">
               <h4
                 class="section-title ff-secondary text-start text-primary fw-normal mb-4"
               >
-                Contact
+                Liên hệ
               </h4>
               <p class="mb-2">
                 <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York,
@@ -568,33 +531,33 @@
               <h4
                 class="section-title ff-secondary text-start text-primary fw-normal mb-4"
               >
-                Opening
+                Giờ mở cửa
               </h4>
-              <h5 class="text-light fw-normal">Monday - Saturday</h5>
+              <h5 class="text-light fw-normal">Thứ Hai - Thứ Bảy</h5>
               <p>09AM - 09PM</p>
-              <h5 class="text-light fw-normal">Sunday</h5>
+              <h5 class="text-light fw-normal">Chủ Nhật</h5>
               <p>10AM - 08PM</p>
             </div>
             <div class="col-lg-3 col-md-6">
               <h4
                 class="section-title ff-secondary text-start text-primary fw-normal mb-4"
               >
-                Newsletter
+                Bản tin
               </h4>
               <p>
-                Pain is just right, sit dolor sit amet. Clita ipsum elitr is.
+                Đăng ký nhận bản tin của chúng tôi để cập nhật những tin tức và ưu đãi mới nhất.
               </p>
               <div class="position-relative mx-auto" style="max-width: 400px">
                 <input
                   class="form-control border-primary w-100 py-3 ps-4 pe-5"
                   type="email"
-                  placeholder="Your email"
+                  placeholder="Email của bạn"
                 />
                 <button
                   type="button"
                   class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
                 >
-                  SignUp
+                  Đăng ký
                 </button>
               </div>
             </div>
@@ -604,15 +567,15 @@
           <div class="copyright">
             <div class="row">
               <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                © Your Restaurant Name. All Rights Reserved. Crafted with ❤️ by
-                Group 15.
+                © Tên Nhà Hàng Của Bạn. Bảo lưu mọi quyền. Được thiết kế với ❤️ bởi
+                Nhóm 15.
               </div>
               <div class="col-md-6 text-center text-md-end">
                 <div class="footer-menu">
-                  <a href="#">Home</a>
-                  <a href="#">Cookies</a>
-                  <a href="#">Help</a>
-                  <a href="#">FAQs</a>
+                  <a href="#">Trang chủ</a>
+                  <a href="#">Chính sách cookie</a>
+                  <a href="#">Trợ giúp</a>
+                  <a href="#">Câu hỏi thường gặp</a>
                 </div>
               </div>
             </div>

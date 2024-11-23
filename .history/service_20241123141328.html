@@ -58,6 +58,7 @@
         --border-radius: 10px;
         --news-bg-color: #fea116; /* Màu nền cho Tin Mới */
         --policy-bg-color: #0f172b; /* Màu nền cho Chính sách */
+       
       }
 
       /* 2. Các quy tắc CSS tùy chỉnh sử dụng biến màu */
@@ -67,17 +68,13 @@
         background-color: var(--gray-light);
       }
 
-      .custom-breadcrumb {
-        margin-left: -20px; /* Giảm khoảng cách lề trái */
-      }
-
       .sidebar {
         padding: 20px;
         background-color: var(--background-color);
         border-radius: var(--border-radius);
       }
       .news-section {
-        background-color: var(--news-bg-color);
+        background-color: var(--bs-success);
         color: var(--light);
         padding: 10px;
         border-radius: var(--border-radius);
@@ -108,40 +105,28 @@
         text-decoration: underline;
       }
       .policy-section {
-        background-color: var(--news-bg-color);
-        color: #000000; /* Màu đen cho cả chữ và icon */
-        padding: 10px;
+        background-color: var(--bs-success);
+        color: var(--light);
+        padding: 15px;
         border-radius: var(--border-radius);
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        text-align: center;
         font-weight: bold;
         display: flex;
-        align-items: center; /* Canh icon và nội dung ngang hàng nhau */
-        justify-content: flex-start; /* Căn lề trái cho đều */
-      }
-
-      .policy-section:hover {
-        background-color: var(--hover-bg-color);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px);
-      }
-
-      .policy-section:hover i,
-      .policy-section:hover {
-        color: var(--hover-text-color); /* Đổi màu chữ và icon khi hover */
+        align-items: center;
+        justify-content: center;
       }
       .policy-section i {
-        margin-right: 15px; /* Khoảng cách giữa icon và văn bản */
-        font-size: 24px; /* Kích thước của icon */
-        color: #000000; /* Màu đen cho icon */
+        margin-right: 10px;
+        font-size: 20px;
       }
-
       .breadcrumb {
         font-family: "Times New Roman", Times, serif;
         font-size: 18px;
         color: var(--bs-secondary);
       }
       .breadcrumb a {
-        color: var(--primary); /* Áp dụng màu sắc chính cho liên kết */
+        color: var(--bs-info);
         text-decoration: none;
       }
       .breadcrumb a:hover {
@@ -190,65 +175,7 @@
       }
 
       /* Các quy tắc CSS khác nếu cần... */
-      /* Tùy chỉnh kích thước đề mục */
-      h1 {
-        font-size: 2.5rem; /* Kích thước của h1 */
-        margin-bottom: 20px;
-      }
 
-      h2 {
-        font-size: 2.25rem; /* Kích thước của h2 */
-        margin-top: 25px;
-        margin-bottom: 15px;
-      }
-
-      h3 {
-        font-size: 1.875rem; /* Kích thước của h3 */
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-
-      h4 {
-        font-size: 1.625rem; /* Kích thước của h4 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-
-      h5 {
-        font-size: 1.375rem; /* Kích thước của h5 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-
-      h6 {
-        font-size: 1.125rem; /* Kích thước của h6 */
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
-
-      /* Khoảng cách và căn chỉnh cho các thẻ heading */
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        line-height: 1.4;
-      }
-
-      /* Các khoảng cách bổ sung để tạo sự cân đối giữa các phần tử */
-      p {
-        margin-bottom: 15px;
-        line-height: 1.6;
-      }
-
-      ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
-      }
-
-      ul li {
-        margin-bottom: 10px;
-      }
     </style>
   </head>
 
@@ -342,13 +269,13 @@
             </h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center text-uppercase">
-                <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                <li class="breadcrumb-item"><a href="#">PAGES</a></li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
                 <li
                   class="breadcrumb-item text-white active"
                   aria-current="page"
                 >
-                  SERVICES
+                  Service
                 </li>
               </ol>
             </nav>
@@ -361,16 +288,11 @@
         <div class="row">
           <div class="col-md-8">
             <div class="container mt-3">
-              <div class="breadcrumb custom-breadcrumb">
-                <span>Trang chủ</span> //
-                <a href="#" class="highlighted-breadcrumb"
-                  >Điều khoản dịch vụ</a
-                >
+              <div class="breadcrumb">
+                <span>Trang chủ</span> // <a href="#">Điều khoản dịch vụ</a>
               </div>
-
               <div class="divider"></div>
             </div>
-
             <h2>Điều khoản dịch vụ</h2>
             <p>
               Khi quý khách truy cập vào trang web của chúng tôi có nghĩa là quý
@@ -473,7 +395,7 @@
             </p>
             <p>
               + Thông báo cho chúng tôi về việc hủy giao dịch qua đường dây nóng
-              0567.649.206
+              0964.637.129
             </p>
             <p>
               + Trả lại hàng hoá đã nhận nhưng chưa sử dụng hoặc hưởng bất kỳ
@@ -488,27 +410,20 @@
               </div>
               <ul class="news-list">
                 <li>
-                  <a href="#">
-                    Cách nhận biết chuối chín tự nhiên và chuối chín do những
-                    hóa chất
-                  </a>
+                  <a href="#">Cách nhận biết chuối chín tự nhiên và chuối chín do những hóa chất</a>
                 </li>
-                <li>
-                  <a href="#">Những người này không nên ăn dứa trong đông</a>
-                </li>
+                <li><a href="#">Những người này không nên ăn dứa trong đông</a></li>
                 <li><a href="#">3 bí quyết lựa chọn thực phẩm sạch</a></li>
               </ul>
-
-              <!-- Thêm thẻ <a> cho mỗi mục chính sách -->
-              <a href="gift-policy.html" class="policy-section">
+              <div class="policy-section">
                 <i class="fas fa-gift"></i>CHÍNH SÁCH QUÀ TẶNG
-              </a>
-              <a href="service.html" class="policy-section">
+              </div>
+              <div class="policy-section">
                 <i class="fas fa-truck"></i>CHÍNH SÁCH VẬN CHUYỂN
-              </a>
-              <a href="purchase-policy.html" class="policy-section">
+              </div>
+              <div class="policy-section">
                 <i class="fas fa-shopping-basket"></i>CHÍNH SÁCH MUA HÀNG
-              </a>
+              </div>
             </div>
           </div>
         </div>

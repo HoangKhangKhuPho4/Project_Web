@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="utf-8" />
-    <title>Restoran - Bootstrap Restaurant Template</title>
+    <title>Restoran - Hướng dẫn</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -56,8 +56,6 @@
         --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         --transition-duration: 0.3s;
         --border-radius: 10px;
-        --news-bg-color: #fea116; /* Màu nền cho Tin Mới */
-        --policy-bg-color: #0f172b; /* Màu nền cho Chính sách */
       }
 
       /* 2. Các quy tắc CSS tùy chỉnh sử dụng biến màu */
@@ -65,10 +63,7 @@
         font-family: "Nunito", sans-serif;
         color: var(--text-color);
         background-color: var(--gray-light);
-      }
-
-      .custom-breadcrumb {
-        margin-left: -20px; /* Giảm khoảng cách lề trái */
+        line-height: 1.8; /* Tăng line-height để cải thiện khả năng đọc */
       }
 
       .sidebar {
@@ -76,77 +71,78 @@
         background-color: var(--background-color);
         border-radius: var(--border-radius);
       }
+
       .news-section {
-        background-color: var(--news-bg-color);
+        background-color: var(--bs-success);
         color: var(--light);
         padding: 10px;
         border-radius: var(--border-radius);
         text-align: center;
         margin-bottom: 20px;
       }
+
       .news-title {
         margin: 0;
-        font-size: 18px;
+        font-size: 1.25rem; /* Bootstrap fs-5 */
         font-weight: bold;
       }
+
       .news-list {
         list-style-type: none;
         padding: 0;
         margin: 10px 0;
         border-top: 1px solid var(--gray-dark);
       }
+
       .news-list li {
         padding: 10px;
         border-bottom: 1px solid var(--gray-dark);
       }
+
       .news-list li a {
         color: var(--text-color);
         text-decoration: none;
       }
+
       .news-list li a:hover {
         color: var(--bs-success);
         text-decoration: underline;
       }
+
       .policy-section {
-        background-color: var(--news-bg-color);
-        color: #000000; /* Màu đen cho cả chữ và icon */
-        padding: 10px;
+        background-color: var(--bs-success);
+        color: var(--light);
+        padding: 15px;
         border-radius: var(--border-radius);
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        text-align: center;
         font-weight: bold;
         display: flex;
-        align-items: center; /* Canh icon và nội dung ngang hàng nhau */
-        justify-content: flex-start; /* Căn lề trái cho đều */
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem; /* Giảm kích thước chữ */
       }
 
-      .policy-section:hover {
-        background-color: var(--hover-bg-color);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px);
-      }
-
-      .policy-section:hover i,
-      .policy-section:hover {
-        color: var(--hover-text-color); /* Đổi màu chữ và icon khi hover */
-      }
       .policy-section i {
-        margin-right: 15px; /* Khoảng cách giữa icon và văn bản */
-        font-size: 24px; /* Kích thước của icon */
-        color: #000000; /* Màu đen cho icon */
+        margin-right: 10px;
+        font-size: 1.2rem; /* Tăng kích thước biểu tượng */
       }
 
       .breadcrumb {
         font-family: "Times New Roman", Times, serif;
-        font-size: 18px;
+        font-size: 1rem; /* Giảm kích thước chữ breadcrumb */
         color: var(--bs-secondary);
       }
+
       .breadcrumb a {
-        color: var(--primary); /* Áp dụng màu sắc chính cho liên kết */
+        color: var(--bs-info);
         text-decoration: none;
       }
+
       .breadcrumb a:hover {
         text-decoration: underline;
       }
+
       .divider {
         border-top: 1px solid var(--gray-dark);
         margin-top: 10px;
@@ -157,6 +153,7 @@
         color: var(--light); /* Màu chữ ban đầu */
         transition: color var(--transition-duration);
       }
+
       .footer a:hover {
         color: var(--primary); /* Màu chữ khi hover */
         text-decoration: underline;
@@ -169,6 +166,7 @@
         transition: background-color var(--transition-duration),
           color var(--transition-duration);
       }
+
       .footer .btn-social:hover {
         background-color: var(--primary);
         color: #ffffff;
@@ -179,6 +177,7 @@
         background-color: var(--bs-primary);
         border-color: var(--bs-primary);
       }
+
       .btn-primary:hover {
         background-color: #e0a100; /* Bạn có thể điều chỉnh nếu cần */
         border-color: #d18b00;
@@ -189,65 +188,45 @@
         color: var(--bs-primary);
       }
 
-      /* Các quy tắc CSS khác nếu cần... */
-      /* Tùy chỉnh kích thước đề mục */
-      h1 {
-        font-size: 2.5rem; /* Kích thước của h1 */
-        margin-bottom: 20px;
+      /* 3. Điều chỉnh kích thước chữ cho Hướng dẫn và các phần tử khác */
+      h1.display-3 {
+        font-size: 3rem; /* Kích thước hợp lý cho tiêu đề chính */
       }
 
       h2 {
-        font-size: 2.25rem; /* Kích thước của h2 */
-        margin-top: 25px;
-        margin-bottom: 15px;
+        font-size: 1.6rem; /* Giảm kích thước cho tiêu đề phụ */
       }
 
       h3 {
-        font-size: 1.875rem; /* Kích thước của h3 */
-        margin-top: 20px;
-        margin-bottom: 10px;
+        font-size: 1.1rem; /* Giảm kích thước cho các bước hướng dẫn để phù hợp hơn */
       }
 
-      h4 {
-        font-size: 1.625rem; /* Kích thước của h4 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-
-      h5 {
-        font-size: 1.375rem; /* Kích thước của h5 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-
-      h6 {
-        font-size: 1.125rem; /* Kích thước của h6 */
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
-
-      /* Khoảng cách và căn chỉnh cho các thẻ heading */
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        line-height: 1.4;
-      }
-
-      /* Các khoảng cách bổ sung để tạo sự cân đối giữa các phần tử */
       p {
-        margin-bottom: 15px;
-        line-height: 1.6;
-      }
-
-      ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
+        font-size: 1rem; /* Kích thước chữ đoạn văn */
       }
 
       ul li {
-        margin-bottom: 10px;
+        font-size: 1rem; /* Kích thước chữ danh sách */
+      }
+
+      /* Responsive Typography */
+      @media (max-width: 768px) {
+        h1.display-3 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.4rem;
+        }
+
+        h3 {
+          font-size: 1rem; /* Điều chỉnh kích thước cho thiết bị nhỏ hơn */
+        }
+
+        p,
+        ul li {
+          font-size: 0.95rem;
+        }
       }
     </style>
   </head>
@@ -338,17 +317,17 @@
         <div class="container-xxl py-5 bg-dark hero-header mb-5">
           <div class="container text-center my-5 pt-5 pb-4">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
-              Services
+              Hướng dẫn
             </h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center text-uppercase">
-                <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                <li class="breadcrumb-item"><a href="#">PAGES</a></li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
                 <li
                   class="breadcrumb-item text-white active"
                   aria-current="page"
                 >
-                  SERVICES
+                  Hướng dẫn
                 </li>
               </ol>
             </nav>
@@ -361,125 +340,73 @@
         <div class="row">
           <div class="col-md-8">
             <div class="container mt-3">
-              <div class="breadcrumb custom-breadcrumb">
-                <span>Trang chủ</span> //
-                <a href="#" class="highlighted-breadcrumb"
-                  >Điều khoản dịch vụ</a
-                >
+              <div class="breadcrumb">
+                <span>Trang chủ</span> // <a href="#">Hướng dẫn</a>
               </div>
-
               <div class="divider"></div>
             </div>
+            <h2>Hướng dẫn</h2>
+            <h3>
+              Bước 1: Truy cập website và lựa chọn sản phẩm cần mua để mua hàng
+            </h3>
+            <p>
+              Truy cập vào website của chúng tôi và duyệt qua các sản phẩm thực
+              phẩm mà bạn quan tâm. Chọn những món ăn mà bạn muốn mua bằng cách
+              nhấp vào sản phẩm đó.
+            </p>
 
-            <h2>Điều khoản dịch vụ</h2>
+            <h3>Bước 2: Click vào sản phẩm muốn mua</h3>
             <p>
-              Khi quý khách truy cập vào trang web của chúng tôi có nghĩa là quý
-              khách đồng ý với các điều khoản này. Trang web có quyền thay đổi,
-              chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Quy định và
-              Điều kiện sử dụng, vào bất cứ lúc nào. Các thay đổi có hiệu lực
-              ngay khi được đăng trên trang web mà không cần thông báo trước. Và
-              khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về
-              Quy định và Điều kiện được đăng tải, có nghĩa là quý khách chấp
-              nhận với những thay đổi đó.
+              Khi bạn nhấp vào sản phẩm, một cửa sổ pop-up sẽ xuất hiện với các
+              lựa chọn sau:
             </p>
-            <h3>1. Hướng dẫn sử dụng web</h3>
+            <ul>
+              <li>
+                <strong>Tiếp tục mua hàng:</strong> Bấm vào phần tiếp tục mua
+                hàng để lựa chọn thêm sản phẩm vào giỏ hàng.
+              </li>
+              <li>
+                <strong>Xem giỏ hàng:</strong> Nếu bạn muốn xem giỏ hàng để cập
+                nhật sản phẩm, bấm vào xem giỏ hàng.
+              </li>
+              <li>
+                <strong>Đặt hàng và thanh toán:</strong> Nếu bạn muốn đặt hàng
+                và thanh toán cho sản phẩm này, vui lòng bấm vào Đặt hàng và
+                thanh toán.
+              </li>
+            </ul>
+
+            <h3>Bước 3: Lựa chọn thông tin tài khoản thanh toán</h3>
             <p>
-              - Khi vào web của chúng tôi, người dùng tối thiểu phải 18 tuổi
-              hoặc truy cập dưới sự giám sát của cha mẹ hay người giám hộ hợp
-              pháp.
-            </p>
-            <p>
-              - Chúng tôi cấp giấy phép sử dụng để bạn có thể mua sắm trên web
-              trong khuôn khổ Điều khoản và Điều kiện sử dụng đã đề ra.
-            </p>
-            <p>
-              - Nghiêm cấm sử dụng bất kỳ phần nào của trang web này với mục
-              đích thương mại hoặc nhân danh bất kỳ đối tác thứ ba nào nếu không
-              được chúng tôi cho phép bằng văn bản. Nếu vi phạm bất cứ điều gì
-              trong đây, chúng tôi sẽ hủy giấy phép của bạn mà không cần báo
-              trước.
+              - Nếu bạn đã có tài khoản, vui lòng nhập thông tin tên đăng nhập
+              là email và mật khẩu vào mục đã có tài khoản trên hệ thống.
             </p>
             <p>
-              - Trang web này chỉ dùng để cung cấp thông tin sản phẩm chứ chúng
-              tôi không phải nhà sản xuất nên những nhận xét hiển thị trên web
-              là ý kiến cá nhân của khách hàng, không phải của chúng tôi.
+              - Nếu bạn chưa có tài khoản và muốn đăng ký tài khoản, vui lòng
+              điền các thông tin cá nhân để tiếp tục đăng ký tài khoản. Khi có
+              tài khoản, bạn sẽ dễ dàng theo dõi được đơn hàng của mình.
             </p>
             <p>
-              - Quý khách phải đăng ký tài khoản với thông tin xác thực về bản
-              thân và phải cập nhật nếu có bất kỳ thay đổi nào. Mỗi người truy
-              cập phải có trách nhiệm với mật khẩu, tài khoản và hoạt động của
-              mình trên web. Hơn nữa, quý khách phải thông báo cho chúng tôi
-              biết khi tài khoản bị truy cập trái phép. Chúng tôi không chịu bất
-              kỳ trách nhiệm nào, dù trực tiếp hay gián tiếp, đối với những
-              thiệt hại hoặc mất mát gây ra do quý khách không tuân thủ quy
-              định.
+              - Nếu bạn muốn mua hàng mà không cần tài khoản, vui lòng nhấp
+              chuột vào mục đặt hàng không cần tài khoản.
             </p>
+
+            <h3>Bước 4: Điền các thông tin của bạn để nhận đơn hàng</h3>
             <p>
-              - Trong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng
-              cáo từ website. Sau đó, nếu không muốn tiếp tục nhận mail, quý
-              khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng
-              trong mọi email quảng cáo.
+              Lựa chọn hình thức thanh toán và vận chuyển cho đơn hàng của mình.
+              Điền đầy đủ thông tin nhận hàng để chúng tôi có thể giao hàng đến
+              đúng địa chỉ của bạn.
             </p>
-            <h3>2. Chấp nhận đơn hàng và giá cả</h3>
+
+            <h3>Bước 5: Xem lại thông tin đặt hàng và gửi đơn hàng</h3>
             <p>
-              - Chúng tôi có quyền từ chối hoặc hủy đơn hàng của quý khách vì
-              bất kỳ lý do gì vào bất kỳ lúc nào. Chúng tôi có thể hỏi thêm về
-              số điện thoại và địa chỉ trước khi nhận đơn hàng.
+              Kiểm tra lại toàn bộ thông tin đặt hàng, điền chú thích nếu có và
+              nhấn gửi đơn hàng. Sau khi nhận được đơn hàng, đội ngũ chúng tôi
+              sẽ liên hệ bằng cách gọi điện lại để xác nhận lại đơn hàng và địa
+              chỉ của bạn.
             </p>
-            <p>
-              - Chúng tôi cam kết sẽ cung cấp thông tin giá cả chính xác nhất
-              cho người tiêu dùng. Tuy nhiên, đôi khi vẫn có sai sót xảy ra, ví
-              dụ như trường hợp giá sản phẩm không hiển thị chính xác trên trang
-              web hoặc sai giá, tùy theo từng trường hợp chúng tôi sẽ liên hệ
-              hướng dẫn hoặc thông báo hủy đơn hàng đó cho quý khách. Chúng tôi
-              cũng có quyền từ chối hoặc hủy bỏ bất kỳ đơn hàng nào dù đơn hàng
-              đó đã hay chưa được xác nhận hoặc đã thanh toán.
-            </p>
-            <h3>3. Thương hiệu và bản quyền</h3>
-            <p>
-              - Mọi quyền sở hữu trí tuệ (đã đăng ký hoặc chưa đăng ký), nội
-              dung thông tin và tất cả các thiết kế, văn bản, đồ họa, phần mềm,
-              hình ảnh, âm nhạc, âm thanh, biên dịch phần mềm, mã nguồn và phần
-              mềm đều là tài sản của chúng tôi. Toàn bộ nội dung của trang web
-              được bảo vệ bởi luật bản quyền của Việt Nam và các công ước quốc
-              tế. Bản quyền đã được bảo lưu.
-            </p>
-            <h3>4. Quyền pháp lý</h3>
-            <p>
-              - Các điều kiện, điều khoản và nội dung của trang web này được
-              điều chỉnh bởi luật pháp Việt Nam và Tòa án có thẩm quyền tại Việt
-              Nam sẽ giải quyết bất kỳ tranh chấp nào phát sinh từ việc sử dụng
-              trái phép trang web này.
-            </p>
-            <h3>5. Quy định về bảo mật</h3>
-            <p>
-              - Trang web của chúng tôi coi trọng việc bảo mật thông tin và sử
-              dụng các biện pháp tốt nhất để bảo vệ thông tin và việc thanh toán
-              của quý khách. Trong quá trình thanh toán trực tuyến, quý khách
-              lưu ý không được để lộ thông tin về việc thanh toán của mình cho
-              bất kỳ bên thứ ba nào.
-            </p>
-            <p>
-              - Chúng tôi cam kết sẽ không bán, chia sẻ dẫn đến việc lộ thông
-              tin cá nhân của quý khách cho bất kỳ bên thứ ba nào. Mọi thông tin
-              giao dịch sẽ được bảo mật nhưng trong trường hợp cơ quan pháp luật
-              yêu cầu, chúng tôi buộc phải cung cấp những thông tin này cho cơ
-              quan pháp luật.
-            </p>
-            <h3>6. Thay đổi, hủy bỏ giao dịch tại website</h3>
-            <p>
-              - Trong mọi trường hợp, quý khách có quyền chấm dứt giao dịch nếu
-              đã thực hiện các biện pháp sau đây:
-            </p>
-            <p>
-              + Thông báo cho chúng tôi về việc hủy giao dịch qua đường dây nóng
-              0567.649.206
-            </p>
-            <p>
-              + Trả lại hàng hoá đã nhận nhưng chưa sử dụng hoặc hưởng bất kỳ
-              lợi ích nào từ hàng hóa đó (theo quy định của chính sách đổi trả
-              hàng).
-            </p>
+
+            <p>Trân trọng cảm ơn!</p>
           </div>
           <div class="col-md-4">
             <div class="sidebar">
@@ -488,27 +415,25 @@
               </div>
               <ul class="news-list">
                 <li>
-                  <a href="#">
-                    Cách nhận biết chuối chín tự nhiên và chuối chín do những
-                    hóa chất
-                  </a>
+                  <a href="#"
+                    >Cách nhận biết chuối chín tự nhiên và chuối chín do những
+                    hóa chất</a
+                  >
                 </li>
                 <li>
                   <a href="#">Những người này không nên ăn dứa trong đông</a>
                 </li>
                 <li><a href="#">3 bí quyết lựa chọn thực phẩm sạch</a></li>
               </ul>
-
-              <!-- Thêm thẻ <a> cho mỗi mục chính sách -->
-              <a href="gift-policy.html" class="policy-section">
+              <div class="policy-section">
                 <i class="fas fa-gift"></i>CHÍNH SÁCH QUÀ TẶNG
-              </a>
-              <a href="service.html" class="policy-section">
+              </div>
+              <div class="policy-section">
                 <i class="fas fa-truck"></i>CHÍNH SÁCH VẬN CHUYỂN
-              </a>
-              <a href="purchase-policy.html" class="policy-section">
+              </div>
+              <div class="policy-section">
                 <i class="fas fa-shopping-basket"></i>CHÍNH SÁCH MUA HÀNG
-              </a>
+              </div>
             </div>
           </div>
         </div>

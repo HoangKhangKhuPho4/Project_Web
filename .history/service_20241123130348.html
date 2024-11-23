@@ -43,44 +43,15 @@
     <link href="css/style.css" rel="stylesheet" />
 
     <style>
-      /* 1. Định nghĩa các biến màu và ghi đè các biến màu của Bootstrap */
-      :root {
-        /* Các biến màu tùy chỉnh */
-        --primary: #fea116;
-        --light: #f1f8ff;
-        --dark: #0f172b;
-        --gray-light: #f8f9fa;
-        --gray-dark: #6c757d;
-        --text-color: #0f172b;
-        --background-color: #ffffff;
-        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        --transition-duration: 0.3s;
-        --border-radius: 10px;
-        --news-bg-color: #fea116; /* Màu nền cho Tin Mới */
-        --policy-bg-color: #0f172b; /* Màu nền cho Chính sách */
-      }
-
-      /* 2. Các quy tắc CSS tùy chỉnh sử dụng biến màu */
-      body {
-        font-family: "Nunito", sans-serif;
-        color: var(--text-color);
-        background-color: var(--gray-light);
-      }
-
-      .custom-breadcrumb {
-        margin-left: -20px; /* Giảm khoảng cách lề trái */
-      }
-
       .sidebar {
         padding: 20px;
-        background-color: var(--background-color);
-        border-radius: var(--border-radius);
+        background-color: #ffffff;
+        border-radius: 5px;
       }
       .news-section {
-        background-color: var(--news-bg-color);
-        color: var(--light);
+        color: white;
         padding: 10px;
-        border-radius: var(--border-radius);
+        border-radius: 10px;
         text-align: center;
         margin-bottom: 20px;
       }
@@ -93,161 +64,48 @@
         list-style-type: none;
         padding: 0;
         margin: 10px 0;
-        border-top: 1px solid var(--gray-dark);
+        border-top: 1px solid #e0e0e0;
       }
       .news-list li {
         padding: 10px;
-        border-bottom: 1px solid var(--gray-dark);
+        border-bottom: 1px solid #e0e0e0;
       }
       .news-list li a {
-        color: var(--text-color);
+        color: #333;
         text-decoration: none;
       }
       .news-list li a:hover {
-        color: var(--bs-success);
         text-decoration: underline;
       }
       .policy-section {
-        background-color: var(--news-bg-color);
-        color: #000000; /* Màu đen cho cả chữ và icon */
-        padding: 10px;
-        border-radius: var(--border-radius);
-        margin-bottom: 20px;
+       
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: center;
         font-weight: bold;
         display: flex;
-        align-items: center; /* Canh icon và nội dung ngang hàng nhau */
-        justify-content: flex-start; /* Căn lề trái cho đều */
-      }
-
-      .policy-section:hover {
-        background-color: var(--hover-bg-color);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px);
-      }
-
-      .policy-section:hover i,
-      .policy-section:hover {
-        color: var(--hover-text-color); /* Đổi màu chữ và icon khi hover */
+        align-items: center;
+        justify-content: center;
       }
       .policy-section i {
-        margin-right: 15px; /* Khoảng cách giữa icon và văn bản */
-        font-size: 24px; /* Kích thước của icon */
-        color: #000000; /* Màu đen cho icon */
+        margin-right: 10px;
+        font-size: 20px;
       }
-
       .breadcrumb {
         font-family: "Times New Roman", Times, serif;
         font-size: 18px;
-        color: var(--bs-secondary);
+        color: #4b2e1e;
       }
       .breadcrumb a {
-        color: var(--primary); /* Áp dụng màu sắc chính cho liên kết */
         text-decoration: none;
       }
       .breadcrumb a:hover {
         text-decoration: underline;
       }
       .divider {
-        border-top: 1px solid var(--gray-dark);
+        border-top: 1px solid #dcdcdc;
         margin-top: 10px;
-      }
-
-      /* Đảm bảo các liên kết trong footer sử dụng biến màu */
-      .footer a {
-        color: var(--light); /* Màu chữ ban đầu */
-        transition: color var(--transition-duration);
-      }
-      .footer a:hover {
-        color: var(--primary); /* Màu chữ khi hover */
-        text-decoration: underline;
-      }
-
-      /* Đảm bảo các nút xã hội trong footer sử dụng biến màu */
-      .footer .btn-social {
-        color: var(--light);
-        border: 1px solid var(--light);
-        transition: background-color var(--transition-duration),
-          color var(--transition-duration);
-      }
-      .footer .btn-social:hover {
-        background-color: var(--primary);
-        color: #ffffff;
-      }
-
-      /* Đảm bảo nút LOGIN sử dụng biến màu */
-      .btn-primary {
-        background-color: var(--bs-primary);
-        border-color: var(--bs-primary);
-      }
-      .btn-primary:hover {
-        background-color: #e0a100; /* Bạn có thể điều chỉnh nếu cần */
-        border-color: #d18b00;
-      }
-
-      /* Đảm bảo spinner sử dụng biến màu */
-      .spinner-border.text-primary {
-        color: var(--bs-primary);
-      }
-
-      /* Các quy tắc CSS khác nếu cần... */
-      /* Tùy chỉnh kích thước đề mục */
-      h1 {
-        font-size: 2.5rem; /* Kích thước của h1 */
-        margin-bottom: 20px;
-      }
-
-      h2 {
-        font-size: 2.25rem; /* Kích thước của h2 */
-        margin-top: 25px;
-        margin-bottom: 15px;
-      }
-
-      h3 {
-        font-size: 1.875rem; /* Kích thước của h3 */
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-
-      h4 {
-        font-size: 1.625rem; /* Kích thước của h4 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-
-      h5 {
-        font-size: 1.375rem; /* Kích thước của h5 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
-
-      h6 {
-        font-size: 1.125rem; /* Kích thước của h6 */
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
-
-      /* Khoảng cách và căn chỉnh cho các thẻ heading */
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        line-height: 1.4;
-      }
-
-      /* Các khoảng cách bổ sung để tạo sự cân đối giữa các phần tử */
-      p {
-        margin-bottom: 15px;
-        line-height: 1.6;
-      }
-
-      ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
-      }
-
-      ul li {
-        margin-bottom: 10px;
       }
     </style>
   </head>
@@ -282,7 +140,7 @@
               <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
 
-            <!-- Thêm khoảng cách bằng cách sử dụng lớp ms-5 -->
+            <!-- Thêm khoảng cách bằng cách sử dụng lớp ms-4 -->
             <form class="d-none d-lg-flex ms-5" role="search">
               <input
                 class="form-control me-2"
@@ -342,13 +200,13 @@
             </h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center text-uppercase">
-                <li class="breadcrumb-item"><a href="#">HOME</a></li>
-                <li class="breadcrumb-item"><a href="#">PAGES</a></li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Pages</a></li>
                 <li
                   class="breadcrumb-item text-white active"
                   aria-current="page"
                 >
-                  SERVICES
+                  Service
                 </li>
               </ol>
             </nav>
@@ -361,16 +219,11 @@
         <div class="row">
           <div class="col-md-8">
             <div class="container mt-3">
-              <div class="breadcrumb custom-breadcrumb">
-                <span>Trang chủ</span> //
-                <a href="#" class="highlighted-breadcrumb"
-                  >Điều khoản dịch vụ</a
-                >
+              <div class="breadcrumb">
+                <span>Trang chủ</span> // <a href="#">Điều khoản dịch vụ</a>
               </div>
-
               <div class="divider"></div>
             </div>
-
             <h2>Điều khoản dịch vụ</h2>
             <p>
               Khi quý khách truy cập vào trang web của chúng tôi có nghĩa là quý
@@ -473,7 +326,7 @@
             </p>
             <p>
               + Thông báo cho chúng tôi về việc hủy giao dịch qua đường dây nóng
-              0567.649.206
+              0964.637.129
             </p>
             <p>
               + Trả lại hàng hoá đã nhận nhưng chưa sử dụng hoặc hưởng bất kỳ
@@ -488,27 +341,21 @@
               </div>
               <ul class="news-list">
                 <li>
-                  <a href="#">
-                    Cách nhận biết chuối chín tự nhiên và chuối chín do những
-                    hóa chất
-                  </a>
+                  Cách nhận biết chuối chín tự nhiên và chuối chín do những hóa
+                  chất
                 </li>
-                <li>
-                  <a href="#">Những người này không nên ăn dứa trong đông</a>
-                </li>
-                <li><a href="#">3 bí quyết lựa chọn thực phẩm sạch</a></li>
+                <li>Những người này không nên ăn dứa trong đông</li>
+                <li>3 bí quyết lựa chọn thực phẩm sạch</li>
               </ul>
-
-              <!-- Thêm thẻ <a> cho mỗi mục chính sách -->
-              <a href="gift-policy.html" class="policy-section">
+              <div class="policy-section">
                 <i class="fas fa-gift"></i>CHÍNH SÁCH QUÀ TẶNG
-              </a>
-              <a href="service.html" class="policy-section">
+              </div>
+              <div class="policy-section">
                 <i class="fas fa-truck"></i>CHÍNH SÁCH VẬN CHUYỂN
-              </a>
-              <a href="purchase-policy.html" class="policy-section">
+              </div>
+              <div class="policy-section">
                 <i class="fas fa-shopping-basket"></i>CHÍNH SÁCH MUA HÀNG
-              </a>
+              </div>
             </div>
           </div>
         </div>
