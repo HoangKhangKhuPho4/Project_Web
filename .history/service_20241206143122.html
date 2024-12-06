@@ -43,13 +43,13 @@
     <link href="css/style.css" rel="stylesheet" />
 
     <style>
-      /* 1. Đặt box-sizing toàn cục */
-      * {
-        box-sizing: border-box;
-      }
+     /* 1. Đặt box-sizing toàn cục */
+* {
+  box-sizing: border-box;
+}
 
-      /* 2. Định nghĩa các biến màu và ghi đè các biến màu của Bootstrap */
-      :root {
+/* 2. Định nghĩa các biến màu và ghi đè các biến màu của Bootstrap */
+:root {
         /* Các biến màu tùy chỉnh */
         --primary: #fea116;
         --light: #f1f8ff;
@@ -63,263 +63,262 @@
         --border-radius: 10px;
         --news-bg-color: #fea116; /* Màu nền cho Tin Mới */
         --policy-bg-color: #0f172b; /* Màu nền cho Chính sách */
-        --hover-bg-color: #007bff; /* Màu nền khi hover */
-        --hover-text-color: #ffffff; /* Màu chữ khi hover */
       }
 
-      /* 3. Các quy tắc CSS tùy chỉnh sử dụng biến màu */
-      body {
-        font-family: "Nunito", sans-serif;
-        color: var(--text-color);
-        background-color: var(--gray-light);
-      }
+/* 3. Các quy tắc CSS tùy chỉnh sử dụng biến màu */
+body {
+  font-family: "Nunito", sans-serif;
+  color: var(--text-color);
+  background-color: var(--gray-light);
+}
 
-      .custom-breadcrumb {
-        margin-left: -20px; /* Giảm khoảng cách lề trái */
-      }
+.custom-breadcrumb {
+  margin-left: -20px; /* Giảm khoảng cách lề trái */
+}
 
-      .sidebar {
-        padding: 20px;
-        background-color: var(--background-color);
-        border-radius: var(--border-radius);
-      }
+.sidebar {
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+}
 
-      .news-section {
-        background-color: var(--news-bg-color);
-        color: var(--light);
-        padding: 10px;
-        border-radius: var(--border-radius);
-        text-align: center;
-        margin-bottom: 20px;
-      }
+.news-section {
+  background-color: var(--news-bg-color);
+  color: var(--light);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-      .news-section h5 {
-        margin: 0;
-        font-size: 18px;
-        font-weight: bold;
-      }
+.news-section h5 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
 
-      .news-list {
-        list-style-type: none;
-        padding: 0;
-        margin: 10px 0;
-        border-top: 1px solid var(--gray-dark);
-      }
+.news-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  border-top: 1px solid var(--gray-dark);
+}
 
-      .news-list li {
-        padding: 10px;
-        border-bottom: 1px solid var(--gray-dark);
-      }
+.news-list li {
+  padding: 10px;
+  border-bottom: 1px solid var(--gray-dark);
+}
 
-      .news-list li a {
-        color: var(--text-color);
-        text-decoration: none;
-      }
+.news-list li a {
+  color: var(--text-color);
+  text-decoration: none;
+}
 
-      .news-list li a:hover {
-        color: var(--primary);
-        text-decoration: underline;
-      }
+.news-list li a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
 
-      /* Container cho các chính sách */
-      .policy-container {
-        display: flex;
-        justify-content: space-between; /* Phân bố đều các mục */
-        gap: 10px; /* Khoảng cách giữa các mục */
-        margin-top: 20px; /* Khoảng cách trên */
-        border-top: 1px solid var(--gray-dark); /* Đường kẻ trên cùng */
-        padding-top: 10px; /* Khoảng cách từ đường kẻ đến các nút */
-        flex-wrap: wrap; /* Cho phép các nút xuống dòng nếu cần */
-      }
+/* Container cho các chính sách */
+.policy-container {
+  display: flex;
+  justify-content: space-between; /* Phân bố đều các mục */
+  gap: 10px; /* Khoảng cách giữa các mục */
+  margin-top: 20px; /* Khoảng cách trên */
+  border-top: 1px solid var(--gray-dark); /* Đường kẻ trên cùng */
+  padding-top: 10px; /* Khoảng cách từ đường kẻ đến các nút */
+  flex-wrap: wrap; /* Cho phép các nút xuống dòng nếu cần */
+}
 
-      /* Các mục chính sách */
-      .policy-section {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Căn giữa nội dung */
-        text-decoration: none;
-        color: var(--light);
-        background-color: var(--policy-bg-color);
-        padding: 8px 12px; /* Giảm padding để nút nhỏ hơn */
-        flex: 1; /* Chia đều không gian cho mỗi mục */
-        border-radius: var(--border-radius);
-        transition: background-color var(--transition-duration),
-          color var(--transition-duration);
-        position: relative; /* Để đặt dấu ngăn cách */
-        font-size: 14px; /* Giảm kích thước font */
-        margin-bottom: 10px; /* Khoảng cách dưới để khi xuống dòng */
-        white-space: nowrap; /* Ngăn chặn xuống dòng */
-        line-height: normal; /* Đặt line-height hợp lý */
-        align-self: center; /* Căn giữa theo chiều dọc */
-      }
+/* Các mục chính sách */
+.policy-section {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Căn giữa nội dung */
+  text-decoration: none;
+  color: var(--light);
+  background-color: var(--policy-bg-color);
+  padding: 8px 12px; /* Giảm padding để nút nhỏ hơn */
+  flex: 1; /* Chia đều không gian cho mỗi mục */
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
+  position: relative; /* Để đặt dấu ngăn cách */
+  font-size: 14px; /* Giảm kích thước font */
+  margin-bottom: 10px; /* Khoảng cách dưới để khi xuống dòng */
+  white-space: nowrap; /* Ngăn chặn xuống dòng */
+  line-height: normal; /* Đặt line-height hợp lý */
+  align-self: center; /* Căn giữa theo chiều dọc */
+}
 
-      /* Thêm dấu ngăn cách giữa các nút */
-      .policy-section:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 10%;
-        transform: translateY(-50%);
-        height: 80%; /* Chiều cao của dấu ngăn cách */
-        border-right: 1px solid var(--gray-dark); /* Đường kẻ phân cách */
-      }
+/* Thêm dấu ngăn cách giữa các nút */
+.policy-section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  transform: translateY(-50%);
+  height: 80%; /* Chiều cao của dấu ngăn cách */
+  border-right: 1px solid var(--gray-dark); /* Đường kẻ phân cách */
+}
 
-      /* Icon trong các mục chính sách */
-      .policy-section i {
-        margin-right: 8px;
-        font-size: 16px; /* Giảm kích thước icon */
-        color: var(--light);
-      }
+/* Icon trong các mục chính sách */
+.policy-section i {
+  margin-right: 8px;
+  font-size: 16px; /* Giảm kích thước icon */
+  color: var(--light);
+}
 
-      /* Hiệu ứng hover cho các mục chính sách */
-      .policy-section:hover {
-        background-color: var(--news-bg-color); /* Màu nền khi hover */
-        color: var(--dark); /* Màu chữ khi hover */
-      }
+/* Hiệu ứng hover cho các mục chính sách */
+.policy-section:hover {
+  background-color: var(--hover-bg-color);
+  color: var(--hover-text-color);
+}
 
-      /* Responsive Design: Điều chỉnh cho các màn hình nhỏ hơn */
-      @media (max-width: 768px) {
-        .policy-container {
-          flex-direction: column;
-          gap: 10px;
-          border-top: none; /* Loại bỏ đường kẻ trên cùng */
-          padding-top: 0; /* Loại bỏ khoảng cách từ đường kẻ */
-        }
+/* Responsive Design: Điều chỉnh cho các màn hình nhỏ hơn */
+@media (max-width: 768px) {
+  .policy-container {
+    flex-direction: column;
+    gap: 10px;
+    border-top: none; /* Loại bỏ đường kẻ trên cùng */
+    padding-top: 0; /* Loại bỏ khoảng cách từ đường kẻ */
+  }
 
-        .policy-section {
-          justify-content: flex-start; /* Căn lề trái trên màn hình nhỏ */
-          max-width: 100%; /* Đặt độ rộng toàn bộ */
-          flex: 1 1 100%; /* Chiếm toàn bộ không gian */
-          height: auto; /* Tự động chiều cao */
-          font-size: 14px; /* Giữ font size */
-        }
+  .policy-section {
+    justify-content: flex-start; /* Căn lề trái trên màn hình nhỏ */
+    max-width: 100%; /* Đặt độ rộng toàn bộ */
+    flex: 1 1 100%; /* Chiếm toàn bộ không gian */
+    height: auto; /* Tự động chiều cao */
+    font-size: 14px; /* Giữ font size */
+  }
 
-        /* Loại bỏ dấu ngăn cách trên màn hình nhỏ */
-        .policy-section:not(:last-child)::after {
-          content: none;
-        }
-      }
+  /* Loại bỏ dấu ngăn cách trên màn hình nhỏ */
+  .policy-section:not(:last-child)::after {
+    content: none;
+  }
+}
 
-      .breadcrumb {
-        font-family: "Times New Roman", Times, serif;
-        font-size: 18px;
-        color: var(--gray-dark);
-      }
+.breadcrumb {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  color: var(--gray-dark);
+}
 
-      .breadcrumb a {
-        color: var(--primary); /* Áp dụng màu sắc chính cho liên kết */
-        text-decoration: none;
-      }
+.breadcrumb a {
+  color: var(--primary); /* Áp dụng màu sắc chính cho liên kết */
+  text-decoration: none;
+}
 
-      .breadcrumb a:hover {
-        text-decoration: underline;
-      }
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
 
-      .divider {
-        border-top: 1px solid var(--gray-dark);
-        margin-top: 10px;
-      }
+.divider {
+  border-top: 1px solid var(--gray-dark);
+  margin-top: 10px;
+}
 
-      /* Đảm bảo các liên kết trong footer sử dụng biến màu */
-      .footer a {
-        color: var(--light); /* Màu chữ ban đầu */
-        transition: color var(--transition-duration);
-      }
+/* Đảm bảo các liên kết trong footer sử dụng biến màu */
+.footer a {
+  color: var(--light); /* Màu chữ ban đầu */
+  transition: color var(--transition-duration);
+}
 
-      .footer a:hover {
-        color: var(--primary); /* Màu chữ khi hover */
-        text-decoration: underline;
-      }
+.footer a:hover {
+  color: var(--primary); /* Màu chữ khi hover */
+  text-decoration: underline;
+}
 
-      /* Đảm bảo các nút xã hội trong footer sử dụng biến màu */
-      .footer .btn-social {
-        color: var(--light);
-        border: 1px solid var(--light);
-        transition: background-color var(--transition-duration),
-          color var(--transition-duration);
-      }
+/* Đảm bảo các nút xã hội trong footer sử dụng biến màu */
+.footer .btn-social {
+  color: var(--light);
+  border: 1px solid var(--light);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
+}
 
-      .footer .btn-social:hover {
-        background-color: var(--primary);
-        color: #ffffff;
-      }
+.footer .btn-social:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+}
 
-      /* Đảm bảo nút LOGIN sử dụng biến màu */
-      .btn-primary {
-        background-color: var(--primary);
-        border-color: var(--primary);
-      }
+/* Đảm bảo nút LOGIN sử dụng biến màu */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
 
-      .btn-primary:hover {
-        background-color: #e0a100; /* Bạn có thể điều chỉnh nếu cần */
-        border-color: #d18b00;
-      }
+.btn-primary:hover {
+  background-color: #e0a100; /* Bạn có thể điều chỉnh nếu cần */
+  border-color: #d18b00;
+}
 
-      /* Đảm bảo spinner sử dụng biến màu */
-      .spinner-border.text-primary {
-        color: var(--primary);
-      }
+/* Đảm bảo spinner sử dụng biến màu */
+.spinner-border.text-primary {
+  color: var(--primary);
+}
 
-      /* Các quy tắc CSS khác nếu cần... */
-      /* Tùy chỉnh kích thước đề mục */
-      h1 {
-        font-size: 2.5rem; /* Kích thước của h1 */
-        margin-bottom: 20px;
-      }
+/* Các quy tắc CSS khác nếu cần... */
+/* Tùy chỉnh kích thước đề mục */
+h1 {
+  font-size: 2.5rem; /* Kích thước của h1 */
+  margin-bottom: 20px;
+}
 
-      h2 {
-        font-size: 2.25rem; /* Kích thước của h2 */
-        margin-top: 25px;
-        margin-bottom: 15px;
-      }
+h2 {
+  font-size: 2.25rem; /* Kích thước của h2 */
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
 
-      h3 {
-        font-size: 1.875rem; /* Kích thước của h3 */
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
+h3 {
+  font-size: 1.875rem; /* Kích thước của h3 */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 
-      h4 {
-        font-size: 1.625rem; /* Kích thước của h4 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
+h4 {
+  font-size: 1.625rem; /* Kích thước của h4 */
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
 
-      h5 {
-        font-size: 1.375rem; /* Kích thước của h5 */
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
+h5 {
+  font-size: 1.375rem; /* Kích thước của h5 */
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
 
-      h6 {
-        font-size: 1.125rem; /* Kích thước của h6 */
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
+h6 {
+  font-size: 1.125rem; /* Kích thước của h6 */
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
 
-      /* Khoảng cách và căn chỉnh cho các thẻ heading */
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        line-height: 1.4;
-      }
+/* Khoảng cách và căn chỉnh cho các thẻ heading */
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+}
 
-      /* Các khoảng cách bổ sung để tạo sự cân đối giữa các phần tử */
-      p {
-        margin-bottom: 15px;
-        line-height: 1.6;
-      }
+/* Các khoảng cách bổ sung để tạo sự cân đối giữa các phần tử */
+p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
 
-      ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
-      }
+ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
 
-      ul li {
-        margin-bottom: 10px;
-      }
+ul li {
+  margin-bottom: 10px;
+}
+
     </style>
   </head>
 
@@ -381,9 +380,9 @@
 
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4">
-              <a href="index.html" class="nav-item nav-link">Home</a>
+              <a href="index.html" class="nav-item nav-link active">Home</a>
               <a href="blog.html" class="nav-item nav-link">Blog</a>
-              <a href="service.html" class="nav-item nav-link active">Service</a>
+              <a href="service.html" class="nav-item nav-link">Service</a>
               <a href="menu.html" class="nav-item nav-link">Menu</a>
               <div class="nav-item dropdown">
                 <a
@@ -560,8 +559,7 @@
               <ul class="news-list">
                 <li>
                   <a href="#">
-                    Cách nhận biết chuối chín tự nhiên và chuối chín do những
-                    hóa chất
+                    Cách nhận biết chuối chín tự nhiên và chuối chín do những hóa chất
                   </a>
                 </li>
                 <li>
@@ -569,7 +567,7 @@
                 </li>
                 <li><a href="#">3 bí quyết lựa chọn thực phẩm sạch</a></li>
               </ul>
-
+          
               <!-- Container cho các chính sách -->
               <div class="policy-container">
                 <a href="service.html" class="policy-section">
@@ -584,6 +582,7 @@
               </div>
             </div>
           </div>
+          
         </div>
       </div>
 

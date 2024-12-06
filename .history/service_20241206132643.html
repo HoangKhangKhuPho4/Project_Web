@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Restoran - Chính sách</title>
+    <title>Restoran - Bootstrap Restaurant Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -67,132 +67,83 @@
         background-color: var(--gray-light);
       }
 
+      .custom-breadcrumb {
+        margin-left: -20px; /* Giảm khoảng cách lề trái */
+      }
+
       .sidebar {
         padding: 20px;
         background-color: var(--background-color);
         border-radius: var(--border-radius);
       }
-
       .news-section {
-        background-color: var(--news-bg-color);
-        color: var(--light);
-        padding: 10px;
-        border-radius: var(--border-radius);
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      .news-section h5 {
+  background-color: var(--news-bg-color);
+  color: var(--light);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  text-align: center; /* Giữ căn giữa */
+  margin-bottom: 20px;
+  /* Thêm các thuộc tính cho kiểu mẫu Z */
+  position: relative; /* Cần để position tuyệt đối */
+  overflow: hidden; /* Cần để ẩn phần vượt quá */
+  transform-style: preserve-3d; /* Để animation hoạt động */
+  transition: transform 0.5s ease-in-out; /* Thêm transition */
+}
+      .news-title {
         margin: 0;
         font-size: 18px;
         font-weight: bold;
       }
-
       .news-list {
         list-style-type: none;
         padding: 0;
         margin: 10px 0;
         border-top: 1px solid var(--gray-dark);
       }
-
       .news-list li {
         padding: 10px;
         border-bottom: 1px solid var(--gray-dark);
       }
-
       .news-list li a {
         color: var(--text-color);
         text-decoration: none;
       }
-
       .news-list li a:hover {
-        color: var(--primary);
+        color: var(--bs-success);
         text-decoration: underline;
       }
-
-      /* Container cho các chính sách */
-      .policy-container {
-        display: flex;
-        justify-content: space-between; /* Phân bố đều các mục */
-        gap: 10px; /* Khoảng cách giữa các mục */
-        margin-top: 20px; /* Khoảng cách trên */
-        border-top: 1px solid var(--gray-dark); /* Đường kẻ trên cùng */
-        padding-top: 10px; /* Khoảng cách từ đường kẻ đến các nút */
-        flex-wrap: wrap; /* Cho phép các nút xuống dòng nếu cần */
-      }
-
-      /* Các mục chính sách */
       .policy-section {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Căn giữa nội dung */
-        text-decoration: none;
-        color: var(--light);
-        background-color: var(--policy-bg-color);
-        padding: 8px 12px; /* Giảm padding để nút nhỏ hơn */
-        flex: 1; /* Chia đều không gian cho mỗi mục */
+        background-color: var(--news-bg-color);
+        color: #000000; /* Màu đen cho cả chữ và icon */
+        padding: 10px;
         border-radius: var(--border-radius);
-        transition: background-color var(--transition-duration),
-          color var(--transition-duration);
-        position: relative; /* Để đặt dấu ngăn cách */
-        font-size: 14px; /* Giảm kích thước font */
-        margin-bottom: 10px; /* Khoảng cách dưới để khi xuống dòng */
-        white-space: nowrap; /* Ngăn chặn xuống dòng */
-        line-height: normal; /* Đặt line-height hợp lý */
-        align-self: center; /* Căn giữa theo chiều dọc */
+        margin-bottom: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center; /* Canh icon và nội dung ngang hàng nhau */
+        justify-content: flex-start; /* Căn lề trái cho đều */
       }
 
-      /* Thêm dấu ngăn cách giữa các nút */
-      .policy-section:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 10%;
-        transform: translateY(-50%);
-        height: 80%; /* Chiều cao của dấu ngăn cách */
-        border-right: 1px solid var(--gray-dark); /* Đường kẻ phân cách */
-      }
-
-      /* Icon trong các mục chính sách */
-      .policy-section i {
-        margin-right: 8px;
-        font-size: 16px; /* Giảm kích thước icon */
-        color: var(--light);
-      }
-
-      /* Hiệu ứng hover cho các mục chính sách */
       .policy-section:hover {
-        background-color: var(--news-bg-color); /* Màu nền khi hover */
-        color: var(--dark); /* Màu chữ khi hover */
+        background-color: var(--hover-bg-color);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
       }
 
-      /* Responsive Design: Điều chỉnh cho các màn hình nhỏ hơn */
-      @media (max-width: 768px) {
-        .policy-container {
-          flex-direction: column;
-          gap: 10px;
-          border-top: none; /* Loại bỏ đường kẻ trên cùng */
-          padding-top: 0; /* Loại bỏ khoảng cách từ đường kẻ */
-        }
-
-        .policy-section {
-          justify-content: flex-start; /* Căn lề trái trên màn hình nhỏ */
-          max-width: 100%; /* Đặt độ rộng toàn bộ */
-          flex: 1 1 100%; /* Chiếm toàn bộ không gian */
-          height: auto; /* Tự động chiều cao */
-          font-size: 14px; /* Giữ font size */
-        }
-
-        /* Loại bỏ dấu ngăn cách trên màn hình nhỏ */
-        .policy-section:not(:last-child)::after {
-          content: none;
-        }
+      .policy-section:hover i,
+      .policy-section:hover {
+        color: var(--hover-text-color); /* Đổi màu chữ và icon khi hover */
       }
+      .policy-section i {
+        margin-right: 15px; /* Khoảng cách giữa icon và văn bản */
+        font-size: 24px; /* Kích thước của icon */
+        color: #000000; /* Màu đen cho icon */
+      }
+
       .breadcrumb {
         font-family: "Times New Roman", Times, serif;
         font-size: 18px;
         color: var(--bs-secondary);
-        margin: left -30px;
       }
       .breadcrumb a {
         color: var(--primary); /* Áp dụng màu sắc chính cho liên kết */
@@ -227,9 +178,7 @@
         background-color: var(--primary);
         color: #ffffff;
       }
-      .custom-breadcrumb {
-        margin-left: -20px; /* Giảm khoảng cách lề trái */
-      }
+
       /* Đảm bảo nút LOGIN sử dụng biến màu */
       .btn-primary {
         background-color: var(--bs-primary);
@@ -245,6 +194,7 @@
         color: var(--bs-primary);
       }
 
+      /* Các quy tắc CSS khác nếu cần... */
       /* Tùy chỉnh kích thước đề mục */
       h1 {
         font-size: 2.5rem; /* Kích thước của h1 */
@@ -365,9 +315,9 @@
 
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4">
-              <a href="index.html" class="nav-item nav-link ">Home</a>
+              <a href="index.html" class="nav-item nav-link active">Home</a>
               <a href="blog.html" class="nav-item nav-link">Blog</a>
-              <a href="service.html" class="nav-item nav-link active">Service</a>
+              <a href="service.html" class="nav-item nav-link">Service</a>
               <a href="menu.html" class="nav-item nav-link">Menu</a>
               <div class="nav-item dropdown">
                 <a
@@ -393,17 +343,17 @@
         <div class="container-xxl py-5 bg-dark hero-header mb-5">
           <div class="container text-center my-5 pt-5 pb-4">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
-              Guideline
+              Services
             </h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center text-uppercase">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item"><a href="#">HOME</a></li>
+                <li class="breadcrumb-item"><a href="#">PAGES</a></li>
                 <li
                   class="breadcrumb-item text-white active"
                   aria-current="page"
                 >
-                  Guideline
+                  SERVICES
                 </li>
               </ol>
             </nav>
@@ -416,118 +366,124 @@
         <div class="row">
           <div class="col-md-8">
             <div class="container mt-3">
-              <div class="breadcrumb">
-                <span>Trang chủ</span> // <a href="#">Chính sách</a>
+              <div class="breadcrumb custom-breadcrumb">
+                <span>Trang chủ</span> //
+                <a href="#" class="highlighted-breadcrumb"
+                  >Điều khoản dịch vụ</a
+                >
               </div>
+
               <div class="divider"></div>
             </div>
-            <h2>Chính sách</h2>
+
+            <h2>Điều khoản dịch vụ</h2>
             <p>
-              Cám ơn quý khách đã quan tâm và truy cập vào website. Chúng tôi
-              tôn trọng và cam kết sẽ bảo mật những thông tin mang tính riêng tư
-              của Quý khách.
+              Khi quý khách truy cập vào trang web của chúng tôi có nghĩa là quý
+              khách đồng ý với các điều khoản này. Trang web có quyền thay đổi,
+              chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Quy định và
+              Điều kiện sử dụng, vào bất cứ lúc nào. Các thay đổi có hiệu lực
+              ngay khi được đăng trên trang web mà không cần thông báo trước. Và
+              khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về
+              Quy định và Điều kiện được đăng tải, có nghĩa là quý khách chấp
+              nhận với những thay đổi đó.
+            </p>
+            <h3>1. Hướng dẫn sử dụng web</h3>
+            <p>
+              - Khi vào web của chúng tôi, người dùng tối thiểu phải 18 tuổi
+              hoặc truy cập dưới sự giám sát của cha mẹ hay người giám hộ hợp
+              pháp.
             </p>
             <p>
-              Chính sách bảo mật sẽ giải thích cách chúng tôi tiếp nhận, sử dụng
-              và (trong trường hợp nào đó) tiết lộ thông tin cá nhân của Quý
-              khách.
+              - Chúng tôi cấp giấy phép sử dụng để bạn có thể mua sắm trên web
+              trong khuôn khổ Điều khoản và Điều kiện sử dụng đã đề ra.
             </p>
             <p>
-              Bảo vệ dữ liệu cá nhân và gây dựng được niềm tin cho quý khách là
-              vấn đề rất quan trọng với chúng tôi. Vì vậy, chúng tôi sẽ dùng tên
-              và các thông tin khác liên quan đến quý khách tuân thủ theo nội
-              dung của Chính sách bảo mật. Chúng tôi chỉ thu thập những thông
-              tin cần thiết liên quan đến giao dịch mua bán.
+              - Nghiêm cấm sử dụng bất kỳ phần nào của trang web này với mục
+              đích thương mại hoặc nhân danh bất kỳ đối tác thứ ba nào nếu không
+              được chúng tôi cho phép bằng văn bản. Nếu vi phạm bất cứ điều gì
+              trong đây, chúng tôi sẽ hủy giấy phép của bạn mà không cần báo
+              trước.
             </p>
             <p>
-              Chúng tôi sẽ giữ thông tin của khách hàng trong thời gian luật
-              pháp quy định hoặc cho mục đích nào đó. Quý khách có thể truy cập
-              vào website và trình duyệt mà không cần phải cung cấp chi tiết cá
-              nhân. Lúc đó, Quý khách đang ẩn danh và chúng tôi không thể biết
-              bạn là ai nếu Quý khách không đăng nhập vào tài khoản của mình.
-            </p>
-            <h3>1. Thu thập thông tin cá nhân</h3>
-            <p>
-              - Chúng tôi thu thập, lưu trữ và xử lý thông tin của bạn cho quá
-              trình mua hàng và cho những thông báo sau này liên quan đến đơn
-              hàng, và để cung cấp dịch vụ, bao gồm một số thông tin cá nhân:
-              danh hiệu, tên, giới tính, ngày sinh, email, địa chỉ, địa chỉ giao
-              hàng, số điện thoại, fax, chi tiết thanh toán, chi tiết thanh toán
-              bằng thẻ hoặc chi tiết tài khoản ngân hàng.
+              - Trang web này chỉ dùng để cung cấp thông tin sản phẩm chứ chúng
+              tôi không phải nhà sản xuất nên những nhận xét hiển thị trên web
+              là ý kiến cá nhân của khách hàng, không phải của chúng tôi.
             </p>
             <p>
-              - Chúng tôi sẽ dùng thông tin quý khách đã cung cấp để xử lý đơn
-              đặt hàng, cung cấp các dịch vụ và thông tin yêu cầu thông qua
-              website và theo yêu cầu của bạn.
+              - Quý khách phải đăng ký tài khoản với thông tin xác thực về bản
+              thân và phải cập nhật nếu có bất kỳ thay đổi nào. Mỗi người truy
+              cập phải có trách nhiệm với mật khẩu, tài khoản và hoạt động của
+              mình trên web. Hơn nữa, quý khách phải thông báo cho chúng tôi
+              biết khi tài khoản bị truy cập trái phép. Chúng tôi không chịu bất
+              kỳ trách nhiệm nào, dù trực tiếp hay gián tiếp, đối với những
+              thiệt hại hoặc mất mát gây ra do quý khách không tuân thủ quy
+              định.
             </p>
             <p>
-              - Hơn nữa, chúng tôi sẽ sử dụng các thông tin đó để quản lý tài
-              khoản của bạn; xác minh và thực hiện giao dịch trực tuyến, nhận
-              diện khách vào web, nghiên cứu nhân khẩu học, gửi thông tin bao
-              gồm thông tin sản phẩm và dịch vụ. Nếu quý khách không muốn nhận
-              bất cứ thông tin tiếp thị của chúng tôi thì có thể từ chối bất cứ
-              lúc nào.
+              - Trong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng
+              cáo từ website. Sau đó, nếu không muốn tiếp tục nhận mail, quý
+              khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng
+              trong mọi email quảng cáo.
+            </p>
+            <h3>2. Chấp nhận đơn hàng và giá cả</h3>
+            <p>
+              - Chúng tôi có quyền từ chối hoặc hủy đơn hàng của quý khách vì
+              bất kỳ lý do gì vào bất kỳ lúc nào. Chúng tôi có thể hỏi thêm về
+              số điện thoại và địa chỉ trước khi nhận đơn hàng.
             </p>
             <p>
-              - Chúng tôi có thể chuyển tên và địa chỉ cho bên thứ ba để họ giao
-              hàng cho bạn (ví dụ cho bên chuyển phát nhanh hoặc nhà cung cấp).
+              - Chúng tôi cam kết sẽ cung cấp thông tin giá cả chính xác nhất
+              cho người tiêu dùng. Tuy nhiên, đôi khi vẫn có sai sót xảy ra, ví
+              dụ như trường hợp giá sản phẩm không hiển thị chính xác trên trang
+              web hoặc sai giá, tùy theo từng trường hợp chúng tôi sẽ liên hệ
+              hướng dẫn hoặc thông báo hủy đơn hàng đó cho quý khách. Chúng tôi
+              cũng có quyền từ chối hoặc hủy bỏ bất kỳ đơn hàng nào dù đơn hàng
+              đó đã hay chưa được xác nhận hoặc đã thanh toán.
+            </p>
+            <h3>3. Thương hiệu và bản quyền</h3>
+            <p>
+              - Mọi quyền sở hữu trí tuệ (đã đăng ký hoặc chưa đăng ký), nội
+              dung thông tin và tất cả các thiết kế, văn bản, đồ họa, phần mềm,
+              hình ảnh, âm nhạc, âm thanh, biên dịch phần mềm, mã nguồn và phần
+              mềm đều là tài sản của chúng tôi. Toàn bộ nội dung của trang web
+              được bảo vệ bởi luật bản quyền của Việt Nam và các công ước quốc
+              tế. Bản quyền đã được bảo lưu.
+            </p>
+            <h3>4. Quyền pháp lý</h3>
+            <p>
+              - Các điều kiện, điều khoản và nội dung của trang web này được
+              điều chỉnh bởi luật pháp Việt Nam và Tòa án có thẩm quyền tại Việt
+              Nam sẽ giải quyết bất kỳ tranh chấp nào phát sinh từ việc sử dụng
+              trái phép trang web này.
+            </p>
+            <h3>5. Quy định về bảo mật</h3>
+            <p>
+              - Trang web của chúng tôi coi trọng việc bảo mật thông tin và sử
+              dụng các biện pháp tốt nhất để bảo vệ thông tin và việc thanh toán
+              của quý khách. Trong quá trình thanh toán trực tuyến, quý khách
+              lưu ý không được để lộ thông tin về việc thanh toán của mình cho
+              bất kỳ bên thứ ba nào.
             </p>
             <p>
-              - Chi tiết đơn đặt hàng của bạn được chúng tôi lưu giữ nhưng vì lí
-              do bảo mật nên chúng tôi không công khai trực tiếp được. Tuy
-              nhiên, quý khách có thể tiếp cận thông tin bằng cách đăng nhập tài
-              khoản trên web. Tại đây, quý khách sẽ thấy chi tiết đơn đặt hàng
-              của mình, những sản phẩm đã nhận và những sản phẩm đã gửi và chi
-              tiết email, ngân hàng và bản tin mà bạn đặt theo dõi dài hạn.
+              - Chúng tôi cam kết sẽ không bán, chia sẻ dẫn đến việc lộ thông
+              tin cá nhân của quý khách cho bất kỳ bên thứ ba nào. Mọi thông tin
+              giao dịch sẽ được bảo mật nhưng trong trường hợp cơ quan pháp luật
+              yêu cầu, chúng tôi buộc phải cung cấp những thông tin này cho cơ
+              quan pháp luật.
+            </p>
+            <h3>6. Thay đổi, hủy bỏ giao dịch tại website</h3>
+            <p>
+              - Trong mọi trường hợp, quý khách có quyền chấm dứt giao dịch nếu
+              đã thực hiện các biện pháp sau đây:
             </p>
             <p>
-              - Quý khách cam kết bảo mật dữ liệu cá nhân và không được phép
-              tiết lộ cho bên thứ ba. Chúng tôi không chịu bất kỳ trách nhiệm
-              nào cho việc dùng sai mật khẩu nếu đây không phải lỗi của chúng
-              tôi.
+              + Thông báo cho chúng tôi về việc hủy giao dịch qua đường dây nóng
+              0567.649.206
             </p>
             <p>
-              - Chúng tôi có thể dùng thông tin cá nhân của bạn để nghiên cứu
-              thị trường. mọi thông tin chi tiết sẽ được ẩn và chỉ được dùng để
-              thống kê. Quý khách có thể từ chối không tham gia bất cứ lúc nào.
-            </p>
-            <h3>2. Bảo mật</h3>
-            <p>
-              - Chúng tôi có biện pháp thích hợp về kỹ thuật và an ninh để ngăn
-              chặn truy cập trái phép hoặc trái pháp luật hoặc mất mát hoặc tiêu
-              hủy hoặc thiệt hại cho thông tin của bạn.
-            </p>
-            <p>
-              - Chúng tôi khuyên quý khách không nên đưa thông tin chi tiết về
-              việc thanh toán với bất kỳ ai bằng e-mail, chúng tôi không chịu
-              trách nhiệm về những mất mát quý khách có thể gánh chịu trong việc
-              trao đổi thông tin của quý khách qua internet hoặc email.
-            </p>
-            <p>
-              - Quý khách tuyệt đối không sử dụng bất kỳ chương trình, công cụ
-              hay hình thức nào khác để can thiệp vào hệ thống hay làm thay đổi
-              cấu trúc dữ liệu. Nghiêm cấm việc phát tán, truyền bá hay cổ vũ
-              cho bất kỳ hoạt động nào nhằm can thiệp, phá hoại hay xâm nhập vào
-              dữ liệu của hệ thống website. Mọi vi phạm sẽ bị tước bỏ mọi quyền
-              lợi cũng như sẽ bị truy tố trước pháp luật nếu cần thiết.
-            </p>
-            <p>
-              - Mọi thông tin giao dịch sẽ được bảo mật nhưng trong trường hợp
-              cơ quan pháp luật yêu cầu, chúng tôi sẽ buộc phải cung cấp những
-              thông tin này cho các cơ quan pháp luật.
-            </p>
-            <p>
-              Các điều kiện, điều khoản và nội dung của trang web này được điều
-              chỉnh bởi luật pháp Việt Nam và tòa án Việt Nam có thẩm quyền xem
-              xét.
-            </p>
-            <h3>3. Quyền lợi khách hàng</h3>
-            <p>
-              - Quý khách có quyền yêu cầu truy cập vào dữ liệu cá nhân của
-              mình, có quyền yêu cầu chúng tôi sửa lại những sai sót trong dữ
-              liệu của bạn mà không mất phí. Bất cứ lúc nào bạn cũng có quyền
-              yêu cầu chúng tôi ngưng sử dụng dữ liệu cá nhân của bạn cho mục
-              đích tiếp thị.
+              + Trả lại hàng hoá đã nhận nhưng chưa sử dụng hoặc hưởng bất kỳ
+              lợi ích nào từ hàng hóa đó (theo quy định của chính sách đổi trả
+              hàng).
             </p>
           </div>
           <div class="col-md-4">
@@ -548,18 +504,16 @@
                 <li><a href="#">3 bí quyết lựa chọn thực phẩm sạch</a></li>
               </ul>
 
-              <!-- Container cho các chính sách -->
-              <div class="policy-container">
-                <a href="service.html" class="policy-section">
-                  <i class="fas fa-truck"></i> Vận chuyển
-                </a>
-                <a href="purchase-policy.html" class="policy-section">
-                  <i class="fas fa-shopping-basket"></i> Mua Hàng
-                </a>
-                <a href="gift-policy.html" class="policy-section">
-                  <i class="fas fa-gift"></i> Quà tặng
-                </a>
-              </div>
+              <!-- Thêm thẻ <a> cho mỗi mục chính sách -->
+              <a href="gift-policy.html" class="policy-section">
+                <i class="fas fa-gift"></i>CHÍNH SÁCH QUÀ TẶNG
+              </a>
+              <a href="service.html" class="policy-section">
+                <i class="fas fa-truck"></i>CHÍNH SÁCH VẬN CHUYỂN
+              </a>
+              <a href="purchase-policy.html" class="policy-section">
+                <i class="fas fa-shopping-basket"></i>CHÍNH SÁCH MUA HÀNG
+              </a>
             </div>
           </div>
         </div>
