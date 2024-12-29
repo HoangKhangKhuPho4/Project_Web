@@ -71,36 +71,17 @@
 
 
       
-      /* booking confirm */
-      .booking_confirm .img_vertical {
-        display:none;
-      } 
-
-      @media (max-width: 1380px) {
-        .booking_confirm .img_vertical {
-          display:block;
-        }
-        .booking_confirm .img_horizontal {
-          display:none;
-        }
+      /* introduction*/
+      
+      .section{
+        margin-bottom:40px;
       }
-
-      .booking_form{
-        display:flex;
-      }
-
-      .booking_confirm{
-        display:none;
-      }
-
-      @keyframes appear {
-        from{
-          opacity:0;
-        }
-
-        to{
-          opacity:1;
-        }
+      .title_introduction{
+        font-size: 30px;
+        color: #FEA116;
+        font-weight: 600;
+        line-height: 1;
+        margin-bottom: 10px;
       }
     </style>
   </head>
@@ -148,7 +129,7 @@
                 <div class="search-down bg-white position-absolute" style="top: 38px; left: 8px;">
         
                 </div>
-              </div>
+            </div>
               <ul class="navbar-nav ">
                 <li class="nav-item">
                   <a href="index.html" class="nav-item nav-link">Home</a>
@@ -190,17 +171,16 @@
         <div class="container-xxl py-5 bg-dark hero-header mb-5">
           <div class="container text-center my-5 pt-5 pb-4">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
-              Booking
+              Introduction
             </h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center text-uppercase">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
                 <li
                   class="breadcrumb-item text-white active"
                   aria-current="page"
                 >
-                  Booking
+                  Introduction
                 </li>
               </ol>
             </nav>
@@ -209,121 +189,65 @@
       </div>
       <!-- Navbar & Hero End -->
 
-      <!-- Reservation Start -->
-      <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="row g-0" id="booking_form">
-          <div class="col-md-6">
-            <div class="video">
-              <button
-                type="button"
-                class="btn-play"
-                data-bs-toggle="modal"
-                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                data-bs-target="#videoModal"
-              >
-                <span></span>
-              </button>
+      <!-- introduction Start -->
+      <div class="container-xxl py-5 px-0">
+        
+        <div class="container section wow fadeIn" data-wow-delay="0.1s">
+          <div class="row mx-4 align-items-center">
+            <div class="col-sm-6">
+              <img src="./img/vietnamese_food.jpg" class="img-fluid rounded-3" alt="Responsive image">
             </div>
-          </div>
-          <div class="col-md-6 bg-dark d-flex align-items-center">
-            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-              <h5 class="section-title ff-secondary text-start text-primary fw-normal">
-                Reservation
-              </h5>
-              <h1 class="text-white mb-4">Book A Table Online</h1>
-              <form onsubmit="return bookingSubmit(event)">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="name_booking" placeholder="Your Name" required/>
-                      <label for="name">Your Name</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input type="email" class="form-control" id="email_booking" placeholder="Your Email" required/>
-                      <label for="email">Your Email</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                      <input type="text" class="form-control datetimepicker-input" id="datetime_booking" placeholder="Date & Time"
-                        data-target="#date3" data-toggle="datetimepicker" required/>
-                      <label for="datetime">Date & Time</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <select class="form-select" id="select1">
-                        <option value="1">People 1</option>
-                        <option value="2">People 2</option>
-                        <option value="3">People 3</option>
-                      </select>
-                      <label for="select1">No Of People</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Special Request" id="special_request_booking" style="height: 100px"></textarea>
-                      <label for="message">Special Request</label>
-                    </div>
-                  </div>
-          
-                  <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="submit">
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </form>
+            <div class="col-sm-6">
+              <p class="title_introduction mt-2">Món ăn của chúng tôi</p>
+
+              <p>-Chúng tôi tự hào mang đến cho bạn những món ăn ngon miệng và đa dạng, từ các món ăn truyền thống Việt Nam đến các món ăn quốc tế.</p>
+              <p>-Mỗi món ăn đều được chế biến từ những nguyên liệu tươi ngon nhất, đảm bảo hương vị tuyệt vời và an toàn cho sức khỏe. Đặc biệt, chúng tôi có các món đặc sản như phở bò, bún chả, và các món hải sản tươi sống.</p>
+              <p>-Ngoài ra, thực đơn của chúng tôi còn có các món chay phong phú, phù hợp với mọi khẩu vị và nhu cầu dinh dưỡng.</p>
             </div>
           </div>
         </div>
-
-        
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-2">
-
+        <div class="container section wow fadeIn" data-wow-delay="0.1s">
+          <div class="row mx-4 align-items-center">
+            <div class="col-sm-6 order-lg-2">
+              <img src="./img/nhan_vien_phuc_vu.png" class="img-fluid rounded-3" alt="Responsive image">
             </div>
-            <div class="col-sm-8 booking_confirm bg-image mt-3 position-relative">
-        
-              <img src="./img/booking_confirm.jpg" alt="" class="img_horizontal w-100 " style="user-select: none; -webkit-user-drag: none;">
+            <div class="col-sm-6">
+              <p class="title_introduction mt-2">Nhân viên của chúng tôi</p>
 
-              <img src="./img/booking_confirm_vertical.jpg" alt="" class="img_vertical w-100" style="user-select: none; -webkit-user-drag: none;">
-
-              <div class="position-absolute start-50 translate-middle-x text-white" style="top:11%">
-                <div class="d-flex align-items-center ">
-                  <h1 class="text-primary m-0 text-center">
-                    <i class="fa fa-utensils me-3"></i>Restoran
-                  </h1>
-                </div>
-              </div>
-
-              <div class="position-absolute text-white" style="top:25%; left:12%; width:75%; font-family: 'Times New Roman', Times, serif;">
-                <p class="mb-1">Kính gửi: <span id="booking_name">Võ Hoàng Nam</span></p>
-                <p class="mb-1">Cảm ơn bạn đã chọn: nhà hàng Restoran</p>
-                <div class="invitation-detail mt-2">
-                  <p class="m-0">Thông tin đặt bàn:</p>
-                  <ul>
-                    <li>Ngày: <span id="booking_date">26/11/2024</span></li>
-                    <li>Giờ: <span id="booking_time">9:00 PM</span></li>
-                    <li>Số lượng khách: <span id="booking_numOfPeople">1</span> người</li>
-                  </ul>
-                </div>
-                <p class="mb-1">Chúng tôi rất mong được đón tiếp bạn. Nếu có bất kỳ thay đổi nào, vui lòng thông báo cho chúng tôi sớm nhất có thể.</p>
-                <div class="sign text-end me-5">
-                  <p>Trân trọng,</p>
-                  <p class="me-2">Restoran</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-2">
-
+              <p>-Đội ngũ nhân viên của chúng tôi luôn sẵn sàng phục vụ bạn với nụ cười thân thiện và phong cách chuyên nghiệp.</p>
+              <p>-Chúng tôi luôn lắng nghe và đáp ứng mọi nhu cầu của bạn, mang đến cho bạn trải nghiệm ẩm thực tuyệt vời nhất.</p>
+              <p>-Nhân viên của chúng tôi được đào tạo kỹ lưỡng, luôn chú trọng đến từng chi tiết nhỏ nhất để đảm bảo bạn có một bữa ăn hoàn hảo.</p>
+              <p>-Chúng tôi cũng có đội ngũ nhân viên biết nhiều ngôn ngữ, sẵn sàng phục vụ khách hàng quốc tế.</p>
             </div>
           </div>
-        
-        
+        </div>
+        <div class="container section wow fadeIn" data-wow-delay="0.1s">
+          <div class="row mx-4 align-items-center">
+            <div class="col-sm-6">
+              <img src="./img/trang-tri-nha-hang.jpg" class="img-fluid rounded-3" alt="Responsive image">
+            </div>
+            <div class="col-sm-6">
+              <p class="title_introduction mt-2">Không gian nhà hàng</p>
+
+              <p>-Nhà hàng của chúng tôi được thiết kế với không gian ấm cúng và sang trọng, tạo cảm giác thoải mái và thư giãn cho khách hàng.</p>
+              <p>-Từ ánh sáng dịu nhẹ đến những chi tiết trang trí tinh tế, tất cả đều được chăm chút tỉ mỉ để mang đến cho bạn một không gian ẩm thực hoàn hảo.</p>
+              <p>-Chúng tôi có các khu vực riêng biệt cho các bữa tiệc gia đình, gặp gỡ bạn bè, và các buổi hẹn hò lãng mạn.</p>
+              <p>-Ngoài ra, nhà hàng còn có khu vực ngoài trời thoáng đãng, lý tưởng cho những buổi tối mát mẻ.</p>
+            </div>
+          </div>
+        </div>
+        <div class="container section wow fadeIn" data-wow-delay="0.1s">
+          <div class="row mx-4 align-items-center">
+            <div class="col-sm-6 order-lg-2">
+              <img src="./img/su_kien_dat_biet.jpg" class="img-fluid rounded-3" alt="Responsive image">
+            </div>
+            <div class="col-sm-6">
+              <p class="title_introduction mt-2">Tổ chức sự kiện đặt biệt</p>
+
+              <p>-Chúng tôi cũng tổ chức các sự kiện đặc biệt như tiệc cưới, sinh nhật, và các buổi họp mặt công ty.</p>
+              <p>-Với không gian rộng rãi và dịch vụ chuyên nghiệp, chúng tôi cam kết mang đến cho bạn một sự kiện đáng nhớ. Hãy liên hệ với chúng tôi để biết thêm chi tiết và đặt chỗ trước.</p>
+            </div>
+          </div>
         </div>
         
       </div>
