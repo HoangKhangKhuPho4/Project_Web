@@ -47,27 +47,29 @@
 
       /* Apply CSS only to "View Details" buttons */
       .btn-view-details {
-        position: absolute;
-        bottom: 15px;
-        right: 20px;
-        padding: 10px 20px;
-        background: var(--primary);
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color var(--transition-duration) ease,
-          transform var(--transition-duration) ease,
-          opacity var(--transition-duration) ease,
-          box-shadow var(--transition-duration) ease;
-        opacity: 0;
-        pointer-events: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-      }
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  padding: 1px 4px;  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 3px; /* Giảm từ 5px xuống 3px để nút ít bo góc hơn */
+  text-transform: uppercase;
+  font-size: 0.7rem; /* Giảm từ 0.9rem xuống 0.8rem */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease,
+              transform var(--transition-duration) ease,
+              opacity var(--transition-duration) ease,
+              box-shadow var(--transition-duration) ease;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transform: scale(0.7);
+ 
+}
+
 
       /* Show button on hover */
       .menu-item:hover .btn-view-details {
@@ -107,6 +109,7 @@
           transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(0deg);
         }
       }
+
 
       /*** Modal Enhancements ***/
       .modal-content {
@@ -436,9 +439,7 @@
 
       <!-- Navbar & Hero Start -->
       <div class="container-xxl position-relative p-0">
-        <nav
-          class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0"
-        >
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
           <div class="d-flex align-items-center">
             <a href="#" class="navbar-brand p-0">
               <h1 class="text-primary m-0">
@@ -447,7 +448,7 @@
               <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
           </div>
-
+      
           <button
             class="navbar-toggler"
             type="button"
@@ -459,29 +460,20 @@
           >
             <span class="fa fa-bars"></span>
           </button>
-
+      
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4">
               <a href="index.html" class="nav-item nav-link">Home</a>
-              <a href="introduction.html" class="nav-item nav-link"
-                >Introduction</a
-              >
+              <a href="introduction.html" class="nav-item nav-link">Introduction</a>
               <!-- Removed Blog Link -->
               <a href="service.html" class="nav-item nav-link">Service</a>
               <a href="menu.html" class="nav-item nav-link active">Menu</a>
               <div class="nav-item dropdown">
-                <a
-                  href="#"
-                  class="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  >Pages</a
-                >
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu m-0">
                   <a href="booking.html" class="dropdown-item">Booking</a>
                   <a href="team.html" class="dropdown-item">Our Team</a>
-                  <a href="testimonial.html" class="dropdown-item"
-                    >Testimonial</a
-                  >
+                  <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                   <!-- Added Blog and Contact -->
                   <a href="blog.html" class="dropdown-item">Blog</a>
                   <a href="contact.html" class="dropdown-item">Contact</a>
@@ -491,15 +483,6 @@
               <a href="search.html" class="nav-item nav-link">
                 <i class="fa fa-search"></i> Search
               </a>
-            </a>
-            <!-- New shopping cart icon added -->
-            <a href="#" class="nav-item nav-link position-relative" id="cart-button" onclick="showOrderSidebar()">
-              <i class="fa fa-shopping-cart"></i>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                <span id="cart-count">0</span>
-                <span class="visually-hidden"> items in cart</span>
-              </span>
-            </a>
               <a href="register.html" class="nav-item nav-link">
                 <i class="fa fa-user-plus"></i> Sign up
               </a>
@@ -507,10 +490,8 @@
                 <i class="fa fa-user"></i> Login
               </a>
             </div>
-
-            <a href="booking.html" class="btn btn-primary py-2 px-4"
-              >Book A Table</a
-            >
+      
+            <a href="booking.html" class="btn btn-primary py-2 px-4">Book A Table</a>
           </div>
         </nav>
 

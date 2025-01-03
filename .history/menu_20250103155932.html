@@ -47,27 +47,28 @@
 
       /* Apply CSS only to "View Details" buttons */
       .btn-view-details {
-        position: absolute;
-        bottom: 15px;
-        right: 20px;
-        padding: 10px 20px;
-        background: var(--primary);
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color var(--transition-duration) ease,
-          transform var(--transition-duration) ease,
-          opacity var(--transition-duration) ease,
-          box-shadow var(--transition-duration) ease;
-        opacity: 0;
-        pointer-events: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-      }
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  padding: 3px 8px;  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 3px; /* Giảm từ 5px xuống 3px để nút ít bo góc hơn */
+  text-transform: uppercase;
+  font-size: 0.7rem; /* Giảm từ 0.9rem xuống 0.8rem */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease,
+              transform var(--transition-duration) ease,
+              opacity var(--transition-duration) ease,
+              box-shadow var(--transition-duration) ease;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transform: scale(0.9);
+}
+
 
       /* Show button on hover */
       .menu-item:hover .btn-view-details {
@@ -462,13 +463,13 @@
 
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4">
-              <a href="index.html" class="nav-item nav-link">Home</a>
+              <a href="index.html" class="nav-item nav-link active">Home</a>
               <a href="introduction.html" class="nav-item nav-link"
                 >Introduction</a
               >
               <!-- Removed Blog Link -->
               <a href="service.html" class="nav-item nav-link">Service</a>
-              <a href="menu.html" class="nav-item nav-link active">Menu</a>
+              <a href="menu.html" class="nav-item nav-link">Menu</a>
               <div class="nav-item dropdown">
                 <a
                   href="#"
