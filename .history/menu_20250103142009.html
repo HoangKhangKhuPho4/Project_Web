@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Restoran - Mẫu Trang Web Nhà Hàng Bootstrap</title>
+    <title>Restoran - Bootstrap Restaurant Website Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -45,7 +45,7 @@
     <style>
       /*** Menu Items Synchronization ***/
 
-      /* Chỉ áp dụng CSS cho các nút "Xem Chi Tiết" */
+      /* Apply CSS only to "View Details" buttons */
       .btn-view-details {
         position: absolute;
         bottom: 15px;
@@ -69,7 +69,7 @@
         z-index: 10;
       }
 
-      /* Hiển thị nút khi hover */
+      /* Show the button on hover */
       .menu-item:hover .btn-view-details {
         opacity: 1;
         pointer-events: auto;
@@ -85,7 +85,7 @@
         flex-direction: column;
       }
 
-      /* Keyframes cho hiệu ứng lắc */
+      /* Keyframes for shake animation */
       @keyframes shake {
         0% {
           transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(0deg);
@@ -190,37 +190,37 @@
 
       /*** Sidebar Styles ***/
       .sidebar {
-  display: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 450px; /* Tăng từ 350px lên 450px */
-  height: 100%;
-  background-color: #f8f9fa;
-  border-left: 1px solid #dee2e6;
-  padding: 20px;
-  z-index: 1050;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
-  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-  transform: translateX(100%);
-}
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 450px; /* Increased from 350px to 450px */
+        height: 100%;
+        background-color: #f8f9fa;
+        border-left: 1px solid #dee2e6;
+        padding: 20px;
+        z-index: 1050;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+        transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+        transform: translateX(100%);
+      }
 
-/* Responsive Adjustments cho Sidebar */
-@media (max-width: 576px) {
-  .sidebar {
-    width: 100%; /* Đối với màn hình nhỏ, sidebar chiếm toàn bộ chiều rộng */
-  }
-}
+      /* Responsive Adjustments for Sidebar */
+      @media (max-width: 576px) {
+        .sidebar {
+          width: 100%; /* For small screens, sidebar takes full width */
+        }
+      }
 
-/* căn chỉnh kích thước hình ảnh sidebar */
-/* Hình ảnh sản phẩm trong giỏ hàng */
-.cart-item-image {
-  width: 40px; /* Giảm từ 60px xuống 40px */
-  height: 40px; /* Giảm từ 60px xuống 40px */
-  object-fit: cover;
-  border-radius: 5px;
-}
+      /* Adjust sidebar image sizes */
+      /* Product images in cart */
+      .cart-item-image {
+        width: 40px; /* Reduced from 60px to 40px */
+        height: 40px; /* Reduced from 60px to 40px */
+        object-fit: cover;
+        border-radius: 5px;
+      }
 
       .sidebar.show {
         display: block;
@@ -387,7 +387,7 @@
         margin: 0 10px;
       }
 
-      /* Tùy Chỉnh Styles cho Form Tìm Kiếm */
+      /* Customized Styles for Search Form */
       .navbar .form-control {
         border-radius: 20px;
         transition: width 0.4s ease-in-out;
@@ -403,21 +403,17 @@
         }
       }
       #cart-button .badge {
-  top: 0;
-  transform: translate(-50%, 0);
-  margin-top: 10px; /* Thêm khoảng cách đẩy badge xuống */
-  font-size: 0.75rem;
-  padding: 0.25em 0.4em;
-  transition: margin-top 0.3s ease;
-}
-
-
+        top: 0;
+        transform: translate(-50%, 0);
+        margin-top: 10px; /* Added spacing to push badge down */
+        font-size: 0.75rem;
+        padding: 0.25em 0.4em;
+        transition: margin-top 0.3s ease;
+      }
 
       #cart-button .badge {
-  transition: top 0.3s ease, transform 0.3s ease;
-}
-
-
+        transition: top 0.3s ease, transform 0.3s ease;
+      }
     </style>
   </head>
 
@@ -496,7 +492,7 @@
                 <i class="fa fa-search"></i> Search
               </a>
             </a>
-            <!-- Biểu tượng giỏ hàng mới thêm -->
+            <!-- Newly added cart icon -->
             <a href="#" class="nav-item nav-link position-relative" id="cart-button" onclick="showOrderSidebar()">
               <i class="fa fa-shopping-cart"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -599,7 +595,7 @@
               <!-- Breakfast Tab -->
               <div id="tab-1" class="tab-pane fade show p-0 active">
                 <div class="row g-4">
-                  <!-- Món 1: Classic Pancakes -->
+                  <!-- Dish 1: Classic Pancakes -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -608,12 +604,12 @@
                       data-title="Classic Pancakes"
                       data-price="10900"
                       data-description="Delicious classic pancakes served with maple syrup and fresh berries."
-                      data-ingredients="Bột mì, Trứng, Sữa, Bơ, Đường, Bột nở"
-                      data-preparation="Bước 1: Trộn bột mì, đường và bột nở trong một bát lớn. Bước 2: Đánh trứng và thêm sữa vào hỗn hợp bột. Bước 3: Đun nóng chảo với bơ và đổ từng phần bột vào chảo. Bước 4: Nướng mỗi mặt cho đến khi vàng đều. Bước 5: Thưởng thức với siro maple và quả mọng tươi."
+                      data-ingredients="Flour, Eggs, Milk, Butter, Sugar, Baking Powder"
+                      data-preparation="Step 1: Mix flour, sugar, and baking powder in a large bowl. Step 2: Beat eggs and add milk to the flour mixture. Step 3: Heat a pan with butter and pour portions of the batter into the pan. Step 4: Cook each side until golden brown. Step 5: Serve with maple syrup and fresh berries."
                       data-images="img/pancakes.jpg, img/pancakes2.jpg"
                       data-video="https://www.youtube.com/embed/vkcHmpKxFwg"
                       data-rating="★★★★★"
-                      data-reviews="10 đánh giá"
+                      data-reviews="10 reviews"
                     >
                       <img
                         src="img/pancakes.jpg"
@@ -622,24 +618,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Classic Pancakes</span>
-                          <span class="text-primary">10.900 VNĐ</span>
+                          <span class="text-primary">10,900 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Delicious classic pancakes with maple syrup.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 2: Avocado Toast -->
+                  <!-- Dish 2: Avocado Toast -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -648,12 +644,12 @@
                       data-title="Avocado Toast"
                       data-price="8990"
                       data-description="Fresh avocado spread on toasted bread, topped with cherry tomatoes and feta cheese."
-                      data-ingredients="Bánh mì, Bơ, Cà chua bi, Pho mát feta, Muối, Tiêu"
-                      data-preparation="Bước 1: Nướng bánh mì đến khi giòn. Bước 2: Trộn bơ với một chút muối và tiêu. Bước 3: Phết hỗn hợp bơ lên bánh mì nướng. Bước 4: Thêm cà chua bi cắt đôi và rắc pho mát feta lên trên. Bước 5: Thưởng thức ngay khi còn ấm."
+                      data-ingredients="Bread, Avocado, Cherry Tomatoes, Feta Cheese, Salt, Pepper"
+                      data-preparation="Step 1: Toast the bread until crispy. Step 2: Mash the avocado with a bit of salt and pepper. Step 3: Spread the avocado mixture on the toasted bread. Step 4: Add halved cherry tomatoes and sprinkle feta cheese on top. Step 5: Serve immediately while warm."
                       data-images="img/menu-avocado-toast.jpg, img/menu-avocado-toast2.jpg"
                       data-video="https://www.youtube.com/embed/li-pPc6KNho"
                       data-rating="★★★★☆"
-                      data-reviews="8 đánh giá"
+                      data-reviews="8 reviews"
                     >
                       <img
                         src="img/menu-avocado-toast.jpg"
@@ -662,24 +658,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Avocado Toast</span>
-                          <span class="text-primary">8.990 VNĐ</span>
+                          <span class="text-primary">8,990 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Fresh avocado with cherry tomatoes.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 3: French Omelette -->
+                  <!-- Dish 3: French Omelette -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -688,12 +684,12 @@
                       data-title="French Omelette"
                       data-price="12500"
                       data-description="Fluffy French omelette with herbs and cheese, served with a side of mixed greens."
-                      data-ingredients="Trứng, Bơ, Phô mai, Thảo mộc tươi, Muối, Tiêu"
-                      data-preparation="Bước 1: Đánh trứng với muối và tiêu. Bước 2: Đun nóng chảo với bơ đến khi tan chảy. Bước 3: Đổ trứng vào chảo và khuấy nhẹ để tạo bọt. Bước 4: Thêm phô mai và thảo mộc tươi khi trứng bắt đầu cứng lại. Bước 5: Gập omelette đôi và nấu thêm một chút cho đến khi phô mai tan chảy. Bước 6: Dọn lên đĩa cùng với salad xanh."
+                      data-ingredients="Eggs, Butter, Cheese, Fresh Herbs, Salt, Pepper"
+                      data-preparation="Step 1: Beat the eggs with salt and pepper. Step 2: Heat a pan with butter until melted. Step 3: Pour the eggs into the pan and stir gently to create bubbles. Step 4: Add cheese and fresh herbs when the eggs start to set. Step 5: Fold the omelette in half and cook a little longer until the cheese melts. Step 6: Serve on a plate with a side of mixed greens."
                       data-images="img/menu-french-omelette.jpg, img/menu-french-omelette2.jpg"
                       data-video="https://www.youtube.com/embed/_Wb5Crj917I"
                       data-rating="★★★★★"
-                      data-reviews="15 đánh giá"
+                      data-reviews="15 reviews"
                     >
                       <img
                         src="img/menu-french-omelette.jpg"
@@ -702,24 +698,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>French Omelette</span>
-                          <span class="text-primary">12.500 VNĐ</span>
+                          <span class="text-primary">12,500 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Fluffy omelette with herbs and cheese.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 4: Berry Smoothie -->
+                  <!-- Dish 4: Berry Smoothie -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -728,12 +724,12 @@
                       data-title="Berry Smoothie"
                       data-price="6750"
                       data-description="Refreshing berry smoothie blended with yogurt and honey."
-                      data-ingredients="Quả mọng, Sữa chua, Mật ong, Đá viên, Vanilla extract"
-                      data-preparation="Bước 1: Cho quả mọng, sữa chua và mật ong vào máy xay. Bước 2: Thêm đá viên và một chút vanilla extract. Bước 3: Xay đến khi mịn mượt. Bước 4: Rót ra ly và thưởng thức lạnh."
+                      data-ingredients="Berries, Yogurt, Honey, Ice Cubes, Vanilla Extract"
+                      data-preparation="Step 1: Add berries, yogurt, and honey to a blender. Step 2: Add ice cubes and a bit of vanilla extract. Step 3: Blend until smooth. Step 4: Pour into a glass and enjoy cold."
                       data-images="img/menu-berry-smoothie.jpg, img/menu-berry-smoothie2.jpg"
                       data-video="https://www.youtube.com/embed/EDL46b7TlZ8"
                       data-rating="★★★★☆"
-                      data-reviews="12 đánh giá"
+                      data-reviews="12 reviews"
                     >
                       <img
                         src="img/menu-berry-smoothie.jpg"
@@ -742,24 +738,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Berry Smoothie</span>
-                          <span class="text-primary">6.750 VNĐ</span>
+                          <span class="text-primary">6,750 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Refreshing smoothie with berries and yogurt.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 5: Protein Granola Bowl -->
+                  <!-- Dish 5: Protein Granola Bowl -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -768,12 +764,12 @@
                       data-title="Protein Granola Bowl"
                       data-price="11500"
                       data-description="Healthy granola bowl with mixed nuts, seeds, and a scoop of protein powder."
-                      data-ingredients="Granola, Hạt hạnh nhân, Hạt điều, Hạt chia, Sữa hạt, Protein powder"
-                      data-preparation="Bước 1: Trộn granola và hạt trong một bát lớn. Bước 2: Thêm một muỗng protein powder. Bước 3: Rưới sữa hạt lên trên. Bước 4: Khuấy đều và thưởng thức."
+                      data-ingredients="Granola, Almonds, Cashews, Chia Seeds, Nut Milk, Protein Powder"
+                      data-preparation="Step 1: Mix granola and nuts in a large bowl. Step 2: Add a scoop of protein powder. Step 3: Drizzle nut milk on top. Step 4: Stir well and enjoy."
                       data-images="img/menu-granola-parfait.jpg, img/menu-granola-bowl2.jpg"
                       data-video="https://www.youtube.com/embed/2nWi37RKzmw?si=JKiqSi8Qnv9hiZaA"
                       data-rating="★★★★☆"
-                      data-reviews="9 đánh giá"
+                      data-reviews="9 reviews"
                     >
                       <img
                         src="img/menu-granola-parfait.jpg"
@@ -782,24 +778,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Protein Granola Bowl</span>
-                          <span class="text-primary">11.500 VNĐ</span>
+                          <span class="text-primary">11,500 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Granola with mixed nuts and protein powder.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 6: Spinach & Feta Breakfast Wrap -->
+                  <!-- Dish 6: Spinach & Feta Breakfast Wrap -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -808,12 +804,12 @@
                       data-title="Spinach & Feta Breakfast Wrap"
                       data-price="9800"
                       data-description="Warm tortilla filled with sautéed spinach, feta cheese, and scrambled eggs."
-                      data-ingredients="Tortilla lớn, Trứng, Rau bina, Pho mát feta, Bơ, Muối, Tiêu"
-                      data-preparation="Bước 1: Sauté rau bina với bơ cho đến khi mềm. Bước 2: Đánh trứng và chiên đến khi chín mềm. Bước 3: Trải tortilla trên mặt phẳng, thêm rau bina và trứng chiên. Bước 4: Thêm pho mát feta lên trên. Bước 5: Gập tortilla lại thành wrap và nướng nhẹ cho đến khi tortilla giòn và pho mát tan chảy. Bước 6: Cắt đôi và thưởng thức."
+                      data-ingredients="Large Tortilla, Eggs, Spinach, Feta Cheese, Butter, Salt, Pepper"
+                      data-preparation="Step 1: Sauté spinach with butter until wilted. Step 2: Scramble eggs until softly cooked. Step 3: Lay out the tortilla, add spinach and scrambled eggs. Step 4: Add feta cheese on top. Step 5: Fold the tortilla into a wrap and lightly toast until the tortilla is crispy and cheese melts. Step 6: Cut in half and enjoy."
                       data-images="img/spinach-and-feta-egg-white-wraps.jpg, img/spinach-feta-wrap2.jpg"
                       data-video="https://www.youtube.com/embed/-mNnf13pkv4?si=5sG2l_EkuuEp32nB"
                       data-rating="★★★★★"
-                      data-reviews="14 đánh giá"
+                      data-reviews="14 reviews"
                     >
                       <img
                         src="img/spinach-and-feta-egg-white-wraps.jpg"
@@ -822,24 +818,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Spinach & Feta Breakfast Wrap</span>
-                          <span class="text-primary">9.800 VNĐ</span>
+                          <span class="text-primary">9,800 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Tortilla with spinach, feta, and eggs.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 7: Chia Seed Pudding -->
+                  <!-- Dish 7: Chia Seed Pudding -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -848,12 +844,12 @@
                       data-title="Chia Seed Pudding"
                       data-price="8500"
                       data-description="Creamy chia seed pudding topped with fresh fruits and honey."
-                      data-ingredients="Hạt chia, Sữa hạt, Mật ong, Quả tươi, Vanilla extract"
-                      data-preparation="Bước 1: Trộn hạt chia với sữa hạt và vanilla extract trong một hũ. Bước 2: Để trong tủ lạnh ít nhất 4 giờ hoặc qua đêm để hạt chia nở. Bước 3: Trước khi dùng, khuấy đều và thêm mật ong. Bước 4: Thêm quả tươi lên trên và thưởng thức."
+                      data-ingredients="Chia Seeds, Nut Milk, Honey, Fresh Fruits, Vanilla Extract"
+                      data-preparation="Step 1: Mix chia seeds with nut milk and vanilla extract in a jar. Step 2: Refrigerate for at least 4 hours or overnight to allow chia seeds to swell. Step 3: Before serving, stir well and add honey. Step 4: Add fresh fruits on top and enjoy."
                       data-images="img/chia-seeds-with-almond-milk.jpg, img/chia-pudding2.jpg"
                       data-video="https://www.youtube.com/embed/uNiRYEsT3ac?si=NgL_ViQcChhv9jzk"
                       data-rating="★★★★☆"
-                      data-reviews="11 đánh giá"
+                      data-reviews="11 reviews"
                     >
                       <img
                         src="img/chia-seeds-with-almond-milk.jpg"
@@ -862,24 +858,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Chia Seed Pudding</span>
-                          <span class="text-primary">8.500 VNĐ</span>
+                          <span class="text-primary">8,500 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Chia pudding with fruits and honey.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 8: Breakfast Burrito -->
+                  <!-- Dish 8: Breakfast Burrito -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -888,12 +884,12 @@
                       data-title="Breakfast Burrito"
                       data-price="11500"
                       data-description="Large tortilla filled with scrambled eggs, sausage, cheese, and salsa."
-                      data-ingredients="Tortilla lớn, Trứng, Xúc xích, Phô mai, Salsa, Bơ"
-                      data-preparation="Bước 1: Đánh trứng và chiên đến khi chín mềm. Bước 2: Nướng xúc xích đến khi vàng đều. Bước 3: Trải tortilla trên mặt phẳng, thêm trứng chiên, xúc xích, phô mai và salsa lên trên. Bước 4: Gập các cạnh của tortilla lại và cuộn chặt. Bước 5: Nướng nhẹ trên chảo để tortilla giòn và phô mai tan chảy. Bước 6: Cắt đôi và thưởng thức."
+                      data-ingredients="Large Tortilla, Eggs, Sausage, Cheese, Salsa, Butter"
+                      data-preparation="Step 1: Beat eggs and scramble until softly cooked. Step 2: Grill sausage until evenly browned. Step 3: Lay out the tortilla, add scrambled eggs, sausage, cheese, and salsa. Step 4: Fold the edges of the tortilla and roll tightly into a burrito. Step 5: Lightly grill the burrito in a pan until the tortilla is crispy and the cheese melts. Step 6: Cut in half and enjoy."
                       data-images="img/Breakfast-Burritos-850x636.jpg, img/breakfast-burrito2.jpg"
                       data-video="https://www.youtube.com/embed/69mgaaK6E48?si=Y7DZ4SrJ93P7SpwE"
                       data-rating="★★★★★"
-                      data-reviews="13 đánh giá"
+                      data-reviews="13 reviews"
                     >
                       <img
                         src="img/Breakfast-Burritos-850x636.jpg"
@@ -902,19 +898,19 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Breakfast Burrito</span>
-                          <span class="text-primary">11.500 VNĐ</span>
+                          <span class="text-primary">11,500 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Burrito with eggs, sausage, and cheese.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
@@ -925,7 +921,7 @@
               <!-- Lunch Tab -->
               <div id="tab-2" class="tab-pane fade p-0">
                 <div class="row g-4">
-                  <!-- Món 1: Grilled Chicken Sandwich -->
+                  <!-- Dish 1: Grilled Chicken Sandwich -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -934,12 +930,12 @@
                       data-title="Grilled Chicken Sandwich"
                       data-price="13990"
                       data-description="Juicy grilled chicken breast with lettuce, tomato, and mayo on toasted bread."
-                      data-ingredients="Bánh mì, Thịt gà nướng, Rau xà lách, Cà chua, Sốt mayonnaise, Bơ"
-                      data-preparation="Bước 1: Nướng thịt gà với gia vị cho đến khi chín và mềm. Bước 2: Nướng bánh mì đến khi giòn. Bước 3: Phết một lớp mayonnaise lên cả hai mặt bánh mì. Bước 4: Thêm rau xà lách và cà chua thái lát lên một mặt bánh mì. Bước 5: Đặt thịt gà nướng lên trên và phủ mặt bánh mì còn lại. Bước 6: Cắt đôi sandwich và thưởng thức."
+                      data-ingredients="Bread, Grilled Chicken, Lettuce, Tomato, Mayonnaise, Butter"
+                      data-preparation="Step 1: Grill the chicken with seasoning until cooked and tender. Step 2: Toast the bread until crispy. Step 3: Spread mayonnaise on both sides of the bread. Step 4: Add lettuce and sliced tomato on one side of the bread. Step 5: Place the grilled chicken on top and add the toasted bacon. Step 6: Spread special sauce on the other side of the bread and assemble the sandwich. Step 7: Cut the sandwich in half and enjoy."
                       data-images="img/menu-grilled-chicken-sandwich.jpg, img/grilled-chicken-sandwich2.jpg"
                       data-video="https://www.youtube.com/embed/h59xGkKmhPY"
                       data-rating="★★★★★"
-                      data-reviews="22 đánh giá"
+                      data-reviews="22 reviews"
                     >
                       <img
                         src="img/menu-grilled-chicken-sandwich.jpg"
@@ -948,24 +944,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Grilled Chicken Sandwich</span>
-                          <span class="text-primary">13.990 VNĐ</span>
+                          <span class="text-primary">13,990 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Grilled chicken with fresh veggies.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 2: Beef Burger Deluxe -->
+                  <!-- Dish 2: Beef Burger Deluxe -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -974,12 +970,12 @@
                       data-title="Beef Burger Deluxe"
                       data-price="15500"
                       data-description="Premium beef patty with cheddar cheese, bacon, and special sauce."
-                      data-ingredients="Bánh hamburger, Thịt bò xay, Phô mai cheddar, Bacon, Sốt đặc biệt, Xà lách, Cà chua"
-                      data-preparation="Bước 1: Tạo hình thịt bò thành patties và nướng đến mức chín mong muốn. Bước 2: Nướng bacon đến khi giòn. Bước 3: Nướng bánh hamburger trên chảo với một chút bơ. Bước 4: Đặt phô mai cheddar lên patties khi chúng còn nóng để phô mai tan chảy. Bước 5: Xếp xà lách và cà chua lên một mặt bánh mì. Bước 6: Đặt patties với phô mai lên trên và thêm bacon đã nướng. Bước 7: Phết sốt đặc biệt lên mặt bánh mì còn lại và ghép sandwich lại."
+                      data-ingredients="Hamburger Bun, Ground Beef, Cheddar Cheese, Bacon, Special Sauce, Lettuce, Tomato"
+                      data-preparation="Step 1: Shape the ground beef into patties and grill to desired doneness. Step 2: Grill bacon until crispy. Step 3: Toast the hamburger buns in a pan with a bit of butter. Step 4: Place cheddar cheese on the patties while still hot to melt the cheese. Step 5: Add lettuce and tomato on one side of the bun. Step 6: Place the grilled patties with cheese on top and add bacon. Step 7: Spread special sauce on the other side of the bun and assemble the sandwich."
                       data-images="img/menu-beef-burger-deluxe.jpg, img/beef-burger-deluxe2.jpg"
                       data-video="https://www.youtube.com/embed/YTW57fxs8VQ"
                       data-rating="★★★★☆"
-                      data-reviews="19 đánh giá"
+                      data-reviews="19 reviews"
                     >
                       <img
                         src="img/menu-beef-burger-deluxe.jpg"
@@ -988,24 +984,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Beef Burger Deluxe</span>
-                          <span class="text-primary">15.500 VNĐ</span>
+                          <span class="text-primary">15,500 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Deluxe beef burger with bacon and cheese.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 3: Veggie Wrap -->
+                  <!-- Dish 3: Veggie Wrap -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -1014,12 +1010,12 @@
                       data-title="Veggie Wrap"
                       data-price="9750"
                       data-description="Fresh vegetables and hummus wrapped in a whole wheat tortilla."
-                      data-ingredients="Tortilla lúa mì nguyên cám, Rau xà lách, Cà rốt, Hành tây, Hummus, Nước chanh"
-                      data-preparation="Bước 1: Trộn rau xà lách, cà rốt thái sợi và hành tây cắt mỏng trong một bát lớn. Bước 2: Thêm hummus và nước chanh, trộn đều. Bước 3: Trải tortilla trên mặt phẳng, thêm hỗn hợp rau lên giữa. Bước 4: Gập các cạnh của tortilla lại và cuộn chặt thành wrap. Bước 5: Cắt đôi và thưởng thức ngay."
+                      data-ingredients="Whole Wheat Tortilla, Lettuce, Carrot, Onion, Hummus, Lemon Juice"
+                      data-preparation="Step 1: Mix lettuce, shredded carrot, and thinly sliced onion in a large bowl. Step 2: Add hummus and lemon juice, and mix well. Step 3: Lay out the tortilla on a flat surface, add the vegetable mixture in the center. Step 4: Fold the edges of the tortilla and roll tightly into a wrap. Step 5: Cut in half and enjoy immediately."
                       data-images="img/menu-veggie-wrap.jpg, img/menu-veggie-wrap2.jpg"
                       data-video="https://www.youtube.com/embed/ymlCrXz3iA4"
                       data-rating="★★★★★"
-                      data-reviews="17 đánh giá"
+                      data-reviews="17 reviews"
                     >
                       <img
                         src="img/menu-veggie-wrap.jpg"
@@ -1028,24 +1024,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Veggie Wrap</span>
-                          <span class="text-primary">9.750 VNĐ</span>
+                          <span class="text-primary">9,750 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Healthy wrap with fresh veggies and hummus.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 4: Shrimp Tacos -->
+                  <!-- Dish 4: Shrimp Tacos -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -1054,12 +1050,12 @@
                       data-title="Shrimp Tacos"
                       data-price="14000"
                       data-description="Spicy shrimp tacos with cabbage slaw and creamy sauce."
-                      data-ingredients="Tortilla nhỏ, Tôm tươi, Bắp cải thái mỏng, Sốt kem, Hành tây, Gia vị cay"
-                      data-preparation="Bước 1: Ướp tôm với gia vị cay và nướng hoặc chiên cho đến khi chín. Bước 2: Chuẩn bị bắp cải slaw bằng cách trộn bắp cải với nước sốt kem. Bước 3: Đun nóng tortilla trên chảo. Bước 4: Đặt tôm lên tortilla, thêm bắp cải slaw và thêm chút sốt kem nếu cần. Bước 5: Cuộn lại tortilla và thưởng thức ngay khi còn nóng."
+                      data-ingredients="Small Tortilla, Fresh Shrimp, Thinly Sliced Cabbage, Cream Sauce, Onion, Spicy Seasoning"
+                      data-preparation="Step 1: Marinate the shrimp with spicy seasoning and grill or fry until cooked. Step 2: Prepare cabbage slaw by mixing cabbage with cream sauce. Step 3: Warm the tortilla in a pan. Step 4: Place the shrimp on the tortilla, add cabbage slaw and some cream sauce if needed. Step 5: Fold the tortilla and enjoy immediately while hot."
                       data-images="img/menu-shrimp-tacos.jpg, img/shrimp-tacos2.jpg"
                       data-video="https://www.youtube.com/embed/ij4XIP1TUOA?si=5wtZE09VVIXoidjr"
                       data-rating="★★★★★"
-                      data-reviews="13 đánh giá"
+                      data-reviews="13 reviews"
                     >
                       <img
                         src="img/menu-shrimp-tacos.jpg"
@@ -1068,24 +1064,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Shrimp Tacos</span>
-                          <span class="text-primary">14.000 VNĐ</span>
+                          <span class="text-primary">14,000 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Spicy shrimp with cabbage and sauce.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 5: Turkey Club Sandwich -->
+                  <!-- Dish 5: Turkey Club Sandwich -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -1094,12 +1090,12 @@
                       data-title="Turkey Club Sandwich"
                       data-price="12500"
                       data-description="Turkey breast with bacon, lettuce, tomato, and mayo on toasted bread."
-                      data-ingredients="Bánh mì mềm, Thịt gà tây, Bacon, Rau xà lách, Cà chua, Sốt mayonnaise, Bơ"
-                      data-preparation="Bước 1: Nướng bacon đến khi giòn. Bước 2: Nướng bánh mì đến khi giòn và vàng đều. Bước 3: Phết một lớp mayonnaise lên cả hai mặt bánh mì. Bước 4: Thêm rau xà lách và cà chua thái lát lên một mặt bánh mì. Bước 5: Đặt thịt gà tây nướng lên trên và thêm bacon đã nướng. Bước 6: Phết sốt mayonnaise lên mặt bánh mì còn lại và ghép sandwich lại. Bước 7: Cắt đôi sandwich và thưởng thức."
+                      data-ingredients="Soft Bread, Turkey Breast, Bacon, Lettuce, Tomato, Mayonnaise, Butter"
+                      data-preparation="Step 1: Grill bacon until crispy. Step 2: Toast the soft bread until crispy and golden. Step 3: Spread mayonnaise on both sides of the bread. Step 4: Add lettuce and sliced tomato on one side of the bread. Step 5: Place the grilled turkey breast on top and add the grilled bacon. Step 6: Spread mayonnaise on the other side of the bread and assemble the sandwich. Step 7: Cut the sandwich in half and enjoy."
                       data-images="img/menu-turkey-club-sandwich.jpg, img/turkey-club-sandwich2.jpg"
                       data-video="https://www.youtube.com/embed/XkX2NgT0QZA"
                       data-rating="★★★★★"
-                      data-reviews="23 đánh giá"
+                      data-reviews="23 reviews"
                     >
                       <img
                         src="img/menu-turkey-club-sandwich.jpg"
@@ -1108,24 +1104,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Turkey Club Sandwich</span>
-                          <span class="text-primary">12.500 VNĐ</span>
+                          <span class="text-primary">12,500 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Turkey with bacon and fresh veggies.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 6: Fish and Chips -->
+                  <!-- Dish 6: Fish and Chips -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -1134,12 +1130,12 @@
                       data-title="Fish and Chips"
                       data-price="16000"
                       data-description="Crispy fried fish served with golden french fries and tartar sauce."
-                      data-ingredients="Thịt cá trắng, Bột chiên, Nước lạnh, Khoai tây, Sốt tartar, Dầu chiên"
-                      data-preparation="Bước 1: Chuẩn bị hỗn hợp bột chiên với bột mì, muối và tiêu. Bước 2: Nhúng thịt cá vào hỗn hợp bột và chiên trong dầu nóng đến khi vàng và giòn. Bước 3: Cắt khoai tây thành hình que và chiên đến khi giòn vàng. Bước 4: Phục vụ cá chiên với khoai tây chiên và sốt tartar."
+                      data-ingredients="White Fish, Batter, Cold Water, Potatoes, Tartar Sauce, Frying Oil"
+                      data-preparation="Step 1: Prepare the batter mixture with flour, salt, and pepper. Step 2: Dip the fish into the batter and fry in hot oil until golden and crispy. Step 3: Cut the potatoes into sticks and fry until crispy and golden. Step 4: Serve the fried fish with fries and tartar sauce."
                       data-images="img/menu-fish-and-chips.jpg, img/fish-and-chips2.jpg"
                       data-video="https://www.youtube.com/embed/CYEFR_kg6Us?si=bVvRU2KcLf-ILJ_Y"
                       data-rating="★★★★★"
-                      data-reviews="13 đánh giá"
+                      data-reviews="13 reviews"
                     >
                       <img
                         src="img/menu-fish-and-chips.jpg"
@@ -1148,24 +1144,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Fish and Chips</span>
-                          <span class="text-primary">16.000 VNĐ</span>
+                          <span class="text-primary">16,000 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Fried fish with crispy fries.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 7: BBQ Pulled Pork Sandwich -->
+                  <!-- Dish 7: BBQ Pulled Pork Sandwich -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -1174,12 +1170,12 @@
                       data-title="BBQ Pulled Pork Sandwich"
                       data-price="14500"
                       data-description="Tender pulled pork with BBQ sauce, coleslaw, and pickles on a soft bun."
-                      data-ingredients="Bánh mì mềm, Thịt heo xay, Sốt BBQ, Bắp cải, Cà rốt, Dưa chuột muối, Gia vị BBQ"
-                      data-preparation="Bước 1: Nấu thịt heo với sốt BBQ và gia vị cho đến khi thịt mềm và dễ xé. Bước 2: Xé thịt heo thành sợi nhỏ. Bước 3: Chuẩn bị coleslaw bằng cách trộn bắp cải và cà rốt với sốt nhẹ. Bước 4: Cắt bánh mì mềm thành hai nửa và nướng nhẹ. Bước 5: Đặt thịt heo xé lên một nửa bánh mì, thêm coleslaw và dưa chuột muối. Bước 6: Đặt nửa bánh mì còn lại lên trên và thưởng thức."
+                      data-ingredients="Soft Bread, Pulled Pork, BBQ Sauce, Cabbage, Carrot, Pickles, BBQ Seasoning"
+                      data-preparation="Step 1: Cook the pork with BBQ sauce and seasoning until tender and easily shredded. Step 2: Shred the pork into small pieces. Step 3: Prepare coleslaw by mixing cabbage and carrots with a light dressing. Step 4: Cut the soft bread in half and lightly toast. Step 5: Place the shredded pork on one half of the bread, add coleslaw and pickles. Step 6: Place the other half of the bread on top and enjoy the sandwich."
                       data-images="img/menu-bbq-pulled-pork.jpg, img/bbq-pulled-pork2.jpg"
                       data-video="https://www.youtube.com/embed/XkX2NgT0QZA"
                       data-rating="★★★★★"
-                      data-reviews="23 đánh giá"
+                      data-reviews="23 reviews"
                     >
                       <img
                         src="img/menu-bbq-pulled-pork.jpg"
@@ -1188,24 +1184,24 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>BBQ Pulled Pork Sandwich</span>
-                          <span class="text-primary">14.500 VNĐ</span>
+                          <span class="text-primary">14,500 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Pulled pork with BBQ and coleslaw.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
 
-                  <!-- Món 8: Caesar Salad -->
+                  <!-- Dish 8: Caesar Salad -->
                   <div class="col-lg-6">
                     <div
                       class="menu-item position-relative"
@@ -1214,12 +1210,12 @@
                       data-title="Caesar Salad"
                       data-price="9000"
                       data-description="Crisp romaine lettuce with Caesar dressing, croutons, and Parmesan cheese."
-                      data-ingredients="Romaine lettuce, Sốt Caesar, Croutons, Pho mát Parmesan, Anchovy (tuỳ chọn)"
-                      data-preparation="Bước 1: Rửa sạch và cắt nhỏ romaine lettuce. Bước 2: Trộn sốt Caesar với romaine lettuce trong một bát lớn. Bước 3: Thêm croutons và pho mát Parmesan rắc lên trên. Bước 4: Trộn đều và phục vụ ngay khi còn tươi."
+                      data-ingredients="Romaine Lettuce, Caesar Dressing, Croutons, Parmesan Cheese, Anchovy (optional)"
+                      data-preparation="Step 1: Wash and chop the romaine lettuce. Step 2: Toss Caesar dressing with romaine lettuce in a large bowl. Step 3: Add croutons and sprinkle Parmesan cheese on top. Step 4: Toss well and serve immediately while fresh."
                       data-images="img/menu-caesar-salad.jpg, img/caesar-salad2.jpg"
                       data-video="https://www.youtube.com/embed/IGlWE4AFQ5Q"
                       data-rating="★★★★★"
-                      data-reviews="14 đánh giá"
+                      data-reviews="14 reviews"
                     >
                       <img
                         src="img/menu-caesar-salad.jpg"
@@ -1228,347 +1224,19 @@
                         loading="lazy"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
+                        title="Click to view details"
                       />
                       <div class="w-100 d-flex flex-column text-start ps-4">
                         <h5 class="d-flex justify-content-between">
                           <span>Caesar Salad</span>
-                          <span class="text-primary">9.000 VNĐ</span>
+                          <span class="text-primary">9,000 VND</span>
                         </h5>
                         <small class="fst-italic"
                           >Romaine with Caesar dressing and croutons.</small
                         >
                       </div>
                       <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Lunch Tab End -->
-
-              <!-- Dinner Tab -->
-              <div id="tab-3" class="tab-pane fade p-0">
-                <div class="row g-4">
-                  <!-- Món 1: Steak Au Poivre -->
-                  <div class="col-lg-6">
-                    <div
-                      class="menu-item position-relative"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuDetailModal"
-                      data-title="Steak Au Poivre"
-                      data-price="22990"
-                      data-description="Tender filet mignon coated with cracked peppercorns, served with creamy sauce."
-                      data-ingredients="Filet mignon, Bột tiêu đen, Bơ, Kem tươi, Rượu Cognac, Muối"
-                      data-preparation="Bước 1: Rắc bột tiêu đen lên cả hai mặt filet mignon và ướp muối. Bước 2: Đun nóng chảo với bơ và nướng filet mignon đến khi chín mong muốn. Bước 3: Lấy thịt ra khỏi chảo và giữ ấm. Bước 4: Thêm rượu Cognac vào chảo để đun sôi và thấm đều với mùi tiêu. Bước 5: Thêm kem tươi và nấu đến khi sốt sánh lại. Bước 6: Đổ sốt lên filet mignon và phục vụ cùng với rau củ hoặc khoai tây nướng."
-                      data-images="img/menu-steak-au-poivre.jpg, img/steak-au-poivre2.jpg"
-                      data-video="https://www.youtube.com/embed/_Wb5Crj917I"
-                      data-rating="★★★★★"
-                      data-reviews="15 đánh giá"
-                    >
-                      <img
-                        src="img/menu-steak-au-poivre.jpg"
-                        alt="Steak Au Poivre"
-                        class="img-fluid flex-shrink-0 rounded"
-                        loading="lazy"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
-                      />
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between">
-                          <span>Steak Au Poivre</span>
-                          <span class="text-primary">22.990 VNĐ</span>
-                        </h5>
-                        <small class="fst-italic"
-                          >Filet mignon with peppercorn sauce.</small
-                        >
-                      </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Món 2: Lobster Ravioli -->
-                  <div class="col-lg-6">
-                    <div
-                      class="menu-item position-relative"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuDetailModal"
-                      data-title="Lobster Ravioli"
-                      data-price="18750"
-                      data-description="Homemade ravioli stuffed with succulent lobster meat in a rich tomato cream sauce."
-                      data-ingredients="Ravioli tươi, Thịt tôm hùm, Sốt cà chua kem, Phô mai Parmesan, Thảo mộc tươi, Bơ"
-                      data-preparation="Bước 1: Chuẩn bị nhân bằng cách trộn thịt tôm hùm với phô mai Parmesan và thảo mộc tươi. Bước 2: Nhồi nhân vào từng miếng ravioli. Bước 3: Luộc ravioli trong nước sôi đến khi chúng nổi lên. Bước 4: Đun nóng sốt cà chua kem với một chút bơ. Bước 5: Nấu sốt đến khi sệt lại. Bước 6: Đổ sốt lên ravioli và rắc thêm phô mai Parmesan trước khi phục vụ."
-                      data-images="img/menu-lobster-ravioli.jpg, img/lobster-ravioli2.jpg"
-                      data-video="https://www.youtube.com/embed/RjuG46WZgNs?si=LGBTBdSQO35Sqbgk"
-                      data-rating="★★★★☆"
-                      data-reviews="11 đánh giá"
-                    >
-                      <img
-                        src="img/menu-lobster-ravioli.jpg"
-                        alt="Lobster Ravioli"
-                        class="img-fluid flex-shrink-0 rounded"
-                        loading="lazy"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
-                      />
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between">
-                          <span>Lobster Ravioli</span>
-                          <span class="text-primary">18.750 VNĐ</span>
-                        </h5>
-                        <small class="fst-italic"
-                          >Ravioli with lobster in creamy sauce.</small
-                        >
-                      </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Món 3: Herb-Crusted Salmon -->
-                  <div class="col-lg-6">
-                    <div
-                      class="menu-item position-relative"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuDetailModal"
-                      data-title="Herb-Crusted Salmon"
-                      data-price="20000"
-                      data-description="Salmon fillet with a crispy herb crust, served with roasted vegetables."
-                      data-ingredients="Cá hồi, Thảo mộc tươi (húng quế, thyme), Bột mì, Bơ, Rau củ nướng, Muối, Tiêu"
-                      data-preparation="Bước 1: Ướp cá hồi với muối và tiêu. Bước 2: Trộn thảo mộc tươi với bột mì. Bước 3: Phủ hỗn hợp thảo mộc lên bề mặt cá hồi. Bước 4: Đun nóng bơ trong chảo và chiên cá hồi cho đến khi lớp thảo mộc vàng giòn. Bước 5: Nướng rau củ (cà rốt, bí đỏ, ớt chuông) đến khi mềm và vàng đều. Bước 6: Phục vụ cá hồi với rau củ nướng và sốt kem nếu muốn."
-                      data-images="img/menu-herb-crusted-salmon.jpg, img/herb-crusted-salmon2.jpg"
-                      data-video="https://www.youtube.com/embed/wdk7CoD5H10?si=LXqq8s-Yy2bV0A9A"
-                      data-rating="★★★★★"
-                      data-reviews="14 đánh giá"
-                    >
-                      <img
-                        src="img/menu-herb-crusted-salmon.jpg"
-                        alt="Herb-Crusted Salmon"
-                        class="img-fluid flex-shrink-0 rounded"
-                        loading="lazy"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
-                      />
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between">
-                          <span>Herb-Crusted Salmon</span>
-                          <span class="text-primary">20.000 VNĐ</span>
-                        </h5>
-                        <small class="fst-italic"
-                          >Salmon with herb crust and roasted veggies.</small
-                        >
-                      </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Món 4: Mushroom Risotto -->
-                  <div class="col-lg-6">
-                    <div
-                      class="menu-item position-relative"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuDetailModal"
-                      data-title="Mushroom Risotto"
-                      data-price="16500"
-                      data-description="Creamy risotto cooked with wild mushrooms and Parmesan cheese."
-                      data-ingredients="Riso Carnaroli, Nấm rừng, Phô mai Parmesan, Bơ, Hành tây, Sốt trắng, Thảo mộc tươi"
-                      data-preparation="Bước 1: Đun nóng bơ trong nồi, thêm hành tây và sauté đến khi mềm. Bước 2: Thêm riso và nấu cho đến khi hạt riso ngấm bơ. Bước 3: Thêm nước dùng từ từ từng chút một, khuấy đều cho đến khi riso chín mềm. Bước 4: Thêm nấm rừng đã sauté và phô mai Parmesan, khuấy đều cho đến khi hỗn hợp trở nên kem. Bước 5: Nêm muối và tiêu theo khẩu vị. Bước 6: Phục vụ nóng với một ít thảo mộc tươi rắc lên trên."
-                      data-images="img/menu-mushroom-risotto.jpg, img/mushroom-risotto2.jpg"
-                      data-video="https://www.youtube.com/embed/ju9H1RlYNxk?si=hlPwOJBIfDaScoNP"
-                      data-rating="★★★★☆"
-                      data-reviews="11 đánh giá"
-                    >
-                      <img
-                        src="img/menu-mushroom-risotto.jpg"
-                        alt="Mushroom Risotto"
-                        class="img-fluid flex-shrink-0 rounded"
-                        loading="lazy"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
-                      />
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between">
-                          <span>Mushroom Risotto</span>
-                          <span class="text-primary">16.500 VNĐ</span>
-                        </h5>
-                        <small class="fst-italic"
-                          >Risotto with wild mushrooms and Parmesan.</small
-                        >
-                      </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Món 5: Beef Wellington -->
-                  <div class="col-lg-6">
-                    <div
-                      class="menu-item position-relative"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuDetailModal"
-                      data-title="Beef Wellington"
-                      data-price="25000"
-                      data-description="Prime beef tenderloin wrapped in puff pastry with mushroom duxelles."
-                      data-ingredients="Thịt bò tươi, Puff pastry, Nấm, Hành tây, Bơ, Sốt Madeira, Trứng gà"
-                      data-preparation="Bước 1: Chế biến mushroom duxelles bằng cách sauté nấm và hành tây với bơ cho đến khi mềm và giảm nước. Bước 2: Ướp thịt bò với muối và tiêu, sau đó nhanh chóng sear trên chảo với bơ để giữ nước. Bước 3: Đặt thịt bò lên lớp duxelles, sau đó bọc trong puff pastry đã phết trứng gà để tạo lớp vỏ giòn. Bước 4: Nướng trong lò nóng đến khi puff pastry vàng giòn và thịt bò đạt mức chín mong muốn. Bước 5: Cắt lát và phục vụ cùng với sốt Madeira."
-                      data-images="img/menu-beef-wellington.jpg, img/beef-wellington2.jpg"
-                      data-video="https://www.youtube.com/embed/XkX2NgT0QZA"
-                      data-rating="★★★★★"
-                      data-reviews="23 đánh giá"
-                    >
-                      <img
-                        src="img/menu-beef-wellington.jpg"
-                        alt="Beef Wellington"
-                        class="img-fluid flex-shrink-0 rounded"
-                        loading="lazy"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
-                      />
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between">
-                          <span>Beef Wellington</span>
-                          <span class="text-primary">25.000 VNĐ</span>
-                        </h5>
-                        <small class="fst-italic"
-                          >Beef tenderloin wrapped in pastry.</small
-                        >
-                      </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Món 6: Pesto Pasta -->
-                  <div class="col-lg-6">
-                    <div
-                      class="menu-item position-relative"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuDetailModal"
-                      data-title="Pesto Pasta"
-                      data-price="14000"
-                      data-description="Al dente pasta tossed in a fresh basil pesto sauce with cherry tomatoes."
-                      data-ingredients="Pasta, Húng quế tươi, Tỏi, Pinch nuts (hạt thông), Parmesan cheese, Olive oil, Cà chua bi"
-                      data-preparation="Bước 1: Luộc pasta trong nước sôi đến khi al dente, sau đó vớt ra và giữ lại một ít nước luộc pasta. Bước 2: Trong máy xay, xay nhuyễn húng quế, tỏi, hạt thông, Parmesan cheese và một chút dầu ô liu để tạo thành sốt pesto. Bước 3: Trộn sốt pesto với pasta đã luộc, thêm cà chua bi và một ít nước luộc pasta để làm cho sốt mịn hơn. Bước 4: Nêm muối và tiêu theo khẩu vị. Bước 5: Phục vụ nóng cùng với một ít phô mai Parmesan rắc lên trên."
-                      data-images="img/menu-pesto-pasta.jpg, img/pesto-pasta2.jpg"
-                      data-video="https://www.youtube.com/embed/p7edUxCLOGw?si=eagsWNtSLSry-kUO"
-                      data-rating="★★★★☆"
-                      data-reviews="11 đánh giá"
-                    >
-                      <img
-                        src="img/menu-pesto-pasta.jpg"
-                        alt="Pesto Pasta"
-                        class="img-fluid flex-shrink-0 rounded"
-                        loading="lazy"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
-                      />
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between">
-                          <span>Pesto Pasta</span>
-                          <span class="text-primary">14.000 VNĐ</span>
-                        </h5>
-                        <small class="fst-italic"
-                          >Pasta with fresh basil pesto and cherry
-                          tomatoes.</small
-                        >
-                      </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Món 7: Lamb Chops -->
-                  <div class="col-lg-6">
-                    <div
-                      class="menu-item position-relative"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuDetailModal"
-                      data-title="Lamb Chops"
-                      data-price="24500"
-                      data-description="Grilled lamb chops served with rosemary potatoes and mint sauce."
-                      data-ingredients="Thịt cừu, Khoai tây, Rosemary tươi, Bơ, Sốt bạc hà, Muối, Tiêu"
-                      data-preparation="Bước 1: Ướp thịt cừu với muối, tiêu và rosemary tươi. Bước 2: Đun nóng vỉ nướng và nướng lamb chops đến khi chín mong muốn. Bước 3: Nướng khoai tây với rosemary và bơ đến khi vàng giòn. Bước 4: Chuẩn bị sốt bạc hà bằng cách xay bạc hà tươi với một chút nước và đường. Bước 5: Phục vụ lamb chops với khoai tây nướng và sốt bạc hà."
-                      data-images="img/menu-lamb-chops.jpg, img/lamb-chops2.jpg"
-                      data-video="https://www.youtube.com/embed/1X8fUEU8JHk?si=O6JEpopsjFJAsiK3"
-                      data-rating="★★★★★"
-                      data-reviews="23 đánh giá"
-                    >
-                      <img
-                        src="img/menu-lamb-chops.jpg"
-                        alt="Lamb Chops"
-                        class="img-fluid flex-shrink-0 rounded"
-                        loading="lazy"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
-                      />
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between">
-                          <span>Lamb Chops</span>
-                          <span class="text-primary">24.500 VNĐ</span>
-                        </h5>
-                        <small class="fst-italic"
-                          >Grilled lamb with rosemary and mint sauce.</small
-                        >
-                      </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Món 8: Vegan Buddha Bowl -->
-                  <div class="col-lg-6">
-                    <div
-                      class="menu-item position-relative"
-                      data-bs-toggle="modal"
-                      data-bs-target="#menuDetailModal"
-                      data-title="Vegan Buddha Bowl"
-                      data-price="13000"
-                      data-description="A nourishing bowl with quinoa, roasted vegetables, chickpeas, and tahini dressing."
-                      data-ingredients="Quinoa, Rau củ nướng (cà rốt, bí đỏ, ớt chuông), Gạo lứt, Hạt gạo, Nhum xanh, Sốt tahini, Chickpeas"
-                      data-preparation="Bước 1: Luộc quinoa theo hướng dẫn trên bao bì. Bước 2: Nướng rau củ với dầu ô liu và gia vị đến khi mềm và vàng đều. Bước 3: Chuẩn bị chickpeas bằng cách rửa sạch và nấu chín nếu cần. Bước 4: Trong một bát lớn, xếp quinoa, rau củ nướng, chickpeas và nhum xanh. Bước 5: Trộn sốt tahini với một chút nước và chanh để tạo thành sốt mịn. Bước 6: Rưới sốt tahini lên trên và thưởng thức."
-                      data-images="img/menu-vegan-buddha-bowl.jpg, img/vegan-buddha-bowl2.jpg"
-                      data-video="https://www.youtube.com/embed/0rILcTHxlLE?si=b_rLf5h9JOMetEuZ"
-                      data-rating="★★★★☆"
-                      data-reviews="13 đánh giá"
-                    >
-                      <img
-                        src="img/menu-vegan-buddha-bowl.jpg"
-                        alt="Vegan Buddha Bowl"
-                        class="img-fluid flex-shrink-0 rounded"
-                        loading="lazy"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Nhấn để xem chi tiết"
-                      />
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                        <h5 class="d-flex justify-content-between">
-                          <span>Vegan Buddha Bowl</span>
-                          <span class="text-primary">13.000 VNĐ</span>
-                        </h5>
-                        <small class="fst-italic"
-                          >Quinoa with roasted veggies and tahini
-                          dressing.</small
-                        >
-                      </div>
-                      <button class="btn btn-primary btn-view-details">
-                        Xem Chi Tiết
+                        View Details
                       </button>
                     </div>
                   </div>
@@ -1579,7 +1247,7 @@
           </div>
           <!-- Menu End -->
 
-          <!-- Modal Chi Tiết Món Ăn -->
+          <!-- Dish Detail Modal -->
           <div
             class="modal fade"
             id="menuDetailModal"
@@ -1591,13 +1259,13 @@
               <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
                   <h5 class="modal-title" id="menuDetailModalLabel">
-                    Tên Món Ăn
+                    Dish Name
                   </h5>
                   <button
                     type="button"
                     class="btn-close btn-close-white"
                     data-bs-dismiss="modal"
-                    aria-label="Đóng"
+                    aria-label="Close"
                   ></button>
                 </div>
                 <div class="modal-body">
@@ -1630,7 +1298,7 @@
                             class="carousel-control-prev-icon bg-dark rounded-circle p-3"
                             aria-hidden="true"
                           ></span>
-                          <span class="visually-hidden">Trước</span>
+                          <span class="visually-hidden">Previous</span>
                         </button>
                         <button
                           class="carousel-control-next"
@@ -1642,18 +1310,18 @@
                             class="carousel-control-next-icon bg-dark rounded-circle p-3"
                             aria-hidden="true"
                           ></span>
-                          <span class="visually-hidden">Sau</span>
+                          <span class="visually-hidden">Next</span>
                         </button>
                       </div>
                       <!-- Video Introduction -->
                       <div class="row mt-4">
                         <div class="col-12">
-                          <h5 class="text-primary">Video Giới Thiệu</h5>
+                          <h5 class="text-primary">Introduction Video</h5>
                           <div class="ratio ratio-16x9 rounded">
                             <iframe
                               id="menuDetailVideo"
                               src=""
-                              title="Video giới thiệu món ăn"
+                              title="Dish introduction video"
                               allowfullscreen
                               class="rounded"
                             ></iframe>
@@ -1664,31 +1332,31 @@
                     <!-- Dish Information -->
                     <div class="col-md-6">
                       <h3 id="menuDetailName" class="text-primary">
-                        Tên Món Ăn
+                        Dish Name
                       </h3>
                       <p id="menuDetailDescription" class="text-muted">
-                        Mô tả chi tiết về món ăn...
+                        Detailed description of the dish...
                       </p>
-                      <h4 id="menuDetailPrice" class="text-success">0 VNĐ</h4>
+                      <h4 id="menuDetailPrice" class="text-success">0 VND</h4>
                       <!-- Rating -->
                       <div class="rating mb-3">
                         <span id="menuDetailRating">
                           <!-- Dynamic Stars Will Be Injected Here -->
                         </span>
                         <span class="ms-2 text-muted" id="menuDetailReviews"
-                          >(0 đánh giá)</span
+                          >(0 reviews)</span
                         >
                       </div>
                       <!-- Ingredients -->
                       <div class="ingredients">
-                        <h5 class="text-primary">Thành Phần:</h5>
+                        <h5 class="text-primary">Ingredients:</h5>
                         <ul id="menuDetailIngredients">
                           <!-- Ingredients will be injected here -->
                         </ul>
                       </div>
                       <!-- Preparation -->
                       <div class="preparation">
-                        <h5 class="text-primary">Cách Làm:</h5>
+                        <h5 class="text-primary">Preparation:</h5>
                         <ol id="menuDetailPreparation">
                           <!-- Preparation steps will be injected here -->
                         </ol>
@@ -1699,36 +1367,36 @@
                         class="btn btn-primary btn-lg w-100 mt-3"
                         id="orderDishButton"
                       >
-                        <i class="fas fa-cart-plus me-2"></i>Đặt Món
+                        <i class="fas fa-cart-plus me-2"></i> Order
                       </button>
                     </div>
                   </div>
                   <!-- Customer Reviews -->
                   <div class="mt-4">
-                    <h5 class="text-primary">Nhận Xét Của Khách Hàng</h5>
+                    <h5 class="text-primary">Customer Reviews</h5>
                     <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
                       <p class="mb-1">
-                        "Món ăn tuyệt vời! Vị ngon và phục vụ nhanh chóng."
+                        "Great dish! Delicious flavor and quick service."
                       </p>
-                      <small class="text-muted">- Nguyễn Văn A</small>
-                    </div>
-                    <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
-                      <p class="mb-1">
-                        "Thực sự rất hài lòng với chất lượng món ăn và dịch vụ."
-                      </p>
-                      <small class="text-muted">- Trần Thị B</small>
+                      <small class="text-muted">- Nguyen Van A</small>
                     </div>
                     <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
                       <p class="mb-1">
-                        "Một trải nghiệm tuyệt vời, sẽ quay lại lần sau."
+                        "Really satisfied with the quality of the food and service."
                       </p>
-                      <small class="text-muted">- Lê Văn C</small>
+                      <small class="text-muted">- Tran Thi B</small>
                     </div>
                     <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
-                      <p class="mb-1">"Món ăn ngon tuyệt, hương vị đậm đà."</p>
-                      <small class="text-muted">- Phạm Thị D</small>
+                      <p class="mb-1">
+                        "A wonderful experience, will come back next time."
+                      </p>
+                      <small class="text-muted">- Le Van C</small>
                     </div>
-                    <!-- Thêm nhiều nhận xét nếu cần -->
+                    <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
+                      <p class="mb-1">"Delicious food, rich flavors."</p>
+                      <small class="text-muted">- Pham Thi D</small>
+                    </div>
+                    <!-- Add more reviews if needed -->
                   </div>
                 </div>
                 <div class="modal-footer bg-light">
@@ -1737,14 +1405,14 @@
                     class="btn btn-primary"
                     data-bs-dismiss="modal"
                   >
-                    Đóng
+                    Close
                   </button>
                   <a
                     href="https://www.seriouseats.com/"
                     class="btn btn-primary"
                     id="viewDetailsButton"
                   >
-                    Xem Chi Tiết
+                    View Details
                   </a>
 
                   <div class="social-share ms-auto">
@@ -1762,7 +1430,7 @@
               </div>
             </div>
           </div>
-          <!-- Modal Chi Tiết Món Ăn End -->
+          <!-- Dish Detail Modal End -->
 
           <!-- Footer Start -->
           <div
@@ -1890,7 +1558,7 @@
             aria-atomic="true"
           >
             <div class="d-flex">
-              <div class="toast-body">Đã thêm món ăn vào giỏ hàng!</div>
+              <div class="toast-body">Added the dish to the cart!</div>
               <button
                 type="button"
                 class="btn-close btn-close-white me-2 m-auto"
@@ -1906,22 +1574,22 @@
           <button class="close-sidebar-btn" onclick="hideOrderSidebar()">
             <i class="fas fa-times"></i>
           </button>
-          <h2>Thực Đơn Bạn Đã Chọn</h2>
+          <h2>Your Selected Menu</h2>
           <div id="selectedItems"></div>
           <div class="total-price">
-            <i class="fas fa-money-bill-wave"></i> <strong>Tổng Giá:</strong>
-            <span id="totalAmount">0</span> VNĐ
+            <i class="fas fa-money-bill-wave"></i> <strong>Total Price:</strong>
+            <span id="totalAmount">0</span> VND
           </div>
           <button
             id="confirmOrderButton"
             class="btn btn-primary mt-3"
             style="display: none"
           >
-            Thanh toán
+            Pay Now
           </button>
 
           <!-- Payment Section (Hidden by Default) -->
-       
+     
            
         </div>
         <!-- Sidebar for Order Confirmation End -->
@@ -1942,286 +1610,270 @@
       <!-- Template Javascript -->
       <script src="js/main.js"></script>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          var menuDetailModal = document.getElementById("menuDetailModal");
-          var orderSidebar = document.getElementById("orderSidebar");
-          var paymentSection = document.getElementById("paymentSection"); // Đã được loại bỏ
-          var paymentForm = document.getElementById("paymentForm");
-          var selectedItemsDiv = document.getElementById("selectedItems");
-          var totalAmountSpan = document.getElementById("totalAmount");
-          var confirmOrderButton = document.getElementById("confirmOrderButton");
-      
-          let orderItems = [];
-          let totalAmount = 0;
-      
-          // Function to add item to order
-          function addToOrder(item) {
-            const existingItem = orderItems.find((i) => i.title === item.title);
-            if (existingItem) {
-              existingItem.quantity += 1;
-            } else {
-              orderItems.push({ ...item, quantity: 1 });
-            }
-            updateSidebar();
-            showOrderSidebar();
+      <!-- JavaScript for Modal Handling, Sidebar, and Tooltip Initialization -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var menuDetailModal = document.getElementById("menuDetailModal");
+    var orderSidebar = document.getElementById("orderSidebar");
+    var selectedItemsDiv = document.getElementById("selectedItems");
+    var totalAmountSpan = document.getElementById("totalAmount");
+    var confirmOrderButton = document.getElementById("confirmOrderButton");
+
+    let orderItems = [];
+    let totalAmount = 0;
+
+    // Function to add item to order
+    function addToOrder(item) {
+      const existingItem = orderItems.find((i) => i.title === item.title);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        orderItems.push({ ...item, quantity: 1 });
+      }
+      updateSidebar();
+      showOrderSidebar();
+    }
+
+    // Function to remove item from order
+    function removeFromOrder(itemTitle) {
+      const index = orderItems.findIndex((i) => i.title === itemTitle);
+      if (index > -1) {
+        orderItems[index].quantity -= 1;
+        if (orderItems[index].quantity <= 0) {
+          // Remove item if quantity is 0
+          orderItems.splice(index, 1);
+        }
+      }
+      updateSidebar();
+    }
+
+    // Function to completely delete an item
+    function deleteFromOrder(itemTitle) {
+      orderItems = orderItems.filter((i) => i.title !== itemTitle);
+      updateSidebar();
+    }
+
+    // Function to update the sidebar with selected items
+    function updateSidebar() {
+      selectedItemsDiv.innerHTML = ""; // Clear current items
+      totalAmount = 0;
+
+      orderItems.forEach((item) => {
+        const itemTotal = item.price * item.quantity; // Calculate total for the item
+        totalAmount += itemTotal;
+        selectedItemsDiv.innerHTML += `
+          <div class="item d-flex align-items-center mb-3">
+            <img src="${item.image}" alt="${item.title}" class="cart-item-image me-3">
+            <div class="item-details flex-grow-1">
+              <strong>${item.title}</strong><br>
+              <span>${item.price.toLocaleString()} VND x ${item.quantity} = ${itemTotal.toLocaleString()} VND</span>
+            </div>
+            <div class="item-actions">
+              <button class="btn btn-sm btn-outline-secondary me-1" onclick="removeFromOrder('${item.title}')"><i class="fas fa-minus-circle"></i></button>
+              <button class="btn btn-sm btn-outline-secondary me-1" onclick='addToOrder({"title": "${item.title}", "price": ${item.price}, "image": "${item.image}"})'><i class="fas fa-plus-circle"></i></button>
+              <button class="btn btn-sm btn-outline-danger" onclick="deleteFromOrder('${item.title}')"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+        `;
+      });
+
+      totalAmountSpan.textContent = totalAmount.toLocaleString();
+
+      // Update cart count in navbar (assuming you have an element with id="cart-count")
+      var cartCount = orderItems.reduce(function (acc, item) {
+        return acc + item.quantity;
+      }, 0);
+      var cartCountElement = document.getElementById("cart-count");
+      if (cartCountElement) {
+        cartCountElement.innerText = cartCount;
+      }
+
+      // Show or hide the confirm order button based on cart contents
+      confirmOrderButton.style.display = orderItems.length > 0 ? "block" : "none";
+    }
+
+    // Function to show the sidebar
+    function showOrderSidebar() {
+      orderSidebar.classList.add("show");
+    }
+
+    // Function to hide the sidebar
+    function hideOrderSidebar() {
+      orderSidebar.classList.remove("show");
+    }
+
+    // Handle modal show event to populate details
+    menuDetailModal.addEventListener("show.bs.modal", function (event) {
+      var menuItem = event.relatedTarget;
+
+      var title = menuItem.getAttribute("data-title");
+      var description = menuItem.getAttribute("data-description");
+      var price = menuItem.getAttribute("data-price");
+      var videoURL = menuItem.getAttribute("data-video");
+      var images = menuItem.getAttribute("data-images");
+      var ingredients = menuItem.getAttribute("data-ingredients");
+      var preparation = menuItem.getAttribute("data-preparation");
+
+      // Update modal content
+      menuDetailModal.querySelector(".modal-title").textContent = title;
+      menuDetailModal.querySelector("#menuDetailDescription").textContent = description;
+      menuDetailModal.querySelector("#menuDetailPrice").textContent = `${parseInt(price).toLocaleString()} VND`;
+
+      // Handle images carousel
+      var carouselInner = menuDetailModal.querySelector(".carousel-inner");
+      carouselInner.innerHTML = ""; // Clear existing images
+      var imageList = images ? images.split(",") : [menuItem.getAttribute("data-image")];
+      imageList.forEach((imgSrc, index) => {
+        carouselInner.innerHTML += `
+          <div class="carousel-item ${index === 0 ? "active" : ""}">
+            <img src="${imgSrc.trim()}" class="d-block w-100 rounded" alt="${title}">
+          </div>
+        `;
+      });
+
+      // Handle video URL
+      var menuDetailVideo = document.getElementById("menuDetailVideo");
+      if (videoURL) {
+        // Convert YouTube URL to embed URL if necessary
+        if (!videoURL.includes("youtube.com/embed/")) {
+          var videoId = "";
+          var ytRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+          var match = videoURL.match(ytRegex);
+          if (match && match[1]) {
+            videoId = match[1];
+            videoURL = `https://www.youtube.com/embed/${videoId}`;
+          } else {
+            videoURL = "";
           }
-      
-          // Function to remove item from order
-          function removeFromOrder(itemTitle) {
-            const index = orderItems.findIndex((i) => i.title === itemTitle);
-            if (index > -1) {
-              orderItems[index].quantity -= 1;
-              if (orderItems[index].quantity <= 0) {
-                // Remove item if quantity is 0
-                orderItems.splice(index, 1);
-              }
-            }
-            updateSidebar();
-          }
-      
-          // Function to completely delete an item
-          function deleteFromOrder(itemTitle) {
-            orderItems = orderItems.filter((i) => i.title !== itemTitle);
-            updateSidebar();
-          }
-      
-          // Function to update the sidebar with selected items
-          function updateSidebar() {
-            selectedItemsDiv.innerHTML = ""; // Clear current items
-            totalAmount = 0;
-      
-            orderItems.forEach((item) => {
-              const itemTotal = item.price * item.quantity; // Calculate total for the item
-              totalAmount += itemTotal;
-              selectedItemsDiv.innerHTML += `
-                <div class="item d-flex align-items-center">
-                  <img src="${item.image}" alt="${item.title}" class="cart-item-image me-3">
-                  <div class="item-details flex-grow-1">
-                    <strong>${item.title}</strong><br>
-                    <span>${item.price.toLocaleString()} VNĐ x ${item.quantity} = ${itemTotal.toLocaleString()} VNĐ</span>
-                  </div>
-                  <div class="item-actions">
-                    <button onclick="removeFromOrder('${item.title}')"><i class="fas fa-minus-circle"></i></button>
-                    <button onclick='addToOrder({"title": "${item.title}", "price": ${item.price}, "image": "${item.image}"})'><i class="fas fa-plus-circle"></i></button>
-                    <button onclick="deleteFromOrder('${item.title}')"><i class="fas fa-trash-alt text-danger"></i></button>
-                  </div>
-                </div>
-              `;
-            });
-      
-            totalAmountSpan.textContent = totalAmount.toLocaleString();
-      
-            // Cập nhật số lượng món trong giỏ hàng
-            var cartCount = orderItems.reduce(function (acc, item) {
-              return acc + item.quantity;
-            }, 0);
-            document.getElementById("cart-count").innerText = cartCount;
-      
-            // Show or hide the confirm order button based on cart contents
-            confirmOrderButton.style.display = orderItems.length > 0 ? "block" : "none";
-      
-            // Nếu giỏ hàng trống, ẩn phần thanh toán (đã được loại bỏ)
-            /*
-            if (orderItems.length === 0) {
-              paymentSection.style.display = "none";
-            }
-            */
-          }
-      
-          // Function to show the sidebar
-          function showOrderSidebar() {
-            orderSidebar.classList.add("show");
-          }
-      
-          // Function to hide the sidebar
-          function hideOrderSidebar() {
-            orderSidebar.classList.remove("show");
-            // Reset payment section if visible (đã được loại bỏ)
-            /*
-            paymentSection.style.display = "none";
-            */
-            // Reset payment form fields
-            /*
-            paymentForm.reset();
-            document.getElementById("creditCardFields").style.display = "none";
-            document.getElementById("paypalFields").style.display = "none";
-            */
-          }
-      
-          // Handle modal show event to populate details
-          menuDetailModal.addEventListener("show.bs.modal", function (event) {
-            var menuItem = event.relatedTarget;
-      
-            var title = menuItem.getAttribute("data-title");
-            var description = menuItem.getAttribute("data-description");
-            var price = menuItem.getAttribute("data-price");
-            var videoURL = menuItem.getAttribute("data-video");
-            var images = menuItem.getAttribute("data-images");
-            var ingredients = menuItem.getAttribute("data-ingredients");
-            var preparation = menuItem.getAttribute("data-preparation");
-      
-            // Update modal content
-            menuDetailModal.querySelector(".modal-title").textContent = title;
-            menuDetailModal.querySelector("#menuDetailDescription").textContent = description;
-            menuDetailModal.querySelector("#menuDetailPrice").textContent = `${parseInt(price).toLocaleString()} VNĐ`;
-      
-            // Handle images carousel
-            var carouselInner = menuDetailModal.querySelector(".carousel-inner");
-            carouselInner.innerHTML = ""; // Clear existing images
-            var imageList = images ? images.split(",") : [menuItem.getAttribute("data-image")];
-            imageList.forEach((imgSrc, index) => {
-              carouselInner.innerHTML += `
-                <div class="carousel-item ${index === 0 ? "active" : ""}">
-                  <img src="${imgSrc.trim()}" class="d-block w-100 rounded" alt="${title}">
-                </div>
-              `;
-            });
-      
-            // Handle video URL
-            var menuDetailVideo = document.getElementById("menuDetailVideo");
-            if (videoURL) {
-              // Convert YouTube URL to embed URL if necessary
-              if (!videoURL.includes("youtube.com/embed/")) {
-                var videoId = "";
-                var ytRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-                var match = videoURL.match(ytRegex);
-                if (match && match[1]) {
-                  videoId = match[1];
-                  videoURL = `https://www.youtube.com/embed/${videoId}`;
-                } else {
-                  videoURL = "";
-                }
-              }
-              if (videoURL) {
-                menuDetailVideo.src = videoURL;
-                menuDetailVideo.parentElement.style.display = "block";
-              } else {
-                menuDetailVideo.parentElement.style.display = "none";
-              }
-            } else {
-              menuDetailVideo.parentElement.style.display = "none";
-            }
-      
-            // Update rating and reviews
-            var rating = menuItem.getAttribute("data-rating") || "★★★★★";
-            var reviews = menuItem.getAttribute("data-reviews") || "(0 đánh giá)";
-            var ratingContainer = menuDetailModal.querySelector("#menuDetailRating");
-            ratingContainer.innerHTML = ""; // Clear existing stars
-      
-            // Render stars based on rating
-            for (let i = 0; i < 5; i++) {
-              if (i < rating.length && rating[i] === "★") {
-                ratingContainer.innerHTML += '<i class="fas fa-star"></i>';
-              } else {
-                ratingContainer.innerHTML += '<i class="fas fa-star text-muted"></i>';
-              }
-            }
-      
-            menuDetailModal.querySelector("#menuDetailReviews").textContent = `(${reviews})`;
-      
-            // Inject Ingredients
-            var ingredientsList = menuDetailModal.querySelector("#menuDetailIngredients");
-            ingredientsList.innerHTML = ""; // Clear existing
-            if (ingredients) {
-              ingredients.split(",").forEach(function (ingredient) {
-                ingredientsList.innerHTML += `<li>${ingredient.trim()}</li>`;
-              });
-            }
-      
-            // Inject Preparation Steps
-            var preparationList = menuDetailModal.querySelector("#menuDetailPreparation");
-            preparationList.innerHTML = ""; // Clear existing
-            if (preparation) {
-              // Split by ". Bước" to separate steps
-              preparation.split(". Bước").forEach(function (step, index) {
-                step = step.trim();
-                if (index === 0 && step.startsWith("Bước")) {
-                  step = step.replace("Bước", "").trim();
-                }
-                if (step) {
-                  preparationList.innerHTML += `<li>Bước ${index + 1}: ${step}.</li>`;
-                }
-              });
-            }
-          });
-      
-          // Clear video when modal is hidden
-          menuDetailModal.addEventListener("hidden.bs.modal", function () {
-            document.getElementById("menuDetailVideo").src = "";
-          });
-      
-          // Handle adding dish from modal
-          document.getElementById("orderDishButton").addEventListener("click", function () {
-            const title = menuDetailModal.querySelector(".modal-title").textContent;
-            const priceText = menuDetailModal.querySelector("#menuDetailPrice").textContent;
-            const price = parseInt(priceText.replace(/[^0-9]/g, ""));
-            
-            // Lấy hình ảnh đầu tiên từ carousel
-            const imageSrc = menuDetailModal.querySelector(".carousel-item.active img").src;
-      
-            const item = {
-              title: title,
-              price: price,
-              image: imageSrc // Thêm trường image vào đối tượng sản phẩm
-            };
-      
-            addToOrder(item);
-      
-            // Show success toast
-            var toastEl = document.getElementById("orderSuccessToast");
-            var toast = new bootstrap.Toast(toastEl);
-            toast.show();
-      
-            // Close the modal
-            var modal = bootstrap.Modal.getInstance(menuDetailModal);
-            modal.hide();
-          });
-      
-          // Handle confirm order button click
-          confirmOrderButton.addEventListener("click", function () {
-            // Lưu trữ dữ liệu giỏ hàng vào localStorage
-            localStorage.setItem("cartItems", JSON.stringify(orderItems));
-            localStorage.setItem("totalAmount", totalAmount);
-      
-            // Chuyển hướng đến trang payment.html
-            window.location.href = "payment.html";
-          });
-      
-          // Initialize tooltips
-          var tooltipTriggerList = [].slice.call(
-            document.querySelectorAll('[data-bs-toggle="tooltip"]')
-          );
-          var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-          });
-      
-          // Expose functions to the global scope for inline onclick handlers
-          window.addToOrder = function (item) {
-            if (typeof item === "string") {
-              try {
-                item = JSON.parse(item);
-              } catch (e) {
-                console.error("Invalid JSON string for addToOrder:", item);
-                return;
-              }
-            }
-            addToOrder(item);
-          };
-      
-          window.removeFromOrder = function (itemTitle) {
-            removeFromOrder(itemTitle);
-          };
-      
-          window.deleteFromOrder = function (itemTitle) {
-            deleteFromOrder(itemTitle);
-          };
-      
-          window.hideOrderSidebar = hideOrderSidebar;
-          window.showOrderSidebar = showOrderSidebar; // Thêm dòng này
+        }
+        if (videoURL) {
+          menuDetailVideo.src = videoURL;
+          menuDetailVideo.parentElement.style.display = "block";
+        } else {
+          menuDetailVideo.parentElement.style.display = "none";
+        }
+      } else {
+        menuDetailVideo.parentElement.style.display = "none";
+      }
+
+      // Update rating and reviews
+      var rating = menuItem.getAttribute("data-rating") || "★★★★★";
+      var reviews = menuItem.getAttribute("data-reviews") || "(0 reviews)";
+      var ratingContainer = menuDetailModal.querySelector("#menuDetailRating");
+      ratingContainer.innerHTML = ""; // Clear existing stars
+
+      // Render stars based on rating
+      for (let i = 0; i < 5; i++) {
+        if (i < rating.length && rating[i] === "★") {
+          ratingContainer.innerHTML += '<i class="fas fa-star text-warning"></i>';
+        } else {
+          ratingContainer.innerHTML += '<i class="fas fa-star text-muted"></i>';
+        }
+      }
+
+      menuDetailModal.querySelector("#menuDetailReviews").textContent = `(${reviews})`;
+
+      // Inject Ingredients
+      var ingredientsList = menuDetailModal.querySelector("#menuDetailIngredients");
+      ingredientsList.innerHTML = ""; // Clear existing
+      if (ingredients) {
+        ingredients.split(",").forEach(function (ingredient) {
+          ingredientsList.innerHTML += `<li>${ingredient.trim()}</li>`;
         });
-      </script>
+      }
+
+      // Inject Preparation Steps
+      var preparationList = menuDetailModal.querySelector("#menuDetailPreparation");
+      preparationList.innerHTML = ""; // Clear existing
+      if (preparation) {
+        // Split by ". Step" to separate steps
+        preparation.split(". Step").forEach(function (step, index) {
+          step = step.trim();
+          if (index === 0 && step.startsWith("Step")) {
+            step = step.replace("Step", "").trim();
+          }
+          if (step) {
+            preparationList.innerHTML += `<li>Step ${index + 1}: ${step}.</li>`;
+          }
+        });
+      }
+    });
+
+    // Clear video when modal is hidden
+    menuDetailModal.addEventListener("hidden.bs.modal", function () {
+      document.getElementById("menuDetailVideo").src = "";
+    });
+
+    // Handle adding dish from modal
+    document.getElementById("orderDishButton").addEventListener("click", function () {
+      const title = menuDetailModal.querySelector(".modal-title").textContent;
+      const priceText = menuDetailModal.querySelector("#menuDetailPrice").textContent;
+      const price = parseInt(priceText.replace(/[^0-9]/g, ""));
       
+      // Get the first image from carousel
+      const imageSrc = menuDetailModal.querySelector(".carousel-item.active img").src;
+
+      const item = {
+        title: title,
+        price: price,
+        image: imageSrc // Add image field to the product object
+      };
+
+      addToOrder(item);
+
+      // Show success toast
+      var toastEl = document.getElementById("orderSuccessToast");
+      var toast = new bootstrap.Toast(toastEl);
+      toast.show();
+
+      // Close the modal
+      var modal = bootstrap.Modal.getInstance(menuDetailModal);
+      modal.hide();
+    });
+
+    // Handle confirm order button click
+    confirmOrderButton.addEventListener("click", function () {
+      // Store cart data in localStorage
+      localStorage.setItem("cartItems", JSON.stringify(orderItems));
+      localStorage.setItem("totalAmount", totalAmount);
+
+      // Redirect to payment.html
+      window.location.href = "payment.html";
+    });
+
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Expose functions to the global scope for inline onclick handlers
+    window.addToOrder = function (item) {
+      if (typeof item === "string") {
+        try {
+          item = JSON.parse(item);
+        } catch (e) {
+          console.error("Invalid JSON string for addToOrder:", item);
+          return;
+        }
+      }
+      addToOrder(item);
+    };
+
+    window.removeFromOrder = function (itemTitle) {
+      removeFromOrder(itemTitle);
+    };
+
+    window.deleteFromOrder = function (itemTitle) {
+      deleteFromOrder(itemTitle);
+    };
+
+    window.hideOrderSidebar = hideOrderSidebar;
+    window.showOrderSidebar = showOrderSidebar;
+  });
+</script>
     </div>
     <!-- JavaScript Libraries (Redundant inclusion removed to prevent duplication) -->
   </body>
