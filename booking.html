@@ -126,64 +126,59 @@
 
       <!-- Navbar & Hero Start -->
       <div class="container-xxl position-relative p-0">
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-          <div class="container-fluid">
+          <div class="d-flex align-items-center">
             <a href="#" class="navbar-brand p-0">
               <h1 class="text-primary m-0">
                 <i class="fa fa-utensils me-3"></i>Restoran
               </h1>
+              <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-              <div class="d-flex me-auto position-relative" role="search">
-                <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search" id="search-bar"
-                    onkeyup="searchMenu()"/>
-                <button class="btn btn-outline-light" type="button" id="search-button">
-                    <i class="fa fa-search"></i>
-                </button>
-        
-                <div class="search-down bg-white position-absolute" style="top: 38px; left: 8px;">
-        
+          </div>
+      
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="fa fa-bars"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4">
+              <a href="index.html" class="nav-item nav-link">Home</a>
+              <a href="introduction.html" class="nav-item nav-link">Introduction</a>
+              <!-- Removed Blog Link -->
+              <a href="service.html" class="nav-item nav-link">Service</a>
+              <a href="menu.html" class="nav-item nav-link">Menu</a>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu m-0">
+                  <a href="booking.html" class="dropdown-item">Booking</a>
+                  <a href="team.html" class="dropdown-item">Our Team</a>
+                  <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                  <!-- Added Blog and Contact -->
+                  <a href="blog.html" class="dropdown-item">Blog</a>
+                  <a href="contact.html" class="dropdown-item">Contact</a>
                 </div>
               </div>
-              <ul class="navbar-nav ">
-                <li class="nav-item">
-                  <a href="index.html" class="nav-item nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a href="introduction.html" class="nav-item nav-link">Introduction</a>
-                </li>
-                <li class="nav-item">
-                  <a href="blog.html" class="nav-item nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="service.html" class="nav-item nav-link">Service</a>
-                </li>
-                <li class="nav-item">
-                  <a href="menu.html" class="nav-item nav-link">Menu</a>
-                </li>
-                <li class="nav-item">
-                  <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu m-0">
-                      <a href="booking.html" class="dropdown-item">Booking</a>
-                      <a href="team.html" class="dropdown-item">Our Team</a>
-                      <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    </div>
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a href="contact.html" class="nav-item nav-link">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a href="login.html" class="btn btn-primary py-2 px-4">LOGIN</a>
-                </li>
-              </ul>
-              
+              <!-- Removed Contact Link -->
+              <a href="search.html" class="nav-item nav-link">
+                <i class="fa fa-search"></i> Search
+              </a>
+              <a href="register.html" class="nav-item nav-link">
+                <i class="fa fa-user-plus"></i> Sign up
+              </a>
+              <a href="login.html" class="btn btn-outline-light ms-2">
+                <i class="fa fa-user"></i> Login
+              </a>
             </div>
+      
+            <a href="booking.html" class="btn btn-primary py-2 px-4">Book A Table</a>
           </div>
         </nav>
 

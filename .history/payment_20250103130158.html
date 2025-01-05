@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Restoran</title>
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 20px;
+      }
+      .order-summary {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .order-summary img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+      }
+      .order-summary .btn {
+        width: 100%;
+      }
+      .order-summary .total {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .order-summary .back-to-cart {
+        text-decoration: none;
+        color: #007bff;
+      }
+      .order-summary .back-to-cart:hover {
+        text-decoration: underline;
+      }
+      .country-code-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      #country-code {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-repeat: no-repeat;
+        background-position: left 10px center;
+        background-size: 25px 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        width: 100%;
+        height: 38px;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        background-color: #fff;
+      }
+      .country-code-wrapper::after {
+        content: "\f078";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 15px;
+        pointer-events: none;
+        color: #6c757d;
+      }
+      select::-ms-expand {
+        display: none;
+      }
+      .order-summary h4 {
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+      }
+      .order-summary .form-check {
+        margin-bottom: 20px;
+      }
+      .order-summary .form-check i {
+        color: #28a745;
+      }
+      .order-summary .cart-summary p {
+        font-weight: bold;
+      }
+      .order-summary .back-to-cart {
+        display: inline-block;
+        margin-top: 10px;
+      }
+      .vietnam-address {
+        display: none;
+      }
+      .general-address {
+        display: none;
+      }
+      .input-group {
+        gap: 10px;
+      }
+      .order-summary .totals {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .order-summary .totals p {
+        margin-bottom: 0;
+      }
+      .order-summary .totals .total-price {
+        flex-shrink: 0;
+        margin-left: auto; /* Đẩy giá tiền sang bên phải */
+        text-align: right; /* Căn chỉnh chữ bên phải */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- Form Nhập Thông Tin Nhận Hàng -->
+        <div class="col-md-7">
+          <h2 class="text-primary">Restoran</h2>
+          <form id="order-form">
+            <h4>Thông tin nhận hàng</h4>
+            <!-- Dropdown Chọn Quốc Gia -->
+            <div class="mb-3">
+              <label class="form-label" for="country"
+                >Quốc gia <span class="text-danger">*</span></label
+              >
+              <select class="form-select" id="country" required>
+                <option value="">--- Chọn Quốc Gia ---</option>
+                <option value="Vietnam">Việt Nam</option>
+                <option value="USA">Hoa Kỳ</option>
+                <option value="Japan">Nhật Bản</option>
+                <!-- Thêm các quốc gia khác nếu cần -->
+              </select>
+            </div>
+            <!-- Các trường dành cho Việt Nam -->
+            <div id="vietnam-address" class="vietnam-address">
+              <div class="mb-3">
+                <label class="form-label" for="city"
+                  >Tỉnh thành <span class="text-danger">*</span></label
+                >
+                <select class="form-select" id="city" required>
+                  <option value="">--- Chọn Tỉnh Thành ---</option>
+                  <!-- Các tỉnh thành sẽ được thêm qua JavaScript -->
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="district"
+                  >Quận huyện (tùy chọn)</label
+                >
+                <select class="form-select" id="district" disabled>
+                  <option value="">--- Chọn Quận Huyện ---</option>
+                  <!-- Các quận huyện sẽ được thêm qua JavaScript -->
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="ward"
+                  >Phường xã (tùy chọn)</label
+                >
+                <select class="form-select" id="ward" disabled>
+                  <option value="">--- Chọn Phường Xã ---</option>
+                  <!-- Các phường xã sẽ được thêm qua JavaScript -->
+                </select>
+              </div>
+            </div>
+            <!-- Các trường dành cho các quốc gia khác -->
+            <div id="general-address" class="general-address">
+              <div class="mb-3">
+                <label class="form-label" for="address-general"
+                  >Địa chỉ <span class="text-danger">*</span></label
+                >
+                <input
+                  class="form-control"
+                  id="address-general"
+                  type="text"
+                  placeholder="Địa chỉ"
+                  required
+                />
+              </div>
+            </div>
+            <!-- Các trường khác -->
+            <div class="mb-3">
+              <label class="form-label" for="email"
+                >Email <span class="text-danger">*</span></label
+              >
+              <input
+                class="form-control"
+                id="email"
+                type="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="name"
+                >Họ và tên <span class="text-danger">*</span></label
+              >
+              <input
+                class="form-control"
+                id="name"
+                type="text"
+                placeholder="Họ và tên"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="phone"
+                >Số điện thoại <span class="text-danger">*</span></label
+              >
+              <div class="input-group">
+                <div class="country-code-wrapper me-2" style="flex: 0 0 180px">
+                  <select class="form-select" id="country-code" required>
+                    <option value="">--- Chọn Mã Quốc Gia ---</option>
+                    <option value="+84" data-image="img/co_vn.png">
+                      Việt Nam (+84)
+                    </option>
+                    <option value="+1" data-image="img/co_usa.png">
+                      USA (+1)
+                    </option>
+                    <option value="+81" data-image="img/co_japan.jpg">
+                      Japan (+81)
+                    </option>
+                    <!-- Thêm các quốc gia khác nếu cần -->
+                  </select>
+                </div>
+                <input
+                  class="form-control"
+                  id="phone"
+                  type="text"
+                  placeholder="Số điện thoại"
+                  required
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="note"
+                >Ghi chú <span class="text-danger">*</span></label
+              >
+              <textarea
+                class="form-control"
+                id="note"
+                rows="3"
+                placeholder="Ghi chú"
+                required
+              ></textarea>
+            </div>
+            <button class="btn btn-primary mt-3" id="place-order" type="submit">
+              ĐẶT HÀNG
+            </button>
+          </form>
+        </div>
+        <!-- Giỏ Hàng và Thanh Toán -->
+        <div class="col-md-5">
+          <div class="order-summary">
+            <h4>Vận chuyển</h4>
+            <div class="alert alert-info">
+              Vui lòng nhập thông tin giao hàng
+            </div>
+            <h4>Thanh toán</h4>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                id="cod"
+                name="payment"
+                type="radio"
+                value="COD"
+                checked
+              />
+              <label class="form-check-label" for="cod">
+                Thanh toán khi giao hàng (COD)
+              </label>
+              <i class="fas fa-money-bill-wave ms-2"></i>
+            </div>
+            <h4 class="mt-4">
+              Đơn hàng (<span id="item-count">0</span> sản phẩm)
+            </h4>
+            <div id="cartItemsContainer">
+              <!-- Các sản phẩm trong giỏ hàng sẽ được hiển thị ở đây -->
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="discount-code">
+                Nhập mã giảm giá
+              </label>
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  id="discount-code"
+                  type="text"
+                  placeholder="Nhập mã giảm giá"
+                />
+                <button class="btn btn-primary" id="apply-discount">
+                  Áp dụng
+                </button>
+              </div>
+            </div>
+            <div class="mb-3">
+              <p class="mb-0">Tạm tính</p>
+              <p class="mb-0" id="subtotal">0₫</p>
+            </div>
+            <div class="mb-3">
+              <p class="mb-0">Phí vận chuyển</p>
+              <p class="mb-0" id="shipping-fee">-</p>
+            </div>
+            <div class="mb-3 total">
+              <p class="mb-0">Tổng cộng</p>
+              <p class="mb-0" id="total">0₫</p>
+            </div>
+            <a class="back-to-cart" href="menu.html">Quay về giỏ hàng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Đặt Hàng Thành Công -->
+    <div
+      class="modal fade"
+      id="orderSuccessModal"
+      tabindex="-1"
+      aria-labelledby="orderSuccessModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="orderSuccessModalLabel">
+              Đặt Hàng Thành Công
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Đóng"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Cảm ơn bạn đã đặt hàng tại Restoran!</p>
+            <p>
+              Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất để xác nhận
+              đơn hàng.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Đóng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Đặt Hàng Thành Công End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Dữ liệu ví dụ về Tỉnh Thành, Quận Huyện, Phường Xã cho Việt Nam
+        const vietnamData = {
+          "Hà Nội": {
+            "Ba Đình": [
+              "Phường Giảng Võ",
+              "Phường Phúc Xá",
+              "Phường Trúc Bạch",
+            ],
+            "Hoàn Kiếm": [
+              "Phường Hoàn Kiếm",
+              "Phường Đồng Xuân",
+              "Phường Hàng Buồm",
+            ],
+            // Thêm các Quận Huyện khác nếu cần
+          },
+          "TP. Hồ Chí Minh": {
+            "Quận 1": [
+              "Phường Bến Nghé",
+              "Phường Bến Thành",
+              "Phường Nguyễn Thái Bình",
+            ],
+            "Quận 3": [
+              "Phường Nguyễn Thái Học",
+              "Phường Võ Thị Sáu",
+              "Phường Phạm Ngũ Lão",
+            ],
+            // Thêm các Quận Huyện khác nếu cần
+          },
+          "Đà Nẵng": {
+            "Quận Hải Châu": [
+              "Phường Thạch Thang",
+              "Phường Chính Gián",
+              "Phường Mỹ An",
+            ],
+            "Quận Sơn Trà": [
+              "Phường Khuê Trung",
+              "Phường Hòa Cường Bắc",
+              "Phường Hòa Cường Nam",
+            ],
+            // Thêm các Quận Huyện khác nếu cần
+          },
+          // Thêm các tỉnh thành khác nếu cần
+        };
+
+        // Các lựa chọn quốc gia
+        const countrySelect = document.getElementById("country");
+        const vietnamAddress = document.getElementById("vietnam-address");
+        const generalAddress = document.getElementById("general-address");
+        const citySelect = document.getElementById("city");
+        const districtSelect = document.getElementById("district");
+        const wardSelect = document.getElementById("ward");
+        const addressGeneralInput = document.getElementById("address-general");
+
+        // Hàm để thêm các tỉnh thành vào dropdown Việt Nam
+        function populateVietnamCities() {
+          citySelect.innerHTML =
+            '<option value="">--- Chọn Tỉnh Thành ---</option>';
+          for (let city in vietnamData) {
+            const option = document.createElement("option");
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+          }
+          citySelect.disabled = false;
+        }
+
+        // Hàm để thêm các quận huyện dựa trên tỉnh thành được chọn
+        function populateVietnamDistricts(selectedCity) {
+          districtSelect.innerHTML =
+            '<option value="">--- Chọn Quận Huyện ---</option>';
+          wardSelect.innerHTML =
+            '<option value="">--- Chọn Phường Xã ---</option>';
+          wardSelect.disabled = true;
+
+          if (selectedCity && vietnamData[selectedCity]) {
+            const districts = vietnamData[selectedCity];
+            for (let district in districts) {
+              const option = document.createElement("option");
+              option.value = district;
+              option.textContent = district;
+              districtSelect.appendChild(option);
+            }
+            districtSelect.disabled = false;
+          } else {
+            districtSelect.disabled = true;
+            wardSelect.disabled = true;
+          }
+        }
+
+        // Hàm để thêm các phường xã dựa trên quận huyện được chọn
+        function populateVietnamWards(selectedCity, selectedDistrict) {
+          wardSelect.innerHTML =
+            '<option value="">--- Chọn Phường Xã ---</option>';
+
+          if (
+            selectedCity &&
+            selectedDistrict &&
+            vietnamData[selectedCity] &&
+            vietnamData[selectedCity][selectedDistrict]
+          ) {
+            const wards = vietnamData[selectedCity][selectedDistrict];
+            wards.forEach((ward) => {
+              const option = document.createElement("option");
+              option.value = ward;
+              option.textContent = ward;
+              wardSelect.appendChild(option);
+            });
+            wardSelect.disabled = false;
+          } else {
+            wardSelect.disabled = true;
+          }
+        }
+
+        // Hàm để hiển thị/ẩn các trường địa chỉ dựa trên quốc gia được chọn
+        function toggleAddressFields(selectedCountry) {
+          if (selectedCountry === "Vietnam") {
+            vietnamAddress.style.display = "block";
+            generalAddress.style.display = "none";
+            addressGeneralInput.required = false;
+            // Làm rỗng và vô hiệu hóa trường địa chỉ chung
+            addressGeneralInput.value = "";
+          } else if (selectedCountry === "USA" || selectedCountry === "Japan") {
+            vietnamAddress.style.display = "none";
+            generalAddress.style.display = "block";
+            addressGeneralInput.required = true;
+            // Làm rỗng và vô hiệu hóa các dropdown Việt Nam
+            citySelect.value = "";
+            districtSelect.value = "";
+            wardSelect.value = "";
+            citySelect.disabled = true;
+            districtSelect.disabled = true;
+            wardSelect.disabled = true;
+          } else {
+            vietnamAddress.style.display = "none";
+            generalAddress.style.display = "none";
+            addressGeneralInput.required = false;
+            // Làm rỗng và vô hiệu hóa tất cả các trường địa chỉ
+            addressGeneralInput.value = "";
+            citySelect.value = "";
+            districtSelect.value = "";
+            wardSelect.value = "";
+            citySelect.disabled = true;
+            districtSelect.disabled = true;
+            wardSelect.disabled = true;
+          }
+        }
+
+        // Sự kiện khi thay đổi Quốc gia
+        countrySelect.addEventListener("change", () => {
+          const selectedCountry = countrySelect.value;
+          toggleAddressFields(selectedCountry);
+
+          if (selectedCountry === "Vietnam") {
+            populateVietnamCities();
+          }
+        });
+
+        // Sự kiện khi thay đổi Tỉnh Thành (Việt Nam)
+        citySelect.addEventListener("change", () => {
+          const selectedCity = citySelect.value;
+          populateVietnamDistricts(selectedCity);
+        });
+
+        // Sự kiện khi thay đổi Quận Huyện (Việt Nam)
+        districtSelect.addEventListener("change", () => {
+          const selectedCity = citySelect.value;
+          const selectedDistrict = districtSelect.value;
+          populateVietnamWards(selectedCity, selectedDistrict);
+        });
+
+        // Khởi tạo các trường địa chỉ dựa trên quốc gia được chọn mặc định (nếu có)
+        toggleAddressFields(countrySelect.value);
+
+        // Dữ liệu giỏ hàng từ localStorage
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        let totalAmount = parseInt(localStorage.getItem("totalAmount")) || 0;
+        let discount = 0;
+
+        const cartItemsContainer =
+          document.getElementById("cartItemsContainer");
+        const itemCountSpan = document.getElementById("item-count");
+        const subtotalP = document.getElementById("subtotal");
+        const shippingFeeP = document.getElementById("shipping-fee");
+        const totalP = document.getElementById("total");
+        const applyDiscountButton = document.getElementById("apply-discount");
+        const discountCodeInput = document.getElementById("discount-code");
+        const orderForm = document.getElementById("order-form");
+
+        // Hàm hiển thị các món ăn trong giỏ hàng
+        function displayCartItems() {
+          cartItemsContainer.innerHTML = ""; // Xóa nội dung hiện tại
+          if (cartItems.length === 0) {
+            cartItemsContainer.innerHTML = `<p>Giỏ hàng của bạn đang trống.</p>`;
+            itemCountSpan.textContent = "0";
+            subtotalP.textContent = "0₫";
+            shippingFeeP.textContent = "-";
+            totalP.textContent = "0₫";
+            return;
+          }
+
+          let itemCount = 0;
+          cartItems.forEach((item) => {
+            const itemTotal = item.price * item.quantity;
+            itemCount += item.quantity;
+
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("d-flex", "align-items-center", "mb-3");
+
+            itemDiv.innerHTML = `
+              <img
+                alt="${item.title}"
+                height="50"
+                src="${item.image}"
+                width="50"
+              />
+              <div class="ms-3">
+                <p class="mb-0">${item.title}</p>
+                <p class="mb-0">${item.price.toLocaleString()}₫ x ${
+              item.quantity
+            } = ${itemTotal.toLocaleString()}₫</p>
+              </div>
+            `;
+            cartItemsContainer.appendChild(itemDiv);
+          });
+
+          itemCountSpan.textContent = itemCount;
+          subtotalP.textContent = `${totalAmount.toLocaleString()}₫`;
+          shippingFeeP.textContent = "-";
+          totalP.textContent = `${(totalAmount - discount).toLocaleString()}₫`;
+        }
+
+        // Xử lý áp dụng mã giảm giá
+        applyDiscountButton.addEventListener("click", (e) => {
+          e.preventDefault(); // Ngăn chặn hành động mặc định của nút
+          const code = discountCodeInput.value.trim();
+          if (code === "") {
+            alert("Vui lòng nhập mã giảm giá.");
+            return;
+          }
+
+          // Kiểm tra mã giảm giá (ví dụ: "DISCOUNT10" giảm 10%)
+          if (code === "DISCOUNT10") {
+            discount = totalAmount * 0.1;
+            alert("Áp dụng mã giảm giá thành công! Bạn được giảm 10%.");
+          } else if (code === "DISCOUNT20") {
+            discount = totalAmount * 0.2;
+            alert("Áp dụng mã giảm giá thành công! Bạn được giảm 20%.");
+          } else {
+            discount = 0;
+            alert("Mã giảm giá không hợp lệ.");
+          }
+
+          totalP.textContent = `${(totalAmount - discount).toLocaleString()}₫`;
+        });
+
+        // Hàm hiển thị modal đặt hàng thành công
+        function showOrderSuccessModal() {
+          var orderSuccessModal = new bootstrap.Modal(
+            document.getElementById("orderSuccessModal")
+          );
+          orderSuccessModal.show();
+        }
+
+        // Xử lý đặt hàng
+        orderForm.addEventListener("submit", (e) => {
+          e.preventDefault(); // Ngăn chặn hành động mặc định của form
+          if (cartItems.length === 0) {
+            alert("Giỏ hàng của bạn đang trống.");
+            return;
+          }
+
+          // Lấy thông tin nhận hàng từ form
+          const email = document.getElementById("email").value.trim();
+          const name = document.getElementById("name").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const country = document.getElementById("country").value.trim();
+          let city, district, ward, addressGeneral;
+          if (country === "Vietnam") {
+            city = document.getElementById("city").value.trim();
+            district = document.getElementById("district").value.trim();
+            ward = document.getElementById("ward").value.trim();
+          } else {
+            addressGeneral = document
+              .getElementById("address-general")
+              .value.trim();
+          }
+          const note = document.getElementById("note").value.trim();
+          const paymentMethod = document.querySelector(
+            'input[name="payment"]:checked'
+          ).value;
+
+          // Kiểm tra các trường bắt buộc
+          if (
+            email === "" ||
+            name === "" ||
+            phone === "" ||
+            note === "" ||
+            (country === "Vietnam" && city === "") ||
+            (country !== "Vietnam" && addressGeneral === "")
+          ) {
+            alert(
+              "Vui lòng điền đầy đủ thông tin bắt buộc (Email, Họ và tên, Số điện thoại, Ghi chú, Tỉnh thành/ Địa chỉ)."
+            );
+            return;
+          }
+
+          // Kiểm tra định dạng Số Điện Thoại (ví dụ: chỉ cho phép số và độ dài tối thiểu)
+          const phonePattern = /^[0-9]{10,15}$/;
+          if (!phonePattern.test(phone)) {
+            alert("Vui lòng nhập số điện thoại hợp lệ (10-15 chữ số).");
+            return;
+          }
+
+          // TODO: Thêm xử lý gửi đơn hàng tới server hoặc lưu trữ thông tin đơn hàng
+          // Ví dụ: Gửi thông tin đơn hàng qua AJAX tới server
+
+          // Hiển thị modal đặt hàng thành công
+          showOrderSuccessModal();
+
+          // Xóa dữ liệu giỏ hàng khỏi localStorage
+          localStorage.removeItem("cartItems");
+          localStorage.removeItem("totalAmount");
+
+          // Cập nhật lại giao diện giỏ hàng
+          displayCartItems();
+
+          // Reset form
+          orderForm.reset();
+          discount = 0;
+          totalP.textContent = "0₫";
+
+          // Ẩn các trường địa chỉ
+          vietnamAddress.style.display = "none";
+          generalAddress.style.display = "none";
+        });
+
+        // Khởi tạo giỏ hàng khi trang được tải
+        displayCartItems();
+
+        // Hàm khởi tạo các trường địa chỉ Việt Nam bị ẩn
+        toggleAddressFields(countrySelect.value);
+      });
+    </script>
+  </body>
+</html>

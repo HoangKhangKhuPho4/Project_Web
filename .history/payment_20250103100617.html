@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dola Restaurant</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .order-summary {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .order-summary img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .order-summary .product-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .order-summary .product-price {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .order-summary .total-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .order-summary .btn-primary {
+            width: 100%;
+        }
+
+        .form-select, .form-control {
+            border-radius: 0.3rem;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Form Section -->
+            <div class="col-md-8">
+                <h2>Dola Restaurant</h2>
+                <form>
+                    <h4>Thông tin nhận hàng</h4>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Họ và tên</label>
+                        <input type="text" id="name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Số điện thoại (tùy chọn)</label>
+                        <div class="input-group">
+                            <input type="text" id="phone" class="form-control">
+                            <span class="input-group-text">
+                                <img src="https://storage.googleapis.com/a1aa/image/NjNYJf8YIHTncit3z2YRCkveSNqfTFoeaJbVwSuSnqs3ocEQB.jpg" alt="Vietnam flag" width="20" height="20">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Địa chỉ (tùy chọn)</label>
+                        <input type="text" id="address" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">Tỉnh thành</label>
+                        <select id="city" class="form-select">
+                            <option>---</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="district" class="form-label">Quận huyện (tùy chọn)</label>
+                        <select id="district" class="form-select">
+                            <option>---</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ward" class="form-label">Phường xã (tùy chọn)</label>
+                        <select id="ward" class="form-select">
+                            <option>---</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="note" class="form-label">Ghi chú (tùy chọn)</label>
+                        <textarea id="note" class="form-control" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Order Summary Section -->
+            <div class="col-md-4">
+                <div class="order-summary">
+                    <h4>Đơn hàng (1 sản phẩm)</h4>
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://storage.googleapis.com/a1aa/image/jInLb1aVZa5UDZvFo7vzHsHmSIh5VByfQQZY7zmARHGHljAKA.jpg" alt="Com suon nuong">
+                        <div class="ms-3">
+                            <div class="product-name">Cơm sườn nướng</div>
+                            <div class="product-price">65.000₫</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="discount-code" class="form-label">Nhập mã giảm giá</label>
+                        <div class="input-group">
+                            <input type="text" id="discount-code" class="form-control">
+                            <button type="button" class="btn btn-primary">Áp dụng</button>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Tạm tính</span>
+                            <span>65.000₫</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Phí vận chuyển</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between total-price">
+                            <span>Tổng cộng</span>
+                            <span>65.000₫</span>
+                        </div>
+                    </div>
+                    <a href="#" class="d-block mb-3">Quay về giỏ hàng</a>
+                    <button class="btn btn-primary">ĐẶT HÀNG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
