@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Restoran - Bootstrap Restaurant Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link
+      href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <style>
+      /* 1. Định nghĩa các biến màu và ghi đè các biến màu của Bootstrap */
+      :root {
+        /* Các biến màu tùy chỉnh */
+        --primary: #fea116;
+        --light: #f1f8ff;
+        --dark: #0f172b;
+        --gray-light: #f8f9fa;
+        --gray-dark: #6c757d;
+        --text-color: #0f172b;
+        --background-color: #ffffff;
+        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition-duration: 0.3s;
+        --border-radius: 10px;
+        --news-bg-color: #fea116; /* Màu nền cho Tin Mới */
+        --policy-bg-color: #0f172b; /* Màu nền cho Chính sách */
+      }
+
+      /* 2. Các quy tắc CSS tùy chỉnh sử dụng biến màu */
+      body {
+        font-family: "Nunito", sans-serif;
+        color: var(--text-color);
+        background-color: var(--gray-light);
+      }
+
+      .custom-breadcrumb {
+        margin-left: -20px; /* Giảm khoảng cách lề trái */
+      }
+
+      .sidebar {
+        padding: 20px;
+        background-color: var(--background-color);
+        border-radius: var(--border-radius);
+      }
+      .news-section {
+        background-color: var(--news-bg-color);
+        color: var(--light);
+        padding: 10px;
+        border-radius: var(--border-radius);
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .news-title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .news-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 10px 0;
+        border-top: 1px solid var(--gray-dark);
+      }
+      .news-list li {
+        padding: 10px;
+        border-bottom: 1px solid var(--gray-dark);
+      }
+      .news-list li a {
+        color: var(--text-color);
+        text-decoration: none;
+      }
+      .news-list li a:hover {
+        color: var(--bs-success);
+        text-decoration: underline;
+      }
+      .policy-section {
+        background-color: var(--news-bg-color);
+        color: #000000; /* Màu đen cho cả chữ và icon */
+        padding: 10px;
+        border-radius: var(--border-radius);
+        margin-bottom: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center; /* Canh icon và nội dung ngang hàng nhau */
+        justify-content: flex-start; /* Căn lề trái cho đều */
+      }
+
+      .policy-section:hover {
+        background-color: var(--hover-bg-color);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+      }
+
+      .policy-section:hover i,
+      .policy-section:hover {
+        color: var(--hover-text-color); /* Đổi màu chữ và icon khi hover */
+      }
+      .policy-section i {
+        margin-right: 15px; /* Khoảng cách giữa icon và văn bản */
+        font-size: 24px; /* Kích thước của icon */
+        color: #000000; /* Màu đen cho icon */
+      }
+
+      .breadcrumb {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 18px;
+        color: var(--bs-secondary);
+      }
+      .breadcrumb a {
+        color: var(--primary); /* Áp dụng màu sắc chính cho liên kết */
+        text-decoration: none;
+      }
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+      .divider {
+        border-top: 1px solid var(--gray-dark);
+        margin-top: 10px;
+      }
+
+      /* Đảm bảo các liên kết trong footer sử dụng biến màu */
+      .footer a {
+        color: var(--light); /* Màu chữ ban đầu */
+        transition: color var(--transition-duration);
+      }
+      .footer a:hover {
+        color: var(--primary); /* Màu chữ khi hover */
+        text-decoration: underline;
+      }
+
+      /* Đảm bảo các nút xã hội trong footer sử dụng biến màu */
+      .footer .btn-social {
+        color: var(--light);
+        border: 1px solid var(--light);
+        transition: background-color var(--transition-duration),
+          color var(--transition-duration);
+      }
+      .footer .btn-social:hover {
+        background-color: var(--primary);
+        color: #ffffff;
+      }
+
+      /* Đảm bảo nút LOGIN sử dụng biến màu */
+      .btn-primary {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+      }
+      .btn-primary:hover {
+        background-color: #e0a100; /* Bạn có thể điều chỉnh nếu cần */
+        border-color: #d18b00;
+      }
+
+      /* Đảm bảo spinner sử dụng biến màu */
+      .spinner-border.text-primary {
+        color: var(--bs-primary);
+      }
+
+      /* Các quy tắc CSS khác nếu cần... */
+      /* Tùy chỉnh kích thước đề mục */
+      h1 {
+        font-size: 2.5rem; /* Kích thước của h1 */
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 2.25rem; /* Kích thước của h2 */
+        margin-top: 25px;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        font-size: 1.875rem; /* Kích thước của h3 */
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        font-size: 1.625rem; /* Kích thước của h4 */
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+
+      h5 {
+        font-size: 1.375rem; /* Kích thước của h5 */
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+
+      h6 {
+        font-size: 1.125rem; /* Kích thước của h6 */
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      /* Khoảng cách và căn chỉnh cho các thẻ heading */
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.4;
+      }
+
+      /* Các khoảng cách bổ sung để tạo sự cân đối giữa các phần tử */
+      p {
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      ul {
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+      .z-pattern-sidebar {
+  width: 350px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  font-family: 'Inter', sans-serif;
+}
+
+.z-pattern-header {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.z-pattern-header h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.z-pattern-content {
+  padding: 20px;
+  background-color: #f9fafb;
+}
+
+.z-pattern-footer {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.policy-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.policy-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  flex-grow: 1;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.policy-link:hover {
+  color: #2575fc;
+}
+
+.policy-link i {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.policy-link span {
+  font-size: 12px;
+  text-align: center;
+}
+
+.policy-divider {
+  width: 1px;
+  height: 30px;
+  background-color: #ddd;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container-xxl bg-white p-0">
+      <!-- Spinner Start -->
+      <div
+        id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+      >
+        <div
+          class="spinner-border text-primary"
+          style="width: 3rem; height: 3rem"
+          role="status"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <!-- Spinner End -->
+
+      <!-- Navbar & Hero Start -->
+      <div class="container-xxl position-relative p-0">
+        <nav
+          class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0"
+        >
+          <div class="d-flex align-items-center">
+            <a href="#" class="navbar-brand p-0">
+              <h1 class="text-primary m-0">
+                <i class="fa fa-utensils me-3"></i>Restoran
+              </h1>
+              <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+
+            <!-- Thêm khoảng cách bằng cách sử dụng lớp ms-5 -->
+            <form class="d-none d-lg-flex ms-5" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Tìm kiếm..."
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-light" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="fa fa-bars"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4">
+              <a href="index.html" class="nav-item nav-link active">Home</a>
+              <a href="blog.html" class="nav-item nav-link">Blog</a>
+              <a href="service.html" class="nav-item nav-link">Service</a>
+              <a href="menu.html" class="nav-item nav-link">Menu</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  >Pages</a
+                >
+                <div class="dropdown-menu m-0">
+                  <a href="booking.html" class="dropdown-item">Booking</a>
+                  <a href="team.html" class="dropdown-item">Our Team</a>
+                  <a href="testimonial.html" class="dropdown-item"
+                    >Testimonial</a
+                  >
+                </div>
+              </div>
+              <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="login.html" class="btn btn-primary py-2 px-4">LOGIN</a>
+          </div>
+        </nav>
+
+        <div class="container-xxl py-5 bg-dark hero-header mb-5">
+          <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">
+              Services
+            </h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="#">HOME</a></li>
+                <li class="breadcrumb-item"><a href="#">PAGES</a></li>
+                <li
+                  class="breadcrumb-item text-white active"
+                  aria-current="page"
+                >
+                  SERVICES
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar & Hero End -->
+
+      <div class="container content">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="container mt-3">
+              <div class="breadcrumb custom-breadcrumb">
+                <span>Trang chủ</span> //
+                <a href="#" class="highlighted-breadcrumb"
+                  >Điều khoản dịch vụ</a
+                >
+              </div>
+
+              <div class="divider"></div>
+            </div>
+
+            <h2>Điều khoản dịch vụ</h2>
+            <p>
+              Khi quý khách truy cập vào trang web của chúng tôi có nghĩa là quý
+              khách đồng ý với các điều khoản này. Trang web có quyền thay đổi,
+              chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Quy định và
+              Điều kiện sử dụng, vào bất cứ lúc nào. Các thay đổi có hiệu lực
+              ngay khi được đăng trên trang web mà không cần thông báo trước. Và
+              khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về
+              Quy định và Điều kiện được đăng tải, có nghĩa là quý khách chấp
+              nhận với những thay đổi đó.
+            </p>
+            <h3>1. Hướng dẫn sử dụng web</h3>
+            <p>
+              - Khi vào web của chúng tôi, người dùng tối thiểu phải 18 tuổi
+              hoặc truy cập dưới sự giám sát của cha mẹ hay người giám hộ hợp
+              pháp.
+            </p>
+            <p>
+              - Chúng tôi cấp giấy phép sử dụng để bạn có thể mua sắm trên web
+              trong khuôn khổ Điều khoản và Điều kiện sử dụng đã đề ra.
+            </p>
+            <p>
+              - Nghiêm cấm sử dụng bất kỳ phần nào của trang web này với mục
+              đích thương mại hoặc nhân danh bất kỳ đối tác thứ ba nào nếu không
+              được chúng tôi cho phép bằng văn bản. Nếu vi phạm bất cứ điều gì
+              trong đây, chúng tôi sẽ hủy giấy phép của bạn mà không cần báo
+              trước.
+            </p>
+            <p>
+              - Trang web này chỉ dùng để cung cấp thông tin sản phẩm chứ chúng
+              tôi không phải nhà sản xuất nên những nhận xét hiển thị trên web
+              là ý kiến cá nhân của khách hàng, không phải của chúng tôi.
+            </p>
+            <p>
+              - Quý khách phải đăng ký tài khoản với thông tin xác thực về bản
+              thân và phải cập nhật nếu có bất kỳ thay đổi nào. Mỗi người truy
+              cập phải có trách nhiệm với mật khẩu, tài khoản và hoạt động của
+              mình trên web. Hơn nữa, quý khách phải thông báo cho chúng tôi
+              biết khi tài khoản bị truy cập trái phép. Chúng tôi không chịu bất
+              kỳ trách nhiệm nào, dù trực tiếp hay gián tiếp, đối với những
+              thiệt hại hoặc mất mát gây ra do quý khách không tuân thủ quy
+              định.
+            </p>
+            <p>
+              - Trong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng
+              cáo từ website. Sau đó, nếu không muốn tiếp tục nhận mail, quý
+              khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng
+              trong mọi email quảng cáo.
+            </p>
+            <h3>2. Chấp nhận đơn hàng và giá cả</h3>
+            <p>
+              - Chúng tôi có quyền từ chối hoặc hủy đơn hàng của quý khách vì
+              bất kỳ lý do gì vào bất kỳ lúc nào. Chúng tôi có thể hỏi thêm về
+              số điện thoại và địa chỉ trước khi nhận đơn hàng.
+            </p>
+            <p>
+              - Chúng tôi cam kết sẽ cung cấp thông tin giá cả chính xác nhất
+              cho người tiêu dùng. Tuy nhiên, đôi khi vẫn có sai sót xảy ra, ví
+              dụ như trường hợp giá sản phẩm không hiển thị chính xác trên trang
+              web hoặc sai giá, tùy theo từng trường hợp chúng tôi sẽ liên hệ
+              hướng dẫn hoặc thông báo hủy đơn hàng đó cho quý khách. Chúng tôi
+              cũng có quyền từ chối hoặc hủy bỏ bất kỳ đơn hàng nào dù đơn hàng
+              đó đã hay chưa được xác nhận hoặc đã thanh toán.
+            </p>
+            <h3>3. Thương hiệu và bản quyền</h3>
+            <p>
+              - Mọi quyền sở hữu trí tuệ (đã đăng ký hoặc chưa đăng ký), nội
+              dung thông tin và tất cả các thiết kế, văn bản, đồ họa, phần mềm,
+              hình ảnh, âm nhạc, âm thanh, biên dịch phần mềm, mã nguồn và phần
+              mềm đều là tài sản của chúng tôi. Toàn bộ nội dung của trang web
+              được bảo vệ bởi luật bản quyền của Việt Nam và các công ước quốc
+              tế. Bản quyền đã được bảo lưu.
+            </p>
+            <h3>4. Quyền pháp lý</h3>
+            <p>
+              - Các điều kiện, điều khoản và nội dung của trang web này được
+              điều chỉnh bởi luật pháp Việt Nam và Tòa án có thẩm quyền tại Việt
+              Nam sẽ giải quyết bất kỳ tranh chấp nào phát sinh từ việc sử dụng
+              trái phép trang web này.
+            </p>
+            <h3>5. Quy định về bảo mật</h3>
+            <p>
+              - Trang web của chúng tôi coi trọng việc bảo mật thông tin và sử
+              dụng các biện pháp tốt nhất để bảo vệ thông tin và việc thanh toán
+              của quý khách. Trong quá trình thanh toán trực tuyến, quý khách
+              lưu ý không được để lộ thông tin về việc thanh toán của mình cho
+              bất kỳ bên thứ ba nào.
+            </p>
+            <p>
+              - Chúng tôi cam kết sẽ không bán, chia sẻ dẫn đến việc lộ thông
+              tin cá nhân của quý khách cho bất kỳ bên thứ ba nào. Mọi thông tin
+              giao dịch sẽ được bảo mật nhưng trong trường hợp cơ quan pháp luật
+              yêu cầu, chúng tôi buộc phải cung cấp những thông tin này cho cơ
+              quan pháp luật.
+            </p>
+            <h3>6. Thay đổi, hủy bỏ giao dịch tại website</h3>
+            <p>
+              - Trong mọi trường hợp, quý khách có quyền chấm dứt giao dịch nếu
+              đã thực hiện các biện pháp sau đây:
+            </p>
+            <p>
+              + Thông báo cho chúng tôi về việc hủy giao dịch qua đường dây nóng
+              0567.649.206
+            </p>
+            <p>
+              + Trả lại hàng hoá đã nhận nhưng chưa sử dụng hoặc hưởng bất kỳ
+              lợi ích nào từ hàng hóa đó (theo quy định của chính sách đổi trả
+              hàng).
+            </p>
+          </div>
+          <div class="col-md-4">
+            <div class="z-pattern-sidebar">
+              <div class="z-pattern-header">
+                <h3>Tin Mới Nhất</h3>
+              </div>
+            
+              <div class="z-pattern-content">
+                <div class="news-grid">
+                  <div class="news-item">
+                    <div class="news-icon">🍌</div>
+                    <div class="news-details">
+                      <h4>Chuối Chín Tự Nhiên</h4>
+                      <p>Cách nhận biết và phân biệt</p>
+                    </div>
+                    <div class="news-arrow">→</div>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="z-pattern-footer">
+                <div class="policy-links">
+                  <a href="#" class="policy-link">
+                    <i class="fas fa-gift"></i>
+                    <span>Quà Tặng</span>
+                  </a>
+                  <div class="policy-divider"></div>
+                  <a href="#" class="policy-link">
+                    <i class="fas fa-truck"></i>
+                    <span>Vận Chuyển</span>
+                  </a>
+                  <div class="policy-divider"></div>
+                  <a href="#" class="policy-link">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>Mua Hàng</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Start -->
+      <div
+        class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
+        data-wow-delay="0.1s"
+      >
+        <div class="container-fluid py-5">
+          <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+              <h4
+                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+              >
+                Company
+              </h4>
+              <a class="btn btn-link" href="#">About Us</a>
+              <a class="btn btn-link" href="#">Contact Us</a>
+              <a class="btn btn-link" href="#">Reservation</a>
+              <a class="btn btn-link" href="#">Privacy Policy</a>
+              <a class="btn btn-link" href="#">Terms & Condition</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4
+                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+              >
+                Contact
+              </h4>
+              <p class="mb-2">
+                <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York,
+                USA
+              </p>
+              <p class="mb-2">
+                <i class="fa fa-phone-alt me-3"></i>+012 345 67890
+              </p>
+              <p class="mb-2">
+                <i class="fa fa-envelope me-3"></i>info@example.com
+              </p>
+              <div class="d-flex pt-2">
+                <a class="btn btn-outline-light btn-social" href="#"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a class="btn btn-outline-light btn-social" href="#"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a class="btn btn-outline-light btn-social" href="#"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a class="btn btn-outline-light btn-social" href="#"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4
+                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+              >
+                Opening
+              </h4>
+              <h5 class="text-light fw-normal">Monday - Saturday</h5>
+              <p>09AM - 09PM</p>
+              <h5 class="text-light fw-normal">Sunday</h5>
+              <p>10AM - 08PM</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4
+                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+              >
+                Newsletter
+              </h4>
+              <p>
+                Pain is just right, sit dolor sit amet. Clita ipsum elitr is.
+              </p>
+              <div class="position-relative mx-auto" style="max-width: 400px">
+                <input
+                  class="form-control border-primary w-100 py-3 ps-4 pe-5"
+                  type="email"
+                  placeholder="Your email"
+                />
+                <button
+                  type="button"
+                  class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+                >
+                  SignUp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="copyright">
+            <div class="row">
+              <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                © Your Restaurant Name. All Rights Reserved. Crafted with ❤️ by
+                Group 15.
+              </div>
+              <div class="col-md-6 text-center text-md-end">
+                <div class="footer-menu">
+                  <a href="#">Home</a>
+                  <a href="#">Cookies</a>
+                  <a href="#">Help</a>
+                  <a href="#">FAQs</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+
+      <!-- Back to Top -->
+      <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+        ><i class="bi bi-arrow-up"></i
+      ></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
