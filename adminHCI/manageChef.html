@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Blank</title>
+
+    <!-- Custom styles for this page -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Restaurant Admin <sup>2</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Manager
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="manageChef.html">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Employee</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Utilities</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="guidelines.html" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Guidelines</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
+                    and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
+                    Pro!</a>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header d-flex py-3 justify-content-between align-items-center">
+                            <h6 class="m-0 font-weight-bold text-primary">Employee Management</h6>
+                            <!-- New Button -->
+                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#employeeModal">
+                                <i class="bi bi-plus-circle"></i> New
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="employeeTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Gender</th>
+                                            <th>Age</th>
+                                            <th>Phone</th>
+                                            <th>Start Date</th>
+                                            <th>Department</th>
+                                            <th>Employment</th>
+                                            <th>Status</th>
+                                            <th>Salary</th>
+                                            <th class="text-center">Edit</th>
+                                            <th class="text-center">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-id="1">
+                                            <td>John Doe</td>
+                                            <td>Manager</td>
+                                            <td>Male</td>
+                                            <td>35</td>
+                                            <td>+1-123-456-7890</td>
+                                            <td>2022/01/10</td>
+                                            <td>Management</td>
+                                            <td>Full-time</td>
+                                            <td>Active</td>
+                                            <td>$5,000</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="2">
+                                            <td>Mary Jane</td>
+                                            <td>Chef</td>
+                                            <td>Female</td>
+                                            <td>40</td>
+                                            <td>+1-234-567-8901</td>
+                                            <td>2021/06/15</td>
+                                            <td>Kitchen</td>
+                                            <td>Full-time</td>
+                                            <td>Active</td>
+                                            <td>$3,500</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="3">
+                                            <td>James Smith</td>
+                                            <td>Server</td>
+                                            <td>Male</td>
+                                            <td>28</td>
+                                            <td>+1-345-678-9012</td>
+                                            <td>2023/03/01</td>
+                                            <td>Service</td>
+                                            <td>Part-time</td>
+                                            <td>Active</td>
+                                            <td>$1,800</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="4">
+                                            <td>Anna Lee</td>
+                                            <td>Server</td>
+                                            <td>Female</td>
+                                            <td>25</td>
+                                            <td>+1-456-789-0123</td>
+                                            <td>2023/05/12</td>
+                                            <td>Service</td>
+                                            <td>Part-time</td>
+                                            <td>On Leave</td>
+                                            <td>$1,700</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="5">
+                                            <td>William Brown</td>
+                                            <td>Manager</td>
+                                            <td>Male</td>
+                                            <td>42</td>
+                                            <td>+1-987-654-3210</td>
+                                            <td>2020/08/01</td>
+                                            <td>Management</td>
+                                            <td>Full-time</td>
+                                            <td>Active</td>
+                                            <td>$5,200</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="6">
+                                            <td>Sophia Davis</td>
+                                            <td>Chef</td>
+                                            <td>Female</td>
+                                            <td>37</td>
+                                            <td>+1-876-543-2109</td>
+                                            <td>2019/12/05</td>
+                                            <td>Kitchen</td>
+                                            <td>Full-time</td>
+                                            <td>Active</td>
+                                            <td>$3,800</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="7">
+                                            <td>Emma Wilson</td>
+                                            <td>Receptionist</td>
+                                            <td>Female</td>
+                                            <td>30</td>
+                                            <td>+1-567-890-1234</td>
+                                            <td>2022/11/10</td>
+                                            <td>Front Office</td>
+                                            <td>Full-time</td>
+                                            <td>Active</td>
+                                            <td>$2,800</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="8">
+                                            <td>Oliver Martinez</td>
+                                            <td>Barista</td>
+                                            <td>Male</td>
+                                            <td>27</td>
+                                            <td>+1-678-901-2345</td>
+                                            <td>2021/09/21</td>
+                                            <td>Cafe</td>
+                                            <td>Part-time</td>
+                                            <td>Active</td>
+                                            <td>$2,000</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="9">
+                                            <td>Lucas Anderson</td>
+                                            <td>Cleaner</td>
+                                            <td>Male</td>
+                                            <td>32</td>
+                                            <td>+1-789-012-3456</td>
+                                            <td>2020/03/15</td>
+                                            <td>Maintenance</td>
+                                            <td>Full-time</td>
+                                            <td>Active</td>
+                                            <td>$2,200</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-id="10">
+                                            <td>Charlotte Thomas</td>
+                                            <td>Host</td>
+                                            <td>Female</td>
+                                            <td>29</td>
+                                            <td>+1-890-123-4567</td>
+                                            <td>2021/07/08</td>
+                                            <td>Service</td>
+                                            <td>Part-time</td>
+                                            <td>Active</td>
+                                            <td>$1,900</td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editModal">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    employeeModal
+    <!-- Modal -->
+    <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="employeeModalLabel">Add Employee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="employeeForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="position" class="form-label">Position</label>
+                            <input type="text" class="form-control" id="position" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-select" id="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="department" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="department" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employment" class="form-label">Employment</label>
+                            <input type="text" class="form-control" id="employment" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status">
+                                <option value="Active">Active</option>
+                                <option value="On Leave">On Leave</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="salary" class="form-label">Salary</label>
+                            <input type="number" class="form-control" id="salary" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveEmployee">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Employee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="mb-3">
+                            <label for="editName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="editName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPosition" class="form-label">Position</label>
+                            <input type="text" class="form-control" id="editPosition">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editGender" class="form-label">Gender</label>
+                            <input type="text" class="form-control" id="editGender">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAge" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="editAge">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPhone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="editPhone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editStartDate" class="form-label">Start Date</label>
+                            <input type="text" class="form-control" id="editStartDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDepartment" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="editDepartment">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEmployment" class="form-label">Employment</label>
+                            <input type="text" class="form-control" id="editEmployment">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editStatus" class="form-label">Status</label>
+                            <input type="text" class="form-control" id="editStatus">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editSalary" class="form-label">Salary</label>
+                            <input type="text" class="form-control" id="editSalary">
+                        </div>
+                        <button id="saveChanges" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Delete -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this record?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">Note</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="messageContent"></p>
+                </div>
+                <div class="modal-footer">
+                    <a id="continueButton" href="#" class="btn btn-primary">Continue</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let selectedRowToDelete; // Lưu trữ hàng được chọn để xóa
+
+            // Hàm hiển thị thông báo trong modal
+            function showMessageModal(message, continueLink) {
+                // Cập nhật nội dung của modal
+                document.getElementById('messageContent').textContent = message;
+
+                // Cập nhật đường link "Continue"
+                const continueButton = document.getElementById('continueButton');
+                continueButton.setAttribute('href', continueLink);
+
+                // Hiển thị modal
+                const modal = new bootstrap.Modal(document.getElementById('messageModal'));
+                modal.show();
+            }
+
+            // Khi nhấn vào nút Delete
+            document.querySelectorAll('.btn-danger[data-bs-target="#deleteModal"]').forEach((button) => {
+                button.addEventListener("click", function () {
+                    selectedRowToDelete = this.closest("tr"); // Lấy hàng hiện tại
+
+                    // Hiển thị modal xác nhận xóa
+                    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                    deleteModal.show();
+                });
+            });
+
+            // Khi nhấn nút Delete trong modal để xác nhận
+            document.getElementById("confirmDelete").addEventListener("click", function () {
+                if (selectedRowToDelete) {
+                    // Lấy ID của mục cần xóa (ví dụ: lấy từ thuộc tính data-id hoặc từ nội dung của một ô cột)
+                    const itemId = selectedRowToDelete.getAttribute("data-id");
+
+                    // Lưu ID mục đã xóa vào localStorage (giả sử bạn đang lưu một mảng các ID đã xóa)
+                    let deletedItems = JSON.parse(localStorage.getItem("deletedItems")) || [];
+                    deletedItems.push(itemId);
+                    localStorage.setItem("deletedItems", JSON.stringify(deletedItems));
+
+                    // Xóa hàng khỏi bảng
+                    selectedRowToDelete.remove();
+
+                    // Đóng modal xác nhận xóa
+                    const deleteModal = document.getElementById('deleteModal');
+                    deleteModal.classList.remove('show'); // Loại bỏ lớp 'show' để đóng modal
+                    deleteModal.setAttribute('aria-hidden', 'true'); // Thiết lập thuộc tính aria-hidden
+                    deleteModal.style.display = 'none'; // Ẩn modal
+
+                    // Hiển thị thông báo thành công
+                    showMessageModal("Record deleted successfully!", "manageChef.html");
+                }
+            });
+
+            // Khi trang tải lại, loại bỏ các mục đã xóa dựa trên localStorage
+            function removeDeletedItems() {
+                const deletedItems = JSON.parse(localStorage.getItem("deletedItems")) || [];
+
+                deletedItems.forEach(itemId => {
+                    // Tìm mục cần xóa trong bảng dựa trên ID (có thể thay đổi theo cách bạn lấy ID)
+                    const row = document.querySelector(`tr[data-id="${itemId}"]`);
+                    if (row) {
+                        row.remove();
+                    }
+                });
+            }
+
+            // Gọi hàm để loại bỏ các mục đã xóa khi trang tải lại
+            removeDeletedItems();
+        });
+
+
+    </script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let selectedRow; // Lưu trữ hàng được chọn
+
+            function formatDate(dateStr) {
+                const parts = dateStr.split('/');
+                return `${parts[0]}/${parts[1]}/${parts[2]}`;
+            }
+
+            // Hàm hiển thị thông báo trong modal
+            function showMessageModal(message, continueLink) {
+                // Cập nhật nội dung của modal
+                document.getElementById('messageContent').textContent = message;
+
+                // Cập nhật đường link "Continue"
+                const continueButton = document.getElementById('continueButton');
+                continueButton.setAttribute('href', continueLink);
+
+                // Hiển thị modal
+                const modal = new bootstrap.Modal(document.getElementById('messageModal'));
+                modal.show();
+            }
+
+            // Khi nhấn vào nút Edit
+            document.querySelectorAll('.btn-primary[data-bs-target="#editModal"]').forEach((button) => {
+                button.addEventListener("click", function () {
+                    selectedRow = this.closest("tr"); // Lấy hàng hiện tại
+
+                    // Lấy dữ liệu từ hàng và gán vào modal
+                    document.getElementById("editName").value = selectedRow.cells[0].textContent.trim();
+                    document.getElementById("editPosition").value = selectedRow.cells[1].textContent.trim();
+                    document.getElementById("editGender").value = selectedRow.cells[2].textContent.trim();
+                    document.getElementById("editAge").value = selectedRow.cells[3].textContent.trim();
+                    document.getElementById("editPhone").value = selectedRow.cells[4].textContent.trim();
+
+                    // Đảm bảo ngày được lấy đúng định dạng và hiển thị trong modal
+                    const startDate = selectedRow.cells[5].textContent.trim();
+                    const formattedStartDate = formatDate(startDate); // Đảm bảo ngày đúng định dạng
+                    document.getElementById("editStartDate").value = formattedStartDate;
+
+                    document.getElementById("editDepartment").value = selectedRow.cells[6].textContent.trim();
+                    document.getElementById("editEmployment").value = selectedRow.cells[7].textContent.trim();
+                    document.getElementById("editStatus").value = selectedRow.cells[8].textContent.trim();
+                    document.getElementById("editSalary").value = selectedRow.cells[9].textContent.trim();
+                });
+            });
+
+            // Khi nhấn Save Changes
+            document.getElementById("saveChanges").addEventListener("click", function (event) {
+                event.preventDefault(); // Ngừng hành động mặc định của form
+
+                if (selectedRow) {
+                    // Kiểm tra xem các giá trị có hợp lệ không
+                    const newName = document.getElementById("editName").value.trim();
+                    const newPosition = document.getElementById("editPosition").value.trim();
+                    const newGender = document.getElementById("editGender").value.trim();
+                    const newAge = document.getElementById("editAge").value.trim();
+                    const newPhone = document.getElementById("editPhone").value.trim();
+                    const newStartDate = document.getElementById("editStartDate").value.trim();
+                    const newDepartment = document.getElementById("editDepartment").value.trim();
+                    const newEmployment = document.getElementById("editEmployment").value.trim();
+                    const newStatus = document.getElementById("editStatus").value.trim();
+                    const newSalary = document.getElementById("editSalary").value.trim();
+
+                    if (!newName || !newPosition || !newGender || !newAge || !newPhone || !newStartDate || !newDepartment || !newEmployment || !newStatus || !newSalary) {
+                        showMessageModal("Please fill in employee information completely.", "manageChef.html");
+                        return;
+                    }
+
+                    // Cập nhật dữ liệu trong hàng
+                    selectedRow.cells[0].textContent = newName;
+                    selectedRow.cells[1].textContent = newPosition;
+                    selectedRow.cells[2].textContent = newGender;
+                    selectedRow.cells[3].textContent = newAge;
+                    selectedRow.cells[4].textContent = newPhone;
+                    selectedRow.cells[5].textContent = newStartDate; // Cập nhật lại ngày
+                    selectedRow.cells[6].textContent = newDepartment;
+                    selectedRow.cells[7].textContent = newEmployment;
+                    selectedRow.cells[8].textContent = newStatus;
+                    selectedRow.cells[9].textContent = `${newSalary}`;
+
+                    // Hiển thị thông báo thành công
+                    showMessageModal("Employee information updated successfully!", "#");
+                    // Đóng modal và hiển thị thông báo
+                    const editModal = bootstrap.Modal.getInstance(document.getElementById("editModal"));
+                    editModal.hide();
+
+                }
+            });
+        });
+
+
+    </script>
+
+    <script>
+        // Hàm lưu nhân viên mới
+        function saveNewEmployee() {
+            const name = document.getElementById('name').value;
+            const position = document.getElementById('position').value;
+            const gender = document.getElementById('gender').value;
+            const age = document.getElementById('age').value;
+            const phone = document.getElementById('phone').value;
+            const startDate = document.getElementById('startDate').value;
+            const department = document.getElementById('department').value;
+            const employment = document.getElementById('employment').value;
+            const status = document.getElementById('status').value;
+            const salary = document.getElementById('salary').value;
+
+            // Kiểm tra dữ liệu không được trống
+            if (!name || !position || !gender || !age || !phone || !startDate || !department || !employment || !status || !salary) {
+                showMessageModal("Please fill in employee information completely.", "manageChef.html");
+                return; // Dừng hàm nếu có trường không được điền
+            }
+
+            // Kiểm tra dữ liệu (nếu cần)
+            console.log("New Employee Data:", {
+                name, position, gender, age, phone, startDate, department, employment, status, salary
+            });
+
+            // Sau khi lưu thành công, đóng modal
+            $('#employeeModal').modal('hide');
+        }
+
+        // Hàm hiển thị modal với thông báo tùy chỉnh
+        function showMessageModal(message, continueLink) {
+            // Cập nhật nội dung của modal
+            document.getElementById('messageContent').textContent = message;
+
+            // Cập nhật đường link "Continue"
+            const continueButton = document.getElementById('continueButton');
+            continueButton.setAttribute('href', continueLink);
+
+            // Hiển thị modal
+            const modal = new bootstrap.Modal(document.getElementById('messageModal'));
+            modal.show();
+        }
+
+        // Sự kiện khi click "Save" để kiểm tra và lưu nhân viên
+        document.getElementById('saveEmployee').addEventListener('click', function () {
+            // Lấy dữ liệu từ modal
+            const name = document.getElementById('name').value;
+            const position = document.getElementById('position').value;
+            const gender = document.getElementById('gender').value;
+            const age = document.getElementById('age').value;
+            const phone = document.getElementById('phone').value;
+            const startDate = document.getElementById('startDate').value;
+            const department = document.getElementById('department').value;
+            const employment = document.getElementById('employment').value;
+            const status = document.getElementById('status').value;
+            const salary = document.getElementById('salary').value;
+
+            // Kiểm tra dữ liệu không được trống
+            if (!name || !position || !gender || !age || !phone || !startDate || !department || !employment || !status || !salary) {
+                showMessageModal("Please fill in employee information completely.", "manageChef.html");
+                return;
+            }
+
+            // Tạo một dòng mới với thông tin từ modal
+            const newRow = `
+        <tr>
+            <td>${name}</td>
+            <td>${position}</td>
+            <td>${gender}</td>
+            <td>${age}</td>
+            <td>${phone}</td>
+            <td>${startDate}</td>
+            <td>${department}</td>
+            <td>${employment}</td>
+            <td>${status}</td>
+            <td>${salary}</td>
+            <td class="text-center align-middle">
+                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <i class="bi bi-pencil"></i>
+                </button>
+            </td>
+            <td class="text-center align-middle">
+                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+    `;
+
+            // Thêm dòng mới vào bảng
+            document.querySelector('#employeeTable tbody').insertAdjacentHTML('beforeend', newRow);
+
+            // Đóng modal
+            $('#employeeModal').modal('hide');
+
+            // Reset form
+            document.getElementById('employeeForm').reset();
+        });
+
+
+    </script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>
