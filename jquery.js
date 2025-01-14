@@ -210,7 +210,7 @@ function search(search_text) {
 
   
     let notifySearch = document.getElementById("notification-search");
-    let text_notify = "Có " + numberOfDish +" kết quả cho tìm kiếm: "+ search_text;
+    let text_notify = ((numberOfDish > 1)? "there are ": "there is ") + numberOfDish +" result for the search: "+ search_text;
     notifySearch.innerHTML = text_notify;
 }
 // Gọi hàm khi trang được load
