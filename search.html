@@ -40,363 +40,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
-
-    <!-- Customized CSS for Synchronizing Card Sizes -->
-    <style>
-      /*** Menu Items Synchronization ***/
-
-      /* Chỉ áp dụng CSS cho các nút "Xem Chi Tiết" */
-      .btn-view-details {
-        position: absolute;
-        bottom: 15px;
-        right: 20px;
-        padding: 10px 20px;
-        background: var(--primary);
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color var(--transition-duration) ease,
-          transform var(--transition-duration) ease,
-          opacity var(--transition-duration) ease,
-          box-shadow var(--transition-duration) ease;
-        opacity: 0;
-        pointer-events: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-      }
-
-      /* Hiển thị nút khi hover */
-      .menu-item:hover .btn-view-details {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .row.g-4 {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .row.g-4 > [class*="col-"] {
-        display: flex;
-        flex-direction: column;
-      }
-
-      /* Keyframes cho hiệu ứng lắc */
-      @keyframes shake {
-        0% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(0deg);
-        }
-
-        25% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(5deg);
-        }
-
-        50% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(-5deg);
-        }
-
-        75% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(5deg);
-        }
-
-        100% {
-          transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(0deg);
-        }
-      }
-
-      /*** Modal Enhancements ***/
-      .modal-content {
-        border-radius: 15px;
-        overflow: hidden;
-      }
-
-      .modal-header {
-        background-color: var(--primary);
-        color: #fff;
-        border-bottom: none;
-        padding: 20px;
-      }
-
-      .modal-title {
-        font-weight: 600;
-        font-size: 1.75rem;
-      }
-
-      .modal-body {
-        padding: 20px;
-      }
-
-      .rating i {
-        color: #ffc107;
-        margin-right: 2px;
-      }
-
-      .testimonial-item {
-        background-color: #f8f9fa;
-        border-left: 5px solid var(--primary);
-        padding: 15px;
-        box-shadow: var(--box-shadow);
-        border-radius: 5px;
-        transition: background-color var(--transition-duration),
-          box-shadow var(--transition-duration);
-      }
-
-      .testimonial-item:hover {
-        background-color: #ffffff;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      }
-
-      .testimonial-item p {
-        font-style: italic;
-        color: #333333;
-      }
-
-      .testimonial-item small {
-        color: #555555;
-      }
-
-      .btn-social {
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--light);
-        border: 1px solid #ffffff;
-        border-radius: 50%;
-        transition: color var(--transition-duration),
-          background-color var(--transition-duration);
-      }
-
-      .btn-social:hover {
-        background-color: var(--primary);
-        color: #ffffff;
-      }
-
-      /* Modal Footer */
-      .modal-footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .modal-footer .btn {
-        margin: 0 10px;
-      }
-
-      /*** Sidebar Styles ***/
-      .sidebar {
-        display: none;
-        position: fixed;
-        right: 0;
-        top: 0;
-        width: 350px;
-        height: 100%;
-        background-color: #f8f9fa;
-        border-left: 1px solid #dee2e6;
-        padding: 20px;
-        z-index: 1050;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-        overflow-y: auto;
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(100%);
-      }
-
-      .sidebar.show {
-        display: block;
-        transform: translateX(0);
-      }
-
-      .close-sidebar-btn {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        cursor: pointer;
-        color: #333;
-      }
-
-      .total-price {
-        margin-top: 20px;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-      }
-
-      .total-price i {
-        margin-right: 8px;
-      }
-
-      .item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
-      }
-
-      .item-details {
-        flex: 1;
-      }
-
-      .item-actions {
-        display: flex;
-        align-items: center;
-      }
-
-      .item-actions button {
-        background: none;
-        border: none;
-        font-size: 1.2rem;
-        margin: 0 5px;
-        cursor: pointer;
-        color: #007bff;
-      }
-
-      .payment-section {
-        margin-top: 30px;
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .payment-section h3 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      .form-label {
-        font-weight: 500;
-      }
-
-      .btn-success {
-        width: 100%;
-      }
-
-      /* Responsive Adjustments */
-      @media (max-width: 576px) {
-        .sidebar {
-          width: 100%;
-        }
-
-        .modal-body .col-md-6 {
-          flex: 0 0 100%;
-          max-width: 100%;
-        }
-      }
-
-      /* Expanded Content in Modal */
-      .ingredients,
-      .preparation {
-        margin-top: 15px;
-      }
-
-      .ingredients ul,
-      .preparation ol {
-        margin-left: 20px;
-      }
-
-      /* Ensure balanced height between columns */
-      .modal-body .col-md-6 {
-        display: flex;
-        flex-direction: column;
-      }
-
-      /* Payment Form Enhancements */
-      #paymentForm .form-control {
-        border-radius: 5px;
-      }
-
-      #paymentForm .btn-success {
-        background-color: var(--primary);
-        border-color: var(--primary);
-      }
-
-      #paymentForm .btn-success:hover {
-        background-color: #e0a100;
-        border-color: #d18b00;
-      }
-
-      /* Toast Notification */
-      .toast-container {
-        z-index: 1055;
-      }
-
-      .toast {
-        opacity: 0;
-        transition: opacity var(--transition-duration);
-      }
-
-      .toast.show {
-        opacity: 1;
-      }
-
-      /* Responsive Adjustments for Menu Items */
-      @media (max-width: 767.98px) {
-        .w-100.d-flex.flex-column.text-start.ps-4 {
-          height: auto;
-        }
-
-        /* Adjust modal carousel images on small screens */
-        #menuImagesCarousel .carousel-item img {
-          max-height: 250px;
-        }
-
-        /* Adjust modal text sizes */
-        #menuDetailPrice {
-          font-size: 1.2rem;
-        }
-
-        .rating {
-          font-size: 1rem;
-        }
-      }
-
-      /* Centering Buttons in Modal Footer */
-      .modal-footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .modal-footer .btn {
-        margin: 0 10px;
-      }
-
-      /* Tùy Chỉnh Styles cho Form Tìm Kiếm */
-      .navbar .form-control {
-        border-radius: 20px;
-        transition: width 0.4s ease-in-out;
-      }
-
-      .navbar .form-control:focus {
-        width: 250px;
-      }
-
-      @media (max-width: 992px) {
-        .navbar .form-control {
-          width: 100%;
-        }
-      }
-
-      button#search-button {
-        background-color: #0F172B;
-      }
-
-      button#search-button:hover {
-        background-color: #FEA116 !important;
-      }
-
-
-    </style>
+    <link rel="stylesheet" href="./css/VN_style.css">
   </head>
 
   <body>
@@ -490,21 +134,27 @@
           <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
 
             <!--Start search bar-->
-            <div class="d-flex mx-5 mb-3" role="search">
-              <input class="form-control me-1" type="search" placeholder="Tìm kiếm..." aria-label="Search" id="search-bar" autofocus/>
+            <div class="d-flex mx-5 mb-3 position-relative" role="search">
+              <input class="form-control me-1" type="search" placeholder="Tìm kiếm..." aria-label="Search" id="search-bar" onkeyup="searchMenu()" autofocus/>
               <button class="btn btn-outline-light" type="button" id="search-button">
                 <i class="fa fa-search"></i>
               </button>
+
+              <div class="search-down bg-white position-absolute" style="top: 38px; left: 8px; z-index:2;">
+        
+              </div>
             </div>
+
+            
             <!--End search bar--> 
 
-            <h5 class="section-title ff-secondary text-center text-primary fw-normal">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal position-relative" style="z-index:1;">
               Food Menu
             </h5>
 
             
         
-            <div class="container">
+            <div class="container position-relative" style="z-index:1;">
               <div class="row">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
@@ -601,9 +251,9 @@
                         </ul>
                       </div>
                       <!-- Order Button -->
-                      <button type="button" class="btn btn-primary btn-lg w-100 mt-3" id="orderDishButton">
+                      <!-- <button type="button" class="btn btn-primary btn-lg w-100 mt-3" id="orderDishButton">
                         <i class="fas fa-cart-plus me-2"></i>Đặt Món
-                      </button>
+                      </button> -->
                     </div>
                   </div>
                   <!-- Customer Reviews -->
@@ -870,8 +520,8 @@
       <script src="js/main.js"></script>
     </div>
 
-    <!-- JavaScript Libraries (Redundant inclusion removed to prevent duplication) -->
-    <script src="./jquery.js"></script>
+    
+    <script src="./js/VN_jquery.js"></script>
 
   </body>
 </html>
