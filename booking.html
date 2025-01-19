@@ -42,67 +42,7 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
 
-    <style>
-      /* Tùy Chỉnh Styles cho Form Tìm Kiếm */
-      .navbar .form-control {
-        border-radius: 20px;
-        transition: width 0.4s ease-in-out;
-      }
-
-      .navbar .form-control:focus {
-        width: 250px;
-      }
-
-      .search-down{
-        width:150%;
-      }
-
-      @media (max-width: 992px) {
-        .navbar .form-control {
-          width: 100%;
-        }
-        .navbar .form-control:focus {
-          width: 100%;
-        }
-        .search-down{
-          width:87%;
-        }
-      }
-
-
-      
-      /* booking confirm */
-      .booking_confirm .img_vertical {
-        display:none;
-      } 
-
-      @media (max-width: 1380px) {
-        .booking_confirm .img_vertical {
-          display:block;
-        }
-        .booking_confirm .img_horizontal {
-          display:none;
-        }
-      }
-
-      .booking_form{
-        display:flex;
-      }
-
-      .booking_confirm{
-        display:none;
-      }
-
-      @keyframes appear {
-        from{
-          opacity:0;
-        }
-
-        to{
-          opacity:1;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./css/VN_style.css" />
   </head>
 
   <body>
@@ -122,11 +62,11 @@
       </div>
       <!-- Spinner End -->
 
-
-
       <!-- Navbar & Hero Start -->
       <div class="container-xxl position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+        <nav
+          class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0"
+        >
           <div class="d-flex align-items-center">
             <a href="#" class="navbar-brand p-0">
               <h1 class="text-primary m-0">
@@ -135,7 +75,7 @@
               <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
           </div>
-      
+
           <button
             class="navbar-toggler"
             type="button"
@@ -147,20 +87,29 @@
           >
             <span class="fa fa-bars"></span>
           </button>
-      
+
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4">
               <a href="index.html" class="nav-item nav-link">Home</a>
-              <a href="introduction.html" class="nav-item nav-link">Introduction</a>
+              <a href="introduction.html" class="nav-item nav-link"
+                >Introduction</a
+              >
               <!-- Removed Blog Link -->
               <a href="service.html" class="nav-item nav-link">Service</a>
               <a href="menu.html" class="nav-item nav-link">Menu</a>
               <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle active"
+                  data-bs-toggle="dropdown"
+                  >Pages</a
+                >
                 <div class="dropdown-menu m-0">
                   <a href="booking.html" class="dropdown-item">Booking</a>
                   <a href="team.html" class="dropdown-item">Our Team</a>
-                  <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                  <a href="testimonial.html" class="dropdown-item"
+                    >Testimonial</a
+                  >
                   <!-- Added Blog and Contact -->
                   <a href="blog.html" class="dropdown-item">Blog</a>
                   <a href="contact.html" class="dropdown-item">Contact</a>
@@ -177,8 +126,10 @@
                 <i class="fa fa-user"></i> Login
               </a>
             </div>
-      
-            <a href="booking.html" class="btn btn-primary py-2 px-4">Book A Table</a>
+
+            <a href="booking.html" class="btn btn-primary py-2 px-4"
+              >Book A Table</a
+            >
           </div>
         </nav>
 
@@ -222,7 +173,9 @@
           </div>
           <div class="col-md-6 bg-dark d-flex align-items-center">
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-              <h5 class="section-title ff-secondary text-start text-primary fw-normal">
+              <h5
+                class="section-title ff-secondary text-start text-primary fw-normal"
+              >
                 Reservation
               </h5>
               <h1 class="text-white mb-4">Book A Table Online</h1>
@@ -230,20 +183,43 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="name_booking" placeholder="Your Name" required/>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name_booking"
+                        placeholder="Your Name"
+                        required
+                      />
                       <label for="name">Your Name</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="email" class="form-control" id="email_booking" placeholder="Your Email" required/>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email_booking"
+                        placeholder="Your Email"
+                        required
+                      />
                       <label for="email">Your Email</label>
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                      <input type="text" class="form-control datetimepicker-input" id="datetime_booking" placeholder="Date & Time"
-                        data-target="#date3" data-toggle="datetimepicker" required/>
+                    <div
+                      class="form-floating date"
+                      id="date3"
+                      data-target-input="nearest"
+                    >
+                      <input
+                        type="text"
+                        class="form-control datetimepicker-input"
+                        id="datetime_booking"
+                        placeholder="Date & Time"
+                        data-target="#date3"
+                        data-toggle="datetimepicker"
+                        required
+                      />
                       <label for="datetime">Date & Time</label>
                     </div>
                   </div>
@@ -259,11 +235,16 @@
                   </div>
                   <div class="col-12">
                     <div class="form-floating">
-                      <textarea class="form-control" placeholder="Special Request" id="special_request_booking" style="height: 100px"></textarea>
+                      <textarea
+                        class="form-control"
+                        placeholder="Special Request"
+                        id="special_request_booking"
+                        style="height: 100px"
+                      ></textarea>
                       <label for="message">Special Request</label>
                     </div>
                   </div>
-          
+
                   <div class="col-12">
                     <button class="btn btn-primary w-100 py-3" type="submit">
                       Book Now
@@ -275,27 +256,46 @@
           </div>
         </div>
 
-        
         <div class="container">
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-2"></div>
+            <div
+              class="col-sm-8 booking_confirm bg-image mt-3 position-relative"
+            >
+              <img
+                src="./img/booking_confirm.jpg"
+                alt=""
+                class="img_horizontal w-100"
+                style="user-select: none; -webkit-user-drag: none"
+              />
 
-            </div>
-            <div class="col-sm-8 booking_confirm bg-image mt-3 position-relative">
-        
-              <img src="./img/booking_confirm.jpg" alt="" class="img_horizontal w-100 " style="user-select: none; -webkit-user-drag: none;">
+              <img
+                src="./img/booking_confirm_vertical.jpg"
+                alt=""
+                class="img_vertical w-100"
+                style="user-select: none; -webkit-user-drag: none"
+              />
 
-              <img src="./img/booking_confirm_vertical.jpg" alt="" class="img_vertical w-100" style="user-select: none; -webkit-user-drag: none;">
-
-              <div class="position-absolute start-50 translate-middle-x text-white" style="top:11%">
-                <div class="d-flex align-items-center ">
+              <div
+                class="position-absolute start-50 translate-middle-x text-white"
+                style="top: 11%"
+              >
+                <div class="d-flex align-items-center">
                   <h1 class="text-primary m-0 text-center">
                     <i class="fa fa-utensils me-3"></i>Restoran
                   </h1>
                 </div>
               </div>
 
-              <div class="position-absolute text-white" style="top:25%; left:12%; width:75%; font-family: 'Times New Roman', Times, serif;">
+              <div
+                class="position-absolute text-white"
+                style="
+                  top: 25%;
+                  left: 12%;
+                  width: 75%;
+                  font-family: 'Times New Roman', Times, serif;
+                "
+              >
                 <p class="mb-1">Dear: <span id="booking_name"></span></p>
                 <p class="mb-1">Thank you for choosing: Restoran Restaurant</p>
                 <div class="invitation-detail mt-2">
@@ -303,24 +303,25 @@
                   <ul>
                     <li>Date: <span id="booking_date"></span></li>
                     <li>Time: <span id="booking_time"></span></li>
-                    <li>Number of guest: <span id="booking_numOfPeople"></span> peoples</li>
+                    <li>
+                      Number of guest:
+                      <span id="booking_numOfPeople"></span> peoples
+                    </li>
                   </ul>
                 </div>
-                <p class="mb-1">We look forward to welcoming you. If there are any changes, please notify us as soon as possible.</p>
+                <p class="mb-1">
+                  We look forward to welcoming you. If there are any changes,
+                  please notify us as soon as possible.
+                </p>
                 <div class="sign text-end me-5">
                   <p>Warm regards,</p>
                   <p class="me-2">Restoran</p>
                 </div>
               </div>
             </div>
-            <div class="col-sm-2">
-
-            </div>
+            <div class="col-sm-2"></div>
           </div>
-        
-        
         </div>
-        
       </div>
 
       <div
@@ -360,20 +361,33 @@
       <!-- Reservation Start -->
 
       <!-- Modal Chi Tiết Món Ăn -->
-      <div class="modal fade" id="menuDetailModal" tabindex="-1" aria-labelledby="menuDetailModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="menuDetailModal"
+        tabindex="-1"
+        aria-labelledby="menuDetailModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-              <h5 class="modal-title" id="menuDetailModalLabel">
-                Tên Món Ăn
-              </h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Đóng"></button>
+              <h5 class="modal-title" id="menuDetailModalLabel">Tên Món Ăn</h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Đóng"
+              ></button>
             </div>
             <div class="modal-body">
               <div class="row">
                 <!-- Main Image and Carousel -->
                 <div class="col-md-6">
-                  <div id="menuImagesCarousel" class="carousel slide" data-bs-ride="carousel">
+                  <div
+                    id="menuImagesCarousel"
+                    class="carousel slide"
+                    data-bs-ride="carousel"
+                  >
                     <div class="carousel-inner">
                       <!-- Dynamic Images Will Be Injected Here -->
                       <div class="carousel-item active">
@@ -381,14 +395,28 @@
                       </div>
                       <!-- Additional images will be added via JavaScript if available -->
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#menuImagesCarousel"
-                      data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#menuImagesCarousel"
+                      data-bs-slide="prev"
+                    >
+                      <span
+                        class="carousel-control-prev-icon bg-dark rounded-circle p-3"
+                        aria-hidden="true"
+                      ></span>
                       <span class="visually-hidden">Trước</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#menuImagesCarousel"
-                      data-bs-slide="next">
-                      <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#menuImagesCarousel"
+                      data-bs-slide="next"
+                    >
+                      <span
+                        class="carousel-control-next-icon bg-dark rounded-circle p-3"
+                        aria-hidden="true"
+                      ></span>
                       <span class="visually-hidden">Sau</span>
                     </button>
                   </div>
@@ -397,17 +425,20 @@
                     <div class="col-12">
                       <h5 class="text-primary">Video Giới Thiệu</h5>
                       <div class="ratio ratio-16x9 rounded">
-                        <iframe id="menuDetailVideo" src="" title="Video giới thiệu món ăn" allowfullscreen
-                          class="rounded"></iframe>
+                        <iframe
+                          id="menuDetailVideo"
+                          src=""
+                          title="Video giới thiệu món ăn"
+                          allowfullscreen
+                          class="rounded"
+                        ></iframe>
                       </div>
                     </div>
                   </div>
                 </div>
                 <!-- Dish Information -->
                 <div class="col-md-6">
-                  <h3 id="menuDetailName" class="text-primary">
-                    Tên Món Ăn
-                  </h3>
+                  <h3 id="menuDetailName" class="text-primary">Tên Món Ăn</h3>
                   <p id="menuDetailDescription" class="text-muted">
                     Mô tả chi tiết về món ăn...
                   </p>
@@ -417,7 +448,9 @@
                     <span id="menuDetailRating">
                       <!-- Dynamic Stars Will Be Injected Here -->
                     </span>
-                    <span class="ms-2 text-muted" id="menuDetailReviews">(0 đánh giá)</span>
+                    <span class="ms-2 text-muted" id="menuDetailReviews"
+                      >(0 đánh giá)</span
+                    >
                   </div>
                   <!-- Ingredients -->
                   <div class="ingredients">
@@ -434,7 +467,11 @@
                     </ul>
                   </div>
                   <!-- Order Button -->
-                  <button type="button" class="btn btn-primary btn-lg w-100 mt-3" id="orderDishButton">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg w-100 mt-3"
+                    id="orderDishButton"
+                  >
                     <i class="fas fa-cart-plus me-2"></i>Đặt Món
                   </button>
                 </div>
@@ -468,24 +505,37 @@
               </div>
             </div>
             <div class="modal-footer bg-light">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
                 Đóng
               </button>
-              <a href="https://www.seriouseats.com/" class="btn btn-primary" id="viewDetailsButton">
+              <a
+                href="https://www.seriouseats.com/"
+                class="btn btn-primary"
+                id="viewDetailsButton"
+              >
                 Xem Chi Tiết
               </a>
-    
+
               <div class="social-share ms-auto">
-                <a href="#" class="btn btn-primary btn-social me-2"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="btn btn-primary btn-social me-2"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="btn btn-primary btn-social"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="btn btn-primary btn-social me-2"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="btn btn-primary btn-social me-2"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="btn btn-primary btn-social"
+                  ><i class="fab fa-instagram"></i
+                ></a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Modal Chi Tiết Món Ăn End -->
-
 
       <!-- Footer Start -->
       <div
@@ -615,6 +665,6 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
-    <script src="./jquery.js"></script>
+    <script src="./js/VN_jquery.js"></script>
   </body>
 </html>
