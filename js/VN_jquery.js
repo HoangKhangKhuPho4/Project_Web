@@ -154,7 +154,7 @@ window.onload = displayDataFromURL;
 
 //BOOKING
 function bookingSubmit(event) {
-  bookingList = [];
+  // 
   const bookingForm = document.getElementById("booking_form");
   const bookingConfirm = document.getElementsByClassName("booking_confirm");
   const bookingMessage = document.getElementById("booking_message");
@@ -183,7 +183,7 @@ function bookingSubmit(event) {
   bookingConfirm[0].style.display = "block";
   bookingConfirm[0].style.animation = "appear 2s";
   
-
+  bookingList = [];
   //thêm bookingGuess vào bookingList
   let bookingGuess = {
     name : name,
