@@ -55,14 +55,6 @@
                         </h1>
                         <!-- <img src="img/logo.png" alt="Logo"> -->
                     </a>
-
-                    <!-- Thêm khoảng cách bằng cách sử dụng lớp ms-4 -->
-                    <form class="d-none d-lg-flex ms-5" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search" />
-                        <button class="btn btn-outline-light" type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </form>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -72,8 +64,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="introduction.html" class="nav-item nav-link">Introduction</a>
+                        <!-- Removed Blog Link -->
                         <a href="service.html" class="nav-item nav-link">Service</a>
                         <a href="menu.html" class="nav-item nav-link">Menu</a>
                         <div class="nav-item dropdown">
@@ -82,11 +75,24 @@
                                 <a href="booking.html" class="dropdown-item">Booking</a>
                                 <a href="team.html" class="dropdown-item">Our Team</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                <!-- Added Blog and Contact -->
+                                <a href="blog.html" class="dropdown-item">Blog</a>
+                                <a href="contact.html" class="dropdown-item">Contact</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <!-- Removed Contact Link -->
+                        <a href="search.html" class="nav-item nav-link">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                        <a href="register.html" class="nav-item nav-link">
+                            <i class="fa fa-user-plus"></i> Sign up
+                        </a>
+                        <a href="login.html" class="btn btn-outline-light ms-2">
+                            <i class="fa fa-user"></i> Login
+                        </a>
                     </div>
-                    <a href="login.html" class="btn btn-primary py-2 px-4">lOGIN</a>
+
+                    <a href="booking.html" class="btn btn-primary py-2 px-4">Book A Table</a>
                 </div>
             </nav>
         </div>
@@ -97,16 +103,18 @@
             <form id="loginForm" class="bg-light p-5 rounded-3 shadow" style="max-width: 500px; width: 100%;">
                 <div class="form-outline mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" class="form-control form-control-lg" placeholder="Enter your email" required />
+                    <input type="email" id="email" class="form-control form-control-lg" placeholder="Enter your email"
+                        required />
                 </div>
                 <div class="form-outline mb-4">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" class="form-control form-control-lg" placeholder="Enter your password" required />
+                    <input type="password" id="password" class="form-control form-control-lg"
+                        placeholder="Enter your password" required />
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg w-100">Login</button>
                 <div id="loginError" class="text-danger mt-3" style="display: none;">Invalid email or password!</div>
             </form>
-            
+
         </div>
         <!-- Service End -->
 
@@ -211,11 +219,11 @@
     <script src="js/login.js">
     </script>
 
-<script>
-    
-</script>
-    
-    
+    <script>
+
+    </script>
+
+
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
