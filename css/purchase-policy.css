@@ -1,0 +1,272 @@
+/* 1. Define color variables and override Bootstrap variables */
+:root {
+  /* Custom color variables */
+  --primary: #fea116;
+  --light: #f1f8ff;
+  --dark: #0f172b;
+  --gray-light: #f8f9fa;
+  --gray-dark: #6c757d;
+  --text-color: #0f172b;
+  --background-color: #ffffff;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition-duration: 0.3s;
+  --border-radius: 10px;
+  --news-bg-color: #fea116; /* Background color for News */
+  --policy-bg-color: #0f172b; /* Background color for Policy */
+}
+
+/* 2. Custom CSS rules using color variables */
+body {
+  font-family: "Nunito", sans-serif;
+  color: var(--text-color);
+  background-color: var(--gray-light);
+}
+
+.custom-breadcrumb {
+  margin-left: -20px; /* Reduce left margin */
+}
+
+.sidebar {
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+}
+
+.news-section {
+  background-color: var(--news-bg-color);
+  color: var(--light);
+  padding: 10px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.news-section h5 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.news-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  border-top: 1px solid var(--gray-dark);
+}
+
+.news-list li {
+  padding: 10px;
+  border-bottom: 1px solid var(--gray-dark);
+}
+
+.news-list li a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.news-list li a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Container for Policies */
+.policy-container {
+  display: flex;
+  justify-content: space-between; /* Evenly distribute items */
+  gap: 10px; /* Space between items */
+  margin-top: 20px; /* Top margin */
+  border-top: 1px solid var(--gray-dark); /* Top border */
+  padding-top: 10px; /* Padding from border to buttons */
+  flex-wrap: wrap; /* Allow items to wrap */
+}
+
+/* Policy Sections */
+.policy-section {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content */
+  text-decoration: none;
+  color: var(--light);
+  background-color: var(--policy-bg-color);
+  padding: 8px 12px; /* Reduced padding for smaller buttons */
+  flex: 1; /* Evenly distribute space */
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
+  position: relative; /* For divider */
+  font-size: 14px; /* Reduced font size */
+  margin-bottom: 10px; /* Bottom margin for wrapping */
+  white-space: nowrap; /* Prevent line breaks */
+  line-height: normal; /* Set normal line height */
+  align-self: center; /* Vertically center */
+}
+
+/* Add dividers between policy buttons */
+.policy-section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  transform: translateY(-50%);
+  height: 80%; /* Height of divider */
+  border-right: 1px solid var(--gray-dark); /* Divider line */
+}
+
+/* Icons within Policy Sections */
+.policy-section i {
+  margin-right: 8px;
+  font-size: 16px; /* Reduced icon size */
+  color: var(--light);
+}
+
+/* Hover effects for Policy Sections */
+.policy-section:hover {
+  background-color: var(--news-bg-color); /* Background color on hover */
+  color: var(--dark); /* Text color on hover */
+}
+
+/* Responsive Design: Adjust for smaller screens */
+@media (max-width: 768px) {
+  .policy-container {
+    flex-direction: column;
+    gap: 10px;
+    border-top: none; /* Remove top border */
+    padding-top: 0; /* Remove padding from border */
+  }
+
+  .policy-section {
+    justify-content: flex-start; /* Left align on small screens */
+    max-width: 100%; /* Full width */
+    flex: 1 1 100%; /* Occupy full space */
+    height: auto; /* Automatic height */
+    font-size: 14px; /* Maintain font size */
+  }
+
+  /* Remove dividers on small screens */
+  .policy-section:not(:last-child)::after {
+    content: none;
+  }
+}
+
+.breadcrumb {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  color: var(--bs-secondary);
+}
+.breadcrumb a {
+  color: var(--primary); /* Apply primary color to links */
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+.divider {
+  border-top: 1px solid var(--gray-dark);
+  margin-top: 10px;
+}
+
+/* Ensure footer links use color variables */
+.footer a {
+  color: var(--light); /* Initial text color */
+  transition: color var(--transition-duration);
+}
+.footer a:hover {
+  color: var(--primary); /* Text color on hover */
+  text-decoration: underline;
+}
+
+/* Ensure social buttons in footer use color variables */
+.footer .btn-social {
+  color: var(--light);
+  border: 1px solid var(--light);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
+}
+.footer .btn-social:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+/* Ensure LOGIN button uses color variables */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+.btn-primary:hover {
+  background-color: #e0a100; /* Adjust as needed */
+  border-color: #d18b00;
+}
+
+/* Ensure spinner uses color variables */
+.spinner-border.text-primary {
+  color: var(--primary);
+}
+/* Customize heading sizes */
+h1 {
+  font-size: 2.5rem; /* Size for h1 */
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2.25rem; /* Size for h2 */
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.875rem; /* Size for h3 */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 1.625rem; /* Size for h4 */
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+h5 {
+  font-size: 1.375rem; /* Size for h5 */
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+h6 {
+  font-size: 1.125rem; /* Size for h6 */
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* Spacing and alignment for headings */
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+}
+
+/* Additional spacing for balanced layout */
+p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+/* Container for Policies */
+.policy-container {
+  display: flex;
+  justify-content: space-between; /* Evenly distribute items */
+  gap: 10px; /* Space between items */
+  margin-top: 20px; /* Top margin */
+  border-top: 1px solid var(--gray-dark); /* Top border */
+  padding-top: 10px; /* Padding from border to buttons */
+  flex-wrap: wrap; /* Allow items to wrap */
+}

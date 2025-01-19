@@ -1,0 +1,164 @@
+body {
+  background-color: #f8f9fa;
+}
+.container {
+  margin-top: 20px;
+}
+.order-summary {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.order-summary img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+.order-summary .btn {
+  width: 100%;
+}
+.order-summary .total {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.order-summary .back-to-cart {
+  text-decoration: none;
+  color: #007bff;
+}
+.order-summary .back-to-cart:hover {
+  text-decoration: underline;
+}
+.country-code-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#country-code {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  background-size: 25px 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  height: 38px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  background-color: #fff;
+}
+.country-code-wrapper::after {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 15px;
+  pointer-events: none;
+  color: #6c757d;
+}
+
+#country-code {
+  background-size: 20px 15px;
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  padding-left: 40px; /* Space for flag */
+}
+
+.country-code-wrapper select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+.order-summary h4 {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+.order-summary .form-check {
+  margin-bottom: 20px;
+}
+.order-summary .form-check i {
+  color: #28a745;
+}
+.order-summary .cart-summary p {
+  font-weight: bold;
+}
+.order-summary .back-to-cart {
+  display: inline-block;
+  margin-top: 10px;
+}
+.vietnam-address {
+  display: none;
+}
+.general-address {
+  display: none;
+}
+.input-group {
+  gap: 10px;
+}
+.order-summary .totals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-summary .totals p {
+  margin-bottom: 0;
+}
+
+.order-summary .totals .total-price {
+  flex-shrink: 0;
+  margin-left: auto; /* Push price to the right */
+  text-align: right; /* Align text to the right */
+}
+
+.order-summary .mb-3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-summary .mb-3 p {
+  margin-bottom: 0;
+}
+
+.order-summary .mb-3 .subtotal-price,
+.order-summary .mb-3 .shipping-fee-price {
+  flex-shrink: 0;
+  margin-left: auto; /* Push price to the right */
+  text-align: right; /* Align text to the right */
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cart-item .item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between image and title */
+}
+
+.cart-item .item-left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.cart-item .item-title {
+  font-size: 1rem;
+  text-align: left; /* Align left */
+}
+
+.cart-item .item-price {
+  flex-shrink: 0; /* Do not shrink */
+  margin-left: auto; /* Push to the right */
+  text-align: right; /* Align right */
+  white-space: nowrap; /* Prevent line break for price */
+}
