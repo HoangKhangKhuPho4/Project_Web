@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ Hàng</title>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #f2f4fb;
+    }
+    .cart-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .cart-summary {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary-custom {
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+    }
+    .btn-warning-custom {
+      background-color: #ffa500;
+      border-color: #ffa500;
+      color: white;
+    }
+    .btn-orange {
+      background-color: #ff5722;
+      border-color: #ff5722;
+      color: white;
+    }
+    .btn-blue {
+      background-color: #007bff;
+      border-color: #007bff;
+      color: white;
+    }
+    .btn-green {
+      background-color: #4caf50;
+      border-color: #4caf50;
+      color: white;
+    }
+    .contact-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+    .contact-buttons .btn {
+      margin-bottom: 10px;
+      width: 150px;
+      font-weight: bold;
+      border-radius: 50px;
+    }
+    .product-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+    .quantity-input {
+      width: 80px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="cart-container">
+          <h5>Sản phẩm</h5>
+          <hr>
+          <!-- Sản phẩm sẽ được thêm động tại đây -->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="cart-summary">
+          <h5>CỘNG GIỎ HÀNG</h5>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <p class="mb-0">Tạm tính</p>
+            <p class="mb-0 fw-bold" id="subtotal">0đ</p>
+          </div>
+          <div class="d-flex justify-content-between mt-2">
+            <p class="mb-0">Giao hàng</p>
+            <p class="mb-0">Đồng giá: 30,000đ</p>
+          </div>
+          <p class="mt-2 text-muted">Tùy chọn giao hàng sẽ được cập nhật trong quá trình thanh toán.</p>
+          <div class="d-flex justify-content-between mt-2">
+            <p class="mb-0">Tổng</p>
+            <p class="mb-0 fw-bold" id="total">0đ</p>
+          </div>
+          <button class="btn btn-orange w-100 my-3">TIẾN HÀNH THANH TOÁN</button>
+          <h6>Phiếu ưu đãi</h6>
+          <input class="form-control mb-3" placeholder="Mã ưu đãi" type="text" id="discount-code"/>
+          <button class="btn btn-blue w-100" id="apply-discount">Áp dụng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-buttons">
+    <button class="btn btn-green">Chat Zalo</button>
+    <button class="btn btn-blue">Chat Facebook</button>
+    <button class="btn btn-green">Hotline: 090 6666666</button>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <!-- Cập nhật phiên bản mới hơn nếu cần -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Lấy giỏ hàng từ LocalStorage
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const cartContainer = document.querySelector(".cart-container");
+      const subtotalElement = document.getElementById("subtotal");
+      const totalElement = document.getElementById("total");
+      const applyDiscountButton = document.getElementById("apply-discount");
+      const discountCodeInput = document.getElementById("discount-code");
+
+      // Hàm hiển thị giỏ hàng
+      function renderCart() {
+        cartContainer.innerHTML = '<h5>Sản phẩm</h5><hr>';
+
+        if (cart.length === 0) {
+          cartContainer.innerHTML += "<p>Giỏ hàng của bạn đang trống.</p>";
+          return;
+        }
+
+        cart.forEach((item, index) => {
+          const productHTML = `
+            <div class="d-flex align-items-center mb-3">
+              <img alt="${item.name}" class="img-thumbnail product-img me-3" src="${item.image}" />
+              <div>
+                <p class="mb-1 fw-bold">${item.name}</p>
+                <p class="mb-1 text-muted">MÀU SẮC: TRẮNG | SIZE: 2XL</p>
+              </div>
+              <div class="ms-auto">
+                <p class="mb-0 fw-bold">${item.discountedPrice.toLocaleString()}đ</p>
+              </div>
+              <div class="ms-3">
+                <input class="form-control text-center quantity-input" type="number" value="${item.quantity}" min="1" data-index="${index}"/>
+              </div>
+              <div class="ms-3">
+                <p class="mb-0 fw-bold">${(item.discountedPrice * item.quantity).toLocaleString()}đ</p>
+              </div>
+            </div>
+          `;
+          cartContainer.innerHTML += productHTML;
+        });
+
+        // Thêm sự kiện thay đổi số lượng
+        const quantityInputs = document.querySelectorAll(".quantity-input");
+        quantityInputs.forEach(input => {
+          input.addEventListener("change", function () {
+            const index = this.getAttribute("data-index");
+            const newQuantity = parseInt(this.value);
+            if (newQuantity >= 1) {
+              cart[index].quantity = newQuantity;
+              localStorage.setItem("cart", JSON.stringify(cart));
+              renderCart();
+              calculateTotals();
+            }
+          });
+        });
+      }
+
+      // Hàm tính toán tổng tiền
+      function calculateTotals(discount = 0) {
+        let subtotal = 0;
+        cart.forEach(item => {
+          subtotal += item.discountedPrice * item.quantity;
+        });
+        const delivery = 30000; // Đồng giá
+        let total = subtotal + delivery - discount;
+
+        subtotalElement.innerText = `${subtotal.toLocaleString()}đ`;
+        totalElement.innerText = `${total.toLocaleString()}đ`;
+      }
+
+      // Hàm áp dụng mã giảm giá
+      function applyDiscount() {
+        const code = discountCodeInput.value.trim();
+        let discount = 0;
+
+        // Ví dụ: Mã giảm giá "SAVE10" giảm 10%
+        if (code === "SAVE10") {
+          const subtotalText = subtotalElement.innerText.replace(/,/g, "").replace("đ", "");
+          const subtotal = parseFloat(subtotalText);
+          discount = subtotal * 0.10;
+          alert("Áp dụng mã giảm giá thành công! Bạn được giảm 10%.");
+        } else if (code === "SAVE20") {
+          const subtotalText = subtotalElement.innerText.replace(/,/g, "").replace("đ", "");
+          const subtotal = parseFloat(subtotalText);
+          discount = subtotal * 0.20;
+          alert("Áp dụng mã giảm giá thành công! Bạn được giảm 20%.");
+        } else {
+          alert("Mã giảm giá không hợp lệ.");
+        }
+
+        calculateTotals(discount);
+      }
+
+      // Thêm sự kiện cho nút áp dụng mã giảm giá
+      applyDiscountButton.addEventListener("click", applyDiscount);
+
+      // Hiển thị giỏ hàng và tính toán tổng tiền
+      renderCart();
+      calculateTotals();
+    });
+  </script>
+</body>
+</html>

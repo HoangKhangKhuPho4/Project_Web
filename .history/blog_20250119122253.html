@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blog on Restaurant Management and Dishes</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link
+      href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container-xxl bg-white p-0">
+      <!-- Spinner Start -->
+      <div
+        id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+      >
+        <div
+          class="spinner-border text-primary"
+          style="width: 3rem; height: 3rem"
+          role="status"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <!-- Spinner End -->
+
+      <!-- Navbar Start -->
+      <div class="container-xxl position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+          <div class="d-flex align-items-center">
+            <a href="#" class="navbar-brand p-0">
+              <h1 class="text-primary m-0">
+                <i class="fa fa-utensils me-3"></i>Restoran
+              </h1>
+              <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+          </div>
+      
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="fa fa-bars"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4">
+              <a href="index.html" class="nav-item nav-link">Home</a>
+              <a href="introduction.html" class="nav-item nav-link">Introduction</a>
+              <!-- Removed Blog Link -->
+              <a href="service.html" class="nav-item nav-link">Service</a>
+              <a href="menu.html" class="nav-item nav-link">Menu</a>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu m-0">
+                  <a href="booking.html" class="dropdown-item">Booking</a>
+                  <a href="team.html" class="dropdown-item">Our Team</a>
+                  <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                  <!-- Added Blog and Contact -->
+                  <a href="blog.html" class="dropdown-item">Blog</a>
+                  <a href="contact.html" class="dropdown-item">Contact</a>
+                </div>
+              </div>
+              <!-- Removed Contact Link -->
+              <a href="search.html" class="nav-item nav-link">
+                <i class="fa fa-search"></i> Search
+              </a>
+              <a href="register.html" class="nav-item nav-link">
+                <i class="fa fa-user-plus"></i> Sign up
+              </a>
+              <a href="login.html" class="btn btn-outline-light ms-2">
+                <i class="fa fa-user"></i> Login
+              </a>
+            </div>
+      
+            <a href="booking.html" class="btn btn-primary py-2 px-4">Book A Table</a>
+          </div>
+        </nav>
+      </div>
+      <!-- Navbar End -->
+
+      <!-- Cart Modal Start -->
+      <div
+        class="modal fade"
+        id="cartModal"
+        tabindex="-1"
+        aria-labelledby="cartModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="cart-items">
+                  <!-- Products in the cart will be displayed here -->
+                </tbody>
+              </table>
+              <div class="text-end">
+                <h5>Total: <span id="cart-total">0 đ</span></h5>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="checkout.html" class="btn btn-success">Checkout</a>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Cart Modal End -->
+
+      <!-- Main Content -->
+      <main class="container my-4">
+        <div class="row">
+          <!-- Main Post -->
+          <section class="col-lg-8">
+            <!-- Post Category -->
+            <div class="post-category text-center">
+              RESTAURANT MANAGEMENT, DISHES
+            </div>
+
+            <!-- Post Title -->
+            <h1 class="post-title text-center">
+              10 Tips for Effective Restaurant Management and Outstanding Dishes
+            </h1>
+
+            <!-- Post Meta Information -->
+            <div class="post-meta text-center mb-4">
+              Posted by <a href="#">Nguyễn Lê Hoàng Khang</a>
+            </div>
+
+            <!-- Post Image -->
+            <div class="text-center mb-4">
+              <img
+                src="https://storage.googleapis.com/a1aa/image/YyoDFeQWhi3qMK7NNjYDo9HhAiAxc3E3B7YF8dIgqLda8G3JA.jpg"
+                alt="Luxury restaurant with elegantly decorated dining tables"
+                class="post-image img-fluid rounded"
+              />
+              <div class="image-caption text-center mt-2">
+                A luxurious restaurant with elegantly decorated dining tables
+              </div>
+            </div>
+
+            <!-- Post Content -->
+            <div class="post-content">
+              <p>
+                Managing a restaurant requires a combination of managerial skills, creativity, and excellent customer service. Below are 10 tips to help you manage your restaurant effectively and create outstanding dishes.
+              </p>
+              <p>
+                <strong>1. Effective Staff Management:</strong> Train a professional, friendly, and always ready-to-serve team.
+              </p>
+              <p>
+                <strong>2. Menu Planning:</strong> Create a diverse menu with appealing dishes that suit customer preferences.
+              </p>
+              <p>
+                <strong>3. Quality Control:</strong> Ensure fresh ingredients and high-standard preparation processes to create delicious and safe dishes.
+              </p>
+              <p>
+                <strong>4. Cost Optimization:</strong> Manage costs effectively by controlling ingredients, reducing waste, and optimizing business operations.
+              </p>
+              <p>
+                <strong>5. Utilize Technology:</strong> Apply restaurant management software to track orders, manage inventory, and analyze business data.
+              </p>
+              <p>
+                <strong>6. Excellent Customer Service:</strong> Always listen to and meet customer needs to create satisfaction and encourage repeat business.
+              </p>
+              <p>
+                <strong>7. Appropriate Pricing:</strong> Determine reasonable pricing for each dish to ensure profitability while remaining competitive in the market.
+              </p>
+              <p>
+                <strong>8. Effective Marketing:</strong> Use marketing strategies such as social media, promotions, and loyalty programs to attract new customers and retain existing ones.
+              </p>
+              <p>
+                <strong>9. Attractive Space Design:</strong> Create a comfortable and appealing restaurant space to make customers feel at ease when dining.
+              </p>
+              <p>
+                <strong>10. Innovation and Creativity:</strong> Always update culinary and design trends to keep the restaurant fresh and attractive.
+              </p>
+
+              <!-- Toggle Button -->
+              <button class="btn btn-primary mb-4">
+                ARTICLE CONTENT [Show]
+              </button>
+
+              <!-- Table of Contents Content -->
+              <div class="content-table" style="display: none">
+                <h5 class="text-center">ARTICLE CONTENT [Hide]</h5>
+                <ul>
+                  <li>
+                    <a href="#effective-staff-management"><strong>Effective Staff Management</strong></a>
+                    <ul>
+                      <li>
+                        <a href="#employee-training">Training Professional Staff</a>
+                      </li>
+                      <li>
+                        <a href="#positive-work-environment">Creating a Positive Work Environment</a>
+                      </li>
+                      <li>
+                        <a href="#work-schedule-management">Effective Work Schedule Management</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#outstanding-dishes"><strong>Outstanding Dishes</strong></a>
+                  </li>
+                  <li>
+                    <a href="#restaurant-operation-management"><strong>Restaurant Operation Management</strong></a>
+                    <ul>
+                      <li>
+                        <a href="#management-software">Using Management Software</a>
+                      </li>
+                      <li>
+                        <a href="#ingredient-planning">Ingredient Planning</a>
+                      </li>
+                      <li>
+                        <a href="#workflow-training">Workflow Training</a>
+                      </li>
+                      <li>
+                        <a href="#performance-monitoring">Performance Monitoring</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#traditional-dishes"><strong>Traditional Dishes</strong></a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Other Management Content -->
+              <!-- Quản Lý Hoạt Động Nhà Hàng -->
+              <article class="content mb-5">
+                <h2>Restaurant Operation Management</h2>
+                <p>
+                  Restaurant operation management includes overseeing every aspect from ingredient supply to customer service. An effective management system helps the restaurant operate smoothly and achieve business goals.
+                </p>
+                <div class="section-title no-lines">
+                  Benefits of Effective Operation Management:
+                </div>
+                <ul>
+                  <li>
+                    Enhances work efficiency and reduces unnecessary costs.
+                  </li>
+                  <li>
+                    Improves service quality and customer satisfaction.
+                  </li>
+                  <li>Ensures consistency in work processes.</li>
+                  <li>
+                    Enhances adaptability to market changes.
+                  </li>
+                  <li>
+                    Increases profitability and sustainable growth of the restaurant.
+                  </li>
+                </ul>
+                <div class="section-title no-lines">
+                  How to Manage Restaurant Operations Effectively:
+                </div>
+                <ul>
+                  <li>
+                    Use restaurant management software to track orders and manage inventory.
+                  </li>
+                  <li>
+                    Plan and forecast ingredient needs to avoid shortages or surpluses.
+                  </li>
+                  <li>
+                    Train staff on work processes and customer care.
+                  </li>
+                  <li>
+                    Regularly monitor and evaluate staff performance.
+                  </li>
+                  <li>
+                    Implement promotions and marketing programs to attract customers.
+                  </li>
+                </ul>
+
+                <!-- Traditional Dishes Menu at Our Restaurant -->
+                <h5 class="mt-4 mb-3">
+                  Traditional Dishes Menu at Our Restaurant
+                </h5>
+                <div class="row">
+                  <!-- Dish 1 -->
+                  <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                    <div
+                      class="product-card position-relative h-100 d-flex flex-column"
+                      data-name="Special Beef Pho"
+                      data-original-price="80000"
+                      data-discounted-price="70000"
+                      data-discount="-10%"
+                      data-image="img/pho-bo-dac-biet.jpg"
+                    >
+                      <img
+                        src="img/pho-bo-dac-biet.jpg"
+                        alt="Special Beef Pho"
+                        class="img-fluid rounded product-image"
+                      />
+                      <div class="product-title mt-2">Special Beef Pho</div>
+                      <div class="original-price">80,000 đ</div>
+                      <div class="discounted-price">70,000 đ</div>
+                      <div class="product-actions">
+                        <i class="fas fa-shopping-cart add-to-cart"></i>
+                        <i class="fas fa-exchange-alt compare-product"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dish 2 -->
+                  <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                    <div
+                      class="product-card position-relative h-100 d-flex flex-column"
+                    >
+                      <div class="discount-badge">-10%</div>
+                      <img
+                        src="img/bun-cha-ha-noi.jpg"
+                        alt="Hanoi Bun Cha"
+                        class="img-fluid rounded product-image"
+                      />
+                      <div class="product-title mt-2">Hanoi Bun Cha</div>
+                      <div class="original-price">60,000 đ</div>
+                      <div class="discounted-price">54,000 đ</div>
+
+                      <!-- Add to cart and compare product icons -->
+                      <div class="product-actions">
+                        <i class="fas fa-shopping-cart add-to-cart"></i>
+                        <i class="fas fa-exchange-alt compare-product"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dish 3 -->
+                  <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                    <div
+                      class="product-card position-relative h-100 d-flex flex-column"
+                    >
+                      <div class="discount-badge">-15%</div>
+                      <img
+                        src="img/goi-cuon-tom-thit.jpg"
+                        alt="Shrimp and Meat Spring Rolls"
+                        class="img-fluid rounded product-image"
+                      />
+                      <div class="product-title mt-2">Shrimp and Meat Spring Rolls</div>
+                      <div class="original-price">50,000 đ</div>
+                      <div class="discounted-price">42,500 đ</div>
+
+                      <!-- Add to cart and compare product icons -->
+                      <div class="product-actions">
+                        <i class="fas fa-shopping-cart add-to-cart"></i>
+                        <i class="fas fa-exchange-alt compare-product"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dish 4 -->
+                  <div class="col-md-3 mb-4 d-flex align-items-stretch">
+                    <div
+                      class="product-card position-relative h-100 d-flex flex-column"
+                    >
+                      <div class="discount-badge">-20%</div>
+                      <img
+                        src="img/banh-xeo-mien-trung.jpg"
+                        alt="Central Region Banh Xeo"
+                        class="img-fluid rounded product-image"
+                      />
+                      <div class="product-title mt-2">Central Region Banh Xeo</div>
+                      <div class="original-price">70,000 đ</div>
+                      <div class="discounted-price">56,000 đ</div>
+
+                      <!-- Add to cart and compare product icons -->
+                      <div class="product-actions">
+                        <i class="fas fa-shopping-cart add-to-cart"></i>
+                        <i class="fas fa-exchange-alt compare-product"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Other Parts (Can be added here if needed) -->
+            </div>
+          </section>
+
+          <!-- Sidebar -->
+          <aside class="col-lg-4">
+            <!-- Categories -->
+            <div class="sidebar">
+              <h5 class="text-center mb-3">CATEGORIES</h5>
+              <ul class="list-group mb-4">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a
+                    href="https://hbh.vn/tin-tuc/cach-bo-tri-phong-trong-nha-theo-phong-thuy.html"
+                    >Restaurant Management</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">242</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a
+                    href="https://www.ixinavietnam.vn/?gad_source=1&gclid=CjwKCAiAxKy5BhBbEiwAYiW--6FDmt9_nc2VyR9pMYNsa-vbirEPceEWdwfR1UlCbiHK4X3nZATX6xoCrQAQAvD_BwE"
+                    >Menu Design</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">174</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a
+                    href="https://ngukimhcm.com/?gad_source=1&gclid=CjwKCAiAxKy5BhBbEiwAYiW---eRvq8AFsHkOzlDcZBA4bCXowV32AL1nPfMcnMTpLsY5yCvgwqsTxoCns4QAvD_BwE"
+                    >Restaurant Accessories</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">98</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a
+                    href="https://phukiengaris.com/?gad_source=1&gclid=CjwKCAiAxKy5BhBbEiwAYiW--3bjBwkCIe9gWBN96GzwbEWWTB4thRsfXjaKKeTkQygFiCGgSmA2ZhoCns4QAvD_BwE"
+                    >Management Equipment</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">75</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a href="https://thietbicanhquan.vn/">Area Equipment</a>
+                  <span class="badge bg-secondary rounded-pill">47</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a href="https://thietkenoithat.com/thiet-ke-phong-tam"
+                    >Area Design</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">37</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a
+                    href="https://www.tapchikientruc.com.vn/chuyen-muc/4-dac-diem-cua-phong-cach-thiet-ke-noi-that-hien-dai.html"
+                    >Interior Design</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">36</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a
+                    href="https://decoxdesign.com/mau-thiet-ke-van-phong-sang-tao.html"
+                    >Office Design</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">35</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a
+                    href="https://tadavietnam.com/tu-quan-ao-go-cong-nghiep-thong-minh-tada-viet-nam-tdta9"
+                    >Smart Restaurant Equipment</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">34</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a href="https://emporio.vn/vi/vai-noi-that-cao-cap.html"
+                    >High-End Interior Equipment</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">17</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <a
+                    href="https://laodong.vn/bat-dong-san/y-tuong-thiet-ke-trang-tri-noi-that-khien-nha-o-chung-cu-dep-me-man-814830.ldo"
+                    >Restaurant Decoration Ideas</a
+                  >
+                  <span class="badge bg-secondary rounded-pill">110</span>
+                </li>
+              </ul>
+
+              <!-- Recent Posts -->
+              <h5 class="text-center mb-3">RECENT POSTS</h5>
+              <div class="recent-posts">
+                <!-- Post 1 -->
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-4">
+                      <a
+                        href="link-to-post-1.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="img/ql-nhansu-hq.jpg"
+                          alt="Effective Restaurant Staff Management"
+                          class="img-fluid rounded-start"
+                        />
+                      </a>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body">
+                        <h6 class="card-title">
+                          <a
+                            href="img/xay-dung-td-dg.jpg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-decoration-none text-dark"
+                          >
+                            5 Simple Steps to Effective Restaurant Staff Management
+                          </a>
+                        </h6>
+                        <p class="card-text">
+                          <small class="text-muted">05/11/2024 | Comments</small>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-4">
+                      <a
+                        href="link-to-post-2.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="img/thuc-don-da-dang.jpg"
+                          alt="Diverse Menu for Restaurants"
+                          class="img-fluid rounded-start"
+                        />
+                      </a>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body">
+                        <h6 class="card-title">
+                          <a
+                            href="https://flexhouse.vn/thuc-don-da-dang-nha-hang.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-decoration-none text-dark"
+                          >
+                            Building a Diverse Menu for Your Restaurant
+                          </a>
+                        </h6>
+                        <p class="card-text">
+                          <small class="text-muted">05/11/2024 | Comments</small>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-4">
+                      <a
+                        href="link-to-post-3.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="img/marketnhahang.jpg"
+                          alt="Marketing Strategies for Restaurants"
+                          class="img-fluid rounded-start"
+                        />
+                      </a>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body">
+                        <h6 class="card-title">
+                          <a
+                            href="img/qcnhahang.jpg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-decoration-none text-dark"
+                          >
+                            7 Effective Marketing Strategies for Restaurants
+                          </a>
+                        </h6>
+                        <p class="card-text">
+                          <small class="text-muted">05/11/2024 | Comments</small>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-4">
+                      <a
+                        href="link-to-post-4.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="img/ql-nguontiennhahang.jpg"
+                          alt="Financial Management for Restaurants"
+                          class="img-fluid rounded-start"
+                        />
+                      </a>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body">
+                        <h6 class="card-title">
+                          <a
+                            href="https://viet-power.com.vn/quan-ly-tai-chinh-nha-hang.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-decoration-none text-dark"
+                          >
+                            Financial Management for Restaurants: What You Need to Know
+                          </a>
+                        </h6>
+                        <p class="card-text">
+                          <small class="text-muted">30/10/2024 | Comments</small>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Related Posts Section - Integrated at the end of the main part -->
+          <section class="content mb-5">
+            <!-- Tags Section -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="tags">
+                <button type="button" class="btn btn-green btn-sm">
+                  Restaurant Management
+                </button>
+                <button type="button" class="btn btn-green btn-sm">
+                  Outstanding Dishes
+                </button>
+                <button type="button" class="btn btn-green btn-sm">
+                  Business Strategies
+                </button>
+              </div>
+
+              <!-- Updated social-icons section -->
+              <div class="social-icons d-flex">
+                <a href="#" class="icon facebook me-2">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icon twitter me-2">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="icon pinterest me-2">
+                  <i class="fab fa-pinterest-p"></i>
+                </a>
+                <a href="#" class="icon linkedin me-2">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="icon telegram">
+                  <i class="fab fa-telegram-plane"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Related Posts Title -->
+            <h2 class="mb-4">Related Posts</h2>
+
+            <div
+              id="relatedPostsCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <!-- Carousel Indicators -->
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#relatedPostsCarousel"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#relatedPostsCarousel"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <!-- Add indicators if more slides are added -->
+              </div>
+
+              <!-- Carousel Items -->
+              <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                  <div class="row">
+                    <!-- Post 1 -->
+                    <div class="col-12 col-md-4 d-flex align-items-stretch">
+                      <div class="card h-100">
+                        <img
+                          src="img/quan-ly-nha-hang.jpg"
+                          class="card-img-top"
+                          alt="Effective Restaurant Management"
+                        />
+                        <div class="card-body d-flex flex-column">
+                          <div class="category-badge mb-2">
+                            Restaurant Management
+                          </div>
+                          <h5 class="card-title">
+                            5 Simple Steps to Effective Restaurant Management
+                          </h5>
+                          <p class="card-text">
+                            Managing a restaurant is not just about overseeing daily operations but also about developing long-term strategies for success...
+                          </p>
+                          <a
+                            href="https://comay.com.vn/quan-ly-nha-hang.html"
+                            class="btn btn-primary mt-auto"
+                            >Read More</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Post 2 -->
+                    <div class="col-12 col-md-4 d-flex align-items-stretch">
+                      <div class="card h-100">
+                        <img
+                          src="img/thuc-don-da-dang.jpg"
+                          class="card-img-top"
+                          alt="Diverse Menu for Restaurants"
+                        />
+                        <div class="card-body d-flex flex-column">
+                          <div class="category-badge mb-2">
+                            Menu and Cuisine
+                          </div>
+                          <h5 class="card-title">
+                            Building a Diverse Menu for Your Restaurant
+                          </h5>
+                          <p class="card-text">
+                            A diverse menu not only attracts customers but also reflects the style and quality of your restaurant...
+                          </p>
+                          <a
+                            href="https://sbshouse.vn/xay-dung-thuc-don-da-dang.html"
+                            class="btn btn-primary mt-auto"
+                            >Read More</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Post 3 -->
+                    <div class="col-12 col-md-4 d-flex align-items-stretch">
+                      <div class="card h-100">
+                        <img
+                          src="img/marketnhahang.jpg"
+                          class="card-img-top"
+                          alt="Marketing Strategies for Restaurants"
+                        />
+                        <div class="card-body d-flex flex-column">
+                          <div class="category-badge mb-2">
+                            Business Strategies
+                          </div>
+                          <h5 class="card-title">
+                            7 Effective Marketing Strategies for Restaurants
+                          </h5>
+                          <p class="card-text">
+                            Proper marketing will help your restaurant reach more customers and increase revenue...
+                          </p>
+                          <a
+                            href="https://housef.vn/7-chien-luoc-marketing-nha-hang.html"
+                            class="btn btn-primary mt-auto"
+                            >Read More</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                  <div class="row">
+                    <!-- Post 4 -->
+                    <div class="col-12 col-md-4 d-flex align-items-stretch">
+                      <div class="card h-100">
+                        <img
+                          src="img/quan-ly-tai-chinh.jpg"
+                          class="card-img-top"
+                          alt="Financial Management for Restaurants"
+                        />
+                        <div class="card-body d-flex flex-column">
+                          <div class="category-badge mb-2">
+                            Financial Management
+                          </div>
+                          <h5 class="card-title">
+                            Financial Management for Restaurants: What You Need to Know
+                          </h5>
+                          <p class="card-text">
+                            Effective financial management is the key to helping your restaurant maintain and grow sustainably...
+                          </p>
+                          <a
+                            href="https://dogolegia.vn/quan-ly-tai-chinh-nha-hang.html"
+                            class="btn btn-primary mt-auto"
+                            >Read More</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Post 5 -->
+                    <div class="col-12 col-md-4 d-flex align-items-stretch">
+                      <div class="card h-100">
+                        <img
+                          src="img/quan-ly-hoat-dong.jpg"
+                          class="card-img-top"
+                          alt="Restaurant Operation Management"
+                        />
+                        <div class="card-body d-flex flex-column">
+                          <div class="category-badge mb-2">
+                            Operation Management
+                          </div>
+                          <h5 class="card-title">
+                            Effective Restaurant Operation Management
+                          </h5>
+                          <p class="card-text">
+                            Effective restaurant operation management optimizes all aspects of business...
+                          </p>
+                          <a
+                            href="https://phedecor.com/quan-ly-hoat-dong-nha-hang.html"
+                            class="btn btn-primary mt-auto"
+                            >Read More</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Post 6 -->
+                    <div class="col-12 col-md-4 d-flex align-items-stretch">
+                      <div class="card h-100">
+                        <img
+                          src="img/mon-an-dac-sac.jpg"
+                          class="card-img-top"
+                          alt="Outstanding Dishes"
+                        />
+                        <div class="card-body d-flex flex-column">
+                          <div class="category-badge mb-2">Outstanding Dishes</div>
+                          <h5 class="card-title">
+                            10 Outstanding Dishes You Should Try at Our Restaurant
+                          </h5>
+                          <p class="card-text">
+                            Discover 10 outstanding dishes you shouldn't miss when visiting our restaurant...
+                          </p>
+                          <a
+                            href="https://www.pinterest.com/pin/628111479274139351/"
+                            class="btn btn-primary mt-auto"
+                            >Read More</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Add more slides if needed -->
+              </div>
+
+              <!-- Carousel Controls -->
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#relatedPostsCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#relatedPostsCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Comment Form -->
+          <div class="comment-form-container">
+            <h4>REPLY</h4>
+            <p>
+              Your email address will not be displayed publicly. Required fields are marked with <span class="text-danger">*</span>
+            </p>
+
+            <form id="comment-form" class="comment-form">
+              <div class="mb-3">
+                <label for="comment" class="form-label"
+                  >Comment <span class="text-danger">*</span></label
+                >
+                <textarea
+                  class="form-control"
+                  id="comment"
+                  rows="4"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Please enter a comment.</div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="name" class="form-label"
+                    >Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" id="name" required />
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label"
+                    >Email <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">SUBMIT</button>
+            </form>
+
+            <!-- Notification Area -->
+            <div id="form-message" class="mt-3"></div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer Start -->
+      <div
+        class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
+        data-wow-delay="0.1s"
+      >
+        <div class="container-fluid py-5">
+          <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+              <h4
+                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+              >
+                Company
+              </h4>
+              <a class="btn btn-link" href="#">About Us</a>
+              <a class="btn btn-link" href="#">Contact Us</a>
+              <a class="btn btn-link" href="#">Reservation</a>
+              <a class="btn btn-link" href="#">Privacy Policy</a>
+              <a class="btn btn-link" href="#">Terms & Condition</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4
+                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+              >
+                Contact
+              </h4>
+              <p class="mb-2">
+                <i class="fa fa-map-marker-alt me-3"></i>123 Street, New York,
+                USA
+              </p>
+              <p class="mb-2">
+                <i class="fa fa-phone-alt me-3"></i>+012 345 67890
+              </p>
+              <p class="mb-2">
+                <i class="fa fa-envelope me-3"></i>info@example.com
+              </p>
+              <div class="d-flex pt-2">
+                <a class="btn btn-outline-light btn-social" href="#"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a class="btn btn-outline-light btn-social" href="#"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a class="btn btn-outline-light btn-social" href="#"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a class="btn btn-outline-light btn-social" href="#"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4
+                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+              >
+                Opening
+              </h4>
+              <h5 class="text-light fw-normal">Monday - Saturday</h5>
+              <p>09AM - 09PM</p>
+              <h5 class="text-light fw-normal">Sunday</h5>
+              <p>10AM - 08PM</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4
+                class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+              >
+                Newsletter
+              </h4>
+              <p>
+                Pain is just right, sit dolor sit amet. Clita ipsum elitr is.
+              </p>
+              <div class="position-relative mx-auto" style="max-width: 400px">
+                <input
+                  class="form-control border-primary w-100 py-3 ps-4 pe-5"
+                  type="email"
+                  placeholder="Your email"
+                />
+                <button
+                  type="button"
+                  class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+                >
+                  SignUp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="copyright">
+            <div class="row">
+              <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                © Your Restaurant Name. All Rights Reserved. Crafted with ❤️ by
+                Group 15.
+              </div>
+              <div class="col-md-6 text-center text-md-end">
+                <div class="footer-menu">
+                  <a href="#">Home</a>
+                  <a href="#">Cookies</a>
+                  <a href="#">Help</a>
+                  <a href="#">FAQs</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+
+      <!-- Toast Container (Add Toast Notification) -->
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1055">
+        <div
+          class="toast align-items-center text-bg-primary border-0"
+          id="addToCartToast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="d-flex">
+            <div class="toast-body">Product has been added to your cart!</div>
+            <button
+              type="button"
+              class="btn-close btn-close-white me-2 m-auto"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Top -->
+      <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+        ><i class="bi bi-arrow-up"></i
+      ></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Update to a newer version -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Script to load Navbar and Footer -->
+    <script>
+      $(document).ready(function () {
+        // Load Navbar
+        $("#navbar-container").load(
+          "navbar.html",
+          function (response, status, xhr) {
+            if (status == "error") {
+              console.error(
+                "Error loading navbar:",
+                xhr.status,
+                xhr.statusText
+              );
+            }
+          }
+        );
+
+        // Load Footer
+        $("#footer-container").load(
+          "footer.html",
+          function (response, status, xhr) {
+            if (status == "error") {
+              console.error(
+                "Error loading footer:",
+                xhr.status,
+                xhr.statusText
+              );
+            }
+          }
+        );
+
+        // Handle spinner after loading completes
+        $(window).on("load", function () {
+          $("#spinner").fadeOut(500, function () {
+            $(this).remove();
+          });
+        });
+      });
+    </script>
+
+    <!-- Additional JavaScript Scripts -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Handle toggle for table of contents
+        // Update to:
+        const toggleButton = document.querySelector(".btn.btn-primary.mb-4");
+        const contentTable = document.querySelector(".content-table");
+
+        if (toggleButton && contentTable) {
+          toggleButton.addEventListener("click", function () {
+            if (
+              contentTable.style.display === "none" ||
+              !contentTable.style.display
+            ) {
+              contentTable.style.display = "block";
+              toggleButton.innerText = "ARTICLE CONTENT [Hide]";
+            } else {
+              contentTable.style.display = "none";
+              toggleButton.innerText = "ARTICLE CONTENT [Show]";
+            }
+          });
+        }
+
+        // Handle Back to Top button
+        const backToTopButton = document.querySelector(".back-to-top");
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 300) {
+            backToTopButton.classList.add("show");
+          } else {
+            backToTopButton.classList.remove("show");
+          }
+        });
+
+        backToTopButton.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Initialize Carousel for Related Posts
+        var relatedPostsCarousel = document.querySelector(
+          "#relatedPostsCarousel"
+        );
+        if (relatedPostsCarousel) {
+          var carousel = new bootstrap.Carousel(relatedPostsCarousel, {
+            interval: 5000, // Slide transition time (ms)
+            ride: "carousel", // Automatically start carousel
+            wrap: true, // Cycle slides
+            pause: "hover", // Pause on hover
+          });
+        }
+
+        // Handle COMMENT FORM
+        const commentForm = document.getElementById("comment-form");
+        const formMessage = document.getElementById("form-message");
+
+        if (commentForm) {
+          commentForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collect data from form
+            const comment = document.getElementById("comment").value.trim();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+
+            // Validate data
+            if (!comment || !name || !email) {
+              formMessage.innerHTML =
+                '<div class="alert alert-danger" role="alert">Please fill out all required fields.</div>';
+              return;
+            }
+
+            // Validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+              formMessage.innerHTML =
+                '<div class="alert alert-danger" role="alert">Please enter a valid email address.</div>';
+              return;
+            }
+
+            // If no backend to process, display success message immediately
+            formMessage.innerHTML =
+              '<div class="alert alert-success" role="alert">Thank you for your feedback!</div>';
+            commentForm.reset(); // Clear the form
+          });
+        }
+
+        // Handle "Add to Cart" button clicks
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            alert("Product has been added to your cart!");
+            // Logic to add product to cart can be added here
+          });
+        });
+
+        // Handle "Compare Product" button clicks
+        const compareProductButtons =
+          document.querySelectorAll(".compare-product");
+        compareProductButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            alert("Product has been added to the comparison list!");
+            // Logic to add product to comparison list can be added here
+          });
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Function to update cart count displayed on navbar
+        function updateCartCount() {
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          let totalQuantity = cart.reduce(
+            (acc, item) => acc + item.quantity,
+            0
+          );
+          const cartCountElement = document.getElementById("cart-count");
+          if (cartCountElement) {
+            cartCountElement.innerText = totalQuantity;
+          }
+        }
+
+        updateCartCount();
+
+        // Handle "Add to Cart" button clicks
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Get parent element containing product information
+            const productCard = this.closest(".product-card");
+
+            // Retrieve data from data attributes
+            const name = productCard.dataset.name;
+            const originalPrice = parseFloat(productCard.dataset.originalPrice);
+            const discountedPrice = parseFloat(
+              productCard.dataset.discountedPrice
+            );
+            const discount = productCard.dataset.discount;
+            const image = productCard.dataset.image;
+
+            // Create product object
+            const product = {
+              name,
+              originalPrice,
+              discountedPrice,
+              discount,
+              image,
+            };
+
+            // Get existing cart from LocalStorage or initialize a new one
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Check if product already exists in the cart
+            const existingProduct = cart.find(
+              (item) => item.name === product.name
+            );
+            if (existingProduct) {
+              existingProduct.quantity += 1; // Increase quantity if it exists
+            } else {
+              product.quantity = 1; // Add quantity attribute
+              cart.push(product); // Add new product
+            }
+
+            // Save the updated cart back to LocalStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Update cart count displayed on navbar
+            updateCartCount();
+
+            // Display success notification (use simple alert or you can use Toast)
+            alert(`${product.name} has been added to your cart!`);
+
+            // If you want to automatically redirect to the cart page, you can use:
+            // window.location.href = "shoppingCart.html";
+          });
+        });
+
+        // Handle increase, decrease, and remove actions in the cart
+        document
+          .getElementById("cart-items")
+          .addEventListener("click", function (e) {
+            if (e.target.classList.contains("increase-quantity")) {
+              const name = e.target.getAttribute("data-name");
+              const cart = loadCart();
+              const product = cart.find((p) => p.name === name);
+              if (product) {
+                product.quantity += 1;
+                saveCart(cart);
+                updateCartCount();
+                updateCartDisplay();
+              }
+            }
+
+            if (e.target.classList.contains("decrease-quantity")) {
+              const name = e.target.getAttribute("data-name");
+              const cart = loadCart();
+              const product = cart.find((p) => p.name === name);
+              if (product && product.quantity > 1) {
+                product.quantity -= 1;
+                saveCart(cart);
+                updateCartCount();
+                updateCartDisplay();
+              }
+            }
+
+            if (e.target.classList.contains("remove-item")) {
+              const name = e.target.getAttribute("data-name");
+              let cart = loadCart();
+              cart = cart.filter((p) => p.name !== name);
+              saveCart(cart);
+              updateCartCount();
+              updateCartDisplay();
+            }
+          });
+
+        // When the modal opens, update the cart display
+        const cartModal = document.getElementById("cartModal");
+        if (cartModal) {
+          cartModal.addEventListener("show.bs.modal", updateCartDisplay);
+        }
+
+        // Update cart count when the page loads
+        updateCartCount();
+
+        // Function to create Toast notification when adding to cart
+        function createAddToCartToast() {
+          const toastHTML = `
+            <div class="toast align-items-center text-bg-primary border-0" id="addToCartToast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="d-flex">
+                <div class="toast-body">
+                  Product has been added to your cart!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+            </div>
+          `;
+          document.body.insertAdjacentHTML("beforeend", toastHTML);
+        }
+
+        // Create Toast when the page loads
+        createAddToCartToast();
+      });
+    </script>
+  </body>
+</html>

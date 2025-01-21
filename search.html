@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Restoran - Mẫu Trang Web Nhà Hàng Bootstrap</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link
+      href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/VN_style.css" />
+  </head>
+
+  <body>
+    <div class="container-xxl bg-white p-0">
+      <!-- Spinner Start -->
+      <div
+        id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+      >
+        <div
+          class="spinner-border text-primary"
+          style="width: 3rem; height: 3rem"
+          role="status"
+        >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <!-- Spinner End -->
+
+      <!-- Navbar & Hero Start -->
+      <div class="container-xxl position-relative p-0">
+        <nav
+          class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0"
+        >
+          <div class="d-flex align-items-center">
+            <a href="#" class="navbar-brand p-0">
+              <h1 class="text-primary m-0">
+                <i class="fa fa-utensils me-3"></i>Restoran
+              </h1>
+              <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+          </div>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="fa fa-bars"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4">
+              <a href="index.html" class="nav-item nav-link">Home</a>
+              <a href="introduction.html" class="nav-item nav-link"
+                >Introduction</a
+              >
+              <!-- Removed Blog Link -->
+              <a href="service.html" class="nav-item nav-link">Service</a>
+              <a href="menu.html" class="nav-item nav-link">Menu</a>
+              <div class="nav-item dropdown">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  >Pages</a
+                >
+                <div class="dropdown-menu m-0">
+                  <a href="booking.html" class="dropdown-item">Booking</a>
+                  <a href="team.html" class="dropdown-item">Our Team</a>
+                  <a href="testimonial.html" class="dropdown-item"
+                    >Testimonial</a
+                  >
+                  <!-- Added Blog and Contact -->
+                  <a href="blog.html" class="dropdown-item">Blog</a>
+                  <a href="contact.html" class="dropdown-item">Contact</a>
+                </div>
+              </div>
+              <!-- Removed Contact Link -->
+              <a href="search.html" class="nav-item nav-link active">
+                <i class="fa fa-search"></i> Search
+              </a>
+              <a href="register.html" class="nav-item nav-link">
+                <i class="fa fa-user-plus"></i> Sign up
+              </a>
+              <a href="login.html" class="btn btn-outline-light ms-2">
+                <i class="fa fa-user"></i> Login
+              </a>
+            </div>
+
+            <a href="booking.html" class="btn btn-primary py-2 px-4"
+              >Book A Table</a
+            >
+          </div>
+        </nav>
+
+        <div class="container-xxl py-5 bg-dark hero-header mb-5">
+          <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">
+              Search Food
+            </h1>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar & Hero End -->
+
+      <!-- Menu Start -->
+      <div class="container-xxl">
+        <div class="container">
+          <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <!--Start search bar-->
+            <div class="d-flex mx-5 mb-3 position-relative" role="search">
+              <input
+                class="form-control me-1"
+                type="search"
+                placeholder="Tìm kiếm..."
+                aria-label="Search"
+                id="search-bar"
+                onkeyup="searchMenu()"
+                autofocus
+              />
+              <button
+                class="btn btn-outline-light"
+                type="button"
+                id="search-button"
+              >
+                <i class="fa fa-search"></i>
+              </button>
+
+              <div
+                class="search-down bg-white position-absolute"
+                style="top: 38px; left: 8px; z-index: 2"
+              ></div>
+            </div>
+
+            <!--End search bar-->
+
+            <h5
+              class="section-title ff-secondary text-center text-primary fw-normal position-relative"
+              style="z-index: 1"
+            >
+              Food Menu
+            </h5>
+
+            <div class="container position-relative" style="z-index: 1">
+              <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                  <!-- notification-search -->
+                  <div class="text-start">
+                    <p id="notification-search" class="text-secondary"></p>
+                  </div>
+
+                  <div class="row g-4" id="menu_list"></div>
+                </div>
+                <div class="col-sm-1"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Menu End -->
+
+          <!-- Modal Chi Tiết Món Ăn -->
+          <div
+            class="modal fade"
+            id="menuDetailModal"
+            tabindex="-1"
+            aria-labelledby="menuDetailModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                  <h5 class="modal-title" id="menuDetailModalLabel">
+                    Tên Món Ăn
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Đóng"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <!-- Main Image and Carousel -->
+                    <div class="col-md-6">
+                      <div
+                        id="menuImagesCarousel"
+                        class="carousel slide"
+                        data-bs-ride="carousel"
+                      >
+                        <div class="carousel-inner">
+                          <!-- Dynamic Images Will Be Injected Here -->
+                          <div class="carousel-item active">
+                            <img
+                              src=""
+                              class="d-block w-100 rounded"
+                              alt="..."
+                            />
+                          </div>
+                          <!-- Additional images will be added via JavaScript if available -->
+                        </div>
+                        <button
+                          class="carousel-control-prev"
+                          type="button"
+                          data-bs-target="#menuImagesCarousel"
+                          data-bs-slide="prev"
+                        >
+                          <span
+                            class="carousel-control-prev-icon bg-dark rounded-circle p-3"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Trước</span>
+                        </button>
+                        <button
+                          class="carousel-control-next"
+                          type="button"
+                          data-bs-target="#menuImagesCarousel"
+                          data-bs-slide="next"
+                        >
+                          <span
+                            class="carousel-control-next-icon bg-dark rounded-circle p-3"
+                            aria-hidden="true"
+                          ></span>
+                          <span class="visually-hidden">Sau</span>
+                        </button>
+                      </div>
+                      <!-- Video Introduction -->
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h5 class="text-primary">Video Giới Thiệu</h5>
+                          <div class="ratio ratio-16x9 rounded">
+                            <iframe
+                              id="menuDetailVideo"
+                              src=""
+                              title="Video giới thiệu món ăn"
+                              allowfullscreen
+                              class="rounded"
+                            ></iframe>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Dish Information -->
+                    <div class="col-md-6">
+                      <h3 id="menuDetailName" class="text-primary">
+                        Tên Món Ăn
+                      </h3>
+                      <p id="menuDetailDescription" class="text-muted">
+                        Mô tả chi tiết về món ăn...
+                      </p>
+                      <h4 id="menuDetailPrice" class="text-success">0 VNĐ</h4>
+                      <!-- Rating -->
+                      <div class="rating mb-3">
+                        <span id="menuDetailRating">
+                          <!-- Dynamic Stars Will Be Injected Here -->
+                        </span>
+                        <span class="ms-2 text-muted" id="menuDetailReviews"
+                          >(0 đánh giá)</span
+                        >
+                      </div>
+                      <!-- Ingredients -->
+                      <div class="ingredients">
+                        <h5 class="text-primary">Thành Phần:</h5>
+                        <ul id="menuDetailIngredients">
+                          <!-- Ingredients will be injected here -->
+                        </ul>
+                      </div>
+                      <!-- Preparation -->
+                      <div class="preparation">
+                        <h5 class="text-primary">Cách Làm:</h5>
+                        <ul id="menuDetailPreparation">
+                          <!-- Preparation steps will be injected here -->
+                        </ul>
+                      </div>
+                      <!-- Order Button -->
+                      <!-- <button type="button" class="btn btn-primary btn-lg w-100 mt-3" id="orderDishButton">
+                        <i class="fas fa-cart-plus me-2"></i>Đặt Món
+                      </button> -->
+                    </div>
+                  </div>
+                  <!-- Customer Reviews -->
+                  <div class="mt-4">
+                    <h5 class="text-primary">Nhận Xét Của Khách Hàng</h5>
+                    <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
+                      <p class="mb-1">
+                        "Món ăn tuyệt vời! Vị ngon và phục vụ nhanh chóng."
+                      </p>
+                      <small class="text-muted">- Nguyễn Văn A</small>
+                    </div>
+                    <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
+                      <p class="mb-1">
+                        "Thực sự rất hài lòng với chất lượng món ăn và dịch vụ."
+                      </p>
+                      <small class="text-muted">- Trần Thị B</small>
+                    </div>
+                    <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
+                      <p class="mb-1">
+                        "Một trải nghiệm tuyệt vời, sẽ quay lại lần sau."
+                      </p>
+                      <small class="text-muted">- Lê Văn C</small>
+                    </div>
+                    <div class="testimonial-item p-3 mb-3 rounded shadow-sm">
+                      <p class="mb-1">"Món ăn ngon tuyệt, hương vị đậm đà."</p>
+                      <small class="text-muted">- Phạm Thị D</small>
+                    </div>
+                    <!-- Thêm nhiều nhận xét nếu cần -->
+                  </div>
+                </div>
+                <div class="modal-footer bg-light">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
+                    Đóng
+                  </button>
+                  <a
+                    href="https://www.seriouseats.com/"
+                    class="btn btn-primary"
+                    id="viewDetailsButton"
+                  >
+                    Xem Chi Tiết
+                  </a>
+
+                  <div class="social-share ms-auto">
+                    <a href="#" class="btn btn-primary btn-social me-2"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a href="#" class="btn btn-primary btn-social me-2"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a href="#" class="btn btn-primary btn-social"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Chi Tiết Món Ăn End -->
+
+          <!-- Footer Start -->
+          <div
+            class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
+            data-wow-delay="0.1s"
+          >
+            <div class="container-fluid py-5">
+              <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                  <h4
+                    class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+                  >
+                    Company
+                  </h4>
+                  <a class="btn btn-link" href="#">About Us</a>
+                  <a class="btn btn-link" href="#">Contact Us</a>
+                  <a class="btn btn-link" href="#">Reservation</a>
+                  <a class="btn btn-link" href="#">Privacy Policy</a>
+                  <a class="btn btn-link" href="#">Terms & Condition</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <h4
+                    class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+                  >
+                    Contact
+                  </h4>
+                  <p class="mb-2">
+                    <i class="fa fa-map-marker-alt me-3"></i>123 Street, New
+                    York, USA
+                  </p>
+                  <p class="mb-2">
+                    <i class="fa fa-phone-alt me-3"></i>+012 345 67890
+                  </p>
+                  <p class="mb-2">
+                    <i class="fa fa-envelope me-3"></i>info@example.com
+                  </p>
+                  <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="#"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-social" href="#"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-social" href="#"
+                      ><i class="fab fa-youtube"></i
+                    ></a>
+                    <a class="btn btn-outline-light btn-social" href="#"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <h4
+                    class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+                  >
+                    Opening
+                  </h4>
+                  <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                  <p>09AM - 09PM</p>
+                  <h5 class="text-light fw-normal">Sunday</h5>
+                  <p>10AM - 08PM</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <h4
+                    class="section-title ff-secondary text-start text-primary fw-normal mb-4"
+                  >
+                    Newsletter
+                  </h4>
+                  <p>
+                    Pain is just right, sit dolor sit amet. Clita ipsum elitr is
+                  </p>
+                  <div
+                    class="position-relative mx-auto"
+                    style="max-width: 400px"
+                  >
+                    <input
+                      class="form-control border-primary w-100 py-3 ps-4 pe-5"
+                      type="email"
+                      placeholder="Your email"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+                    >
+                      SignUp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="copyright">
+                <div class="row">
+                  <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    © Your Restaurant Name. All Rights Reserved. Crafted with ❤️
+                    by Group 15.
+                  </div>
+                  <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                      <a href="#">Home</a>
+                      <a href="#">Cookies</a>
+                      <a href="#">Help</a>
+                      <a href="#">FAQs</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Footer End -->
+
+          <!-- Back to Top -->
+          <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+            ><i class="bi bi-arrow-up"></i
+          ></a>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+          <div
+            id="orderSuccessToast"
+            class="toast align-items-center text-white bg-success border-0"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            <div class="d-flex">
+              <div class="toast-body">Đã thêm món ăn vào giỏ hàng!</div>
+              <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar for Order Confirmation -->
+        <div id="orderSidebar" class="sidebar">
+          <button class="close-sidebar-btn" onclick="hideOrderSidebar()">
+            <i class="fas fa-times"></i>
+          </button>
+          <h2>Thực Đơn Bạn Đã Chọn</h2>
+          <div id="selectedItems"></div>
+          <div class="total-price">
+            <i class="fas fa-money-bill-wave"></i> <strong>Tổng Giá:</strong>
+            <span id="totalAmount">0</span> VNĐ
+          </div>
+          <button
+            id="confirmOrderButton"
+            class="btn btn-primary mt-3"
+            style="display: none"
+          >
+            Đặt Bàn
+          </button>
+
+          <!-- Payment Section (Hidden by Default) -->
+          <div
+            id="paymentSection"
+            class="payment-section"
+            style="display: none"
+          >
+            <h3>Thanh Toán</h3>
+            <form id="paymentForm">
+              <div class="mb-3">
+                <label for="paymentMethod" class="form-label"
+                  >Phương Thức Thanh Toán</label
+                >
+                <select class="form-select" id="paymentMethod" required>
+                  <option value="" disabled selected>Chọn phương thức</option>
+                  <option value="cash">Tiền Mặt</option>
+                  <option value="credit">Thẻ Tín Dụng</option>
+                  <option value="paypal">PayPal</option>
+                </select>
+              </div>
+              <!-- Additional Payment Fields Based on Selection -->
+              <div id="creditCardFields" style="display: none">
+                <div class="mb-3">
+                  <label for="cardNumber" class="form-label">Số Thẻ</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cardNumber"
+                    placeholder="XXXX XXXX XXXX XXXX"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="cardHolder" class="form-label">Tên Chủ Thẻ</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cardHolder"
+                    placeholder="Tên Chủ Thẻ"
+                  />
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="expiryDate" class="form-label"
+                      >Ngày Hết Hạn</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="expiryDate"
+                      placeholder="MM/YY"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cvv"
+                      placeholder="XXX"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div id="paypalFields" style="display: none">
+                <p>
+                  Đăng nhập vào tài khoản PayPal của bạn để hoàn tất thanh toán.
+                </p>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Xác Nhận Thanh Toán
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- Sidebar for Order Confirmation End -->
+      </div>
+
+      <!-- JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/wow/wow.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/waypoints/waypoints.min.js"></script>
+      <script src="lib/counterup/counterup.min.js"></script>
+      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+      <script src="lib/tempusdominus/js/moment.min.js"></script>
+      <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+      <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+      <!-- Template Javascript -->
+      <script src="js/main.js"></script>
+    </div>
+
+    <script src="./js/VN_jquery.js"></script>
+  </body>
+</html>

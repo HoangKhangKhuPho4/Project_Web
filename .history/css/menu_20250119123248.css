@@ -1,0 +1,371 @@
+/*** Menu Items Synchronization ***/
+
+/* Apply CSS only to "View Details" buttons */
+.btn-view-details {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease,
+    transform var(--transition-duration) ease,
+    opacity var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Show button on hover */
+.menu-item:hover .btn-view-details {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.row.g-4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.g-4 > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keyframes for shake effect */
+@keyframes shake {
+  0% {
+    transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(5deg);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(-5deg);
+  }
+
+  75% {
+    transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(5deg);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%) scale(1.05) rotate(0deg);
+  }
+}
+
+/*** Modal Enhancements ***/
+.modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: var(--primary);
+  color: #fff;
+  border-bottom: none;
+  padding: 20px;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.rating i {
+  color: #ffc107;
+  margin-right: 2px;
+}
+
+.testimonial-item {
+  background-color: #f8f9fa;
+  border-left: 5px solid var(--primary);
+  padding: 15px;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  transition: background-color var(--transition-duration),
+    box-shadow var(--transition-duration);
+}
+
+.testimonial-item:hover {
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-item p {
+  font-style: italic;
+  color: #333333;
+}
+
+.testimonial-item small {
+  color: #555555;
+}
+
+.btn-social {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  transition: color var(--transition-duration),
+    background-color var(--transition-duration);
+}
+
+.btn-social:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+/* Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-footer .btn {
+  margin: 0 10px;
+}
+
+/*** Sidebar Styles ***/
+.sidebar {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 450px; /* Increased from 350px to 450px */
+  height: 100%;
+  background-color: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+  padding: 20px;
+  z-index: 1050;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  transform: translateX(100%);
+}
+
+/* Responsive Adjustments for Sidebar */
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%; /* For small screens, sidebar takes full width */
+  }
+}
+
+/* Adjust sidebar image sizes */
+/* Product images in cart */
+.cart-item-image {
+  width: 40px; /* Reduced from 60px to 40px */
+  height: 40px; /* Reduced from 60px to 40px */
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.sidebar.show {
+  display: block;
+  transform: translateX(0);
+}
+
+.close-sidebar-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: #333;
+}
+
+.total-price {
+  margin-top: 20px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.total-price i {
+  margin-right: 8px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.item-actions button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.payment-section {
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-section h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.btn-success {
+  width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .modal-body .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Expanded Content in Modal */
+.ingredients,
+.preparation {
+  margin-top: 15px;
+}
+
+.ingredients ul,
+.preparation ol {
+  margin-left: 20px;
+}
+
+/* Ensure balanced height between columns */
+.modal-body .col-md-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Payment Form Enhancements */
+#paymentForm .form-control {
+  border-radius: 5px;
+}
+
+#paymentForm .btn-success {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+#paymentForm .btn-success:hover {
+  background-color: #e0a100;
+  border-color: #d18b00;
+}
+
+/* Toast Notification */
+.toast-container {
+  z-index: 1055;
+}
+
+.toast {
+  opacity: 0;
+  transition: opacity var(--transition-duration);
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* Responsive Adjustments for Menu Items */
+@media (max-width: 767.98px) {
+  .w-100.d-flex.flex-column.text-start.ps-4 {
+    height: auto;
+  }
+
+  /* Adjust modal carousel images on small screens */
+  #menuImagesCarousel .carousel-item img {
+    max-height: 250px;
+  }
+
+  /* Adjust modal text sizes */
+  #menuDetailPrice {
+    font-size: 1.2rem;
+  }
+
+  .rating {
+    font-size: 1rem;
+  }
+}
+
+/* Centering Buttons in Modal Footer */
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-footer .btn {
+  margin: 0 10px;
+}
+
+/* Customize Styles for Search Form */
+.navbar .form-control {
+  border-radius: 20px;
+  transition: width 0.4s ease-in-out;
+}
+
+.navbar .form-control:focus {
+  width: 250px;
+}
+
+@media (max-width: 992px) {
+  .navbar .form-control {
+    width: 100%;
+  }
+}
+#cart-button .badge {
+  top: 0;
+  transform: translate(-50%, 0);
+  margin-top: 10px; /* Add space to push badge down */
+  font-size: 0.75rem;
+  padding: 0.25em 0.4em;
+  transition: margin-top 0.3s ease;
+}
+
+#cart-button .badge {
+  transition: top 0.3s ease, transform 0.3s ease;
+}
